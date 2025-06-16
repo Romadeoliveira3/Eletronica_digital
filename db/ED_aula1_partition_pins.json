@@ -4,19 +4,47 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "led[4]",
+					"name" : "DIG[4]",
 					"strict" : false
 				},
 				{
-					"name" : "led[3]",
+					"name" : "DIG[3]",
 					"strict" : false
 				},
 				{
-					"name" : "led[2]",
+					"name" : "DIG[2]",
 					"strict" : false
 				},
 				{
-					"name" : "led[1]",
+					"name" : "DIG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[0]",
 					"strict" : false
 				},
 				{
