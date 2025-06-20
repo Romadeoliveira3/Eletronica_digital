@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ED_aula1
-Fri Jun 13 15:13:42 2025
+Wed Jun 18 15:04:25 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,12 +13,15 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: LPM_COUNTER:inst5
- 10. Parameter Settings for User Entity Instance: LPM_COUNTER:inst4
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: LPM_COUNTER:inst5
+ 11. Parameter Settings for User Entity Instance: key_deb:inst22|LPM_COUNTER:inst5
+ 12. Parameter Settings for User Entity Instance: key_deb:inst21|LPM_COUNTER:inst5
+ 13. Parameter Settings for User Entity Instance: LPM_COUNTER:inst4
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +48,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 13 15:13:42 2025       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 18 15:04:25 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; ED_aula1                                    ;
 ; Top-level Entity Name              ; ED_aula1                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 117                                         ;
-;     Total combinational functions  ; 117                                         ;
-;     Dedicated logic registers      ; 52                                          ;
-; Total registers                    ; 52                                          ;
-; Total pins                         ; 12                                          ;
+; Total logic elements               ; 172                                         ;
+;     Total combinational functions  ; 172                                         ;
+;     Dedicated logic registers      ; 82                                          ;
+; Total registers                    ; 82                                          ;
+; Total pins                         ; 14                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -172,10 +175,10 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                          ; Library ;
 +----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------+---------+
 ; ED_aula1.bdf                     ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/ED_aula1.bdf                     ;         ;
-; Contador.bdf                     ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/Contador.bdf                     ;         ;
 ; output_files/Seletor_display.bdf ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/output_files/Seletor_display.bdf ;         ;
 ; Multiplexador.bdf                ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/Multiplexador.bdf                ;         ;
-; Contador_3DIG.bdf                ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/Contador_3DIG.bdf                ;         ;
+; key_deb.bdf                      ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/key_deb.bdf                      ;         ;
+; Contador_botaodf.bdf             ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/Contador_botaodf.bdf             ;         ;
 ; lpm_counter.tdf                  ; yes             ; Megafunction                       ; /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_counter.tdf                    ;         ;
 ; lpm_constant.inc                 ; yes             ; Megafunction                       ; /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_constant.inc                   ;         ;
 ; lpm_decode.inc                   ; yes             ; Megafunction                       ; /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                     ;         ;
@@ -189,7 +192,9 @@ https://fpgasoftware.intel.com/eula.
 ; db/cntr_9vg.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_9vg.tdf                  ;         ;
 ; db/cmpr_cic.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cmpr_cic.tdf                  ;         ;
 ; 7447.bdf                         ; yes             ; Megafunction                       ; /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/others/maxplus2/7447.bdf                         ;         ;
-; db/cntr_c2h.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_c2h.tdf                  ;         ;
+; db/cntr_72h.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_72h.tdf                  ;         ;
+; db/cmpr_bic.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cmpr_bic.tdf                  ;         ;
+; db/cntr_hjg.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_hjg.tdf                  ;         ;
 +----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -198,49 +203,65 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 117         ;
+; Estimated Total logic elements              ; 172         ;
 ;                                             ;             ;
-; Total combinational functions               ; 117         ;
+; Total combinational functions               ; 172         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 57          ;
-;     -- 3 input functions                    ; 6           ;
-;     -- <=2 input functions                  ; 54          ;
+;     -- 4 input functions                    ; 76          ;
+;     -- 3 input functions                    ; 12          ;
+;     -- <=2 input functions                  ; 84          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 85          ;
-;     -- arithmetic mode                      ; 32          ;
+;     -- normal mode                          ; 113         ;
+;     -- arithmetic mode                      ; 59          ;
 ;                                             ;             ;
-; Total registers                             ; 52          ;
-;     -- Dedicated logic registers            ; 52          ;
+; Total registers                             ; 82          ;
+;     -- Dedicated logic registers            ; 82          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 12          ;
+; I/O pins                                    ; 14          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 34          ;
-; Total fan-out                               ; 515         ;
-; Average fan-out                             ; 2.67        ;
+; Maximum fan-out                             ; 62          ;
+; Total fan-out                               ; 815         ;
+; Average fan-out                             ; 2.89        ;
 +---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                              ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                ; Entity Name     ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+-----------------+--------------+
-; |ED_aula1                       ; 117 (3)             ; 52 (2)                    ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |ED_aula1                                                          ; ED_aula1        ; work         ;
-;    |Contador_3DIG:inst17|       ; 20 (20)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|Contador_3DIG:inst17                                     ; Contador_3DIG   ; work         ;
-;    |Multiplexador:inst15|       ; 48 (48)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|Multiplexador:inst15                                     ; Multiplexador   ; work         ;
-;    |Seletor_display:inst1|      ; 6 (6)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|Seletor_display:inst1                                    ; Seletor_display ; work         ;
-;    |lpm_counter:inst4|          ; 18 (0)              ; 17 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst4                                        ; lpm_counter     ; work         ;
-;       |cntr_c2h:auto_generated| ; 18 (18)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst4|cntr_c2h:auto_generated                ; cntr_c2h        ; work         ;
-;    |lpm_counter:inst5|          ; 22 (0)              ; 15 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst5                                        ; lpm_counter     ; work         ;
-;       |cntr_9vg:auto_generated| ; 22 (17)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst5|cntr_9vg:auto_generated                ; cntr_9vg        ; work         ;
-;          |cmpr_cic:cmpr1|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst5|cntr_9vg:auto_generated|cmpr_cic:cmpr1 ; cmpr_cic        ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+-----------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                 ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                               ; Entity Name      ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+------------------+--------------+
+; |ED_aula1                          ; 172 (2)             ; 82 (1)                    ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |ED_aula1                                                                         ; ED_aula1         ; work         ;
+;    |Contador_botaodf:inst23|       ; 22 (22)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|Contador_botaodf:inst23                                                 ; Contador_botaodf ; work         ;
+;    |Multiplexador:inst15|          ; 54 (54)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|Multiplexador:inst15                                                    ; Multiplexador    ; work         ;
+;    |Seletor_display:inst1|         ; 6 (6)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|Seletor_display:inst1                                                   ; Seletor_display  ; work         ;
+;    |key_deb:inst21|                ; 33 (2)              ; 24 (2)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst21                                                          ; key_deb          ; work         ;
+;       |lpm_counter:inst5|          ; 31 (0)              ; 22 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst21|lpm_counter:inst5                                        ; lpm_counter      ; work         ;
+;          |cntr_72h:auto_generated| ; 31 (24)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst21|lpm_counter:inst5|cntr_72h:auto_generated                ; cntr_72h         ; work         ;
+;             |cmpr_bic:cmpr1|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst21|lpm_counter:inst5|cntr_72h:auto_generated|cmpr_bic:cmpr1 ; cmpr_bic         ; work         ;
+;    |key_deb:inst22|                ; 33 (2)              ; 24 (2)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst22                                                          ; key_deb          ; work         ;
+;       |lpm_counter:inst5|          ; 31 (0)              ; 22 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst22|lpm_counter:inst5                                        ; lpm_counter      ; work         ;
+;          |cntr_72h:auto_generated| ; 31 (24)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst22|lpm_counter:inst5|cntr_72h:auto_generated                ; cntr_72h         ; work         ;
+;             |cmpr_bic:cmpr1|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|key_deb:inst22|lpm_counter:inst5|cntr_72h:auto_generated|cmpr_bic:cmpr1 ; cmpr_bic         ; work         ;
+;    |lpm_counter:inst5|             ; 22 (0)              ; 15 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst5                                                       ; lpm_counter      ; work         ;
+;       |cntr_9vg:auto_generated|    ; 22 (17)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst5|cntr_9vg:auto_generated                               ; cntr_9vg         ; work         ;
+;          |cmpr_cic:cmpr1|          ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ED_aula1|lpm_counter:inst5|cntr_9vg:auto_generated|cmpr_cic:cmpr1                ; cmpr_cic         ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++------------------------------------------------------------------+--------------------+
+; Register name                                                    ; Reason for Removal ;
++------------------------------------------------------------------+--------------------+
+; lpm_counter:inst4|cntr_hjg:auto_generated|counter_reg_bit[0..16] ; Lost fanout        ;
+; Total Number of Removed Registers = 17                           ;                    ;
++------------------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -248,9 +269,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 52    ;
+; Total registers                              ; 82    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 15    ;
+; Number of registers using Synchronous Load   ; 59    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
@@ -285,6 +306,60 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_deb:inst22|LPM_COUNTER:inst5 ;
++------------------------+--------------+---------------------------------------+
+; Parameter Name         ; Value        ; Type                                  ;
++------------------------+--------------+---------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                        ;
+; LPM_WIDTH              ; 22           ; Untyped                               ;
+; LPM_DIRECTION          ; DEFAULT      ; Untyped                               ;
+; LPM_MODULUS            ; 2500000      ; Untyped                               ;
+; LPM_AVALUE             ; UNUSED       ; Untyped                               ;
+; LPM_SVALUE             ; UNUSED       ; Untyped                               ;
+; LPM_PORT_UPDOWN        ; up           ; Untyped                               ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                               ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                    ;
+; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                    ;
+; CARRY_CNT_EN           ; SMART        ; Untyped                               ;
+; LABWIDE_SCLR           ; ON           ; Untyped                               ;
+; USE_NEW_VERSION        ; TRUE         ; Untyped                               ;
+; CBXI_PARAMETER         ; cntr_72h     ; Untyped                               ;
++------------------------+--------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_deb:inst21|LPM_COUNTER:inst5 ;
++------------------------+--------------+---------------------------------------+
+; Parameter Name         ; Value        ; Type                                  ;
++------------------------+--------------+---------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                        ;
+; LPM_WIDTH              ; 22           ; Untyped                               ;
+; LPM_DIRECTION          ; DEFAULT      ; Untyped                               ;
+; LPM_MODULUS            ; 2500000      ; Untyped                               ;
+; LPM_AVALUE             ; UNUSED       ; Untyped                               ;
+; LPM_SVALUE             ; UNUSED       ; Untyped                               ;
+; LPM_PORT_UPDOWN        ; up           ; Untyped                               ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                               ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                    ;
+; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                    ;
+; CARRY_CNT_EN           ; SMART        ; Untyped                               ;
+; LABWIDE_SCLR           ; ON           ; Untyped                               ;
+; USE_NEW_VERSION        ; TRUE         ; Untyped                               ;
+; CBXI_PARAMETER         ; cntr_72h     ; Untyped                               ;
++------------------------+--------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: LPM_COUNTER:inst4 ;
 +------------------------+--------------+------------------------+
@@ -307,7 +382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; CARRY_CNT_EN           ; SMART        ; Untyped                ;
 ; LABWIDE_SCLR           ; ON           ; Untyped                ;
 ; USE_NEW_VERSION        ; TRUE         ; Untyped                ;
-; CBXI_PARAMETER         ; cntr_c2h     ; Untyped                ;
+; CBXI_PARAMETER         ; cntr_hjg     ; Untyped                ;
 +------------------------+--------------+------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -317,23 +392,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 52                          ;
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 82                          ;
 ;     CLR               ; 16                          ;
-;     SLD               ; 15                          ;
-;     plain             ; 21                          ;
-; cycloneiii_lcell_comb ; 120                         ;
-;     arith             ; 32                          ;
-;         2 data inputs ; 32                          ;
-;     normal            ; 88                          ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 9                           ;
+;     SLD               ; 59                          ;
+;     plain             ; 7                           ;
+; cycloneiii_lcell_comb ; 175                         ;
+;     arith             ; 59                          ;
+;         2 data inputs ; 59                          ;
+;     normal            ; 116                         ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 11                          ;
 ;         2 data inputs ; 13                          ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 57                          ;
+;         3 data inputs ; 12                          ;
+;         4 data inputs ; 76                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.70                        ;
-; Average LUT depth     ; 2.63                        ;
+; Max LUT depth         ; 4.20                        ;
+; Average LUT depth     ; 3.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -352,7 +427,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 13 15:13:36 2025
+    Info: Processing started: Wed Jun 18 15:04:19 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ED_aula1 -c ED_aula1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -374,12 +449,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file Contado
     Info (12023): Found entity 1: Contador_2DIG
 Info (12021): Found 1 design units, including 1 entities, in source file Contador_3DIG.bdf
     Info (12023): Found entity 1: Contador_3DIG
+Info (12021): Found 1 design units, including 1 entities, in source file key_deb1.bdf
+    Info (12023): Found entity 1: key_deb1
+Info (12021): Found 1 design units, including 1 entities, in source file decod_display7seg.bdf
+    Info (12023): Found entity 1: decod_display7seg
+Info (12021): Found 1 design units, including 1 entities, in source file seletor4.bdf
+    Info (12023): Found entity 1: seletor4
+Info (12021): Found 1 design units, including 1 entities, in source file key_deb.bdf
+    Info (12023): Found entity 1: key_deb
+Info (12021): Found 1 design units, including 1 entities, in source file Contador_botaodf.bdf
+    Info (12023): Found entity 1: Contador_botaodf
 Info (12127): Elaborating entity "ED_aula1" for the top level hierarchy
 Warning (275004): Undeclared parameter up
 Warning (275006): Can't find a definition for parameter LPM_PORT_UPDOWN -- assuming up was intended to be a quoted string
 Warning (275004): Undeclared parameter up
 Warning (275006): Can't find a definition for parameter LPM_PORT_UPDOWN -- assuming up was intended to be a quoted string
-Warning (275013): Port "Clk" of type Contador and instance "inst31" is missing source signal
+Warning (275008): Primitive "TFF" of instance "inst" not used
 Info (12128): Elaborating entity "Seletor_display" for hierarchy "Seletor_display:inst1"
 Warning (272007): MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY
 Info (12128): Elaborating entity "LPM_COUNTER" for hierarchy "LPM_COUNTER:inst5"
@@ -396,11 +481,28 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_cic File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cmpr_cic.tdf Line: 23
 Info (12128): Elaborating entity "cmpr_cic" for hierarchy "LPM_COUNTER:inst5|cntr_9vg:auto_generated|cmpr_cic:cmpr1" File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_9vg.tdf Line: 110
 Info (12128): Elaborating entity "Multiplexador" for hierarchy "Multiplexador:inst15"
-Info (12128): Elaborating entity "7447" for hierarchy "7447:inst87"
-Info (12130): Elaborated megafunction instantiation "7447:inst87"
-Info (12128): Elaborating entity "Contador_3DIG" for hierarchy "Contador_3DIG:inst17"
+Info (12128): Elaborating entity "7447" for hierarchy "7447:inst27"
+Info (12130): Elaborated megafunction instantiation "7447:inst27"
+Info (12128): Elaborating entity "Contador_botaodf" for hierarchy "Contador_botaodf:inst23"
+Info (12128): Elaborating entity "key_deb" for hierarchy "key_deb:inst22"
+Warning (275004): Undeclared parameter up
+Warning (275006): Can't find a definition for parameter LPM_PORT_UPDOWN -- assuming up was intended to be a quoted string
 Warning (272007): MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY
-Warning (272007): LPM_MODULUS input value is 1250000. It should be within the range of 1 to 2^17. Assume no modulus input
+Info (12128): Elaborating entity "LPM_COUNTER" for hierarchy "key_deb:inst22|LPM_COUNTER:inst5"
+Info (12130): Elaborated megafunction instantiation "key_deb:inst22|LPM_COUNTER:inst5"
+Info (12133): Instantiated megafunction "key_deb:inst22|LPM_COUNTER:inst5" with the following parameter:
+    Info (12134): Parameter "LPM_MODULUS" = "2500000"
+    Info (12134): Parameter "LPM_PORT_UPDOWN" = "up"
+    Info (12134): Parameter "LPM_WIDTH" = "22"
+Warning (287001): Assertion warning: MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_72h.tdf Line: 193
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_72h.tdf
+    Info (12023): Found entity 1: cntr_72h File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_72h.tdf Line: 28
+Info (12128): Elaborating entity "cntr_72h" for hierarchy "key_deb:inst22|LPM_COUNTER:inst5|cntr_72h:auto_generated" File: /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_bic.tdf
+    Info (12023): Found entity 1: cmpr_bic File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cmpr_bic.tdf Line: 23
+Info (12128): Elaborating entity "cmpr_bic" for hierarchy "key_deb:inst22|LPM_COUNTER:inst5|cntr_72h:auto_generated|cmpr_bic:cmpr1" File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_72h.tdf Line: 145
+Warning (272007): MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY
+Warning (272007): MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY
 Info (12128): Elaborating entity "LPM_COUNTER" for hierarchy "LPM_COUNTER:inst4"
 Warning (287001): Assertion warning: Value of LPM_MODULUS parameter (1250000) is too large for a 17-bit counter File: /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_counter.tdf Line: 449
 Info (12130): Elaborated megafunction instantiation "LPM_COUNTER:inst4"
@@ -408,23 +510,23 @@ Info (12133): Instantiated megafunction "LPM_COUNTER:inst4" with the following p
     Info (12134): Parameter "LPM_MODULUS" = "1250000"
     Info (12134): Parameter "LPM_PORT_UPDOWN" = "up"
     Info (12134): Parameter "LPM_WIDTH" = "17"
-Warning (287001): Assertion warning: MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_c2h.tdf Line: 155
-Warning (287001): Assertion warning: LPM_MODULUS input value is 1250000. It should be within the range of 1 to 2^17. Assume no modulus input File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_c2h.tdf Line: 158
-Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_c2h.tdf
-    Info (12023): Found entity 1: cntr_c2h File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_c2h.tdf Line: 26
-Info (12128): Elaborating entity "cntr_c2h" for hierarchy "LPM_COUNTER:inst4|cntr_c2h:auto_generated" File: /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
-Info (12128): Elaborating entity "Contador" for hierarchy "Contador:inst31"
+Warning (287001): Assertion warning: MGL_INTERNAL_WARNING: ( The parameter value is not one of the pre-specified values in the value list.) lpm_counter|lpm_port_updown The value assigned is up and the valid value list is PORT_USED|PORT_UNUSED|PORT_CONNECTIVITY File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_hjg.tdf Line: 149
+Warning (287001): Assertion warning: LPM_MODULUS input value is 1250000. It should be within the range of 1 to 2^17. Assume no modulus input File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_hjg.tdf Line: 152
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_hjg.tdf
+    Info (12023): Found entity 1: cntr_hjg File: /home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/db/cntr_hjg.tdf Line: 26
+Info (12128): Elaborating entity "cntr_hjg" for hierarchy "LPM_COUNTER:inst4|cntr_hjg:auto_generated" File: /home/ldealuno/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_counter.tdf Line: 259
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 129 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
+Info (21057): Implemented 186 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 117 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 482 megabytes
-    Info: Processing ended: Fri Jun 13 15:13:42 2025
+    Info (21061): Implemented 172 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 481 megabytes
+    Info: Processing ended: Wed Jun 18 15:04:25 2025
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Total CPU time (on all processors): 00:00:15
 
 
