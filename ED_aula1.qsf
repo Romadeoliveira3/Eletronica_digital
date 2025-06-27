@@ -145,9 +145,6 @@ set_location_assignment PIN_71 -to S_RAS
 set_location_assignment PIN_70 -to S_CAS
 set_location_assignment PIN_69 -to S_WE
 set_global_assignment -name BDF_FILE ED_aula1.bdf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name BDF_FILE Contador.bdf
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 set_global_assignment -name TCL_SCRIPT_FILE "../../assignments_Cyclone_IV_ EP4CE6E22C8.tcl"
@@ -158,4 +155,28 @@ set_global_assignment -name BDF_FILE output_files/Seletor_display.bdf
 set_global_assignment -name BDF_FILE Multiplexador.bdf
 set_global_assignment -name BDF_FILE Contador_2DIG.bdf
 set_global_assignment -name BDF_FILE Contador_3DIG.bdf
+set_global_assignment -name BDF_FILE key_deb1.bdf
+set_global_assignment -name BDF_FILE decod_display7seg.bdf
+set_global_assignment -name BDF_FILE seletor4.bdf
+set_global_assignment -name BDF_FILE key_deb.bdf
+set_global_assignment -name BDF_FILE Contador_botaodf.bdf
+set_global_assignment -name BDF_FILE output_files/Ativador_display.bdf
+set_global_assignment -name BDF_FILE output_files/Divisor_de_frequencia.bdf
+set_global_assignment -name BDF_FILE Contador_updown.bdf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE Contador_updown2bits.bdf
+set_global_assignment -name BDF_FILE Blink_dig.bdf
+set_global_assignment -name BDF_FILE Seletor_blink.bdf
+set_global_assignment -name BDF_FILE Comparador.bdf
+set_global_assignment -name BDF_FILE Mostragem_display.bdf
+set_global_assignment -name BDF_FILE Blink_final.bdf
+set_global_assignment -name BDF_FILE Contador2bitsMENU.bdf
+set_global_assignment -name BDF_FILE Cronometro_2.bdf
+set_global_assignment -name BDF_FILE Blink_antigo.bdf
+set_global_assignment -name BDF_FILE Cronometro.bdf
+set_global_assignment -name BDF_FILE Multiplex_cronometros.bdf
+set_global_assignment -name BDF_FILE alarme1.bdf
+set_global_assignment -name BDF_FILE alarme2.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

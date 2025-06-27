@@ -1,15 +1,15 @@
-Fitter Status : Successful - Fri Jun 13 15:13:45 2025
+Fitter Status : Successful - Fri Jun 27 14:29:20 2025
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : ED_aula1
 Top-level Entity Name : ED_aula1
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 120 / 6,272 ( 2 % )
-    Total combinational functions : 117 / 6,272 ( 2 % )
-    Dedicated logic registers : 52 / 6,272 ( < 1 % )
-Total registers : 52
-Total pins : 12 / 92 ( 13 % )
+Total logic elements : 1,536 / 6,272 ( 24 % )
+    Total combinational functions : 1,528 / 6,272 ( 24 % )
+    Dedicated logic registers : 753 / 6,272 ( 12 % )
+Total registers : 753
+Total pins : 21 / 92 ( 23 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )

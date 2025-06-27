@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("/home/ldealuno/Downloads/Aula_0/Aula_0-20250528T160705Z-1-001/Aula_0/output_files/") File("ED_aula1.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-main/Eletronica_digital-main/output_files/") File("ED_aula1.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
