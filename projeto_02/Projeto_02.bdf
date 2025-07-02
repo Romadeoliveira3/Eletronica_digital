@@ -1,0 +1,304 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 296 160 464 176)
+	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
+	(text "clock" (rect 5 0 32 11)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 149 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 176 296 192))
+)
+(pin
+	(input)
+	(rect 296 200 464 216)
+	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
+	(text "key[1]" (rect 5 0 34 11)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 149 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 216 296 232))
+)
+(pin
+	(input)
+	(rect 296 240 464 256)
+	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
+	(text "key[2]" (rect 5 0 38 13)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 149 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 256 296 272))
+)
+(pin
+	(input)
+	(rect 296 288 464 304)
+	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
+	(text "key[3]" (rect 5 0 38 13)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 149 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 304 296 320))
+)
+(pin
+	(input)
+	(rect 296 328 464 344)
+	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
+	(text "key[4]" (rect 5 0 38 13)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 149 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 344 296 360))
+)
+(pin
+	(output)
+	(rect 920 192 1096 208)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "led[1]" (rect 90 0 117 11)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1160 160 1216 176))
+)
+(pin
+	(output)
+	(rect 920 208 1096 224)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "led[2]" (rect 90 0 121 13)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1176 184 1232 200))
+)
+(pin
+	(output)
+	(rect 928 296 1104 312)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "led[4]" (rect 90 0 121 13)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1144 288 1200 304))
+)
+(pin
+	(output)
+	(rect 928 280 1104 296)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "led[3]" (rect 90 0 121 13)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1152 264 1208 280))
+)
+(symbol
+	(rect 696 168 864 296)
+	(text "bloco_debounce" (rect 5 0 101 15)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 111 28 124)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 31 15)(font "Intel Clear" (font_size 8)))
+		(text "clock" (rect 21 27 52 42)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "botao1" (rect 0 0 41 15)(font "Intel Clear" (font_size 8)))
+		(text "botao1" (rect 21 43 62 58)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "botao2" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
+		(text "botao2" (rect 21 59 63 74)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "botao3" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
+		(text "botao3" (rect 21 75 63 90)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "botao4" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
+		(text "botao4" (rect 21 91 63 106)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "botao1_out" (rect 0 0 68 15)(font "Intel Clear" (font_size 8)))
+		(text "botao1_out" (rect 79 27 147 42)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 32)(pt 152 32))
+	)
+	(port
+		(pt 168 48)
+		(output)
+		(text "botao2_out" (rect 0 0 68 15)(font "Intel Clear" (font_size 8)))
+		(text "botao2_out" (rect 79 43 147 58)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 48)(pt 152 48))
+	)
+	(port
+		(pt 168 64)
+		(output)
+		(text "botao3_out" (rect 0 0 68 15)(font "Intel Clear" (font_size 8)))
+		(text "botao3_out" (rect 79 59 147 74)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 64)(pt 152 64))
+	)
+	(port
+		(pt 168 80)
+		(output)
+		(text "botao4_out" (rect 0 0 68 15)(font "Intel Clear" (font_size 8)))
+		(text "botao4_out" (rect 79 75 147 90)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 80)(pt 152 80))
+	)
+	(drawing
+		(rectangle (rect 16 16 152 112))
+	)
+)
+(connector
+	(text "clk" (rect 465 152 480 165)(font "Intel Clear" ))
+	(pt 464 168)
+	(pt 504 168)
+)
+(connector
+	(text "botao4" (rect 481 320 518 333)(font "Intel Clear" ))
+	(pt 464 336)
+	(pt 504 336)
+)
+(connector
+	(text "botao3" (rect 501 280 537 293)(font "Intel Clear" ))
+	(pt 464 296)
+	(pt 512 296)
+)
+(connector
+	(text "botao2" (rect 506 232 542 245)(font "Intel Clear" ))
+	(pt 464 248)
+	(pt 512 248)
+)
+(connector
+	(text "botao1" (rect 493 192 529 205)(font "Intel Clear" ))
+	(pt 504 208)
+	(pt 464 208)
+)
+(connector
+	(text "clk" (rect 664 184 679 197)(font "Intel Clear" ))
+	(pt 696 200)
+	(pt 656 200)
+)
+(connector
+	(text "botao1" (rect 650 200 686 213)(font "Intel Clear" ))
+	(pt 696 216)
+	(pt 656 216)
+)
+(connector
+	(text "botao2" (rect 652 216 688 229)(font "Intel Clear" ))
+	(pt 656 232)
+	(pt 696 232)
+)
+(connector
+	(text "bloco3" (rect 656 232 691 245)(font "Intel Clear" ))
+	(pt 696 248)
+	(pt 656 248)
+)
+(connector
+	(text "bloco4" (rect 656 248 692 261)(font "Intel Clear" ))
+	(pt 696 264)
+	(pt 656 264)
+)
+(connector
+	(pt 864 216)
+	(pt 920 216)
+)
+(connector
+	(pt 864 200)
+	(pt 920 200)
+)

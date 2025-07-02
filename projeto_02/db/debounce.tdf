@@ -1,0 +1,32 @@
+TITLE "Debounce";
+
+SUBDESIGN debounce (
+	clock, botao_in : INPUT;
+	botao_out       : OUTPUT;
+)
+
+VARIABLE
+	ff1, ff2, ff3 : DFF;
+	check         : NODE;
+
+BEGIN
+
+	ff1.clk = clock;
+	ff2.clk = clock;
+	ff3.clk = clock;
+
+	ff1.d = botao_in;
+	ff2.d = ff1.q;
+
+	check = ff1.q XOR ff2.q;
+
+	-- Simula o "enable": só atualiza ff3 se check = 1
+	IF check THEN
+		ff3.d = ff2.q;
+	ELSE
+		ff3.d = ff3.q;  -- mantém o valor anterior
+	END IF;
+
+	botao_out = ff3.q;
+
+END;

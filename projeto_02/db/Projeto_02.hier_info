@@ -1,0 +1,59 @@
+|Projeto_02
+led[1] <= bloco_debounce:inst.botao1_out
+led[2] <= bloco_debounce:inst.botao2_out
+led[3] <= <GND>
+led[4] <= <GND>
+clock => bloco_debounce:inst.clock
+key[1] => bloco_debounce:inst.botao1
+key[2] => bloco_debounce:inst.botao2
+key[3] => ~NO_FANOUT~
+key[4] => ~NO_FANOUT~
+
+
+|Projeto_02|bloco_debounce:inst
+botao1_out <= debounce:inst.botao_out
+clock => debounce:inst.clock
+clock => debounce:inst1.clock
+clock => debounce:inst2.clock
+clock => debounce:inst3.clock
+botao1 => debounce:inst.botao_in
+botao2_out <= debounce:inst1.botao_out
+botao2 => debounce:inst1.botao_in
+botao3_out <= debounce:inst2.botao_out
+botao3 => debounce:inst2.botao_in
+botao4_out <= debounce:inst3.botao_out
+botao4 => debounce:inst3.botao_in
+
+
+|Projeto_02|bloco_debounce:inst|debounce:inst
+clock => ff1.CLK
+clock => ff2.CLK
+clock => ff3.CLK
+botao_in => ff1.DATAIN
+botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|bloco_debounce:inst|debounce:inst1
+clock => ff1.CLK
+clock => ff2.CLK
+clock => ff3.CLK
+botao_in => ff1.DATAIN
+botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|bloco_debounce:inst|debounce:inst2
+clock => ff1.CLK
+clock => ff2.CLK
+clock => ff3.CLK
+botao_in => ff1.DATAIN
+botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|bloco_debounce:inst|debounce:inst3
+clock => ff1.CLK
+clock => ff2.CLK
+clock => ff3.CLK
+botao_in => ff1.DATAIN
+botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
+
+
