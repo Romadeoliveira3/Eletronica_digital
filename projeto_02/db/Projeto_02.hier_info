@@ -1,16 +1,258 @@
 |Projeto_02
-led[1] <= bloco_debounce:inst.botao1_out
-led[2] <= bloco_debounce:inst.botao2_out
-led[3] <= <GND>
-led[4] <= <GND>
-clock => bloco_debounce:inst.clock
-key[1] => bloco_debounce:inst.botao1
-key[2] => bloco_debounce:inst.botao2
-key[3] => ~NO_FANOUT~
-key[4] => ~NO_FANOUT~
+DIG[4] <= sel_display[3].DB_MAX_OUTPUT_PORT_TYPE
+DIG[3] <= sel_display[2].DB_MAX_OUTPUT_PORT_TYPE
+DIG[2] <= sel_display[1].DB_MAX_OUTPUT_PORT_TYPE
+DIG[1] <= sel_display[0].DB_MAX_OUTPUT_PORT_TYPE
+clock => Seletor_alimentacao_display:inst13.clock_in
+clock => divisor_de_frequencia:inst5.clk_in
+clock => bloco_debounce:inst20.clock
+led[1] <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+SEG[6] <= mux_display_4digitos:inst.segmento_out[6]
+SEG[5] <= mux_display_4digitos:inst.segmento_out[5]
+SEG[4] <= mux_display_4digitos:inst.segmento_out[4]
+SEG[3] <= mux_display_4digitos:inst.segmento_out[3]
+SEG[2] <= mux_display_4digitos:inst.segmento_out[2]
+SEG[1] <= mux_display_4digitos:inst.segmento_out[1]
+SEG[0] <= mux_display_4digitos:inst.segmento_out[0]
+key[1] => bloco_debounce:inst20.botao1
+key[2] => bloco_debounce:inst20.botao2
+key[3] => bloco_debounce:inst20.botao3
+key[4] => bloco_debounce:inst20.botao4
 
 
-|Projeto_02|bloco_debounce:inst
+|Projeto_02|Seletor_alimentacao_display:inst13
+selecao[3] <= decoder_2_para_4:inst7.alterna[3]
+selecao[2] <= decoder_2_para_4:inst7.alterna[2]
+selecao[1] <= decoder_2_para_4:inst7.alterna[1]
+selecao[0] <= decoder_2_para_4:inst7.alterna[0]
+clock_in => divisor_de_frequencia:inst.clk_in
+
+
+|Projeto_02|Seletor_alimentacao_display:inst13|decoder_2_para_4:inst7
+selecao[0] => _.IN0
+selecao[0] => alterna[0]~1.IN1
+selecao[0] => _.IN0
+selecao[0] => alterna[1]~3.IN1
+selecao[1] => _.IN0
+selecao[1] => _.IN0
+selecao[1] => alterna[0]~2.IN0
+selecao[1] => alterna[1]~3.IN0
+alterna[3] <= alterna[3].DB_MAX_OUTPUT_PORT_TYPE
+alterna[2] <= alterna[2].DB_MAX_OUTPUT_PORT_TYPE
+alterna[1] <= alterna[1].DB_MAX_OUTPUT_PORT_TYPE
+alterna[0] <= alterna[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|Seletor_alimentacao_display:inst13|contador_n_bits:inst1
+clk_in => q[1].CLK
+clk_in => q[0].CLK
+bit_out[0] <= q[0].DB_MAX_OUTPUT_PORT_TYPE
+bit_out[1] <= q[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst
+clk_in => q[14].CLK
+clk_in => q[13].CLK
+clk_in => q[12].CLK
+clk_in => q[11].CLK
+clk_in => q[10].CLK
+clk_in => q[9].CLK
+clk_in => q[8].CLK
+clk_in => q[7].CLK
+clk_in => q[6].CLK
+clk_in => q[5].CLK
+clk_in => q[4].CLK
+clk_in => q[3].CLK
+clk_in => q[2].CLK
+clk_in => q[1].CLK
+clk_in => q[0].CLK
+clk_in => aux_tff.CLK
+clk_out <= aux_tff.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|contador_n_bits:inst12
+clk_in => q[3].CLK
+clk_in => q[2].CLK
+clk_in => q[1].CLK
+clk_in => q[0].CLK
+bit_out[0] <= q[0].DB_MAX_OUTPUT_PORT_TYPE
+bit_out[1] <= q[1].DB_MAX_OUTPUT_PORT_TYPE
+bit_out[2] <= q[2].DB_MAX_OUTPUT_PORT_TYPE
+bit_out[3] <= q[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|divisor_de_frequencia:inst5
+clk_in => q[22].CLK
+clk_in => q[21].CLK
+clk_in => q[20].CLK
+clk_in => q[19].CLK
+clk_in => q[18].CLK
+clk_in => q[17].CLK
+clk_in => q[16].CLK
+clk_in => q[15].CLK
+clk_in => q[14].CLK
+clk_in => q[13].CLK
+clk_in => q[12].CLK
+clk_in => q[11].CLK
+clk_in => q[10].CLK
+clk_in => q[9].CLK
+clk_in => q[8].CLK
+clk_in => q[7].CLK
+clk_in => q[6].CLK
+clk_in => q[5].CLK
+clk_in => q[4].CLK
+clk_in => q[3].CLK
+clk_in => q[2].CLK
+clk_in => q[1].CLK
+clk_in => q[0].CLK
+clk_in => aux_tff.CLK
+clk_out <= aux_tff.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|mux_display_4digitos:inst
+selecao[3] => _.IN3
+selecao[3] => _.IN3
+selecao[3] => _.IN3
+selecao[3] => _.IN0
+selecao[2] => _.IN2
+selecao[2] => _.IN2
+selecao[2] => _.IN0
+selecao[2] => _.IN2
+selecao[1] => _.IN1
+selecao[1] => _.IN0
+selecao[1] => _.IN1
+selecao[1] => _.IN1
+selecao[0] => _.IN0
+selecao[0] => _.IN0
+selecao[0] => _.IN0
+selecao[0] => _.IN0
+unidade_seg[6] => segmento_out[6]~7.IN1
+unidade_seg[5] => segmento_out[5]~6.IN1
+unidade_seg[4] => segmento_out[4]~5.IN1
+unidade_seg[3] => segmento_out[3]~4.IN1
+unidade_seg[2] => segmento_out[2]~3.IN1
+unidade_seg[1] => segmento_out[1]~2.IN1
+unidade_seg[0] => segmento_out[0]~1.IN1
+dezena_seg[6] => segmento_out[6]~14.IN1
+dezena_seg[5] => segmento_out[5]~13.IN1
+dezena_seg[4] => segmento_out[4]~12.IN1
+dezena_seg[3] => segmento_out[3]~11.IN1
+dezena_seg[2] => segmento_out[2]~10.IN1
+dezena_seg[1] => segmento_out[1]~9.IN1
+dezena_seg[0] => segmento_out[0]~8.IN1
+centena_seg[6] => segmento_out[6]~21.IN1
+centena_seg[5] => segmento_out[5]~20.IN1
+centena_seg[4] => segmento_out[4]~19.IN1
+centena_seg[3] => segmento_out[3]~18.IN1
+centena_seg[2] => segmento_out[2]~17.IN1
+centena_seg[1] => segmento_out[1]~16.IN1
+centena_seg[0] => segmento_out[0]~15.IN1
+milhar_seg[6] => segmento_out[6]~28.IN1
+milhar_seg[5] => segmento_out[5]~27.IN1
+milhar_seg[4] => segmento_out[4]~26.IN1
+milhar_seg[3] => segmento_out[3]~25.IN1
+milhar_seg[2] => segmento_out[2]~24.IN1
+milhar_seg[1] => segmento_out[1]~23.IN1
+milhar_seg[0] => segmento_out[0]~22.IN1
+segmento_out[6] <= segmento_out[6].DB_MAX_OUTPUT_PORT_TYPE
+segmento_out[5] <= segmento_out[5].DB_MAX_OUTPUT_PORT_TYPE
+segmento_out[4] <= segmento_out[4].DB_MAX_OUTPUT_PORT_TYPE
+segmento_out[3] <= segmento_out[3].DB_MAX_OUTPUT_PORT_TYPE
+segmento_out[2] <= segmento_out[2].DB_MAX_OUTPUT_PORT_TYPE
+segmento_out[1] <= segmento_out[1].DB_MAX_OUTPUT_PORT_TYPE
+segmento_out[0] <= segmento_out[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|decodificador_7seg:inst9
+bit[0] => _.IN0
+bit[0] => segmento[0]~1.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~3.IN3
+bit[0] => _.IN0
+bit[0] => segmento[1]~5.IN3
+bit[0] => _.IN0
+bit[0] => segmento[3]~7.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~8.IN3
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[2]~2.IN2
+bit[1] => segmento[4]~3.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[1]~6.IN2
+bit[1] => segmento[3]~7.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => segmento[0]~4.IN1
+bit[2] => segmento[1]~5.IN1
+bit[2] => segmento[1]~6.IN1
+bit[2] => segmento[3]~7.IN1
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => segmento[4]~8.IN0
+segmento[6] <= segmento[6].DB_MAX_OUTPUT_PORT_TYPE
+segmento[5] <= segmento[5].DB_MAX_OUTPUT_PORT_TYPE
+segmento[4] <= segmento[4].DB_MAX_OUTPUT_PORT_TYPE
+segmento[3] <= segmento[3].DB_MAX_OUTPUT_PORT_TYPE
+segmento[2] <= segmento[2].DB_MAX_OUTPUT_PORT_TYPE
+segmento[1] <= segmento[1].DB_MAX_OUTPUT_PORT_TYPE
+segmento[0] <= segmento[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|contador_de_decada:inst14
+clk_in => unidade_q[3].CLK
+clk_in => unidade_q[2].CLK
+clk_in => unidade_q[1].CLK
+clk_in => unidade_q[0].CLK
+clk_in => dezena_q[3].CLK
+clk_in => dezena_q[2].CLK
+clk_in => dezena_q[1].CLK
+clk_in => dezena_q[0].CLK
+clk_in => centena_q[3].CLK
+clk_in => centena_q[2].CLK
+clk_in => centena_q[1].CLK
+clk_in => centena_q[0].CLK
+clk_in => milhar_q[3].CLK
+clk_in => milhar_q[2].CLK
+clk_in => milhar_q[1].CLK
+clk_in => milhar_q[0].CLK
+reset_pin => _.IN0
+unidade_out[0] <= unidade_q[0].DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[1] <= unidade_q[1].DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[2] <= unidade_q[2].DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[3] <= unidade_q[3].DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[0] <= dezena_q[0].DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[1] <= dezena_q[1].DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[2] <= dezena_q[2].DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[3] <= dezena_q[3].DB_MAX_OUTPUT_PORT_TYPE
+centena_out[0] <= centena_q[0].DB_MAX_OUTPUT_PORT_TYPE
+centena_out[1] <= centena_q[1].DB_MAX_OUTPUT_PORT_TYPE
+centena_out[2] <= centena_q[2].DB_MAX_OUTPUT_PORT_TYPE
+centena_out[3] <= centena_q[3].DB_MAX_OUTPUT_PORT_TYPE
+milhar_out[0] <= milhar_q[0].DB_MAX_OUTPUT_PORT_TYPE
+milhar_out[1] <= milhar_q[1].DB_MAX_OUTPUT_PORT_TYPE
+milhar_out[2] <= milhar_q[2].DB_MAX_OUTPUT_PORT_TYPE
+milhar_out[3] <= milhar_q[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|bloco_debounce:inst20
 botao1_out <= debounce:inst.botao_out
 clock => debounce:inst.clock
 clock => debounce:inst1.clock
@@ -25,7 +267,7 @@ botao4_out <= debounce:inst3.botao_out
 botao4 => debounce:inst3.botao_in
 
 
-|Projeto_02|bloco_debounce:inst|debounce:inst
+|Projeto_02|bloco_debounce:inst20|debounce:inst
 clock => ff1.CLK
 clock => ff2.CLK
 clock => ff3.CLK
@@ -33,7 +275,7 @@ botao_in => ff1.DATAIN
 botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Projeto_02|bloco_debounce:inst|debounce:inst1
+|Projeto_02|bloco_debounce:inst20|debounce:inst1
 clock => ff1.CLK
 clock => ff2.CLK
 clock => ff3.CLK
@@ -41,7 +283,7 @@ botao_in => ff1.DATAIN
 botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Projeto_02|bloco_debounce:inst|debounce:inst2
+|Projeto_02|bloco_debounce:inst20|debounce:inst2
 clock => ff1.CLK
 clock => ff2.CLK
 clock => ff3.CLK
@@ -49,11 +291,161 @@ botao_in => ff1.DATAIN
 botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Projeto_02|bloco_debounce:inst|debounce:inst3
+|Projeto_02|bloco_debounce:inst20|debounce:inst3
 clock => ff1.CLK
 clock => ff2.CLK
 clock => ff3.CLK
 botao_in => ff1.DATAIN
 botao_out <= ff3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|decodificador_7seg:inst8
+bit[0] => _.IN0
+bit[0] => segmento[0]~1.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~3.IN3
+bit[0] => _.IN0
+bit[0] => segmento[1]~5.IN3
+bit[0] => _.IN0
+bit[0] => segmento[3]~7.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~8.IN3
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[2]~2.IN2
+bit[1] => segmento[4]~3.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[1]~6.IN2
+bit[1] => segmento[3]~7.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => segmento[0]~4.IN1
+bit[2] => segmento[1]~5.IN1
+bit[2] => segmento[1]~6.IN1
+bit[2] => segmento[3]~7.IN1
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => segmento[4]~8.IN0
+segmento[6] <= segmento[6].DB_MAX_OUTPUT_PORT_TYPE
+segmento[5] <= segmento[5].DB_MAX_OUTPUT_PORT_TYPE
+segmento[4] <= segmento[4].DB_MAX_OUTPUT_PORT_TYPE
+segmento[3] <= segmento[3].DB_MAX_OUTPUT_PORT_TYPE
+segmento[2] <= segmento[2].DB_MAX_OUTPUT_PORT_TYPE
+segmento[1] <= segmento[1].DB_MAX_OUTPUT_PORT_TYPE
+segmento[0] <= segmento[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|decodificador_7seg:inst10
+bit[0] => _.IN0
+bit[0] => segmento[0]~1.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~3.IN3
+bit[0] => _.IN0
+bit[0] => segmento[1]~5.IN3
+bit[0] => _.IN0
+bit[0] => segmento[3]~7.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~8.IN3
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[2]~2.IN2
+bit[1] => segmento[4]~3.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[1]~6.IN2
+bit[1] => segmento[3]~7.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => segmento[0]~4.IN1
+bit[2] => segmento[1]~5.IN1
+bit[2] => segmento[1]~6.IN1
+bit[2] => segmento[3]~7.IN1
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => segmento[4]~8.IN0
+segmento[6] <= segmento[6].DB_MAX_OUTPUT_PORT_TYPE
+segmento[5] <= segmento[5].DB_MAX_OUTPUT_PORT_TYPE
+segmento[4] <= segmento[4].DB_MAX_OUTPUT_PORT_TYPE
+segmento[3] <= segmento[3].DB_MAX_OUTPUT_PORT_TYPE
+segmento[2] <= segmento[2].DB_MAX_OUTPUT_PORT_TYPE
+segmento[1] <= segmento[1].DB_MAX_OUTPUT_PORT_TYPE
+segmento[0] <= segmento[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Projeto_02|decodificador_7seg:inst7
+bit[0] => _.IN0
+bit[0] => segmento[0]~1.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~3.IN3
+bit[0] => _.IN0
+bit[0] => segmento[1]~5.IN3
+bit[0] => _.IN0
+bit[0] => segmento[3]~7.IN3
+bit[0] => _.IN0
+bit[0] => segmento[4]~8.IN3
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[2]~2.IN2
+bit[1] => segmento[4]~3.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[1] => segmento[1]~6.IN2
+bit[1] => segmento[3]~7.IN2
+bit[1] => _.IN0
+bit[1] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[2] => segmento[0]~4.IN1
+bit[2] => segmento[1]~5.IN1
+bit[2] => segmento[1]~6.IN1
+bit[2] => segmento[3]~7.IN1
+bit[2] => _.IN0
+bit[2] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => _.IN0
+bit[3] => segmento[4]~8.IN0
+segmento[6] <= segmento[6].DB_MAX_OUTPUT_PORT_TYPE
+segmento[5] <= segmento[5].DB_MAX_OUTPUT_PORT_TYPE
+segmento[4] <= segmento[4].DB_MAX_OUTPUT_PORT_TYPE
+segmento[3] <= segmento[3].DB_MAX_OUTPUT_PORT_TYPE
+segmento[2] <= segmento[2].DB_MAX_OUTPUT_PORT_TYPE
+segmento[1] <= segmento[1].DB_MAX_OUTPUT_PORT_TYPE
+segmento[0] <= segmento[0].DB_MAX_OUTPUT_PORT_TYPE
 
 

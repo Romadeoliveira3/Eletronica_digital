@@ -1,0 +1,39 @@
+TITLE "Divisor de Frequencia"
+
+PARAMETERS(
+	modulus = 1
+	n = 1
+);
+
+SUBDESIGN divisor_de_frequencia(
+	clk_in: INPUT;
+	clk_out: OUTPUT;
+)
+
+VARIABLE
+	q[n..0]: DFF;
+	aux_tff: TFF; -- TFF auxiliar
+
+BEGIN
+	--Parametros do TFF
+	aux_tff.clrn = VCC;
+	aux_tff.prn = VCC;
+
+	-- Sincronizar os clocks
+	q[].clk = clk_in;
+	aux_tff.clk = clk_in;
+	
+	clk_out = aux_tff.q;
+	
+	-- Momento de toggle do TFF
+	CASE q[].q IS
+	WHEN modulus => 
+		aux_tff.t = VCC;
+		q[].d = 0;
+		
+	WHEN OTHERS =>
+		aux_tff.t = GND;
+		q[].d = q[].q +1;
+		
+END CASE;
+END;

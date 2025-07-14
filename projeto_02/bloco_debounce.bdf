@@ -22,7 +22,7 @@ https://fpgasoftware.intel.com/eula.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 344 48 512 64)
+	(rect 80 56 248 72)
 	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
 	(text "clock" (rect 5 0 32 11)(font "Arial" ))
 	(pt 168 8)
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect -64 184 104 200)
 	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
-	(text "botao1" (rect 5 0 42 13)(font "Intel Clear" ))
+	(text "botao1" (rect 5 0 41 13)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -57,7 +57,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect 472 184 640 200)
 	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
-	(text "botao2" (rect 5 0 42 13)(font "Intel Clear" ))
+	(text "botao2" (rect 5 0 41 13)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -73,7 +73,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect -72 312 96 328)
 	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
-	(text "botao3" (rect 5 0 42 13)(font "Intel Clear" ))
+	(text "botao3" (rect 5 0 41 13)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -89,7 +89,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect 464 312 632 328)
 	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
-	(text "botao4" (rect 5 0 43 13)(font "Intel Clear" ))
+	(text "botao4" (rect 5 0 42 13)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -292,11 +292,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 96 304)
 )
 (connector
-	(text " clock" (rect 552 40 582 53)(font "Intel Clear" ))
-	(pt 512 56)
-	(pt 544 56)
-)
-(connector
 	(text " clock" (rect 536 288 566 301)(font "Intel Clear" ))
 	(pt 632 304)
 	(pt 584 304)
@@ -305,6 +300,11 @@ https://fpgasoftware.intel.com/eula.
 	(text " clock" (rect 544 160 574 173)(font "Intel Clear" ))
 	(pt 592 176)
 	(pt 640 176)
+)
+(connector
+	(text " clock" (rect 288 48 318 61)(font "Intel Clear" ))
+	(pt 248 64)
+	(pt 280 64)
 )
 (text "Botao S1" (rect 160 120 211 135)(font "Intel Clear" (font_size 8)))
 (text "Botao S2" (rect 704 120 757 135)(font "Intel Clear" (font_size 8)))

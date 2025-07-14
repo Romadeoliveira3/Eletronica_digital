@@ -1,0 +1,20 @@
+TITLE "Decodificador 2-para-4";
+
+-- Este módulo pega uma entrada de 2 bits e ativa uma das 4 saídas.
+SUBDESIGN decoder_2_para_4
+(
+	
+	selecao[1..0] : INPUT; -- Entrada de 2 bits, vinda do contador.
+	
+	alterna[0..3]     : OUTPUT; -- Saída de 4 bits. Apenas um bit estará ativo (em '1') por vez.
+)
+BEGIN
+	TABLE
+
+		selecao[]        => alterna[];
+		B"00"      => B"1110"; -- Aciona alternativa 1
+		B"01"      => B"1101"; -- Aciona alternativa 2
+		B"10"      => B"1011"; -- Aciona alternativa 3
+		B"11"      => B"0111"; -- Aciona alternativa 4
+	END TABLE;	
+END;

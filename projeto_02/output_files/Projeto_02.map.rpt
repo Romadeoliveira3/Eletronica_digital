@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Projeto_02
-Wed Jul  2 17:01:23 2025
+Fri Jul 11 14:05:24 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -14,9 +14,13 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|contador_n_bits:inst1
+ 10. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst
+ 11. Parameter Settings for User Entity Instance: contador_n_bits:inst12
+ 12. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +47,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul  2 17:01:23 2025       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 11 14:05:24 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Projeto_02                                  ;
 ; Top-level Entity Name              ; Projeto_02                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 6                                           ;
-;     Total combinational functions  ; 2                                           ;
-;     Dedicated logic registers      ; 6                                           ;
-; Total registers                    ; 6                                           ;
-; Total pins                         ; 9                                           ;
+; Total logic elements               ; 151                                         ;
+;     Total combinational functions  ; 149                                         ;
+;     Dedicated logic registers      ; 65                                          ;
+; Total registers                    ; 65                                          ;
+; Total pins                         ; 20                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -151,7 +155,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
+; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -163,15 +167,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                      ; Library ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------+---------+
-; Projeto_02.bdf                   ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Documentos/ED25/Projeto_02.bdf     ;         ;
-; bloco_debounce.bdf               ; yes             ; User Block Diagram/Schematic File  ; /home/ldealuno/Documentos/ED25/bloco_debounce.bdf ;         ;
-; db/debounce.tdf                  ; yes             ; Auto-Generated Megafunction        ; /home/ldealuno/Documentos/ED25/db/debounce.tdf    ;         ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
++---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path      ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                               ; Library ;
++---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; Projeto_02.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/Projeto_02.bdf                        ;         ;
+; bloco_debounce.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/bloco_debounce.bdf                    ;         ;
+; divisor_de_frequencia.tdf             ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/divisor_de_frequencia.tdf             ;         ;
+; output_files/decodificador_7seg.tdf   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decodificador_7seg.tdf   ;         ;
+; output_files/contador_n_bits.tdf      ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_n_bits.tdf      ;         ;
+; Seletor_alimentacao_display.bdf       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/Seletor_alimentacao_display.bdf       ;         ;
+; output_files/decoder_2_para_4.tdf     ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf     ;         ;
+; output_files/contador_de_decada.tdf   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_de_decada.tdf   ;         ;
+; output_files/mux_display_4digitos.tdf ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf ;         ;
+; db/debounce.tdf                       ; yes             ; Auto-Generated Megafunction        ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/db/debounce.tdf                       ;         ;
++---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -179,43 +190,53 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 6           ;
+; Estimated Total logic elements              ; 151         ;
 ;                                             ;             ;
-; Total combinational functions               ; 2           ;
+; Total combinational functions               ; 149         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 0           ;
-;     -- 3 input functions                    ; 2           ;
-;     -- <=2 input functions                  ; 0           ;
+;     -- 4 input functions                    ; 80          ;
+;     -- 3 input functions                    ; 21          ;
+;     -- <=2 input functions                  ; 48          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 2           ;
-;     -- arithmetic mode                      ; 0           ;
+;     -- normal mode                          ; 115         ;
+;     -- arithmetic mode                      ; 34          ;
 ;                                             ;             ;
-; Total registers                             ; 6           ;
-;     -- Dedicated logic registers            ; 6           ;
+; Total registers                             ; 65          ;
+;     -- Dedicated logic registers            ; 65          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 9           ;
+; I/O pins                                    ; 20          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 6           ;
-; Total fan-out                               ; 29          ;
-; Average fan-out                             ; 1.12        ;
+; Maximum fan-out                             ; 43          ;
+; Total fan-out                               ; 676         ;
+; Average fan-out                             ; 2.66        ;
 +---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+----------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Entity Name    ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+----------------+--------------+
-; |Projeto_02                ; 2 (0)               ; 6 (0)                     ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |Projeto_02                                    ; Projeto_02     ; work         ;
-;    |bloco_debounce:inst|   ; 2 (0)               ; 6 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst                ; bloco_debounce ; work         ;
-;       |debounce:inst1|     ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst|debounce:inst1 ; debounce       ; work         ;
-;       |debounce:inst|      ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst|debounce:inst  ; debounce       ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+----------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                       ; Entity Name                 ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-----------------------------+--------------+
+; |Projeto_02                             ; 149 (0)             ; 65 (0)                    ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Projeto_02                                                               ; Projeto_02                  ; work         ;
+;    |Seletor_alimentacao_display:inst13| ; 26 (0)              ; 18 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13                            ; Seletor_alimentacao_display ; work         ;
+;       |contador_n_bits:inst1|           ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13|contador_n_bits:inst1      ; contador_n_bits             ; work         ;
+;       |decoder_2_para_4:inst7|          ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13|decoder_2_para_4:inst7     ; decoder_2_para_4            ; work         ;
+;       |divisor_de_frequencia:inst|      ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst ; divisor_de_frequencia       ; work         ;
+;    |bloco_debounce:inst20|              ; 1 (0)               ; 3 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20                                         ; bloco_debounce              ; work         ;
+;       |debounce:inst|                   ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst                           ; debounce                    ; work         ;
+;    |contador_de_decada:inst14|          ; 33 (33)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_de_decada:inst14                                     ; contador_de_decada          ; work         ;
+;    |contador_n_bits:inst12|             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_n_bits:inst12                                        ; contador_n_bits             ; work         ;
+;    |decodificador_7seg:inst10|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_7seg:inst10                                     ; decodificador_7seg          ; work         ;
+;    |decodificador_7seg:inst7|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_7seg:inst7                                      ; decodificador_7seg          ; work         ;
+;    |decodificador_7seg:inst8|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_7seg:inst8                                      ; decodificador_7seg          ; work         ;
+;    |divisor_de_frequencia:inst5|        ; 32 (32)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst5                                   ; divisor_de_frequencia       ; work         ;
+;    |mux_display_4digitos:inst|          ; 50 (50)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|mux_display_4digitos:inst                                     ; mux_display_4digitos        ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -224,8 +245,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 6     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 65    ;
+; Number of registers using Synchronous Clear  ; 36    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -234,21 +255,71 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|contador_n_bits:inst1 ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; reset          ; 3     ; Untyped                                                                      ;
+; n              ; 2     ; Untyped                                                                      ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                                                           ;
+; n              ; 15    ; Untyped                                                                           ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: contador_n_bits:inst12 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; reset          ; 9     ; Untyped                                    ;
+; n              ; 4     ; Untyped                                    ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5 ;
++----------------+---------+-----------------------------------------------+
+; Parameter Name ; Value   ; Type                                          ;
++----------------+---------+-----------------------------------------------+
+; modulus        ; 6250000 ; Untyped                                       ;
+; n              ; 23      ; Untyped                                       ;
++----------------+---------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 9                           ;
-; cycloneiii_ff         ; 6                           ;
-;     plain             ; 6                           ;
-; cycloneiii_lcell_comb ; 3                           ;
-;     normal            ; 3                           ;
-;         0 data inputs ; 1                           ;
+; boundary_port         ; 20                          ;
+; cycloneiii_ff         ; 65                          ;
+;     SCLR              ; 36                          ;
+;     plain             ; 29                          ;
+; cycloneiii_lcell_comb ; 155                         ;
+;     arith             ; 34                          ;
+;         2 data inputs ; 32                          ;
 ;         3 data inputs ; 2                           ;
+;     normal            ; 121                         ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 80                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.67                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -257,7 +328,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -267,36 +338,70 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Jul  2 17:01:10 2025
+    Info: Processing started: Fri Jul 11 14:05:13 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projeto_02 -c Projeto_02
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file Projeto_02.bdf
+Info (12021): Found 1 design units, including 1 entities, in source file projeto_02.bdf
     Info (12023): Found entity 1: Projeto_02
 Info (12021): Found 1 design units, including 1 entities, in source file bloco_debounce.bdf
     Info (12023): Found entity 1: bloco_debounce
+Warning (12019): Can't analyze file -- file ../../../../../../media/ldealuno/SANDISK 3_2/7 PERIODO.tdf is missing
+Warning (12019): Can't analyze file -- file ../../Downloads/Projects_Eletronica_Digital-master/Projeto_2/Projeto_No_Quartus/Projeto_2/debounce.tdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file divisor_de_frequencia.tdf
+    Info (12023): Found entity 1: divisor_de_frequencia File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/divisor_de_frequencia.tdf Line: 8
+Warning (287002): Group MSB segmento6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decodificador_7seg.tdf Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/decodificador_7seg.tdf
+    Info (12023): Found entity 1: decodificador_7seg File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decodificador_7seg.tdf Line: 4
+Warning (12019): Can't analyze file -- file output_files/contador_nbits.tdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/contador_n_bits.tdf
+    Info (12023): Found entity 1: contador_n_bits File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_n_bits.tdf Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file seletor_alimentacao_display.bdf
+    Info (12023): Found entity 1: Seletor_alimentacao_display
+Warning (12019): Can't analyze file -- file output_files/seletor_vetor_dig.tdf is missing
+Warning (287002): Group MSB alterna3 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/decoder_2_para_4.tdf
+    Info (12023): Found entity 1: decoder_2_para_4 File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf Line: 4
+Warning (12019): Can't analyze file -- file output_files/contador_de_decada.bdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/contador_de_decada.tdf
+    Info (12023): Found entity 1: contador_de_decada File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_de_decada.tdf Line: 4
+Warning (287002): Group MSB selecao3 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 11
+Warning (287002): Group MSB unidade_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 14
+Warning (287002): Group MSB dezena_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 15
+Warning (287002): Group MSB centena_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 16
+Warning (287002): Group MSB milhar_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 17
+Warning (287002): Group MSB segmento_out6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/mux_display_4digitos.tdf
+    Info (12023): Found entity 1: mux_display_4digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 5
 Info (12127): Elaborating entity "Projeto_02" for the top level hierarchy
-Info (12128): Elaborating entity "bloco_debounce" for hierarchy "bloco_debounce:inst"
+Info (12128): Elaborating entity "Seletor_alimentacao_display" for hierarchy "Seletor_alimentacao_display:inst13"
+Info (12128): Elaborating entity "decoder_2_para_4" for hierarchy "Seletor_alimentacao_display:inst13|decoder_2_para_4:inst7"
+Info (12128): Elaborating entity "contador_n_bits" for hierarchy "Seletor_alimentacao_display:inst13|contador_n_bits:inst1"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst"
+Info (12128): Elaborating entity "contador_n_bits" for hierarchy "contador_n_bits:inst12"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "divisor_de_frequencia:inst5"
+Info (12128): Elaborating entity "mux_display_4digitos" for hierarchy "mux_display_4digitos:inst"
+Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "decodificador_7seg:inst9"
+Info (12128): Elaborating entity "contador_de_decada" for hierarchy "contador_de_decada:inst14"
+Info (12128): Elaborating entity "bloco_debounce" for hierarchy "bloco_debounce:inst20"
 Info (12021): Found 1 design units, including 1 entities, in source file db/debounce.tdf
-    Info (12023): Found entity 1: debounce File: /home/ldealuno/Documentos/ED25/db/debounce.tdf Line: 3
-Info (12128): Elaborating entity "debounce" for hierarchy "bloco_debounce:inst|debounce:inst"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "led[4]" is stuck at GND
-    Warning (13410): Pin "led[3]" is stuck at GND
+    Info (12023): Found entity 1: debounce File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/db/debounce.tdf Line: 3
+Info (12128): Elaborating entity "debounce" for hierarchy "bloco_debounce:inst20|debounce:inst"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key[4]"
     Warning (15610): No output dependent on input pin "key[3]"
-Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "key[2]"
+Info (21057): Implemented 171 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 6 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 404 megabytes
-    Info: Processing ended: Wed Jul  2 17:01:23 2025
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:28
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 151 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4765 megabytes
+    Info: Processing ended: Fri Jul 11 14:05:24 2025
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:25
 
 

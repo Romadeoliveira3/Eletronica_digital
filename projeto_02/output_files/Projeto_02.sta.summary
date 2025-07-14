@@ -3,39 +3,111 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -0.354
-TNS   : -0.704
+Slack : -4.116
+TNS   : -119.902
+
+Type  : Slow 1200mV 85C Model Setup 'divisor_de_frequencia:inst5|aux_tff'
+Slack : -2.792
+TNS   : -36.424
+
+Type  : Slow 1200mV 85C Model Setup 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : -0.002
+TNS   : -0.002
+
+Type  : Slow 1200mV 85C Model Hold 'divisor_de_frequencia:inst5|aux_tff'
+Slack : 0.446
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
 Slack : 0.453
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -11.922
+TNS   : -66.941
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisor_de_frequencia:inst5|aux_tff'
+Slack : -1.487
+TNS   : -29.740
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : -1.487
+TNS   : -2.974
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -0.221
-TNS   : -0.438
+Slack : -3.851
+TNS   : -109.342
+
+Type  : Slow 1200mV 0C Model Setup 'divisor_de_frequencia:inst5|aux_tff'
+Slack : -2.498
+TNS   : -32.508
+
+Type  : Slow 1200mV 0C Model Setup 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : 0.092
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'divisor_de_frequencia:inst5|aux_tff'
+Slack : 0.398
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
 Slack : 0.402
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -11.922
+TNS   : -66.941
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisor_de_frequencia:inst5|aux_tff'
+Slack : -1.487
+TNS   : -29.740
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : -1.487
+TNS   : -2.974
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : 0.407
+Slack : -1.199
+TNS   : -26.080
+
+Type  : Fast 1200mV 0C Model Setup 'divisor_de_frequencia:inst5|aux_tff'
+Slack : -0.636
+TNS   : -6.124
+
+Type  : Fast 1200mV 0C Model Setup 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : 0.564
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.187
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'divisor_de_frequencia:inst5|aux_tff'
+Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -9.393
+TNS   : -48.786
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisor_de_frequencia:inst5|aux_tff'
+Slack : -1.000
+TNS   : -20.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst|aux_tff'
+Slack : -1.000
+TNS   : -2.000
 
 ------------------------------------------------------------

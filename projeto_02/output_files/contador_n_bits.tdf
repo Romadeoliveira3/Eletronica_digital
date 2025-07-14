@@ -1,0 +1,32 @@
+TITLE "Contador n bits";
+
+PARAMETERS(
+	reset = 1 ,
+	n = 1
+);
+
+SUBDESIGN contador_n_bits(
+	clk_in: INPUT;
+	bit_out[n-1..0]: OUTPUT;
+)
+
+VARIABLE
+	q[n-1..0]: DFF;
+
+BEGIN
+
+	-- Sincronizar os clocks
+	q[].clk = clk_in;
+	
+	bit_out[] = q[].q;
+	
+	-- Momento de toggle do TFF
+	CASE q[].q IS
+	WHEN reset => 
+		q[].d = 0;
+		
+	WHEN OTHERS =>
+		q[].d = q[].q + 1;
+		
+END CASE;
+END;
