@@ -1,0 +1,37 @@
+TITLE "Comparador de 4 Dígitos com Habilitação";
+
+-- Este subdesign compara dois números de 4 dígitos BCD (representados
+-- por unidades, dezenas, etc.) e ativa uma saída se eles forem idênticos
+-- e a permissão de comparação estiver ativa.
+SUBDESIGN comparador_4_digitos
+(
+	-- ENTRADAS --
+	
+	-- Flag que habilita a comparação (ativa em '1').
+	comp_flag             : INPUT;
+
+	-- Primeiro número a ser comparado (ex: vindo de um contador).
+	cont_unidade[3..0]    : INPUT;
+	cont_dezena[3..0]     : INPUT;
+	cont_centena[3..0]    : INPUT;
+	cont_milhar[3..0]     : INPUT;
+
+	-- Segundo número a ser comparado (ex: vindo de um registrador).
+	reg_unidade[3..0]     : INPUT;
+	reg_dezena[3..0]      : INPUT;
+	reg_centena[3..0]     : INPUT;
+	reg_milhar[3..0]      : INPUT;
+	
+	-- SAÍDA --
+	final_cont            : OUTPUT; -- Ativada se os números forem iguais e houver permissão.
+)
+BEGIN
+	-- A lógica é implementada com uma única equação booleana.
+	-- A saída 'final_cont' só será '1' (VCC) se TODAS as condições
+	-- conectadas pelo operador '&' (E Lógico) forem verdadeiras.
+	final_cont =   (cont_unidade[] == reg_unidade[])
+	             & (cont_dezena[] == reg_dezena[])
+	             & (cont_centena[] == reg_centena[])
+	             & (cont_milhar[] == reg_milhar[])
+	             & comp_flag;
+END;

@@ -1,0 +1,65 @@
+TITLE "Contador 0-9 UP/DOWN com Detector de Borda";
+
+-- Este subdesign cria um contador BCD (0 a 9) que só incrementa ou
+-- decrementa quando o pino de permissão está ativo.
+SUBDESIGN contador_4_bits_up_down
+(
+	-- ENTRADAS --
+	clk_in         : INPUT;  -- Clock do sistema.
+	permissao_dig  : INPUT;  -- NOVO: Habilita o incremento/decremento (ativo em '1').
+	botaoprox_in   : INPUT;  -- Botão para contar de forma CRESCENTE (UP).
+	botaoant_in    : INPUT;  -- Botão para contar de forma DECRESCENTE (DOWN).
+	
+	-- SAÍDA --
+	bit_out[3..0]  : OUTPUT; -- Saída de 4 bits com o valor BCD.
+)
+VARIABLE
+	-- Registrador principal de 4 bits para o contador.
+	q[3..0]            : DFF;
+	
+	-- Registradores para armazenar o estado anterior de cada botão.
+	btn1_reg, btn2_reg : DFF;
+	
+	-- Nós lógicos para os pulsos gerados.
+	up_pulse, down_pulse : NODE;
+
+BEGIN
+	-- Sincroniza todos os registradores com o mesmo clock.
+	q[].clk = clk_in;
+	btn1_reg.clk = clk_in;
+	btn2_reg.clk = clk_in;
+	
+	-- Conecta o valor do contador à porta de saída.
+	bit_out[] = q[].q;
+	
+	-- Lógica do Detector de Borda --
+	btn1_reg.d = botaoprox_in;
+	btn2_reg.d = botaoant_in;
+	up_pulse   = btn1_reg.q & !botaoprox_in;
+	down_pulse = btn2_reg.q & !botaoant_in;
+	
+	-- Lógica do Contador BCD (agora condicionada pela permissão) --
+	-- A estrutura IF/ELSE IF/ELSE agora verifica o pulso E a permissão.
+	IF (up_pulse == VCC) AND (permissao_dig == VCC) THEN
+		-- Se pulso UP E permissão OK, verifica se está em 9 para voltar a 0.
+		IF q[].q == 9 THEN
+			q[].d = 0;
+		ELSE
+			q[].d = q[].q + 1;
+		END IF;
+		
+	ELSE IF (down_pulse == VCC) AND (permissao_dig == VCC) THEN
+		-- Se pulso DOWN E permissão OK, verifica se está em 0 para voltar a 9.
+		IF q[].q == 0 THEN
+			q[].d = 9;
+		ELSE
+			q[].d = q[].q - 1;
+		END IF;
+		
+	ELSE
+		-- Se não houver pulso ou permissão, mantém o valor atual.
+		q[].d = q[].q;
+		
+	END IF;
+END IF;
+END;

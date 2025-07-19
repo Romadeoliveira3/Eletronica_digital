@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Projeto_02
-Fri Jul 11 14:05:24 2025
+Thu Jul 17 09:55:08 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,14 +13,17 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|contador_n_bits:inst1
- 10. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst
- 11. Parameter Settings for User Entity Instance: contador_n_bits:inst12
- 12. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4
+ 11. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6
+ 12. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|contador_n_bits:inst1
+ 13. Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst
+ 14. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5
+ 15. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst6
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -47,15 +50,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jul 11 14:05:24 2025       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul 17 09:55:08 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Projeto_02                                  ;
 ; Top-level Entity Name              ; Projeto_02                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 151                                         ;
-;     Total combinational functions  ; 149                                         ;
-;     Dedicated logic registers      ; 65                                          ;
-; Total registers                    ; 65                                          ;
+; Total logic elements               ; 338                                         ;
+;     Total combinational functions  ; 325                                         ;
+;     Dedicated logic registers      ; 136                                         ;
+; Total registers                    ; 136                                         ;
 ; Total pins                         ; 20                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -163,7 +166,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -181,6 +185,16 @@ https://fpgasoftware.intel.com/eula.
 ; output_files/decoder_2_para_4.tdf     ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf     ;         ;
 ; output_files/contador_de_decada.tdf   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_de_decada.tdf   ;         ;
 ; output_files/mux_display_4digitos.tdf ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf ;         ;
+; contador_4_bits_up_down.tdf           ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_4_bits_up_down.tdf           ;         ;
+; contador_2_bits_up_down.tdf           ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_up_down.tdf           ;         ;
+; decodificador_menu_digitos.tdf        ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/decodificador_menu_digitos.tdf        ;         ;
+; mux_mostragem_display.tdf             ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_mostragem_display.tdf             ;         ;
+; contador_2_bits_habilitado.tdf        ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_habilitado.tdf        ;         ;
+; comparador_4_digitos.tdf              ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/comparador_4_digitos.tdf              ;         ;
+; flag_menu_visitado.tdf                ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/flag_menu_visitado.tdf                ;         ;
+; contador_reset_2_bits_up_down.tdf     ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_reset_2_bits_up_down.tdf     ;         ;
+; controlador_pausa_reset.tdf           ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/controlador_pausa_reset.tdf           ;         ;
+; teste_reset_latch.tdf                 ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/teste_reset_latch.tdf                 ;         ;
 ; db/debounce.tdf                       ; yes             ; Auto-Generated Megafunction        ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/db/debounce.tdf                       ;         ;
 +---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
 
@@ -190,20 +204,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 151         ;
+; Estimated Total logic elements              ; 338         ;
 ;                                             ;             ;
-; Total combinational functions               ; 149         ;
+; Total combinational functions               ; 325         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 80          ;
-;     -- 3 input functions                    ; 21          ;
-;     -- <=2 input functions                  ; 48          ;
+;     -- 4 input functions                    ; 190         ;
+;     -- 3 input functions                    ; 61          ;
+;     -- <=2 input functions                  ; 74          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 115         ;
-;     -- arithmetic mode                      ; 34          ;
+;     -- normal mode                          ; 269         ;
+;     -- arithmetic mode                      ; 56          ;
 ;                                             ;             ;
-; Total registers                             ; 65          ;
-;     -- Dedicated logic registers            ; 65          ;
+; Total registers                             ; 136         ;
+;     -- Dedicated logic registers            ; 136         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 20          ;
@@ -211,33 +225,100 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 43          ;
-; Total fan-out                               ; 676         ;
-; Average fan-out                             ; 2.66        ;
+; Maximum fan-out                             ; 105         ;
+; Total fan-out                               ; 1453        ;
+; Average fan-out                             ; 2.90        ;
 +---------------------------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                         ;
-+-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-----------------------------+--------------+
-; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                       ; Entity Name                 ; Library Name ;
-+-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-----------------------------+--------------+
-; |Projeto_02                             ; 149 (0)             ; 65 (0)                    ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Projeto_02                                                               ; Projeto_02                  ; work         ;
-;    |Seletor_alimentacao_display:inst13| ; 26 (0)              ; 18 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13                            ; Seletor_alimentacao_display ; work         ;
-;       |contador_n_bits:inst1|           ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13|contador_n_bits:inst1      ; contador_n_bits             ; work         ;
-;       |decoder_2_para_4:inst7|          ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13|decoder_2_para_4:inst7     ; decoder_2_para_4            ; work         ;
-;       |divisor_de_frequencia:inst|      ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst ; divisor_de_frequencia       ; work         ;
-;    |bloco_debounce:inst20|              ; 1 (0)               ; 3 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20                                         ; bloco_debounce              ; work         ;
-;       |debounce:inst|                   ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst                           ; debounce                    ; work         ;
-;    |contador_de_decada:inst14|          ; 33 (33)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_de_decada:inst14                                     ; contador_de_decada          ; work         ;
-;    |contador_n_bits:inst12|             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_n_bits:inst12                                        ; contador_n_bits             ; work         ;
-;    |decodificador_7seg:inst10|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_7seg:inst10                                     ; decodificador_7seg          ; work         ;
-;    |decodificador_7seg:inst7|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_7seg:inst7                                      ; decodificador_7seg          ; work         ;
-;    |decodificador_7seg:inst8|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_7seg:inst8                                      ; decodificador_7seg          ; work         ;
-;    |divisor_de_frequencia:inst5|        ; 32 (32)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst5                                   ; divisor_de_frequencia       ; work         ;
-;    |mux_display_4digitos:inst|          ; 50 (50)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|mux_display_4digitos:inst                                     ; mux_display_4digitos        ; work         ;
-+-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-----------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                              ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+-------------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                        ; Entity Name                   ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+-------------------------------+--------------+
+; |Projeto_02                               ; 325 (0)             ; 136 (0)                   ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Projeto_02                                                                ; Projeto_02                    ; work         ;
+;    |Seletor_alimentacao_display:inst46|   ; 96 (0)              ; 67 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst46                             ; Seletor_alimentacao_display   ; work         ;
+;       |contador_n_bits:inst1|             ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst46|contador_n_bits:inst1       ; contador_n_bits               ; work         ;
+;       |decoder_2_para_4:inst5|            ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5      ; decoder_2_para_4              ; work         ;
+;       |divisor_de_frequencia:inst4|       ; 33 (33)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ; divisor_de_frequencia         ; work         ;
+;       |divisor_de_frequencia:inst6|       ; 32 (32)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ; divisor_de_frequencia         ; work         ;
+;       |divisor_de_frequencia:inst|        ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst  ; divisor_de_frequencia         ; work         ;
+;    |bloco_debounce:inst20|                ; 4 (0)               ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20                                          ; bloco_debounce                ; work         ;
+;       |debounce:inst1|                    ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst1                           ; debounce                      ; work         ;
+;       |debounce:inst2|                    ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst2                           ; debounce                      ; work         ;
+;       |debounce:inst3|                    ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst3                           ; debounce                      ; work         ;
+;       |debounce:inst|                     ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst                            ; debounce                      ; work         ;
+;    |comparador_4_digitos:inst40|          ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|comparador_4_digitos:inst40                                    ; comparador_4_digitos          ; work         ;
+;    |contador_2_bits_habilitado:inst39|    ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_2_bits_habilitado:inst39                              ; contador_2_bits_habilitado    ; work         ;
+;    |contador_2_bits_up_down:inst24|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_2_bits_up_down:inst24                                 ; contador_2_bits_up_down       ; work         ;
+;    |contador_4_bits_up_down:inst32|       ; 22 (22)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_4_bits_up_down:inst32                                 ; contador_4_bits_up_down       ; work         ;
+;    |contador_4_bits_up_down:inst33|       ; 18 (18)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_4_bits_up_down:inst33                                 ; contador_4_bits_up_down       ; work         ;
+;    |contador_4_bits_up_down:inst34|       ; 18 (18)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_4_bits_up_down:inst34                                 ; contador_4_bits_up_down       ; work         ;
+;    |contador_4_bits_up_down:inst35|       ; 19 (19)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_4_bits_up_down:inst35                                 ; contador_4_bits_up_down       ; work         ;
+;    |contador_de_decada:inst43|            ; 41 (41)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_de_decada:inst43                                      ; contador_de_decada            ; work         ;
+;    |contador_reset_2_bits_up_down:inst49| ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_reset_2_bits_up_down:inst49                           ; contador_reset_2_bits_up_down ; work         ;
+;    |controlador_pausa_reset:inst50|       ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|controlador_pausa_reset:inst50                                 ; controlador_pausa_reset       ; work         ;
+;    |decodificador_menu_digitos:inst37|    ; 10 (10)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|decodificador_menu_digitos:inst37                              ; decodificador_menu_digitos    ; work         ;
+;    |divisor_de_frequencia:inst5|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst5                                    ; divisor_de_frequencia         ; work         ;
+;    |divisor_de_frequencia:inst6|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst6                                    ; divisor_de_frequencia         ; work         ;
+;    |flag_menu_visitado:inst41|            ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|flag_menu_visitado:inst41                                      ; flag_menu_visitado            ; work         ;
+;    |mux_display_4digitos:inst|            ; 49 (49)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|mux_display_4digitos:inst                                      ; mux_display_4digitos          ; work         ;
+;    |mux_mostragem_display:inst31|         ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|mux_mostragem_display:inst31                                   ; mux_mostragem_display         ; work         ;
+;    |teste_reset_latch:inst11|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|teste_reset_latch:inst11                                       ; teste_reset_latch             ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+-------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                            ;
++---------------------------------------------+---------------------------------------------------------------------------------+
+; Register name                               ; Reason for Removal                                                              ;
++---------------------------------------------+---------------------------------------------------------------------------------+
+; contador_2_bits_up_down:inst24|btn1_reg     ; Merged with contador_2_bits_habilitado:inst39|btn1_reg                          ;
+; contador_4_bits_up_down:inst32|btn1_reg     ; Merged with contador_2_bits_habilitado:inst39|btn1_reg                          ;
+; contador_4_bits_up_down:inst33|btn1_reg     ; Merged with contador_2_bits_habilitado:inst39|btn1_reg                          ;
+; contador_4_bits_up_down:inst34|btn1_reg     ; Merged with contador_2_bits_habilitado:inst39|btn1_reg                          ;
+; contador_4_bits_up_down:inst35|btn1_reg     ; Merged with contador_2_bits_habilitado:inst39|btn1_reg                          ;
+; controlador_pausa_reset:inst50|btn_prox_reg ; Merged with contador_2_bits_habilitado:inst39|btn1_reg                          ;
+; contador_2_bits_up_down:inst24|btn2_reg     ; Merged with contador_2_bits_habilitado:inst39|btn2_reg                          ;
+; contador_4_bits_up_down:inst32|btn2_reg     ; Merged with contador_2_bits_habilitado:inst39|btn2_reg                          ;
+; contador_4_bits_up_down:inst33|btn2_reg     ; Merged with contador_2_bits_habilitado:inst39|btn2_reg                          ;
+; contador_4_bits_up_down:inst34|btn2_reg     ; Merged with contador_2_bits_habilitado:inst39|btn2_reg                          ;
+; contador_4_bits_up_down:inst35|btn2_reg     ; Merged with contador_2_bits_habilitado:inst39|btn2_reg                          ;
+; controlador_pausa_reset:inst50|btn_ant_reg  ; Merged with contador_2_bits_habilitado:inst39|btn2_reg                          ;
+; divisor_de_frequencia:inst5|q[14]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14] ;
+; divisor_de_frequencia:inst6|q[14]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14] ;
+; divisor_de_frequencia:inst5|q[13]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13] ;
+; divisor_de_frequencia:inst6|q[13]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13] ;
+; divisor_de_frequencia:inst5|q[12]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12] ;
+; divisor_de_frequencia:inst6|q[12]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12] ;
+; divisor_de_frequencia:inst5|q[11]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11] ;
+; divisor_de_frequencia:inst6|q[11]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11] ;
+; divisor_de_frequencia:inst5|q[10]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10] ;
+; divisor_de_frequencia:inst6|q[10]           ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10] ;
+; divisor_de_frequencia:inst5|q[9]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]  ;
+; divisor_de_frequencia:inst6|q[9]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]  ;
+; divisor_de_frequencia:inst5|q[8]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]  ;
+; divisor_de_frequencia:inst6|q[8]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]  ;
+; divisor_de_frequencia:inst5|q[7]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]  ;
+; divisor_de_frequencia:inst6|q[7]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]  ;
+; divisor_de_frequencia:inst5|q[6]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]  ;
+; divisor_de_frequencia:inst6|q[6]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]  ;
+; divisor_de_frequencia:inst5|q[5]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]  ;
+; divisor_de_frequencia:inst6|q[5]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]  ;
+; divisor_de_frequencia:inst5|q[4]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]  ;
+; divisor_de_frequencia:inst6|q[4]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]  ;
+; divisor_de_frequencia:inst5|q[3]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]  ;
+; divisor_de_frequencia:inst6|q[3]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]  ;
+; divisor_de_frequencia:inst5|q[2]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]  ;
+; divisor_de_frequencia:inst6|q[2]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]  ;
+; divisor_de_frequencia:inst5|q[1]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]  ;
+; divisor_de_frequencia:inst6|q[1]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]  ;
+; divisor_de_frequencia:inst5|q[0]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]  ;
+; divisor_de_frequencia:inst6|q[0]            ; Merged with Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]  ;
+; contador_2_bits_up_down:inst24|q[1]         ; Lost fanout                                                                     ;
+; Total Number of Removed Registers = 43      ;                                                                                 ;
++---------------------------------------------+---------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -245,18 +326,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 65    ;
-; Number of registers using Synchronous Clear  ; 36    ;
+; Total registers                              ; 136   ;
+; Number of registers using Synchronous Clear  ; 59    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 3     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ;
++----------------+----------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                            ;
++----------------+----------+---------------------------------------------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                                                         ;
+; n              ; 24       ; Untyped                                                                         ;
++----------------+----------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ;
++----------------+---------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                             ;
++----------------+---------+----------------------------------------------------------------------------------+
+; modulus        ; 6250000 ; Untyped                                                                          ;
+; n              ; 23      ; Untyped                                                                          ;
++----------------+---------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|contador_n_bits:inst1 ;
+; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|contador_n_bits:inst1 ;
 +----------------+-------+------------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                         ;
 +----------------+-------+------------------------------------------------------------------------------+
@@ -267,7 +370,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst ;
+; Parameter Settings for User Entity Instance: Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst ;
 +----------------+-------+-----------------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                              ;
 +----------------+-------+-----------------------------------------------------------------------------------+
@@ -277,25 +380,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: contador_n_bits:inst12 ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; reset          ; 9     ; Untyped                                    ;
-; n              ; 4     ; Untyped                                    ;
-+----------------+-------+--------------------------------------------+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5 ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                         ;
+; n              ; 15    ; Untyped                                         ;
++----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +--------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5 ;
-+----------------+---------+-----------------------------------------------+
-; Parameter Name ; Value   ; Type                                          ;
-+----------------+---------+-----------------------------------------------+
-; modulus        ; 6250000 ; Untyped                                       ;
-; n              ; 23      ; Untyped                                       ;
-+----------------+---------+-----------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst6 ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                         ;
+; n              ; 15    ; Untyped                                         ;
++----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -305,21 +408,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 20                          ;
-; cycloneiii_ff         ; 65                          ;
-;     SCLR              ; 36                          ;
-;     plain             ; 29                          ;
-; cycloneiii_lcell_comb ; 155                         ;
-;     arith             ; 34                          ;
-;         2 data inputs ; 32                          ;
-;         3 data inputs ; 2                           ;
-;     normal            ; 121                         ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 19                          ;
-;         4 data inputs ; 80                          ;
+; cycloneiii_ff         ; 136                         ;
+;     ENA               ; 3                           ;
+;     SCLR              ; 59                          ;
+;     plain             ; 74                          ;
+; cycloneiii_lcell_comb ; 329                         ;
+;     arith             ; 56                          ;
+;         2 data inputs ; 53                          ;
+;         3 data inputs ; 3                           ;
+;     normal            ; 273                         ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 58                          ;
+;         4 data inputs ; 190                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.56                        ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 4.06                        ;
 +-----------------------+-----------------------------+
 
 
@@ -328,7 +432,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -338,7 +442,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jul 11 14:05:13 2025
+    Info: Processing started: Thu Jul 17 09:54:56 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projeto_02 -c Projeto_02
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -359,9 +463,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file output_
 Info (12021): Found 1 design units, including 1 entities, in source file seletor_alimentacao_display.bdf
     Info (12023): Found entity 1: Seletor_alimentacao_display
 Warning (12019): Can't analyze file -- file output_files/seletor_vetor_dig.tdf is missing
-Warning (287002): Group MSB alterna3 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/decoder_2_para_4.tdf
-    Info (12023): Found entity 1: decoder_2_para_4 File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf Line: 4
+    Info (12023): Found entity 1: decoder_2_para_4 File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf Line: 5
 Warning (12019): Can't analyze file -- file output_files/contador_de_decada.bdf is missing
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/contador_de_decada.tdf
     Info (12023): Found entity 1: contador_de_decada File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_de_decada.tdf Line: 4
@@ -373,35 +476,64 @@ Warning (287002): Group MSB milhar_seg6 overrides BIT0 = LSB in actual or defaul
 Warning (287002): Group MSB segmento_out6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/mux_display_4digitos.tdf
     Info (12023): Found entity 1: mux_display_4digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_4_bits_up_down.tdf
+    Info (12023): Found entity 1: contador_4_bits_up_down File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_4_bits_up_down.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2_bits_up_down.tdf
+    Info (12023): Found entity 1: contador_2_bits_up_down File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_up_down.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file decodificador_menus.tdf
+    Info (12023): Found entity 1: decodificador_menus File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/decodificador_menus.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file decodificador_menu_digitos.tdf
+    Info (12023): Found entity 1: decodificador_menu_digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/decodificador_menu_digitos.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file mux_mostragem_display.tdf
+    Info (12023): Found entity 1: mux_mostragem_display File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_mostragem_display.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2_bits_habilitado.tdf
+    Info (12023): Found entity 1: contador_2_bits_habilitado File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_habilitado.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file comparador_4_digitos.tdf
+    Info (12023): Found entity 1: comparador_4_digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/comparador_4_digitos.tdf Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file flag_menu_visitado.tdf
+    Info (12023): Found entity 1: flag_menu_visitado File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/flag_menu_visitado.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_reset_2_bits_up_down.tdf
+    Info (12023): Found entity 1: contador_reset_2_bits_up_down File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_reset_2_bits_up_down.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file controlador_pausa_reset.tdf
+    Info (12023): Found entity 1: controlador_pausa_reset File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/controlador_pausa_reset.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file teste_reset_latch.tdf
+    Info (12023): Found entity 1: teste_reset_latch File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/teste_reset_latch.tdf Line: 5
 Info (12127): Elaborating entity "Projeto_02" for the top level hierarchy
-Info (12128): Elaborating entity "Seletor_alimentacao_display" for hierarchy "Seletor_alimentacao_display:inst13"
-Info (12128): Elaborating entity "decoder_2_para_4" for hierarchy "Seletor_alimentacao_display:inst13|decoder_2_para_4:inst7"
-Info (12128): Elaborating entity "contador_n_bits" for hierarchy "Seletor_alimentacao_display:inst13|contador_n_bits:inst1"
-Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Seletor_alimentacao_display:inst13|divisor_de_frequencia:inst"
-Info (12128): Elaborating entity "contador_n_bits" for hierarchy "contador_n_bits:inst12"
-Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "divisor_de_frequencia:inst5"
-Info (12128): Elaborating entity "mux_display_4digitos" for hierarchy "mux_display_4digitos:inst"
-Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "decodificador_7seg:inst9"
-Info (12128): Elaborating entity "contador_de_decada" for hierarchy "contador_de_decada:inst14"
+Info (12128): Elaborating entity "Seletor_alimentacao_display" for hierarchy "Seletor_alimentacao_display:inst46"
+Info (12128): Elaborating entity "decoder_2_para_4" for hierarchy "Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6"
+Info (12128): Elaborating entity "contador_n_bits" for hierarchy "Seletor_alimentacao_display:inst46|contador_n_bits:inst1"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst"
+Info (12128): Elaborating entity "decodificador_menu_digitos" for hierarchy "decodificador_menu_digitos:inst37"
+Info (12128): Elaborating entity "contador_reset_2_bits_up_down" for hierarchy "contador_reset_2_bits_up_down:inst49"
+Info (12128): Elaborating entity "comparador_4_digitos" for hierarchy "comparador_4_digitos:inst40"
+Info (12128): Elaborating entity "flag_menu_visitado" for hierarchy "flag_menu_visitado:inst41"
+Info (12128): Elaborating entity "contador_de_decada" for hierarchy "contador_de_decada:inst43"
+Info (12128): Elaborating entity "controlador_pausa_reset" for hierarchy "controlador_pausa_reset:inst50"
 Info (12128): Elaborating entity "bloco_debounce" for hierarchy "bloco_debounce:inst20"
 Info (12021): Found 1 design units, including 1 entities, in source file db/debounce.tdf
     Info (12023): Found entity 1: debounce File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/db/debounce.tdf Line: 3
 Info (12128): Elaborating entity "debounce" for hierarchy "bloco_debounce:inst20|debounce:inst"
+Info (12128): Elaborating entity "contador_4_bits_up_down" for hierarchy "contador_4_bits_up_down:inst34"
+Info (12128): Elaborating entity "contador_2_bits_habilitado" for hierarchy "contador_2_bits_habilitado:inst39"
+Info (12128): Elaborating entity "teste_reset_latch" for hierarchy "teste_reset_latch:inst11"
+Info (12128): Elaborating entity "contador_2_bits_up_down" for hierarchy "contador_2_bits_up_down:inst24"
+Info (12128): Elaborating entity "mux_display_4digitos" for hierarchy "mux_display_4digitos:inst"
+Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "decodificador_7seg:inst9"
+Info (12128): Elaborating entity "mux_mostragem_display" for hierarchy "mux_mostragem_display:inst31"
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "key[4]"
-    Warning (15610): No output dependent on input pin "key[3]"
-    Warning (15610): No output dependent on input pin "key[2]"
-Info (21057): Implemented 171 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 360 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 15 output pins
-    Info (21061): Implemented 151 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 4765 megabytes
-    Info: Processing ended: Fri Jul 11 14:05:24 2025
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:25
+    Info (21061): Implemented 340 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4783 megabytes
+    Info: Processing ended: Thu Jul 17 09:55:09 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:29
 
 

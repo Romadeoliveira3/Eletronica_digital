@@ -1,0 +1,61 @@
+TITLE "Contador de 2 Bits que seleciona dígitos";
+
+-- Este subdesign cria um contador de 2 bits (0-3) que só reage aos cliques
+-- quando o menu_in está em "01".
+SUBDESIGN contador_2_bits_habilitado
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;  -- Clock do sistema.
+	menu_in[1..0] : INPUT;  -- NOVO: Habilita a contagem no estado "01".
+	botaoprox_in  : INPUT;  -- Botão para contar de forma CRESCENTE (UP).
+	botaoant_in   : INPUT;  -- Botão para contar de forma DECRESCENTE (DOWN).
+	
+	-- SAÍDA --
+	bit_out[1..0] : OUTPUT; -- SAÍDA para 2 bits.
+)
+VARIABLE
+	-- Registrador principal para 2 bits.
+	q[1..0]            : DFF;
+	
+	-- Registradores para armazenar o estado anterior de cada botão.
+	btn1_reg, btn2_reg : DFF;
+	
+	-- Nós lógicos para os pulsos gerados.
+	up_pulse, down_pulse : NODE;
+
+BEGIN
+	-- Sincroniza todos os registradores com o mesmo clock.
+	q[].clk = clk_in;
+	btn1_reg.clk = clk_in;
+	btn2_reg.clk = clk_in;
+	
+	-- Conecta o valor do contador à porta de saída.
+	bit_out[] = q[].q;
+	
+	-- Lógica do Detector de Borda (não alterada) --
+	btn1_reg.d = botaoprox_in;
+	btn2_reg.d = botaoant_in;
+	up_pulse   = btn1_reg.q & !botaoprox_in;
+	down_pulse = btn2_reg.q & !botaoant_in;
+	
+	-- Lógica do Contador (agora com a condição de habilitação) --
+	-- Este IF externo funciona como uma chave geral para a contagem.
+	IF menu_in[] == B"01" THEN
+	
+		-- A lógica original de UP/DOWN só é executada se a condição acima for verdadeira.
+		IF up_pulse == VCC THEN
+				q[].d = q[].q + 1;
+			ELSE IF down_pulse == VCC THEN
+					q[].d = q[].q - 1;
+				ELSE
+					q[].d = q[].q;
+			END IF;
+		END IF;
+		
+		ELSE
+			-- Se menu_in NÃO for "01", o contador ignora os botões e mantém seu valor.
+			q[].d = q[].q;
+		
+	END IF;
+
+END;
