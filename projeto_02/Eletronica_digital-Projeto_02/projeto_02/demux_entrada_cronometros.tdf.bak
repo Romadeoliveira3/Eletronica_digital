@@ -1,0 +1,82 @@
+TITLE "DEMUX de entrada dos cronômetros";
+
+-- Este subdesign funciona como um demultiplexador, roteando um conjunto
+-- de sinais de controle (menu, select, botões) para um de quatro
+-- destinos de saída, com base em qual 'crono' está ativo.
+SUBDESIGN demux_entrada_cronometros
+(
+	-- ENTRADAS --
+	-- Sinais de seleção (assumindo que apenas um estará ativo por vez).
+	crono1, crono2, crono3, crono4 : INPUT;
+	
+	-- Sinais de dados a serem roteados.
+	menu_in[1..0]   : INPUT;
+	select_in[1..0] : INPUT;
+	deb1_in, deb2_in, deb3_in, deb4_in : INPUT;
+
+	-- SAÍDAS --
+	-- Destino 1 (Cronômetro 1)
+	menu_out_c1[1..0], selec_out_c1[1..0] : OUTPUT;
+	deb1_out_c1, deb2_out_c1, deb3_out_c1, deb4_out_c1 : OUTPUT;
+	
+	-- Destino 2 (Cronômetro 2)
+	menu_out_c2[1..0], selec_out_c2[1..0] : OUTPUT;
+	deb1_out_c2, deb2_out_c2, deb3_out_c2, deb4_out_c2 : OUTPUT;
+	
+	-- Destino 3 (Cronômetro 3)
+	menu_out_c3[1..0], selec_out_c3[1..0] : OUTPUT;
+	deb1_out_c3, deb2_out_c3, deb3_out_c3, deb4_out_c3 : OUTPUT;
+	
+	-- Destino 4 (Cronômetro 4)
+	menu_out_c4[1..0], selec_out_c4[1..0] : OUTPUT;
+	deb1_out_c4, deb2_out_c4, deb3_out_c4, deb4_out_c4 : OUTPUT;
+)
+BEGIN
+	-- A estrutura IF/ELSE IF garante a seleção e o estado padrão.
+	-- Se crono1 estiver ativo...
+	IF crono1 == VCC THEN
+		-- Roteia todas as entradas para as saídas do Cronômetro 1.
+		menu_out_c1[] = menu_in[];
+		selec_out_c1[] = select_in[];
+		(deb4_out_c1, deb3_out_c1, deb2_out_c1, deb1_out_c1) = (deb4_in, deb3_in, deb2_in, deb1_in);
+		
+		-- Garante que todas as outras saídas estejam zeradas.
+		(menu_out_c2[], selec_out_c2[], deb4_out_c2, deb3_out_c2, deb2_out_c2, deb1_out_c2) = 0;
+		(menu_out_c3[], selec_out_c3[], deb4_out_c3, deb3_out_c3, deb2_out_c3, deb1_out_c3) = 0;
+		(menu_out_c4[], selec_out_c4[], deb4_out_c4, deb3_out_c4, deb2_out_c4, deb1_out_c4) = 0;
+		
+	-- Senão, se crono2 estiver ativo...
+	ELSE IF crono2 == VCC THEN
+		-- Roteia todas as entradas para as saídas do Cronômetro 2.
+		menu_out_c2[] = menu_in[];
+		selec_out_c2[] = select_in[];
+		(deb4_out_c2, deb3_out_c2, deb2_out_c2, deb1_out_c2) = (deb4_in, deb3_in, deb2_in, deb1_in);
+		
+		-- Garante que todas as outras saídas estejam zeradas.
+		(menu_out_c1[], selec_out_c1[], deb4_out_c1, deb3_out_c1, deb2_out_c1, deb1_out_c1) = 0;
+		(menu_out_c3[], selec_out_c3[], deb4_out_c3, deb3_out_c3, deb2_out_c3, deb1_out_c3) = 0;
+		(menu_out_c4[], selec_out_c4[], deb4_out_c4, deb3_out_c4, deb2_out_c4, deb1_out_c4) = 0;
+
+	-- Senão, se crono3 estiver ativo...
+	ELSE IF crono3 == VCC THEN
+		-- Roteia todas as entradas para as saídas do Cronômetro 3.
+		menu_out_c3[] = menu_in[];
+		selec_out_c3[] = select_in[];
+		(deb4_out_c3, deb3_out_c3, deb2_out_c3, deb1_out_c3) = (deb4_in, deb3_in, deb2_in, deb1_in);
+
+		-- Garante que todas as outras saídas estejam zeradas.
+		(menu_out_c1[], selec_out_c1[], deb4_out_c1, deb3_out_c1, deb2_out_c1, deb1_out_c1) = 0;
+		(menu_out_c2[], selec_out_c2[], deb4_out_c2, deb3_out_c2, deb2_out_c2, deb1_out_c2) = 0;
+		(menu_out_c4[], selec_out_c4[], deb4_out_c4, deb3_out_c4, deb2_out_c4, deb1_out_c4) = 0;
+
+	-- Senão, se crono4 estiver ativo...
+	ELSE IF crono4 == VCC THEN
+		-- Roteia todas as entradas para as saídas do Cronômetro 4.
+		menu_out_c4[] = menu_in[];
+		selec_out_c4[] = select_in[];
+		(deb4_out_c4, deb3_out_c4, deb2_out_c4, deb1_out_c4) = (deb4_in, deb3_in, deb2_in, deb1_in);
+		
+		-- Garante que todas as outras saídas estejam zeradas.
+		(menu_out_c1[], selec_out_c1[], deb4_out_c1, deb3_out_c1, deb2_out_c1, deb1_out_c1) = 0;
+		(menu_out_c2[], selec_out_c2[], deb4_out_c2, deb3_out_c2, deb2_out_c2, deb1_out_c2) = 0;
+		(menu

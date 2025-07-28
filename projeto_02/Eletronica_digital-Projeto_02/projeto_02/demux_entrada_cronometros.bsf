@@ -1,0 +1,268 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 248 448)
+	(text "demux_entrada_cronometros" (rect 5 0 124 12)(font "Arial" ))
+	(text "inst" (rect 8 416 20 428)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "crono1" (rect 0 0 25 12)(font "Arial" ))
+		(text "crono1" (rect 21 27 46 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "crono2" (rect 0 0 27 12)(font "Arial" ))
+		(text "crono2" (rect 21 43 48 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "crono3" (rect 0 0 27 12)(font "Arial" ))
+		(text "crono3" (rect 21 59 48 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "crono4" (rect 0 0 28 12)(font "Arial" ))
+		(text "crono4" (rect 21 75 49 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "menu_in[1..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "menu_in[1..0]" (rect 21 91 74 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "select_in[1..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "select_in[1..0]" (rect 21 107 74 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "deb1_in" (rect 0 0 29 12)(font "Arial" ))
+		(text "deb1_in" (rect 21 123 50 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "deb2_in" (rect 0 0 30 12)(font "Arial" ))
+		(text "deb2_in" (rect 21 139 51 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "deb3_in" (rect 0 0 30 12)(font "Arial" ))
+		(text "deb3_in" (rect 21 155 51 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "deb4_in" (rect 0 0 31 12)(font "Arial" ))
+		(text "deb4_in" (rect 21 171 52 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "menu_out_c1[1..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "menu_out_c1[1..0]" (rect 138 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "selec_out_c1[1..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "selec_out_c1[1..0]" (rect 141 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "deb1_out_c1" (rect 0 0 49 12)(font "Arial" ))
+		(text "deb1_out_c1" (rect 162 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "deb2_out_c1" (rect 0 0 50 12)(font "Arial" ))
+		(text "deb2_out_c1" (rect 161 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 1))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "deb3_out_c1" (rect 0 0 50 12)(font "Arial" ))
+		(text "deb3_out_c1" (rect 161 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96)(line_width 1))
+	)
+	(port
+		(pt 232 112)
+		(output)
+		(text "deb4_out_c1" (rect 0 0 51 12)(font "Arial" ))
+		(text "deb4_out_c1" (rect 160 107 211 119)(font "Arial" ))
+		(line (pt 232 112)(pt 216 112)(line_width 1))
+	)
+	(port
+		(pt 232 128)
+		(output)
+		(text "menu_out_c2[1..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "menu_out_c2[1..0]" (rect 137 123 211 135)(font "Arial" ))
+		(line (pt 232 128)(pt 216 128)(line_width 3))
+	)
+	(port
+		(pt 232 144)
+		(output)
+		(text "selec_out_c2[1..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "selec_out_c2[1..0]" (rect 140 139 211 151)(font "Arial" ))
+		(line (pt 232 144)(pt 216 144)(line_width 3))
+	)
+	(port
+		(pt 232 160)
+		(output)
+		(text "deb1_out_c2" (rect 0 0 50 12)(font "Arial" ))
+		(text "deb1_out_c2" (rect 161 155 211 167)(font "Arial" ))
+		(line (pt 232 160)(pt 216 160)(line_width 1))
+	)
+	(port
+		(pt 232 176)
+		(output)
+		(text "deb2_out_c2" (rect 0 0 51 12)(font "Arial" ))
+		(text "deb2_out_c2" (rect 160 171 211 183)(font "Arial" ))
+		(line (pt 232 176)(pt 216 176)(line_width 1))
+	)
+	(port
+		(pt 232 192)
+		(output)
+		(text "deb3_out_c2" (rect 0 0 51 12)(font "Arial" ))
+		(text "deb3_out_c2" (rect 160 187 211 199)(font "Arial" ))
+		(line (pt 232 192)(pt 216 192)(line_width 1))
+	)
+	(port
+		(pt 232 208)
+		(output)
+		(text "deb4_out_c2" (rect 0 0 53 12)(font "Arial" ))
+		(text "deb4_out_c2" (rect 158 203 211 215)(font "Arial" ))
+		(line (pt 232 208)(pt 216 208)(line_width 1))
+	)
+	(port
+		(pt 232 224)
+		(output)
+		(text "menu_out_c3[1..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "menu_out_c3[1..0]" (rect 137 219 211 231)(font "Arial" ))
+		(line (pt 232 224)(pt 216 224)(line_width 3))
+	)
+	(port
+		(pt 232 240)
+		(output)
+		(text "selec_out_c3[1..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "selec_out_c3[1..0]" (rect 140 235 211 247)(font "Arial" ))
+		(line (pt 232 240)(pt 216 240)(line_width 3))
+	)
+	(port
+		(pt 232 256)
+		(output)
+		(text "deb1_out_c3" (rect 0 0 50 12)(font "Arial" ))
+		(text "deb1_out_c3" (rect 161 251 211 263)(font "Arial" ))
+		(line (pt 232 256)(pt 216 256)(line_width 1))
+	)
+	(port
+		(pt 232 272)
+		(output)
+		(text "deb2_out_c3" (rect 0 0 51 12)(font "Arial" ))
+		(text "deb2_out_c3" (rect 160 267 211 279)(font "Arial" ))
+		(line (pt 232 272)(pt 216 272)(line_width 1))
+	)
+	(port
+		(pt 232 288)
+		(output)
+		(text "deb3_out_c3" (rect 0 0 51 12)(font "Arial" ))
+		(text "deb3_out_c3" (rect 160 283 211 295)(font "Arial" ))
+		(line (pt 232 288)(pt 216 288)(line_width 1))
+	)
+	(port
+		(pt 232 304)
+		(output)
+		(text "deb4_out_c3" (rect 0 0 53 12)(font "Arial" ))
+		(text "deb4_out_c3" (rect 158 299 211 311)(font "Arial" ))
+		(line (pt 232 304)(pt 216 304)(line_width 1))
+	)
+	(port
+		(pt 232 320)
+		(output)
+		(text "menu_out_c4[1..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "menu_out_c4[1..0]" (rect 136 315 211 327)(font "Arial" ))
+		(line (pt 232 320)(pt 216 320)(line_width 3))
+	)
+	(port
+		(pt 232 336)
+		(output)
+		(text "selec_out_c4[1..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "selec_out_c4[1..0]" (rect 138 331 211 343)(font "Arial" ))
+		(line (pt 232 336)(pt 216 336)(line_width 3))
+	)
+	(port
+		(pt 232 352)
+		(output)
+		(text "deb1_out_c4" (rect 0 0 51 12)(font "Arial" ))
+		(text "deb1_out_c4" (rect 160 347 211 359)(font "Arial" ))
+		(line (pt 232 352)(pt 216 352)(line_width 1))
+	)
+	(port
+		(pt 232 368)
+		(output)
+		(text "deb2_out_c4" (rect 0 0 53 12)(font "Arial" ))
+		(text "deb2_out_c4" (rect 158 363 211 375)(font "Arial" ))
+		(line (pt 232 368)(pt 216 368)(line_width 1))
+	)
+	(port
+		(pt 232 384)
+		(output)
+		(text "deb3_out_c4" (rect 0 0 53 12)(font "Arial" ))
+		(text "deb3_out_c4" (rect 158 379 211 391)(font "Arial" ))
+		(line (pt 232 384)(pt 216 384)(line_width 1))
+	)
+	(port
+		(pt 232 400)
+		(output)
+		(text "deb4_out_c4" (rect 0 0 54 12)(font "Arial" ))
+		(text "deb4_out_c4" (rect 157 395 211 407)(font "Arial" ))
+		(line (pt 232 400)(pt 216 400)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 416)(line_width 1))
+	)
+)

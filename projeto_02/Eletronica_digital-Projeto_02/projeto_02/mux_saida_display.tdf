@@ -1,0 +1,70 @@
+TITLE "Multiplexador de Saída";
+
+-- Este subdesign seleciona um de quatro conjuntos de dados de display
+-- (dígito e segmento) para enviar a uma saída comum, com base
+-- em qual sinal 'crono' está ativo.
+SUBDESIGN mux_saida_display
+(
+	-- ENTRADAS --
+	-- Sinais de seleção (assumindo que apenas um estará ativo por vez).
+	crono1, crono2, crono3, crono4 : INPUT;
+	
+	-- Fonte de dados 1
+	dig_in_c1[3..0] : INPUT;
+	seg_in_c1[6..0] : INPUT;
+	
+	-- Fonte de dados 2
+	dig_in_c2[3..0] : INPUT;
+	seg_in_c2[6..0] : INPUT;
+
+	-- Fonte de dados 3
+	dig_in_c3[3..0] : INPUT;
+	seg_in_c3[6..0] : INPUT;
+
+	-- Fonte de dados 4
+	dig_in_c4[3..0] : INPUT;
+	seg_in_c4[6..0] : INPUT;
+	
+	-- SAÍDAS --
+	-- Saída comum que recebe os dados da fonte selecionada.
+	dig_out[3..0]   : OUTPUT;
+	seg_out[6..0]   : OUTPUT;
+)
+BEGIN
+	-- A estrutura IF/ELSE IF funciona como um seletor com prioridade.
+	-- Se crono1 estiver ativo...
+	IF crono1 THEN
+		-- ...conecta a Fonte 1 à saída.
+		dig_out[] = dig_in_c1[];
+		seg_out[] = seg_in_c1[];
+		
+	-- Senão, se crono2 estiver ativo...
+	ELSE IF crono2 THEN
+		-- ...conecta a Fonte 2 à saída.
+		dig_out[] = dig_in_c2[];
+		seg_out[] = seg_in_c2[];
+
+	-- Senão, se crono3 estiver ativo...
+	ELSE IF crono3 THEN
+		-- ...conecta a Fonte 3 à saída.
+		dig_out[] = dig_in_c3[];
+		seg_out[] = seg_in_c3[];
+
+	-- Senão, se crono4 estiver ativo...
+	ELSE IF crono4 THEN
+		-- ...conecta a Fonte 4 à saída.
+		dig_out[] = dig_in_c4[];
+		seg_out[] = seg_in_c4[];
+	
+	-- Se nenhum 'crono' estiver ativo...
+	ELSE
+		-- ...define um estado padrão e seguro para a saída (display desligado).
+		-- Para seletores de dígito ativos em '0', '1111' desliga todos.
+		-- Para segmentos ativos em '0', '1111111' desliga todos.
+		dig_out[] = B"1111";
+		seg_out[] = B"1111111";
+	END IF;
+	END IF;
+	END IF;
+END IF;
+END;

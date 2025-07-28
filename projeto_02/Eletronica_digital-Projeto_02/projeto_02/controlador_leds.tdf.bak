@@ -1,0 +1,57 @@
+TITLE "Controlador de LEDs com Modos Blink e Estático";
+
+-- Este subdesign controla 4 LEDs em modo ativo-baixo.
+-- No menu "00", o LED selecionado pisca. Nos outros menus, ele fica aceso.
+SUBDESIGN controlador_leds
+(
+	-- ENTRADAS --
+	clock05_in    : INPUT;      -- Clock de 0.5s (2 Hz) para o ritmo do blink.
+	menu_in[1..0] : INPUT;      -- Seleciona o modo de operação (blink ou estático).
+	
+	-- Sinais de seleção (assumindo que apenas um estará ativo por vez).
+	crono1, crono2, crono3, crono4 : INPUT;
+	
+	-- SAÍDAS --
+	-- Saídas para os LEDs (ativo em '0').
+	led1_out, led2_out, led3_out, led4_out : OUTPUT;
+)
+BEGIN
+	-- A estrutura IF principal separa os dois modos de operação.
+	-- Modo 1: Blink (quando menu_in é "00").
+	IF menu_in[] == B"00" THEN
+		-- A estrutura IF/ELSE IF interna seleciona qual LED irá piscar.
+		IF crono1 THEN
+			-- Para piscar o led1, sua saída recebe o clock. As outras ficam em '1' (apagadas).
+			(led4_out, led3_out, led2_out, led1_out) = ('1', '1', '1', clock05_in);
+		ELSE IF crono2 THEN
+			(led4_out, led3_out, led2_out, led1_out) = ('1', '1', clock05_in, '1');
+		ELSE IF crono3 THEN
+			(led4_out, led3_out, led2_out, led1_out) = ('1', clock05_in, '1', '1');
+		ELSE IF crono4 THEN
+			(led4_out, led3_out, led2_out, led1_out) = (clock05_in, '1', '1', '1');
+		ELSE
+			-- Se nenhum crono estiver ativo, todos os LEDs ficam apagados.
+			(led4_out, led3_out, led2_out, led1_out) = B"1111";
+		END IF;
+		END IF;
+		END IF;
+		END IF;
+		
+	-- Modo 2: Estático (para menus "01", "10" e "11").
+	ELSE
+		-- A estrutura IF/ELSE IF interna seleciona qual LED ficará aceso.
+		IF crono1 THEN
+			-- Para acender o led1, sua saída vai para '0'. As outras ficam em '1'.
+			(led4_out, led3_out, led2_out, led1_out) = B"1110";
+		ELSE IF crono2 THEN
+			(led4_out, led3_out, led2_out, led1_out) = B"1101";
+		ELSE IF crono3 THEN
+			(led4_out, led3_out, led2_out, led1_out) = B"1011";
+		ELSE IF crono4 THEN
+			(led4_out, led3_out, led2_out, led1_out) = B"0111";
+		ELSE
+			-- Se nenhum crono estiver ativo, todos os LEDs ficam apagados.
+			(led4_out, led3_out, led2_out, led1_out) = B"1111";
+		END IF;
+	END IF;
+END;

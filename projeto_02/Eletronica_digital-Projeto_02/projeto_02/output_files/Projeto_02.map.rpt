@@ -1,0 +1,1268 @@
+Analysis & Synthesis report for Projeto_02
+Mon Jul 28 17:08:58 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst10
+ 11. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst11
+ 12. Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4
+ 13. Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6
+ 14. Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|contador_n_bits:inst1
+ 15. Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst
+ 16. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5
+ 17. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst6
+ 18. Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4
+ 19. Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6
+ 20. Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|contador_n_bits:inst1
+ 21. Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst
+ 22. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst8
+ 23. Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4
+ 24. Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6
+ 25. Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|contador_n_bits:inst1
+ 26. Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst
+ 27. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst26
+ 28. Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4
+ 29. Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6
+ 30. Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|contador_n_bits:inst1
+ 31. Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst
+ 32. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst31
+ 33. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst27
+ 34. Parameter Settings for User Entity Instance: divisor_de_frequencia:inst29
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jul 28 17:08:58 2025       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; Projeto_02                                  ;
+; Top-level Entity Name              ; Projeto_02                                  ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,154                                       ;
+;     Total combinational functions  ; 1,138                                       ;
+;     Dedicated logic registers      ; 365                                         ;
+; Total registers                    ; 365                                         ;
+; Total pins                         ; 21                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; Projeto_02         ; Projeto_02         ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
++---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path      ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                               ; Library ;
++---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; Projeto_02.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/Projeto_02.bdf                        ;         ;
+; bloco_debounce.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/bloco_debounce.bdf                    ;         ;
+; divisor_de_frequencia.tdf             ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/divisor_de_frequencia.tdf             ;         ;
+; output_files/decodificador_7seg.tdf   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decodificador_7seg.tdf   ;         ;
+; output_files/contador_n_bits.tdf      ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_n_bits.tdf      ;         ;
+; Seletor_alimentacao_display.bdf       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/Seletor_alimentacao_display.bdf       ;         ;
+; output_files/decoder_2_para_4.tdf     ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf     ;         ;
+; output_files/contador_de_decada.tdf   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_de_decada.tdf   ;         ;
+; output_files/mux_display_4digitos.tdf ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf ;         ;
+; contador_4_bits_up_down.tdf           ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_4_bits_up_down.tdf           ;         ;
+; decodificador_menu_digitos.tdf        ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/decodificador_menu_digitos.tdf        ;         ;
+; mux_mostragem_display.tdf             ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_mostragem_display.tdf             ;         ;
+; contador_2_bits_habilitado.tdf        ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_habilitado.tdf        ;         ;
+; comparador_4_digitos.tdf              ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/comparador_4_digitos.tdf              ;         ;
+; flag_menu_visitado.tdf                ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/flag_menu_visitado.tdf                ;         ;
+; controlador_pausa_reset.tdf           ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/controlador_pausa_reset.tdf           ;         ;
+; Cronometro.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/Cronometro.bdf                        ;         ;
+; detector_borda_menu_2.tdf             ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/detector_borda_menu_2.tdf             ;         ;
+; output_files/ativador_de_alarme.tdf   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/ativador_de_alarme.tdf   ;         ;
+; alarme_1.tdf                          ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/alarme_1.tdf                          ;         ;
+; demux_entrada_cronometros.tdf         ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/demux_entrada_cronometros.tdf         ;         ;
+; mux_saida_display.tdf                 ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_saida_display.tdf                 ;         ;
+; contador_2_bits_select.tdf            ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_select.tdf            ;         ;
+; contador_2_menu.tdf                   ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_menu.tdf                   ;         ;
+; mux_de_alarmes.tdf                    ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_de_alarmes.tdf                    ;         ;
+; controlador_leds.tdf                  ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/controlador_leds.tdf                  ;         ;
+; seletor_cronometro_contador.tdf       ; yes             ; User AHDL File                     ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/seletor_cronometro_contador.tdf       ;         ;
+; db/debounce.tdf                       ; yes             ; Auto-Generated Megafunction        ; C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/db/debounce.tdf                       ;         ;
++---------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 1,154       ;
+;                                             ;             ;
+; Total combinational functions               ; 1138        ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 730         ;
+;     -- 3 input functions                    ; 219         ;
+;     -- <=2 input functions                  ; 189         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 1048        ;
+;     -- arithmetic mode                      ; 90          ;
+;                                             ;             ;
+; Total registers                             ; 365         ;
+;     -- Dedicated logic registers            ; 365         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 21          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 281         ;
+; Total fan-out                               ; 4872        ;
+; Average fan-out                             ; 3.15        ;
++---------------------------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                               ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                          ; Entity Name                 ; Library Name ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |Projeto_02                                ; 1138 (0)            ; 365 (0)                   ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |Projeto_02                                                                                  ; Projeto_02                  ; work         ;
+;    |Cronometro:inst13|                     ; 277 (0)             ; 119 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13                                                                ; Cronometro                  ; work         ;
+;       |Seletor_alimentacao_display:inst46| ; 95 (0)              ; 67 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|Seletor_alimentacao_display:inst46                             ; Seletor_alimentacao_display ; work         ;
+;          |contador_n_bits:inst1|           ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|Seletor_alimentacao_display:inst46|contador_n_bits:inst1       ; contador_n_bits             ; work         ;
+;          |decoder_2_para_4:inst5|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5      ; decoder_2_para_4            ; work         ;
+;          |divisor_de_frequencia:inst4|     ; 33 (33)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ; divisor_de_frequencia       ; work         ;
+;          |divisor_de_frequencia:inst6|     ; 32 (32)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ; divisor_de_frequencia       ; work         ;
+;          |divisor_de_frequencia:inst|      ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst  ; divisor_de_frequencia       ; work         ;
+;       |comparador_4_digitos:inst40|        ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|comparador_4_digitos:inst40                                    ; comparador_4_digitos        ; work         ;
+;       |contador_2_bits_habilitado:inst39|  ; 6 (6)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|contador_2_bits_habilitado:inst39                              ; contador_2_bits_habilitado  ; work         ;
+;       |contador_4_bits_up_down:inst25|     ; 16 (16)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|contador_4_bits_up_down:inst25                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst26|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|contador_4_bits_up_down:inst26                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst27|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|contador_4_bits_up_down:inst27                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst28|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|contador_4_bits_up_down:inst28                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_de_decada:inst23|          ; 37 (37)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|contador_de_decada:inst23                                      ; contador_de_decada          ; work         ;
+;       |controlador_pausa_reset:inst50|     ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|controlador_pausa_reset:inst50                                 ; controlador_pausa_reset     ; work         ;
+;       |decodificador_menu_digitos:inst37|  ; 13 (13)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|decodificador_menu_digitos:inst37                              ; decodificador_menu_digitos  ; work         ;
+;       |detector_borda_menu_2:inst22|       ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|detector_borda_menu_2:inst22                                   ; detector_borda_menu_2       ; work         ;
+;       |flag_menu_visitado:inst21|          ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|flag_menu_visitado:inst21                                      ; flag_menu_visitado          ; work         ;
+;       |mux_display_4digitos:inst|          ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|mux_display_4digitos:inst                                      ; mux_display_4digitos        ; work         ;
+;       |mux_mostragem_display:inst31|       ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst13|mux_mostragem_display:inst31                                   ; mux_mostragem_display       ; work         ;
+;    |Cronometro:inst25|                     ; 197 (0)             ; 55 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25                                                                ; Cronometro                  ; work         ;
+;       |Seletor_alimentacao_display:inst46| ; 16 (0)              ; 3 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|Seletor_alimentacao_display:inst46                             ; Seletor_alimentacao_display ; work         ;
+;          |contador_n_bits:inst1|           ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|Seletor_alimentacao_display:inst46|contador_n_bits:inst1       ; contador_n_bits             ; work         ;
+;          |decoder_2_para_4:inst5|          ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5      ; decoder_2_para_4            ; work         ;
+;          |divisor_de_frequencia:inst|      ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst  ; divisor_de_frequencia       ; work         ;
+;       |comparador_4_digitos:inst40|        ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|comparador_4_digitos:inst40                                    ; comparador_4_digitos        ; work         ;
+;       |contador_2_bits_habilitado:inst39|  ; 6 (6)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|contador_2_bits_habilitado:inst39                              ; contador_2_bits_habilitado  ; work         ;
+;       |contador_4_bits_up_down:inst25|     ; 16 (16)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|contador_4_bits_up_down:inst25                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst26|     ; 17 (17)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|contador_4_bits_up_down:inst26                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst27|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|contador_4_bits_up_down:inst27                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst28|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|contador_4_bits_up_down:inst28                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_de_decada:inst23|          ; 36 (36)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|contador_de_decada:inst23                                      ; contador_de_decada          ; work         ;
+;       |controlador_pausa_reset:inst50|     ; 4 (4)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|controlador_pausa_reset:inst50                                 ; controlador_pausa_reset     ; work         ;
+;       |decodificador_menu_digitos:inst37|  ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|decodificador_menu_digitos:inst37                              ; decodificador_menu_digitos  ; work         ;
+;       |detector_borda_menu_2:inst22|       ; 3 (3)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|detector_borda_menu_2:inst22                                   ; detector_borda_menu_2       ; work         ;
+;       |flag_menu_visitado:inst21|          ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|flag_menu_visitado:inst21                                      ; flag_menu_visitado          ; work         ;
+;       |mux_display_4digitos:inst|          ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|mux_display_4digitos:inst                                      ; mux_display_4digitos        ; work         ;
+;       |mux_mostragem_display:inst31|       ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst25|mux_mostragem_display:inst31                                   ; mux_mostragem_display       ; work         ;
+;    |Cronometro:inst30|                     ; 195 (0)             ; 55 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30                                                                ; Cronometro                  ; work         ;
+;       |Seletor_alimentacao_display:inst46| ; 10 (0)              ; 3 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|Seletor_alimentacao_display:inst46                             ; Seletor_alimentacao_display ; work         ;
+;          |contador_n_bits:inst1|           ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|Seletor_alimentacao_display:inst46|contador_n_bits:inst1       ; contador_n_bits             ; work         ;
+;          |decoder_2_para_4:inst5|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5      ; decoder_2_para_4            ; work         ;
+;          |divisor_de_frequencia:inst|      ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst  ; divisor_de_frequencia       ; work         ;
+;       |comparador_4_digitos:inst40|        ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|comparador_4_digitos:inst40                                    ; comparador_4_digitos        ; work         ;
+;       |contador_2_bits_habilitado:inst39|  ; 6 (6)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|contador_2_bits_habilitado:inst39                              ; contador_2_bits_habilitado  ; work         ;
+;       |contador_4_bits_up_down:inst25|     ; 16 (16)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|contador_4_bits_up_down:inst25                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst26|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|contador_4_bits_up_down:inst26                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst27|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|contador_4_bits_up_down:inst27                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst28|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|contador_4_bits_up_down:inst28                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_de_decada:inst23|          ; 39 (39)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|contador_de_decada:inst23                                      ; contador_de_decada          ; work         ;
+;       |controlador_pausa_reset:inst50|     ; 3 (3)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|controlador_pausa_reset:inst50                                 ; controlador_pausa_reset     ; work         ;
+;       |decodificador_menu_digitos:inst37|  ; 12 (12)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|decodificador_menu_digitos:inst37                              ; decodificador_menu_digitos  ; work         ;
+;       |detector_borda_menu_2:inst22|       ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|detector_borda_menu_2:inst22                                   ; detector_borda_menu_2       ; work         ;
+;       |flag_menu_visitado:inst21|          ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|flag_menu_visitado:inst21                                      ; flag_menu_visitado          ; work         ;
+;       |mux_display_4digitos:inst|          ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|mux_display_4digitos:inst                                      ; mux_display_4digitos        ; work         ;
+;       |mux_mostragem_display:inst31|       ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst30|mux_mostragem_display:inst31                                   ; mux_mostragem_display       ; work         ;
+;    |Cronometro:inst32|                     ; 191 (0)             ; 55 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32                                                                ; Cronometro                  ; work         ;
+;       |Seletor_alimentacao_display:inst46| ; 12 (0)              ; 3 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|Seletor_alimentacao_display:inst46                             ; Seletor_alimentacao_display ; work         ;
+;          |contador_n_bits:inst1|           ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|Seletor_alimentacao_display:inst46|contador_n_bits:inst1       ; contador_n_bits             ; work         ;
+;          |decoder_2_para_4:inst5|          ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5      ; decoder_2_para_4            ; work         ;
+;          |divisor_de_frequencia:inst|      ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst  ; divisor_de_frequencia       ; work         ;
+;       |comparador_4_digitos:inst40|        ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|comparador_4_digitos:inst40                                    ; comparador_4_digitos        ; work         ;
+;       |contador_2_bits_habilitado:inst39|  ; 6 (6)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|contador_2_bits_habilitado:inst39                              ; contador_2_bits_habilitado  ; work         ;
+;       |contador_4_bits_up_down:inst25|     ; 16 (16)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|contador_4_bits_up_down:inst25                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst26|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|contador_4_bits_up_down:inst26                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst27|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|contador_4_bits_up_down:inst27                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_4_bits_up_down:inst28|     ; 16 (16)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|contador_4_bits_up_down:inst28                                 ; contador_4_bits_up_down     ; work         ;
+;       |contador_de_decada:inst23|          ; 36 (36)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|contador_de_decada:inst23                                      ; contador_de_decada          ; work         ;
+;       |controlador_pausa_reset:inst50|     ; 3 (3)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|controlador_pausa_reset:inst50                                 ; controlador_pausa_reset     ; work         ;
+;       |decodificador_menu_digitos:inst37|  ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|decodificador_menu_digitos:inst37                              ; decodificador_menu_digitos  ; work         ;
+;       |detector_borda_menu_2:inst22|       ; 3 (3)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|detector_borda_menu_2:inst22                                   ; detector_borda_menu_2       ; work         ;
+;       |flag_menu_visitado:inst21|          ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|flag_menu_visitado:inst21                                      ; flag_menu_visitado          ; work         ;
+;       |mux_display_4digitos:inst|          ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|mux_display_4digitos:inst                                      ; mux_display_4digitos        ; work         ;
+;       |mux_mostragem_display:inst31|       ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|Cronometro:inst32|mux_mostragem_display:inst31                                   ; mux_mostragem_display       ; work         ;
+;    |ativador_de_alarme:inst7|              ; 15 (15)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|ativador_de_alarme:inst7                                                         ; ativador_de_alarme          ; work         ;
+;    |bloco_debounce:inst20|                 ; 4 (0)               ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20                                                            ; bloco_debounce              ; work         ;
+;       |debounce:inst1|                     ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst1                                             ; debounce                    ; work         ;
+;       |debounce:inst2|                     ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst2                                             ; debounce                    ; work         ;
+;       |debounce:inst3|                     ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst3                                             ; debounce                    ; work         ;
+;       |debounce:inst|                      ; 1 (1)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|bloco_debounce:inst20|debounce:inst                                              ; debounce                    ; work         ;
+;    |contador_2_menu:inst23|                ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|contador_2_menu:inst23                                                           ; contador_2_menu             ; work         ;
+;    |controlador_leds:inst33|               ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|controlador_leds:inst33                                                          ; controlador_leds            ; work         ;
+;    |demux_entrada_cronometros:inst15|      ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|demux_entrada_cronometros:inst15                                                 ; demux_entrada_cronometros   ; work         ;
+;    |divisor_de_frequencia:inst10|          ; 18 (18)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst10                                                     ; divisor_de_frequencia       ; work         ;
+;    |divisor_de_frequencia:inst11|          ; 34 (34)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst11                                                     ; divisor_de_frequencia       ; work         ;
+;    |divisor_de_frequencia:inst26|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst26                                                     ; divisor_de_frequencia       ; work         ;
+;    |divisor_de_frequencia:inst31|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst31                                                     ; divisor_de_frequencia       ; work         ;
+;    |divisor_de_frequencia:inst5|           ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst5                                                      ; divisor_de_frequencia       ; work         ;
+;    |divisor_de_frequencia:inst6|           ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst6                                                      ; divisor_de_frequencia       ; work         ;
+;    |divisor_de_frequencia:inst8|           ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|divisor_de_frequencia:inst8                                                      ; divisor_de_frequencia       ; work         ;
+;    |mux_de_alarmes:inst28|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|mux_de_alarmes:inst28                                                            ; mux_de_alarmes              ; work         ;
+;    |mux_saida_display:inst17|              ; 141 (141)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|mux_saida_display:inst17                                                         ; mux_saida_display           ; work         ;
+;    |seletor_cronometro_contador:inst1|     ; 30 (30)             ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto_02|seletor_cronometro_contador:inst1                                                ; seletor_cronometro_contador ; work         ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                              ;
++------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+; Register name                                                                            ; Reason for Removal                                                                                   ;
++------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+; Cronometro:inst32|flag_menu_visitado:inst21|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; Cronometro:inst32|contador_de_decada:inst23|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; Cronometro:inst32|contador_4_bits_up_down:inst27|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; Cronometro:inst32|contador_4_bits_up_down:inst26|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; Cronometro:inst32|contador_4_bits_up_down:inst28|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; Cronometro:inst32|contador_4_bits_up_down:inst25|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; seletor_cronometro_contador:inst1|reset_c_reg[4]                                         ; Merged with contador_2_menu:inst23|reset_c_reg[4]                                                    ;
+; Cronometro:inst30|flag_menu_visitado:inst21|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; Cronometro:inst30|contador_de_decada:inst23|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; Cronometro:inst30|contador_4_bits_up_down:inst27|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; Cronometro:inst30|contador_4_bits_up_down:inst26|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; Cronometro:inst30|contador_4_bits_up_down:inst28|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; Cronometro:inst30|contador_4_bits_up_down:inst25|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; seletor_cronometro_contador:inst1|reset_c_reg[3]                                         ; Merged with contador_2_menu:inst23|reset_c_reg[3]                                                    ;
+; Cronometro:inst25|flag_menu_visitado:inst21|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; Cronometro:inst25|contador_de_decada:inst23|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; Cronometro:inst25|contador_4_bits_up_down:inst27|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; Cronometro:inst25|contador_4_bits_up_down:inst26|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; Cronometro:inst25|contador_4_bits_up_down:inst28|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; Cronometro:inst25|contador_4_bits_up_down:inst25|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; seletor_cronometro_contador:inst1|reset_c_reg[2]                                         ; Merged with contador_2_menu:inst23|reset_c_reg[2]                                                    ;
+; Cronometro:inst13|flag_menu_visitado:inst21|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; Cronometro:inst13|contador_de_decada:inst23|reset_reg                                    ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; Cronometro:inst13|contador_4_bits_up_down:inst27|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; Cronometro:inst13|contador_4_bits_up_down:inst26|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; Cronometro:inst13|contador_4_bits_up_down:inst28|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; Cronometro:inst13|contador_4_bits_up_down:inst25|reset_reg                               ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; seletor_cronometro_contador:inst1|reset_c_reg[1]                                         ; Merged with contador_2_menu:inst23|reset_c_reg[1]                                                    ;
+; Cronometro:inst32|contador_de_decada:inst23|reset_novo_reg                               ; Merged with Cronometro:inst32|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst32|contador_4_bits_up_down:inst27|reset_novo_reg                          ; Merged with Cronometro:inst32|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst32|contador_4_bits_up_down:inst26|reset_novo_reg                          ; Merged with Cronometro:inst32|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst32|contador_4_bits_up_down:inst28|reset_novo_reg                          ; Merged with Cronometro:inst32|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst30|contador_de_decada:inst23|reset_novo_reg                               ; Merged with Cronometro:inst30|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst30|contador_4_bits_up_down:inst27|reset_novo_reg                          ; Merged with Cronometro:inst30|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst30|contador_4_bits_up_down:inst26|reset_novo_reg                          ; Merged with Cronometro:inst30|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst30|contador_4_bits_up_down:inst28|reset_novo_reg                          ; Merged with Cronometro:inst30|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst25|contador_de_decada:inst23|reset_novo_reg                               ; Merged with Cronometro:inst25|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst25|contador_4_bits_up_down:inst27|reset_novo_reg                          ; Merged with Cronometro:inst25|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst25|contador_4_bits_up_down:inst26|reset_novo_reg                          ; Merged with Cronometro:inst25|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst25|contador_4_bits_up_down:inst28|reset_novo_reg                          ; Merged with Cronometro:inst25|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst13|contador_de_decada:inst23|reset_novo_reg                               ; Merged with Cronometro:inst13|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst13|contador_4_bits_up_down:inst27|reset_novo_reg                          ; Merged with Cronometro:inst13|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst13|contador_4_bits_up_down:inst26|reset_novo_reg                          ; Merged with Cronometro:inst13|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst13|contador_4_bits_up_down:inst28|reset_novo_reg                          ; Merged with Cronometro:inst13|contador_4_bits_up_down:inst25|reset_novo_reg                          ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ;
+; divisor_de_frequencia:inst27|aux_tff                                                     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ;
+; divisor_de_frequencia:inst29|aux_tff                                                     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|aux_tff ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|aux_tff ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|aux_tff ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|aux_tff ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|aux_tff ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|aux_tff ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|aux_tff ;
+; divisor_de_frequencia:inst5|q[24]                                                        ; Merged with divisor_de_frequencia:inst11|q[24]                                                       ;
+; divisor_de_frequencia:inst8|q[24]                                                        ; Merged with divisor_de_frequencia:inst11|q[24]                                                       ;
+; divisor_de_frequencia:inst5|q[23]                                                        ; Merged with divisor_de_frequencia:inst11|q[23]                                                       ;
+; divisor_de_frequencia:inst8|q[23]                                                        ; Merged with divisor_de_frequencia:inst11|q[23]                                                       ;
+; divisor_de_frequencia:inst5|q[22]                                                        ; Merged with divisor_de_frequencia:inst11|q[22]                                                       ;
+; divisor_de_frequencia:inst8|q[22]                                                        ; Merged with divisor_de_frequencia:inst11|q[22]                                                       ;
+; divisor_de_frequencia:inst5|q[21]                                                        ; Merged with divisor_de_frequencia:inst11|q[21]                                                       ;
+; divisor_de_frequencia:inst8|q[21]                                                        ; Merged with divisor_de_frequencia:inst11|q[21]                                                       ;
+; divisor_de_frequencia:inst5|q[20]                                                        ; Merged with divisor_de_frequencia:inst11|q[20]                                                       ;
+; divisor_de_frequencia:inst8|q[20]                                                        ; Merged with divisor_de_frequencia:inst11|q[20]                                                       ;
+; divisor_de_frequencia:inst5|q[19]                                                        ; Merged with divisor_de_frequencia:inst11|q[19]                                                       ;
+; divisor_de_frequencia:inst8|q[19]                                                        ; Merged with divisor_de_frequencia:inst11|q[19]                                                       ;
+; divisor_de_frequencia:inst5|q[18]                                                        ; Merged with divisor_de_frequencia:inst11|q[18]                                                       ;
+; divisor_de_frequencia:inst8|q[18]                                                        ; Merged with divisor_de_frequencia:inst11|q[18]                                                       ;
+; divisor_de_frequencia:inst5|q[17]                                                        ; Merged with divisor_de_frequencia:inst11|q[17]                                                       ;
+; divisor_de_frequencia:inst8|q[17]                                                        ; Merged with divisor_de_frequencia:inst11|q[17]                                                       ;
+; divisor_de_frequencia:inst5|q[16]                                                        ; Merged with divisor_de_frequencia:inst11|q[16]                                                       ;
+; divisor_de_frequencia:inst8|q[16]                                                        ; Merged with divisor_de_frequencia:inst11|q[16]                                                       ;
+; divisor_de_frequencia:inst5|q[15]                                                        ; Merged with divisor_de_frequencia:inst11|q[15]                                                       ;
+; divisor_de_frequencia:inst8|q[15]                                                        ; Merged with divisor_de_frequencia:inst11|q[15]                                                       ;
+; divisor_de_frequencia:inst5|q[14]                                                        ; Merged with divisor_de_frequencia:inst11|q[14]                                                       ;
+; divisor_de_frequencia:inst8|q[14]                                                        ; Merged with divisor_de_frequencia:inst11|q[14]                                                       ;
+; divisor_de_frequencia:inst5|q[13]                                                        ; Merged with divisor_de_frequencia:inst11|q[13]                                                       ;
+; divisor_de_frequencia:inst8|q[13]                                                        ; Merged with divisor_de_frequencia:inst11|q[13]                                                       ;
+; divisor_de_frequencia:inst5|q[12]                                                        ; Merged with divisor_de_frequencia:inst11|q[12]                                                       ;
+; divisor_de_frequencia:inst8|q[12]                                                        ; Merged with divisor_de_frequencia:inst11|q[12]                                                       ;
+; divisor_de_frequencia:inst5|q[11]                                                        ; Merged with divisor_de_frequencia:inst11|q[11]                                                       ;
+; divisor_de_frequencia:inst8|q[11]                                                        ; Merged with divisor_de_frequencia:inst11|q[11]                                                       ;
+; divisor_de_frequencia:inst5|q[10]                                                        ; Merged with divisor_de_frequencia:inst11|q[10]                                                       ;
+; divisor_de_frequencia:inst8|q[10]                                                        ; Merged with divisor_de_frequencia:inst11|q[10]                                                       ;
+; divisor_de_frequencia:inst5|q[9]                                                         ; Merged with divisor_de_frequencia:inst11|q[9]                                                        ;
+; divisor_de_frequencia:inst8|q[9]                                                         ; Merged with divisor_de_frequencia:inst11|q[9]                                                        ;
+; divisor_de_frequencia:inst5|q[8]                                                         ; Merged with divisor_de_frequencia:inst11|q[8]                                                        ;
+; divisor_de_frequencia:inst8|q[8]                                                         ; Merged with divisor_de_frequencia:inst11|q[8]                                                        ;
+; divisor_de_frequencia:inst5|q[7]                                                         ; Merged with divisor_de_frequencia:inst11|q[7]                                                        ;
+; divisor_de_frequencia:inst8|q[7]                                                         ; Merged with divisor_de_frequencia:inst11|q[7]                                                        ;
+; divisor_de_frequencia:inst5|q[6]                                                         ; Merged with divisor_de_frequencia:inst11|q[6]                                                        ;
+; divisor_de_frequencia:inst8|q[6]                                                         ; Merged with divisor_de_frequencia:inst11|q[6]                                                        ;
+; divisor_de_frequencia:inst5|q[5]                                                         ; Merged with divisor_de_frequencia:inst11|q[5]                                                        ;
+; divisor_de_frequencia:inst8|q[5]                                                         ; Merged with divisor_de_frequencia:inst11|q[5]                                                        ;
+; divisor_de_frequencia:inst5|q[4]                                                         ; Merged with divisor_de_frequencia:inst11|q[4]                                                        ;
+; divisor_de_frequencia:inst8|q[4]                                                         ; Merged with divisor_de_frequencia:inst11|q[4]                                                        ;
+; divisor_de_frequencia:inst5|q[3]                                                         ; Merged with divisor_de_frequencia:inst11|q[3]                                                        ;
+; divisor_de_frequencia:inst8|q[3]                                                         ; Merged with divisor_de_frequencia:inst11|q[3]                                                        ;
+; divisor_de_frequencia:inst5|q[2]                                                         ; Merged with divisor_de_frequencia:inst11|q[2]                                                        ;
+; divisor_de_frequencia:inst8|q[2]                                                         ; Merged with divisor_de_frequencia:inst11|q[2]                                                        ;
+; divisor_de_frequencia:inst5|q[1]                                                         ; Merged with divisor_de_frequencia:inst11|q[1]                                                        ;
+; divisor_de_frequencia:inst8|q[1]                                                         ; Merged with divisor_de_frequencia:inst11|q[1]                                                        ;
+; divisor_de_frequencia:inst5|q[0]                                                         ; Merged with divisor_de_frequencia:inst11|q[0]                                                        ;
+; divisor_de_frequencia:inst8|q[0]                                                         ; Merged with divisor_de_frequencia:inst11|q[0]                                                        ;
+; contador_2_menu:inst23|flag_reg[1]                                                       ; Merged with ativador_de_alarme:inst7|flag_reg[1]                                                     ;
+; seletor_cronometro_contador:inst1|flag_reg[1]                                            ; Merged with ativador_de_alarme:inst7|flag_reg[1]                                                     ;
+; seletor_cronometro_contador:inst1|btn_ant_reg                                            ; Merged with ativador_de_alarme:inst7|deb_reg[1]                                                      ;
+; seletor_cronometro_contador:inst1|btn_prox_reg                                           ; Merged with ativador_de_alarme:inst7|deb_reg[2]                                                      ;
+; contador_2_menu:inst23|btn2_reg                                                          ; Merged with ativador_de_alarme:inst7|deb_reg[3]                                                      ;
+; contador_2_menu:inst23|btn1_reg                                                          ; Merged with ativador_de_alarme:inst7|deb_reg[4]                                                      ;
+; contador_2_menu:inst23|flag_reg[4]                                                       ; Merged with ativador_de_alarme:inst7|flag_reg[4]                                                     ;
+; seletor_cronometro_contador:inst1|flag_reg[4]                                            ; Merged with ativador_de_alarme:inst7|flag_reg[4]                                                     ;
+; contador_2_menu:inst23|flag_reg[3]                                                       ; Merged with ativador_de_alarme:inst7|flag_reg[3]                                                     ;
+; seletor_cronometro_contador:inst1|flag_reg[3]                                            ; Merged with ativador_de_alarme:inst7|flag_reg[3]                                                     ;
+; contador_2_menu:inst23|flag_reg[2]                                                       ; Merged with ativador_de_alarme:inst7|flag_reg[2]                                                     ;
+; seletor_cronometro_contador:inst1|flag_reg[2]                                            ; Merged with ativador_de_alarme:inst7|flag_reg[2]                                                     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ;
+; divisor_de_frequencia:inst27|q[23]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ;
+; divisor_de_frequencia:inst29|q[23]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[23]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ;
+; divisor_de_frequencia:inst27|q[22]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ;
+; divisor_de_frequencia:inst29|q[22]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[22]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ;
+; divisor_de_frequencia:inst27|q[21]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ;
+; divisor_de_frequencia:inst29|q[21]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[21]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ;
+; divisor_de_frequencia:inst27|q[20]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ;
+; divisor_de_frequencia:inst29|q[20]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[20]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ;
+; divisor_de_frequencia:inst27|q[19]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ;
+; divisor_de_frequencia:inst29|q[19]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[19]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ;
+; divisor_de_frequencia:inst27|q[18]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ;
+; divisor_de_frequencia:inst29|q[18]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[18]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ;
+; divisor_de_frequencia:inst27|q[17]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ;
+; divisor_de_frequencia:inst29|q[17]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[17]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ;
+; divisor_de_frequencia:inst27|q[16]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ;
+; divisor_de_frequencia:inst29|q[16]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[16]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ;
+; divisor_de_frequencia:inst27|q[15]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ;
+; divisor_de_frequencia:inst29|q[15]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[15]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ;
+; divisor_de_frequencia:inst27|q[14]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ;
+; divisor_de_frequencia:inst29|q[14]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[14]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ;
+; divisor_de_frequencia:inst27|q[13]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ;
+; divisor_de_frequencia:inst29|q[13]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[13]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ;
+; divisor_de_frequencia:inst27|q[12]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ;
+; divisor_de_frequencia:inst29|q[12]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[12]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ;
+; divisor_de_frequencia:inst27|q[11]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ;
+; divisor_de_frequencia:inst29|q[11]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[11]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ;
+; divisor_de_frequencia:inst27|q[10]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ;
+; divisor_de_frequencia:inst29|q[10]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[10]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ;
+; divisor_de_frequencia:inst27|q[9]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ;
+; divisor_de_frequencia:inst29|q[9]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[9]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ;
+; divisor_de_frequencia:inst27|q[8]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ;
+; divisor_de_frequencia:inst29|q[8]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[8]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ;
+; divisor_de_frequencia:inst27|q[7]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ;
+; divisor_de_frequencia:inst29|q[7]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[7]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ;
+; divisor_de_frequencia:inst27|q[6]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ;
+; divisor_de_frequencia:inst29|q[6]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[6]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ;
+; divisor_de_frequencia:inst27|q[5]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ;
+; divisor_de_frequencia:inst29|q[5]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[5]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ;
+; divisor_de_frequencia:inst27|q[4]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ;
+; divisor_de_frequencia:inst29|q[4]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[4]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ;
+; divisor_de_frequencia:inst27|q[3]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ;
+; divisor_de_frequencia:inst29|q[3]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[3]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ;
+; divisor_de_frequencia:inst27|q[2]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ;
+; divisor_de_frequencia:inst29|q[2]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[2]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ;
+; divisor_de_frequencia:inst27|q[1]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ;
+; divisor_de_frequencia:inst29|q[1]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[1]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ;
+; divisor_de_frequencia:inst27|q[0]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ;
+; divisor_de_frequencia:inst29|q[0]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4|q[0]    ;
+; Cronometro:inst13|contador_4_bits_up_down:inst25|btn1_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst26|btn1_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst27|btn1_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst28|btn1_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst13|controlador_pausa_reset:inst50|btn_prox_reg                            ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst25|btn2_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst26|btn2_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst27|btn2_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst13|contador_4_bits_up_down:inst28|btn2_reg                                ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst13|controlador_pausa_reset:inst50|btn_ant_reg                             ; Merged with Cronometro:inst13|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[22]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[22]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[22]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[22]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[22]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[22]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[21]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[21]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[21]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[21]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[21]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[21]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[20]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[20]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[20]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[20]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[20]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[20]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[19]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[19]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[19]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[19]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[19]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[19]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[18]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[18]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[18]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[18]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[18]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[18]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[17]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[17]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[17]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[17]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[17]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[17]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[16]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[16]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[16]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[16]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[16]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[16]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[15]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[15]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[15]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[15]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[15]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[15]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[14]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[14]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[14]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[14]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[14]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[14]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[13]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[13]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[13]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[13]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[13]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[13]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[12]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[12]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[12]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[12]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[12]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[12]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[11]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[11]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[11]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[11]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[11]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[11]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[10]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[10]   ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[10]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[10]   ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[10]   ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[10]   ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[9]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[9]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[9]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[9]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[9]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[9]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[8]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[8]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[8]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[8]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[8]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[8]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[7]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[7]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[7]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[7]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[7]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[7]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[6]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[6]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[6]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[6]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[6]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[6]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[5]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[5]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[5]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[5]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[5]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[5]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[4]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[4]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[4]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[4]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[4]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[4]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[3]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[3]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[3]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[3]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[3]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[3]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[2]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[2]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[2]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[2]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[2]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[2]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[1]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[1]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[1]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[1]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[1]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[1]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[0]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[0]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[0]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[0]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[0]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6|q[0]    ;
+; Cronometro:inst25|contador_4_bits_up_down:inst25|btn1_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst26|btn1_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst27|btn1_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst28|btn1_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst25|controlador_pausa_reset:inst50|btn_prox_reg                            ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst25|btn2_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst26|btn2_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst27|btn2_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst25|contador_4_bits_up_down:inst28|btn2_reg                                ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst25|controlador_pausa_reset:inst50|btn_ant_reg                             ; Merged with Cronometro:inst25|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst25|btn1_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst26|btn1_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst27|btn1_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst28|btn1_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst30|controlador_pausa_reset:inst50|btn_prox_reg                            ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst25|btn2_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst26|btn2_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst27|btn2_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst30|contador_4_bits_up_down:inst28|btn2_reg                                ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst30|controlador_pausa_reset:inst50|btn_ant_reg                             ; Merged with Cronometro:inst30|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst25|btn1_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst26|btn1_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst27|btn1_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst28|btn1_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst32|controlador_pausa_reset:inst50|btn_prox_reg                            ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn1_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst25|btn2_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst26|btn2_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst27|btn2_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst32|contador_4_bits_up_down:inst28|btn2_reg                                ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst32|controlador_pausa_reset:inst50|btn_ant_reg                             ; Merged with Cronometro:inst32|contador_2_bits_habilitado:inst39|btn2_reg                             ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ;
+; divisor_de_frequencia:inst26|q[14]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ;
+; divisor_de_frequencia:inst31|q[14]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ;
+; divisor_de_frequencia:inst6|q[14]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[14]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ;
+; divisor_de_frequencia:inst26|q[13]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ;
+; divisor_de_frequencia:inst31|q[13]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ;
+; divisor_de_frequencia:inst6|q[13]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[13]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ;
+; divisor_de_frequencia:inst26|q[12]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ;
+; divisor_de_frequencia:inst31|q[12]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ;
+; divisor_de_frequencia:inst6|q[12]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[12]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ;
+; divisor_de_frequencia:inst26|q[11]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ;
+; divisor_de_frequencia:inst31|q[11]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ;
+; divisor_de_frequencia:inst6|q[11]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[11]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ;
+; divisor_de_frequencia:inst26|q[10]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ;
+; divisor_de_frequencia:inst31|q[10]                                                       ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ;
+; divisor_de_frequencia:inst6|q[10]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[10]    ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ;
+; divisor_de_frequencia:inst26|q[9]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ;
+; divisor_de_frequencia:inst31|q[9]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ;
+; divisor_de_frequencia:inst6|q[9]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[9]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ;
+; divisor_de_frequencia:inst26|q[8]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ;
+; divisor_de_frequencia:inst31|q[8]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ;
+; divisor_de_frequencia:inst6|q[8]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[8]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ;
+; divisor_de_frequencia:inst26|q[7]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ;
+; divisor_de_frequencia:inst31|q[7]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ;
+; divisor_de_frequencia:inst6|q[7]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[7]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ;
+; divisor_de_frequencia:inst26|q[6]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ;
+; divisor_de_frequencia:inst31|q[6]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ;
+; divisor_de_frequencia:inst6|q[6]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[6]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ;
+; divisor_de_frequencia:inst26|q[5]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ;
+; divisor_de_frequencia:inst31|q[5]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ;
+; divisor_de_frequencia:inst6|q[5]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[5]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ;
+; divisor_de_frequencia:inst26|q[4]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ;
+; divisor_de_frequencia:inst31|q[4]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ;
+; divisor_de_frequencia:inst6|q[4]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[4]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ;
+; divisor_de_frequencia:inst26|q[3]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ;
+; divisor_de_frequencia:inst31|q[3]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ;
+; divisor_de_frequencia:inst6|q[3]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[3]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ;
+; divisor_de_frequencia:inst26|q[2]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ;
+; divisor_de_frequencia:inst31|q[2]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ;
+; divisor_de_frequencia:inst6|q[2]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[2]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ;
+; divisor_de_frequencia:inst26|q[1]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ;
+; divisor_de_frequencia:inst31|q[1]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ;
+; divisor_de_frequencia:inst6|q[1]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[1]     ;
+; Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ;
+; Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ;
+; Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ;
+; divisor_de_frequencia:inst26|q[0]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ;
+; divisor_de_frequencia:inst31|q[0]                                                        ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ;
+; divisor_de_frequencia:inst6|q[0]                                                         ; Merged with Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst|q[0]     ;
+; Total Number of Removed Registers = 433                                                  ;                                                                                                      ;
++------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 365   ;
+; Number of registers using Synchronous Clear  ; 95    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 64    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst10 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; modulus        ; 5000  ; Untyped                                          ;
+; n              ; 13    ; Untyped                                          ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst11 ;
++----------------+----------+-----------------------------------------------+
+; Parameter Name ; Value    ; Type                                          ;
++----------------+----------+-----------------------------------------------+
+; modulus        ; 25000000 ; Untyped                                       ;
+; n              ; 25       ; Untyped                                       ;
++----------------+----------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                              ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                                                                           ;
+; n              ; 24       ; Untyped                                                                                           ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                                               ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; modulus        ; 6250000 ; Untyped                                                                                            ;
+; n              ; 23      ; Untyped                                                                                            ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|contador_n_bits:inst1 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; reset          ; 3     ; Untyped                                                                                        ;
+; n              ; 2     ; Untyped                                                                                        ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                                                                             ;
+; n              ; 15    ; Untyped                                                                                             ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst5 ;
++----------------+----------+----------------------------------------------+
+; Parameter Name ; Value    ; Type                                         ;
++----------------+----------+----------------------------------------------+
+; modulus        ; 25000000 ; Untyped                                      ;
+; n              ; 25       ; Untyped                                      ;
++----------------+----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst6 ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                         ;
+; n              ; 15    ; Untyped                                         ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                              ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                                                                           ;
+; n              ; 24       ; Untyped                                                                                           ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                                               ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; modulus        ; 6250000 ; Untyped                                                                                            ;
+; n              ; 23      ; Untyped                                                                                            ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|contador_n_bits:inst1 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; reset          ; 3     ; Untyped                                                                                        ;
+; n              ; 2     ; Untyped                                                                                        ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst25|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                                                                             ;
+; n              ; 15    ; Untyped                                                                                             ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst8 ;
++----------------+----------+----------------------------------------------+
+; Parameter Name ; Value    ; Type                                         ;
++----------------+----------+----------------------------------------------+
+; modulus        ; 25000000 ; Untyped                                      ;
+; n              ; 25       ; Untyped                                      ;
++----------------+----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                              ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                                                                           ;
+; n              ; 24       ; Untyped                                                                                           ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                                               ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; modulus        ; 6250000 ; Untyped                                                                                            ;
+; n              ; 23      ; Untyped                                                                                            ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|contador_n_bits:inst1 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; reset          ; 3     ; Untyped                                                                                        ;
+; n              ; 2     ; Untyped                                                                                        ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst30|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                                                                             ;
+; n              ; 15    ; Untyped                                                                                             ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst26 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                          ;
+; n              ; 15    ; Untyped                                          ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4 ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                              ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                                                                           ;
+; n              ; 24       ; Untyped                                                                                           ;
++----------------+----------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6 ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                                               ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+; modulus        ; 6250000 ; Untyped                                                                                            ;
+; n              ; 23      ; Untyped                                                                                            ;
++----------------+---------+----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|contador_n_bits:inst1 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; reset          ; 3     ; Untyped                                                                                        ;
+; n              ; 2     ; Untyped                                                                                        ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cronometro:inst32|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                                                                             ;
+; n              ; 15    ; Untyped                                                                                             ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst31 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; modulus        ; 25000 ; Untyped                                          ;
+; n              ; 15    ; Untyped                                          ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst27 ;
++----------------+----------+-----------------------------------------------+
+; Parameter Name ; Value    ; Type                                          ;
++----------------+----------+-----------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                       ;
+; n              ; 24       ; Untyped                                       ;
++----------------+----------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_de_frequencia:inst29 ;
++----------------+----------+-----------------------------------------------+
+; Parameter Name ; Value    ; Type                                          ;
++----------------+----------+-----------------------------------------------+
+; modulus        ; 12500000 ; Untyped                                       ;
+; n              ; 24       ; Untyped                                       ;
++----------------+----------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 21                          ;
+; cycloneiii_ff         ; 365                         ;
+;     CLR               ; 64                          ;
+;     ENA               ; 10                          ;
+;     SCLR              ; 95                          ;
+;     plain             ; 196                         ;
+; cycloneiii_lcell_comb ; 1138                        ;
+;     arith             ; 90                          ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 5                           ;
+;     normal            ; 1048                        ;
+;         1 data inputs ; 19                          ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 214                         ;
+;         4 data inputs ; 730                         ;
+;                       ;                             ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 5.62                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon Jul 28 17:08:45 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projeto_02 -c Projeto_02
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file projeto_02.bdf
+    Info (12023): Found entity 1: Projeto_02
+Info (12021): Found 1 design units, including 1 entities, in source file bloco_debounce.bdf
+    Info (12023): Found entity 1: bloco_debounce
+Warning (12019): Can't analyze file -- file ../../../../../../media/ldealuno/SANDISK 3_2/7 PERIODO.tdf is missing
+Warning (12019): Can't analyze file -- file ../../Downloads/Projects_Eletronica_Digital-master/Projeto_2/Projeto_No_Quartus/Projeto_2/debounce.tdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file divisor_de_frequencia.tdf
+    Info (12023): Found entity 1: divisor_de_frequencia File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/divisor_de_frequencia.tdf Line: 8
+Warning (287002): Group MSB segmento6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decodificador_7seg.tdf Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/decodificador_7seg.tdf
+    Info (12023): Found entity 1: decodificador_7seg File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decodificador_7seg.tdf Line: 4
+Warning (12019): Can't analyze file -- file output_files/contador_nbits.tdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/contador_n_bits.tdf
+    Info (12023): Found entity 1: contador_n_bits File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_n_bits.tdf Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file seletor_alimentacao_display.bdf
+    Info (12023): Found entity 1: Seletor_alimentacao_display
+Warning (12019): Can't analyze file -- file output_files/seletor_vetor_dig.tdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/decoder_2_para_4.tdf
+    Info (12023): Found entity 1: decoder_2_para_4 File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/decoder_2_para_4.tdf Line: 5
+Warning (12019): Can't analyze file -- file output_files/contador_de_decada.bdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/contador_de_decada.tdf
+    Info (12023): Found entity 1: contador_de_decada File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/contador_de_decada.tdf Line: 3
+Warning (287002): Group MSB selecao3 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 11
+Warning (287002): Group MSB unidade_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 14
+Warning (287002): Group MSB dezena_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 15
+Warning (287002): Group MSB centena_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 16
+Warning (287002): Group MSB milhar_seg6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 17
+Warning (287002): Group MSB segmento_out6 overrides BIT0 = LSB in actual or default Options Statement File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/mux_display_4digitos.tdf
+    Info (12023): Found entity 1: mux_display_4digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/mux_display_4digitos.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_4_bits_up_down.tdf
+    Info (12023): Found entity 1: contador_4_bits_up_down File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_4_bits_up_down.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2_bits_up_down.tdf
+    Info (12023): Found entity 1: contador_2_bits_up_down File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_up_down.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file decodificador_menus.tdf
+    Info (12023): Found entity 1: decodificador_menus File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/decodificador_menus.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file decodificador_menu_digitos.tdf
+    Info (12023): Found entity 1: decodificador_menu_digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/decodificador_menu_digitos.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file mux_mostragem_display.tdf
+    Info (12023): Found entity 1: mux_mostragem_display File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_mostragem_display.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2_bits_habilitado.tdf
+    Info (12023): Found entity 1: contador_2_bits_habilitado File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_habilitado.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file comparador_4_digitos.tdf
+    Info (12023): Found entity 1: comparador_4_digitos File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/comparador_4_digitos.tdf Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file flag_menu_visitado.tdf
+    Info (12023): Found entity 1: flag_menu_visitado File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/flag_menu_visitado.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file contador_reset_2_bits_up_down.tdf
+    Info (12023): Found entity 1: contador_reset_2_bits_up_down File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_reset_2_bits_up_down.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file controlador_pausa_reset.tdf
+    Info (12023): Found entity 1: controlador_pausa_reset File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/controlador_pausa_reset.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file teste_reset_latch.tdf
+    Info (12023): Found entity 1: teste_reset_latch File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/teste_reset_latch.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file cronometro.bdf
+    Info (12023): Found entity 1: Cronometro
+Info (12021): Found 1 design units, including 1 entities, in source file detector_borda_menu_2.tdf
+    Info (12023): Found entity 1: detector_borda_menu_2 File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/detector_borda_menu_2.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/seletor_cronometro.tdf
+    Info (12023): Found entity 1: seletor_cronometro File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/seletor_cronometro.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/ativador_de_alarme.tdf
+    Info (12023): Found entity 1: ativador_de_alarme File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/output_files/ativador_de_alarme.tdf Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file alarme_1.tdf
+    Info (12023): Found entity 1: alarme_1 File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/alarme_1.tdf Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file demux_entrada_cronometros.tdf
+    Info (12023): Found entity 1: demux_entrada_cronometros File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/demux_entrada_cronometros.tdf Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file mux_saida_display.tdf
+    Info (12023): Found entity 1: mux_saida_display File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_saida_display.tdf Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2_bits_select.tdf
+    Info (12023): Found entity 1: contador_2_bits_select File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_bits_select.tdf Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2_menu.tdf
+    Info (12023): Found entity 1: contador_2_menu File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/contador_2_menu.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file mux_de_alarmes.tdf
+    Info (12023): Found entity 1: mux_de_alarmes File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/mux_de_alarmes.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file controlador_leds.tdf
+    Info (12023): Found entity 1: controlador_leds File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/controlador_leds.tdf Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file seletor_cronometro_contador.tdf
+    Info (12023): Found entity 1: seletor_cronometro_contador File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/seletor_cronometro_contador.tdf Line: 6
+Info (12127): Elaborating entity "Projeto_02" for the top level hierarchy
+Info (12128): Elaborating entity "mux_de_alarmes" for hierarchy "mux_de_alarmes:inst28"
+Info (12128): Elaborating entity "alarme_1" for hierarchy "alarme_1:inst9"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "divisor_de_frequencia:inst10"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "divisor_de_frequencia:inst11"
+Info (12128): Elaborating entity "ativador_de_alarme" for hierarchy "ativador_de_alarme:inst7"
+Info (12128): Elaborating entity "Cronometro" for hierarchy "Cronometro:inst13"
+Warning (275009): Pin "deb3_in" not connected
+Warning (275009): Pin "deb4_in" not connected
+Warning (275009): Pin "select_in" not connected
+Info (12128): Elaborating entity "comparador_4_digitos" for hierarchy "Cronometro:inst13|comparador_4_digitos:inst40"
+Info (12128): Elaborating entity "flag_menu_visitado" for hierarchy "Cronometro:inst13|flag_menu_visitado:inst21"
+Info (12128): Elaborating entity "controlador_pausa_reset" for hierarchy "Cronometro:inst13|controlador_pausa_reset:inst50"
+Info (12128): Elaborating entity "contador_de_decada" for hierarchy "Cronometro:inst13|contador_de_decada:inst23"
+Info (12128): Elaborating entity "detector_borda_menu_2" for hierarchy "Cronometro:inst13|detector_borda_menu_2:inst22"
+Info (12128): Elaborating entity "contador_4_bits_up_down" for hierarchy "Cronometro:inst13|contador_4_bits_up_down:inst27"
+Info (12128): Elaborating entity "decodificador_menu_digitos" for hierarchy "Cronometro:inst13|decodificador_menu_digitos:inst37"
+Info (12128): Elaborating entity "contador_2_bits_habilitado" for hierarchy "Cronometro:inst13|contador_2_bits_habilitado:inst39"
+Info (12128): Elaborating entity "Seletor_alimentacao_display" for hierarchy "Cronometro:inst13|Seletor_alimentacao_display:inst46"
+Info (12128): Elaborating entity "decoder_2_para_4" for hierarchy "Cronometro:inst13|Seletor_alimentacao_display:inst46|decoder_2_para_4:inst5"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst4"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst6"
+Info (12128): Elaborating entity "contador_n_bits" for hierarchy "Cronometro:inst13|Seletor_alimentacao_display:inst46|contador_n_bits:inst1"
+Info (12128): Elaborating entity "divisor_de_frequencia" for hierarchy "Cronometro:inst13|Seletor_alimentacao_display:inst46|divisor_de_frequencia:inst"
+Info (12128): Elaborating entity "mux_display_4digitos" for hierarchy "Cronometro:inst13|mux_display_4digitos:inst"
+Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "Cronometro:inst13|decodificador_7seg:inst9"
+Info (12128): Elaborating entity "mux_mostragem_display" for hierarchy "Cronometro:inst13|mux_mostragem_display:inst31"
+Info (12128): Elaborating entity "demux_entrada_cronometros" for hierarchy "demux_entrada_cronometros:inst15"
+Info (12128): Elaborating entity "seletor_cronometro_contador" for hierarchy "seletor_cronometro_contador:inst1"
+Info (12128): Elaborating entity "bloco_debounce" for hierarchy "bloco_debounce:inst20"
+Info (12021): Found 1 design units, including 1 entities, in source file db/debounce.tdf
+    Info (12023): Found entity 1: debounce File: C:/Users/Bruno/Documents/Eletrônica Digital/Eletronica_digital-Projeto_02/projeto_02/db/debounce.tdf Line: 3
+Info (12128): Elaborating entity "debounce" for hierarchy "bloco_debounce:inst20|debounce:inst"
+Info (12128): Elaborating entity "contador_2_menu" for hierarchy "contador_2_menu:inst23"
+Info (12128): Elaborating entity "contador_2_bits_select" for hierarchy "contador_2_bits_select:inst21"
+Info (12128): Elaborating entity "mux_saida_display" for hierarchy "mux_saida_display:inst17"
+Info (12128): Elaborating entity "controlador_leds" for hierarchy "controlador_leds:inst33"
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1206 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 1185 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4774 megabytes
+    Info: Processing ended: Mon Jul 28 17:08:58 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:29
+
+

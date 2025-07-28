@@ -1,0 +1,36 @@
+TITLE "Latch Simples de Ativação";
+
+-- Este subdesign detecta um pulso na entrada 'trigger_in'
+-- e mantém a saída 'flag_out' em '1' até ser resetado.
+SUBDESIGN teste_reset_latch
+(
+	-- ENTRADAS --
+	clk_in      : INPUT; -- Clock para sincronizar a memória.
+	reset_in    : INPUT; -- Para desligar a flag (ativo em '1').
+	trigger_in  : INPUT; -- O gatilho que ativa a flag (ativo em '1').
+	
+	-- SAÍDA --
+	flag_out    : OUTPUT; -- A saída que será "travada" em '1'.
+)
+VARIABLE
+	-- Usamos um D-Type Flip-Flop (DFF) para memorizar o estado da flag.
+	flag_q : DFF;
+
+BEGIN
+	-- Sincroniza o flip-flop com o clock de entrada.
+	flag_q.clk = clk_in;
+	
+	-- A saída do módulo é o valor atual armazenado no flip-flop.
+	flag_out = flag_q.q;
+	
+	-- Lógica principal do Latch.
+	-- O reset tem a prioridade máxima.
+	IF reset_in == VCC THEN
+		-- Se o reset estiver ativo, o próximo estado da flag é '0'.
+		flag_q.d = GND;
+	ELSE
+		-- Senão, o próximo estado será '1' se o gatilho estiver ativo
+		-- OU se a flag já estiver ativa (lógica de trava).
+		flag_q.d = trigger_in OR flag_q.q;
+	END IF;
+END;

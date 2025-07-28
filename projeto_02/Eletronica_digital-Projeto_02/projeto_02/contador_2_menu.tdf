@@ -1,0 +1,87 @@
+TITLE "Contador de 2 Bits do Menu";
+
+-- Este subdesign cria um contador de 2 bits que pode ser resetado
+-- pela borda de subida de qualquer uma das oito entradas de reset.
+SUBDESIGN contador_2_menu
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;      -- Clock do sistema.
+	botaoprox_in  : INPUT;      -- Botão para contar de forma CRESCENTE (UP).
+	botaoant_in   : INPUT;      -- Botão para contar de forma DECRESCENTE (DOWN).
+	
+	-- Novas entradas de reset por flag
+	flag_final1, flag_final2, flag_final3, flag_final4 : INPUT;
+	
+	-- Novas entradas de reset por 'c'
+	reset_c1, reset_c2, reset_c3, reset_c4            : INPUT;
+	
+	-- SAÍDA --
+	bit_out[1..0] : OUTPUT;     -- Saída de 2 bits.
+)
+VARIABLE
+	-- Registrador principal para 2 bits.
+	q[1..0]            : DFF;
+	
+	-- Registradores para o detector de borda dos botões.
+	btn1_reg, btn2_reg : DFF;
+	
+	-- Registradores para detectar a borda das 8 entradas de reset.
+	flag_reg[4..1]   : DFF;
+	reset_c_reg[4..1]  : DFF;
+	
+	-- Nós lógicos para os pulsos gerados.
+	up_pulse, down_pulse : NODE;
+	flag_pulse[4..1]   : NODE;
+	reset_c_pulse[4..1]  : NODE;
+	reset_geral_pulse  : NODE; -- Pulso de reset combinado.
+
+BEGIN
+	-- Sincroniza todos os registradores com o mesmo clock.
+	q[].clk = clk_in;
+	btn1_reg.clk = clk_in;
+	btn2_reg.clk = clk_in;
+	flag_reg[].clk = clk_in;
+	reset_c_reg[].clk = clk_in;
+	
+	-- Conecta o valor do contador à porta de saída.
+	bit_out[] = q[].q;
+	
+	-- Lógica do Detector de Borda para os botões.
+	btn1_reg.d = botaoprox_in;
+	btn2_reg.d = botaoant_in;
+	up_pulse   = btn1_reg.q & !botaoprox_in;
+	down_pulse = btn2_reg.q & !botaoant_in;
+	
+	-- Lógica dos Detectores de Borda para os 8 Sinais de Reset.
+	flag_reg[].d = (flag_final4, flag_final3, flag_final2, flag_final1);
+	flag_pulse[1] = !flag_reg[1].q AND flag_final1;
+	flag_pulse[2] = !flag_reg[2].q AND flag_final2;
+	flag_pulse[3] = !flag_reg[3].q AND flag_final3;
+	flag_pulse[4] = !flag_reg[4].q AND flag_final4;
+	
+	reset_c_reg[].d = (reset_c4, reset_c3, reset_c2, reset_c1);
+	reset_c_pulse[1] = !reset_c_reg[1].q AND reset_c1;
+	reset_c_pulse[2] = !reset_c_reg[2].q AND reset_c2;
+	reset_c_pulse[3] = !reset_c_reg[3].q AND reset_c3;
+	reset_c_pulse[4] = !reset_c_reg[4].q AND reset_c4;
+
+	-- Combina todos os 8 pulsos de reset em um único sinal.
+	reset_geral_pulse =  flag_pulse[1] OR flag_pulse[2] OR flag_pulse[3] OR flag_pulse[4]
+	                   OR reset_c_pulse[1] OR reset_c_pulse[2] OR reset_c_pulse[3] OR reset_c_pulse[4];
+	
+	-- Lógica do Contador com Reset Geral por Pulso.
+	IF reset_geral_pulse THEN
+		-- Se qualquer um dos 8 pulsos de reset for detectado, força o contador para zero.
+		q[].d = 0;
+	ELSE
+		-- Se não houver pulso de reset, a lógica de contagem dos botões é executada.
+		IF up_pulse THEN
+			q[].d = q[].q + 1;
+		ELSE IF down_pulse THEN
+			q[].d = q[].q - 1;
+		ELSE
+			q[].d = q[].q;
+		END IF;
+		END IF;
+	END IF;
+END;

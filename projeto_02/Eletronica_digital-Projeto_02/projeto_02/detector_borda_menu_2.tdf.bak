@@ -1,0 +1,30 @@
+TITLE "Detector de Borda para Reset de Contador";
+
+-- Este subdesign gera um pulso de um ciclo na saída 'reset_cont'
+-- no exato momento em que a entrada 'menu_in' transita para o valor "01".
+SUBDESIGN detector_borda_menu_2
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;      -- Clock do sistema para sincronizar a detecção.
+	menu_in[1..0] : INPUT;      -- Entrada de 2 bits do menu.
+	
+	-- SAÍDA --
+	reset_cont    : OUTPUT;     -- Pulso de reset (ativo em '1').
+)
+VARIABLE
+	-- Registrador de 2 bits para armazenar o valor anterior de 'menu_in'.
+	menu_in_reg[1..0] : DFF;
+
+BEGIN
+	-- 1. Sincroniza o registrador com o clock.
+	menu_in_reg[].clk = clk_in;
+	
+	-- 2. Atualiza continuamente o registrador com o valor atual de 'menu_in'.
+	-- Assim, no próximo ciclo, 'menu_in_reg.q' conterá o valor que 'menu_in' tem agora.
+	menu_in_reg[].d = menu_in[];
+	
+	-- 3. Lógica de detecção de borda.
+	-- A saída 'reset_cont' será '1' apenas no ciclo de clock em que
+	-- o menu ATUAL é "01" E o menu ANTERIOR NÃO ERA "01".
+	reset_cont = (menu_in[] == B"01") & (menu_in_reg[].q != B"01");
+END;

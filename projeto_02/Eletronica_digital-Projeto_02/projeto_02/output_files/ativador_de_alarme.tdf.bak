@@ -1,0 +1,75 @@
+TITLE "Ativador de alarme";
+
+SUBDESIGN ativador_de_alarme
+(
+	-- ENTRADAS --
+	clk_in      : INPUT;      -- Clock do sistema para sincronizar a lógica.
+	
+	-- Flags de gatilho dos alarmes (a borda de subida é detectada).
+	flag1_in, flag2_in, flag3_in, flag4_in : INPUT;
+	
+	-- Botões de reset (a borda de subida é detectada).
+	deb1_in, deb2_in, deb3_in, deb4_in     : INPUT;
+	
+	-- SAÍDAS --
+	-- Saídas de permissão, apenas uma estará ativa ('1') por vez.
+	perm_alarme1, perm_alarme2, perm_alarme3, perm_alarme4 : OUTPUT;
+)
+VARIABLE
+	-- Registrador principal de 4 bits para "lembrar" qual permissão está ativa.
+	perm_alarme_q[4..1] : DFF;
+	
+	-- Registradores para detectar a borda das flags e dos botões.
+	flag_reg[4..1]      : DFF;
+	deb_reg[4..1]       : DFF;
+	
+	-- Nós lógicos para os pulsos gerados.
+	flag_pulse[4..1]    : NODE;
+	reset_pulse         : NODE;
+
+BEGIN
+	-- 1. Sincroniza todos os registradores com o mesmo clock.
+	perm_alarme_q[].clk = clk_in;
+	flag_reg[].clk = clk_in;
+	deb_reg[].clk = clk_in;
+	
+	-- 2. Conecta as saídas do módulo ao valor guardado no registrador de estado.
+	(perm_alarme4, perm_alarme3, perm_alarme2, perm_alarme1) = perm_alarme_q[].q;
+	
+	-- 3. Lógica dos Detectores de Borda.
+	-- Amostra continuamente o estado das entradas.
+	flag_reg[].d = (flag4_in, flag3_in, flag2_in, flag1_in);
+	deb_reg[].d = (deb4_in, deb3_in, deb2_in, deb1_in);
+	
+	-- Gera um pulso se o estado anterior era '0' e o atual é '1'.
+	flag_pulse[1] = !flag_reg[1].q & flag1_in;
+	flag_pulse[2] = !flag_reg[2].q & flag2_in;
+	flag_pulse[3] = !flag_reg[3].q & flag3_in;
+	flag_pulse[4] = !flag_reg[4].q & flag4_in;
+	
+	-- Combina os pulsos de todos os botões em um único sinal de reset.
+	reset_pulse = (!deb_reg[1].q & deb1_in) OR (!deb_reg[2].q & deb2_in) OR (!deb_reg[3].q & deb3_in) OR (!deb_reg[4].q & deb4_in);
+
+	-- 4. Lógica de Decisão com Prioridade.
+	-- A estrutura IF/ELSE IF garante a ordem de prioridade: reset > flag1 > flag2 > etc.
+	IF reset_pulse == VCC THEN
+		perm_alarme_q[].d = B"0000"; -- Prioridade máxima: reseta todas as permissões.
+		
+	ELSE IF flag_pulse[1] == VCC THEN
+		perm_alarme_q[].d = B"0001"; -- Ativa perm_alarme1, desativa as outras. Atualiza perm_alarme_q[0].q para 1.
+		
+	ELSE IF flag_pulse[2] == VCC THEN
+		perm_alarme_q[].d = B"0010"; -- Ativa perm_alarme2, desativa as outras. Atualiza perm_alarme_q[1].q para 1.
+
+	ELSE IF flag_pulse[3] == VCC THEN
+		perm_alarme_q[].d = B"0100"; -- Ativa perm_alarme3, desativa as outras. Atualiza perm_alarme_q[2].q para 1.
+
+	ELSE IF flag_pulse[4] == VCC THEN
+		perm_alarme_q[].d = B"1000"; -- Ativa perm_alarme4, desativa as outras.
+		
+	-- Se nenhuma das condições acima for atendida, mantém o estado atual.
+	ELSE
+		perm_alarme_q[].d = perm_alarme_q[].q;
+		
+	END IF;
+END;

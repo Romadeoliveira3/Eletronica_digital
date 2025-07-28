@@ -1,0 +1,78 @@
+TITLE "Contador 0-9 UP/DOWN";
+
+-- Este subdesign cria um contador BCD (0-9) com habilitação e
+-- um reset síncrono sensível à borda de subida.
+SUBDESIGN contador_4_bits_up_down
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;  -- Clock do sistema.
+	reset_in      : INPUT;  -- Pino de reset 1 (a borda de subida 0->1 gera o reset).
+	reset_novo    : INPUT;  -- NOVO: Pino de reset 2 (a borda de subida 0->1 gera o reset).
+	permissao_dig : INPUT;  -- Habilita o incremento/decremento (ativo em '1').
+	botaoprox_in  : INPUT;  -- Botão para contar de forma CRESCENTE (UP).
+	botaoant_in   : INPUT;  -- Botão para contar de forma DECRESCENTE (DOWN).
+	
+	-- SAÍDA --
+	bit_out[3..0] : OUTPUT; -- Saída de 4 bits com o valor BCD.
+)
+VARIABLE
+	-- Registrador principal do contador.
+	q[3..0]            : DFF;
+	
+	-- Registradores para o detector de borda dos botões.
+	btn1_reg, btn2_reg : DFF;
+	
+	-- Registradores para detectar a borda dos pinos de reset.
+	reset_reg          : DFF;
+	reset_novo_reg     : DFF; -- NOVO
+	
+	-- Nós lógicos para os pulsos gerados.
+	up_pulse, down_pulse : NODE;
+	reset_pulse          : NODE;
+	reset_novo_pulse     : NODE; -- NOVO
+	reset_final_pulse    : NODE; -- NOVO (combinação dos dois resets)
+
+BEGIN
+	-- Sincroniza todos os registradores com o mesmo clock.
+	q[].clk = clk_in;
+	btn1_reg.clk = clk_in;
+	btn2_reg.clk = clk_in;
+	reset_reg.clk = clk_in;
+	reset_novo_reg.clk = clk_in; -- NOVO
+	
+	-- Conecta a saída ao valor do contador.
+	bit_out[] = q[].q;
+	
+	-- Lógica do Detector de Borda para os botões.
+	btn1_reg.d = botaoprox_in;
+	btn2_reg.d = botaoant_in;
+	up_pulse   = btn1_reg.q & !botaoprox_in;
+	down_pulse = btn2_reg.q & !botaoant_in;
+	
+	-- Lógica dos Detectores de Borda para os Resets.
+	reset_reg.d = reset_in;
+	reset_pulse = !reset_reg.q & reset_in;
+	
+	reset_novo_reg.d = reset_novo;
+	reset_novo_pulse = !reset_novo_reg.q & reset_novo;
+
+	-- Combina os dois pulsos de reset com um operador OU.
+	reset_final_pulse = reset_pulse OR reset_novo_pulse;
+	
+	-- Lógica do Contador com Múltiplos Resets por Pulso.
+	-- O pulso de reset combinado tem a maior prioridade.
+	IF reset_final_pulse == VCC THEN
+		-- Se qualquer um dos pulsos de reset for detectado, zera o contador.
+		q[].d = 0;
+	ELSE
+		-- Se não houver reset, a lógica de contagem habilitada é executada.
+		IF (up_pulse == VCC) AND (permissao_dig == VCC) THEN
+			IF q[].q == 9 THEN q[].d = 0; ELSE q[].d = q[].q + 1; END IF;
+		ELSE IF (down_pulse == VCC) AND (permissao_dig == VCC) THEN
+			IF q[].q == 0 THEN q[].d = 9; ELSE q[].d = q[].q - 1; END IF;
+		ELSE
+			q[].d = q[].q;
+		END IF;
+	END IF;
+	END IF;
+END;

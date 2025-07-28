@@ -1,0 +1,74 @@
+TITLE "Flag de Visita ao Menu 4";
+
+-- Esta versão usa um DFF auxiliar para "armar" uma condição quando o Menu 4
+-- é visitado, que então é usada para controlar a flag principal.
+SUBDESIGN flag_menu_visitado
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;      -- Clock para sincronizar a mudança de estado da flag.
+	menu_in[1..0] : INPUT;      -- Entrada do menu atual.
+	reset_in      : INPUT;      -- Pino de reset (a borda de subida gera o pulso).
+	
+	-- SAÍDA --
+	comp_flag   : OUTPUT;     -- A flag de saída principal.
+)
+VARIABLE
+	-- DFF para a flag de saída principal.
+	comp_flag_q      : DFF;
+	
+	-- DFF para o detector de borda do reset.
+	reset_reg        : DFF;
+	
+	-- NOVO: DFF para memorizar que o menu 4 foi visitado ("armado").
+	menu4_visitado_q : DFF;
+	-- NOVO: DFF para detectar a borda de entrada no menu 4.
+	menu4_ativo_reg  : DFF;
+	
+	-- Nós lógicos para os pulsos e condições.
+	reset_pulse      : NODE;
+	menu4_ativo      : NODE; -- Indica se o menu 4 está ativo AGORA.
+	menu4_borda      : NODE; -- Pulso que indica a ENTRADA no menu 4.
+
+BEGIN
+	-- 1. Sincroniza todos os registradores com o clock.
+	comp_flag_q.clk = clk_in;
+	reset_reg.clk = clk_in;
+	menu4_visitado_q.clk = clk_in; -- NOVO
+	menu4_ativo_reg.clk = clk_in;  -- NOVO
+	
+	-- 2. Conecta a saída ao valor do registrador principal.
+	comp_flag = comp_flag_q.q;
+	
+	-- 3. Lógica do Detector de Borda para o reset_in (não alterada).
+	reset_reg.d = reset_in;
+	reset_pulse = !reset_reg.q & reset_in;
+	
+	-- 4. NOVO: Lógica para "Armar" a Flag de Visita ao Menu 4.
+	-- 4a. Detecta se o menu 4 está ativo no momento.
+	menu4_ativo = (menu_in[] == B"11");
+	-- 4b. Detecta a borda de subida de 'menu4_ativo'.
+	menu4_ativo_reg.d = menu4_ativo;
+	menu4_borda = !menu4_ativo_reg.q & menu4_ativo;
+	-- 4c. Lógica do registrador de memória 'menu4_visitado_q'.
+	IF (reset_pulse == VCC) OR (menu_in[] == B"01") OR (menu_in[] == B"10") THEN
+		menu4_visitado_q.d = GND; -- Reset principal desliga esta flag.
+	ELSE
+		-- A flag é ligada pela borda e permanece ligada (lógica OR de trava).
+		menu4_visitado_q.d = menu4_borda OR menu4_visitado_q.q;
+	END IF;
+
+	-- 5. Lógica de Estado da 'comp_flag' (agora baseada na flag "armada").
+	IF reset_pulse == VCC OR (menu_in[] == B"01") OR (menu_in[] == B"10") THEN
+		-- Se um pulso de reset for detectado, ZERA a flag principal.
+		comp_flag_q.d = GND;
+	ELSE
+		-- A condição de SET agora é se a flag de visita foi armada.
+		IF menu4_visitado_q.q == VCC THEN
+			comp_flag_q.d = VCC;
+			
+		-- A condição de HOLD.
+		ELSE
+			comp_flag_q.d = comp_flag_q.q;
+		END IF;
+	END IF;
+END;

@@ -1,0 +1,18 @@
+-- Este subdesign ativa uma saída de buzzer com um tom de 10kHz,
+-- de forma intermitente (ligando e desligando a cada segundo),
+-- somente quando a flag 'final_cont' estiver ativa.
+SUBDESIGN alarme_1
+(
+ -- ENTRADAS --
+ clk_5kHz    : INPUT; -- Sinal de 10kHz que gera a frequência do som.
+ clk_1seg     : INPUT; -- Sinal de 1Hz que controla o ritmo (liga/desliga).
+ permissao   : INPUT; -- Habilita o funcionamento do buzzer (ativo em '1').
+ 
+ -- SAÍDA --
+ buzzer_out   : OUTPUT; -- Saída que se conecta ao buzzer.
+)
+BEGIN
+ -- A lógica é resolvida por uma única equação booleana.
+ -- A saída só é ativada se todas as três condições forem verdadeiras.
+ buzzer_out = clk_5kHz & clk_1seg & permissao ;
+END;

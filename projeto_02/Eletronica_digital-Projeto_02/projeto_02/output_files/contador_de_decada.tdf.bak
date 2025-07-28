@@ -1,0 +1,86 @@
+TITLE "Contador de Década de 4 Dígitos (0-9999)";
+
+-- Este subdesign não precisa de parâmetros, pois sua estrutura é fixa.
+SUBDESIGN contador_de_decada
+(
+	clk_in        : INPUT;  -- Clock principal para a contagem
+	reset_pin     : INPUT;  -- Pino para zerar todo o contador
+	
+	-- Saídas de 4 bits para cada dígito decimal
+	unidade_out[3..0] : OUTPUT;
+	dezena_out[3..0]  : OUTPUT;
+	centena_out[3..0] : OUTPUT;
+	milhar_out[3..0]  : OUTPUT;
+)
+VARIABLE
+	-- Quatro contadores de 4 bits (DFFs), um para cada dígito.
+	-- Cada um conta de 0 (B"0000") a 9 (B"1001").
+	unidade_q[3..0] : DFF;
+	dezena_q[3..0]  : DFF;
+	centena_q[3..0] : DFF;
+	milhar_q[3..0]  : DFF;
+
+BEGIN
+	-- 1. Sincroniza todos os contadores com o mesmo clock.
+	unidade_q[].clk = clk_in;
+	dezena_q[].clk  = clk_in;
+	centena_q[].clk = clk_in;
+	milhar_q[].clk  = clk_in;
+	
+	-- 2. Conecta os valores internos dos contadores às portas de saída.
+	unidade_out[] = unidade_q[].q;
+	dezena_out[]  = dezena_q[].q;
+	centena_out[] = centena_q[].q;
+	milhar_out[]  = milhar_q[].q;
+
+	-- 3. Lógica principal de contagem e reset.
+	IF reset_pin == VCC THEN
+		-- Se o reset for ativado, zera todos os dígitos.
+		unidade_q[].d = 0;
+		dezena_q[].d  = 0;
+		centena_q[].d = 0;
+		milhar_q[].d  = 0;
+	ELSE
+		-- LÓGICA DE CONTAGEM EM CASCATA --
+		
+		-- UNIDADE: Sempre tenta incrementar.
+		IF unidade_q[].q == 9 THEN -- Se a unidade chegou em 9...
+			unidade_q[].d = 0;      -- ...ela volta para 0.
+		ELSE
+			unidade_q[].d = unidade_q[].q + 1; -- Senão, incrementa.
+		END IF;
+		
+		-- DEZENA: Só incrementa se a UNIDADE estiver em 9.
+		IF unidade_q[].q == 9 THEN
+			IF dezena_q[].q == 9 THEN
+				dezena_q[].d = 0;
+			ELSE
+				dezena_q[].d = dezena_q[].q + 1;
+			END IF;
+		ELSE
+			dezena_q[].d = dezena_q[].q; -- Se não, mantém o valor.
+		END IF;
+		
+		-- CENTENA: Só incrementa se a UNIDADE E a DEZENA estiverem em 9.
+		IF (unidade_q[].q == 9) AND (dezena_q[].q == 9) THEN
+			IF centena_q[].q == 9 THEN
+				centena_q[].d = 0;
+			ELSE
+				centena_q[].d = centena_q[].q + 1;
+			END IF;
+		ELSE
+			centena_q[].d = centena_q[].q; -- Se não, mantém o valor.
+		END IF;
+		
+		-- MILHAR: Só incrementa se UNIDADE, DEZENA E CENTENA estiverem em 9.
+		IF (unidade_q[].q == 9) AND (dezena_q[].q == 9) AND (centena_q[].q == 9) THEN
+			IF milhar_q[].q == 9 THEN
+				milhar_q[].d = 0; -- O contador de 4 dígitos volta a 0000
+			ELSE
+				milhar_q[].d = milhar_q[].q + 1;
+			END IF;
+		ELSE
+			milhar_q[].d = milhar_q[].q; -- Se não, mantém o valor.
+		END IF;
+	END IF;
+END;

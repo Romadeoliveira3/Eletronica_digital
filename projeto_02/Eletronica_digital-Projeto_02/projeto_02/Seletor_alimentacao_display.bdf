@@ -1,0 +1,441 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 40 200 208 216)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "clock_in" (rect 5 0 45 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 40 280 208 296)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "blinkdig1_in" (rect 5 0 61 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 40 304 208 320)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "blinkdig2_in" (rect 5 0 63 17)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 40 328 208 344)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "blinkdig3_in" (rect 5 0 63 17)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 40 352 208 368)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "blinkdig4_in" (rect 5 0 63 17)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 40 376 208 392)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "final_cont_in" (rect 5 0 67 17)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 1360 200 1536 216)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "selecao[0..3]" (rect 90 0 153 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(symbol
+	(rect 664 176 856 256)
+	(text "contador_n_bits" (rect 5 0 82 12)(font "Arial" ))
+	(text "inst1" (rect 8 64 30 81)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_in" (rect 0 0 28 12)(font "Arial" ))
+		(text "clk_in" (rect 21 27 49 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 192 32)
+		(output)
+		(text "bit_out[(n) - (1)..0]" (rect 0 0 89 12)(font "Arial" ))
+		(text "bit_out[(n) - (1)..0]" (rect 96 27 185 39)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32)(line_width 3))
+	)
+	(parameter
+		"reset"
+		"3"
+		""
+	)
+	(parameter
+		"n"
+		"2"
+		""
+	)
+	(drawing
+		(rectangle (rect 16 16 176 64))
+	)
+	(annotation_block (parameter)(rect 856 112 976 169))
+)
+(symbol
+	(rect 400 176 552 256)
+	(text "divisor_de_frequencia" (rect 5 0 113 12)(font "Arial" ))
+	(text "inst" (rect 8 64 25 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_in" (rect 0 0 28 12)(font "Arial" ))
+		(text "clk_in" (rect 21 27 49 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 152 32)
+		(output)
+		(text "clk_out" (rect 0 0 35 12)(font "Arial" ))
+		(text "clk_out" (rect 102 27 137 39)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32))
+	)
+	(parameter
+		"modulus"
+		"25000"
+		""
+	)
+	(parameter
+		"n"
+		"15"
+		""
+	)
+	(drawing
+		(rectangle (rect 16 16 136 64))
+	)
+	(annotation_block (parameter)(rect 552 112 678 169))
+)
+(symbol
+	(rect 392 336 544 416)
+	(text "divisor_de_frequencia" (rect 5 0 113 12)(font "Arial" ))
+	(text "inst4" (rect 8 64 30 81)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_in" (rect 0 0 28 12)(font "Arial" ))
+		(text "clk_in" (rect 21 27 49 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 152 32)
+		(output)
+		(text "clk_out" (rect 0 0 35 12)(font "Arial" ))
+		(text "clk_out" (rect 102 27 137 39)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32))
+	)
+	(parameter
+		"modulus"
+		"12500000"
+		""
+	)
+	(parameter
+		"n"
+		"24"
+		""
+	)
+	(drawing
+		(rectangle (rect 16 16 136 64))
+	)
+	(annotation_block (parameter)(rect 544 272 691 329))
+)
+(symbol
+	(rect 1016 176 1216 352)
+	(text "decoder_2_para_4" (rect 5 0 94 12)(font "Arial" ))
+	(text "inst5" (rect 8 160 30 177)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "selecao[1..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "selecao[1..0]" (rect 21 27 84 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk_blinkdig" (rect 0 0 56 12)(font "Arial" ))
+		(text "clk_blinkdig" (rect 21 43 77 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clk_blinkglobal" (rect 0 0 70 12)(font "Arial" ))
+		(text "clk_blinkglobal" (rect 21 59 91 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "blinkdig1" (rect 0 0 42 12)(font "Arial" ))
+		(text "blinkdig1" (rect 21 75 63 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "blinkdig2" (rect 0 0 42 12)(font "Arial" ))
+		(text "blinkdig2" (rect 21 91 63 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "blinkdig3" (rect 0 0 42 12)(font "Arial" ))
+		(text "blinkdig3" (rect 21 107 63 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "blinkdig4" (rect 0 0 42 12)(font "Arial" ))
+		(text "blinkdig4" (rect 21 123 63 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "final_cont" (rect 0 0 48 12)(font "Arial" ))
+		(text "final_cont" (rect 21 139 69 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "alterna[3..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "alterna[3..0]" (rect 130 27 189 39)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 160))
+	)
+)
+(symbol
+	(rect 392 504 544 584)
+	(text "divisor_de_frequencia" (rect 5 0 113 12)(font "Arial" ))
+	(text "inst6" (rect 8 64 30 81)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_in" (rect 0 0 28 12)(font "Arial" ))
+		(text "clk_in" (rect 21 27 49 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 152 32)
+		(output)
+		(text "clk_out" (rect 0 0 35 12)(font "Arial" ))
+		(text "clk_out" (rect 102 27 137 39)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32))
+	)
+	(parameter
+		"modulus"
+		"6250000"
+		""
+	)
+	(parameter
+		"n"
+		"23"
+		""
+	)
+	(drawing
+		(rectangle (rect 16 16 136 64))
+	)
+	(annotation_block (parameter)(rect 544 440 684 497))
+)
+(connector
+	(text "clk" (rect 216 192 230 209)(font "Intel Clear" ))
+	(pt 208 208)
+	(pt 256 208)
+)
+(connector
+	(text "clk" (rect 336 192 350 209)(font "Intel Clear" ))
+	(pt 400 208)
+	(pt 328 208)
+)
+(connector
+	(pt 856 208)
+	(pt 1016 208)
+	(bus)
+)
+(connector
+	(pt 664 208)
+	(pt 552 208)
+)
+(connector
+	(text "blinkdig1" (rect 216 272 259 289)(font "Intel Clear" ))
+	(pt 208 288)
+	(pt 256 288)
+)
+(connector
+	(text "blinkdig2" (rect 216 296 259 313)(font "Intel Clear" ))
+	(pt 208 312)
+	(pt 256 312)
+)
+(connector
+	(text "blinkdig3" (rect 216 320 259 337)(font "Intel Clear" ))
+	(pt 208 336)
+	(pt 256 336)
+)
+(connector
+	(text "blinkdig4" (rect 216 344 259 361)(font "Intel Clear" ))
+	(pt 208 360)
+	(pt 256 360)
+)
+(connector
+	(text "final_cont" (rect 216 368 263 385)(font "Intel Clear" ))
+	(pt 208 384)
+	(pt 256 384)
+)
+(connector
+	(text "clk" (rect 328 352 342 369)(font "Intel Clear" ))
+	(pt 392 368)
+	(pt 320 368)
+)
+(connector
+	(text "clk_blinkdig" (rect 572 352 629 369)(font "Intel Clear" ))
+	(pt 544 368)
+	(pt 584 368)
+)
+(connector
+	(text "clk" (rect 328 520 342 537)(font "Intel Clear" ))
+	(pt 392 536)
+	(pt 320 536)
+)
+(connector
+	(text "clk_blinkglob" (rect 572 520 636 537)(font "Intel Clear" ))
+	(pt 544 536)
+	(pt 584 536)
+)
+(connector
+	(text "clk_blinkdig" (rect 976 208 1033 225)(font "Intel Clear" ))
+	(pt 968 224)
+	(pt 1016 224)
+)
+(connector
+	(text "clk_blinkglob" (rect 976 224 1040 241)(font "Intel Clear" ))
+	(pt 968 240)
+	(pt 1016 240)
+)
+(connector
+	(text "blinkdig1" (rect 964 240 1007 257)(font "Intel Clear" ))
+	(pt 1016 256)
+	(pt 968 256)
+)
+(connector
+	(text "blinkdig2" (rect 964 256 1007 273)(font "Intel Clear" ))
+	(pt 1016 272)
+	(pt 968 272)
+)
+(connector
+	(text "blinkdig3" (rect 964 272 1007 289)(font "Intel Clear" ))
+	(pt 1016 288)
+	(pt 968 288)
+)
+(connector
+	(text "blinkdig4" (rect 964 288 1007 305)(font "Intel Clear" ))
+	(pt 1016 304)
+	(pt 968 304)
+)
+(connector
+	(text "final_cont" (rect 960 304 1007 321)(font "Intel Clear" ))
+	(pt 1016 320)
+	(pt 968 320)
+)
+(connector
+	(pt 1216 208)
+	(pt 1360 208)
+	(bus)
+)

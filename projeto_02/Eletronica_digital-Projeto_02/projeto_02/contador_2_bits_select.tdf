@@ -1,0 +1,100 @@
+TITLE "Contador de 2 Bits do Select";
+
+-- Este subdesign cria um contador de 2 bits que pode ser controlado
+-- por botões ou forçado a um estado específico pela borda de subida
+-- de uma das oito entradas de controle (flags ou resets).
+SUBDESIGN contador_2_bits_select
+(
+	-- ENTRradas --
+	clk_in        : INPUT;      -- Clock do sistema.
+	botaoprox_in  : INPUT;      -- Botão para contar de forma CRESCENTE (UP).
+	botaoant_in   : INPUT;      -- Botão para contar de forma DECRESCENTE (DOWN).
+	
+	-- Entradas para forçar o estado do contador
+	flag_final1, flag_final2, flag_final3, flag_final4 : INPUT;
+	reset_c1, reset_c2, reset_c3, reset_c4            : INPUT; -- NOVAS ENTRADAS
+	
+	-- Saída --
+	bit_out[1..0] : OUTPUT;     -- Saída de 2 bits.
+)
+VARIABLE
+	-- Registrador principal para 2 bits.
+	q[1..0]            : DFF;
+	
+	-- Registradores para o detector de borda dos botões.
+	btn1_reg, btn2_reg : DFF;
+	
+	-- Registradores para detectar a borda das flags e resets.
+	flag_reg[4..1]   : DFF;
+	reset_c_reg[4..1]  : DFF; -- NOVO
+	
+	-- Nós lógicos para os pulsos gerados.
+	up_pulse, down_pulse : NODE;
+	flag_pulse[4..1]   : NODE;
+	reset_c_pulse[4..1]  : NODE; -- NOVO
+	trigger[4..1]      : NODE; -- NOVO (combinação das condições)
+
+BEGIN
+	-- Sincroniza todos os registradores com o mesmo clock.
+	q[].clk = clk_in;
+	btn1_reg.clk = clk_in;
+	btn2_reg.clk = clk_in;
+	flag_reg[].clk = clk_in;
+	reset_c_reg[].clk = clk_in; -- NOVO
+	
+	-- Conecta o valor do contador à porta de saída.
+	bit_out[] = q[].q;
+	
+	-- Lógica do Detector de Borda para os Botões.
+	btn1_reg.d = botaoprox_in;
+	btn2_reg.d = botaoant_in;
+	up_pulse   = btn1_reg.q AND !botaoprox_in;
+	down_pulse = btn2_reg.q AND !botaoant_in;
+	
+	-- Lógica dos Detectores de Borda para as Flags e Resets.
+	flag_reg[].d = (flag_final4, flag_final3, flag_final2, flag_final1);
+	flag_pulse[1] = !flag_reg[1].q AND flag_final1;
+	flag_pulse[2] = !flag_reg[2].q AND flag_final2;
+	flag_pulse[3] = !flag_reg[3].q AND flag_final3;
+	flag_pulse[4] = !flag_reg[4].q AND flag_final4;
+	
+	reset_c_reg[].d = (reset_c4, reset_c3, reset_c2, reset_c1);
+	reset_c_pulse[1] = !reset_c_reg[1].q AND reset_c1;
+	reset_c_pulse[2] = !reset_c_reg[2].q AND reset_c2;
+	reset_c_pulse[3] = !reset_c_reg[3].q AND reset_c3;
+	reset_c_pulse[4] = !reset_c_reg[4].q AND reset_c4;
+
+	-- NOVO: Combina as condições de 'flag' e 'reset' para cada estado.
+	trigger[1] = flag_pulse[1] OR reset_c_pulse[1];
+	trigger[2] = flag_pulse[2] OR reset_c_pulse[2];
+	trigger[3] = flag_pulse[3] OR reset_c_pulse[3];
+	trigger[4] = flag_pulse[4] OR reset_c_pulse[4];
+	
+	-- Lógica Principal com Prioridade (agora baseada nos triggers combinados) --
+	IF trigger[1] == VCC THEN
+		q[].d = B"00";
+		
+	ELSE IF trigger[2] == VCC THEN
+		q[].d = B"01";
+
+	ELSE IF trigger[3] == VCC THEN
+		q[].d = B"10";
+
+	ELSE IF trigger[4] == VCC THEN
+		q[].d = B"11";
+		
+	ELSE
+		-- Se NENHUM trigger foi detectado, executa a lógica normal dos botões.
+		IF up_pulse == VCC THEN
+			q[].d = q[].q + 1;
+		ELSE IF down_pulse == VCC THEN
+			q[].d = q[].q - 1;
+		ELSE
+			q[].d = q[].q;
+		END IF;
+		END IF;
+	END IF;
+	END IF;
+	END IF;
+END IF;
+END;

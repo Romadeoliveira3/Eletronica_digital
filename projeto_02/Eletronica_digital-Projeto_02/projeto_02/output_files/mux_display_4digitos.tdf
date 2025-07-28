@@ -1,0 +1,49 @@
+TITLE "Multiplexador de Display 4-Dígitos";
+
+-- Este módulo seleciona qual conjunto de segmentos (unidade, dezena, etc.)
+-- será enviado para a saída, com base no sinal de seleção.
+SUBDESIGN mux_display_4digitos
+(
+	-- ENTRADAS --
+	
+	-- Sinal de seleção de 4 bits (one-hot, ativo em 0).
+	-- A ordem agora é [0..3], onde o bit 0 é o mais significativo.
+	selecao[0..3]         : INPUT;
+	
+	-- Dados dos segmentos para cada dígito.
+	unidade_seg[0..6]     : INPUT;
+	dezena_seg[0..6]      : INPUT;
+	centena_seg[0..6]     : INPUT;
+	milhar_seg[0..6]      : INPUT;
+	
+	-- SAÍDA --
+	
+	-- Saída final de 7 bits que vai para os pinos do display.
+	segmento_out[0..6]    : OUTPUT;
+)
+BEGIN
+	-- A estrutura CASE verifica o valor da entrada 'selecao'.
+	CASE selecao[] IS
+	
+		-- QUANDO o dígito da UNIDADE estiver ativo (selecao[0] = 0)...
+		WHEN B"0111" => -- Valor invertido para a nova ordem
+			segmento_out[] = unidade_seg[];
+			
+		-- QUANDO o dígito da DEZENA estiver ativo (selecao[1] = 0)...
+		WHEN B"1011" => -- Valor invertido para a nova ordem
+			segmento_out[] = dezena_seg[];
+			
+		-- QUANDO o dígito da CENTENA estiver ativo (selecao[2] = 0)...
+		WHEN B"1101" => -- Valor invertido para a nova ordem
+			segmento_out[] = centena_seg[];
+			
+		-- QUANDO o dígito do MILHAR estiver ativo (selecao[3] = 0)...
+		WHEN B"1110" => -- Valor invertido para a nova ordem
+			segmento_out[] = milhar_seg[];
+			
+		-- CASO PADRÃO (Segurança): Se o sinal de seleção for inválido.
+		WHEN OTHERS =>
+			segmento_out[] = B"1111111";
+			
+	END CASE;
+END;

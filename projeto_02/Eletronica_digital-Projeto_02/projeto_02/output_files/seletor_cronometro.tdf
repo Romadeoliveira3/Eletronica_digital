@@ -1,0 +1,47 @@
+TITLE "Seletor de Cronômetro";
+
+-- Este subdesign seleciona um de quatro cronômetros quando o menu_in é "00"
+-- e memoriza a seleção nos outros modos de menu.
+SUBDESIGN seletor_cronometro
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;      -- Clock para sincronizar a memória de estado.
+	menu_in[1..0] : INPUT;      -- Seleciona o modo de operação (editar ou memorizar).
+	select_in[1..0]: INPUT;      -- Seleciona o cronômetro no modo de edição.
+	
+	-- SAÍDAS --
+	-- Saídas de controle, apenas uma estará ativa ('1') por vez.
+	crono1, crono2, crono3, crono4 : OUTPUT;
+)
+VARIABLE
+	-- Registrador principal de 4 bits para "lembrar" qual cronômetro está ativo.
+	-- Cada bit corresponde a uma das saídas 'crono'.
+	crono_q[4..1] : DFF;
+
+BEGIN
+	-- 1. Sincroniza o registrador de estado com o clock.
+	crono_q[].clk = clk_in;
+	
+	-- 2. Conecta as saídas do módulo diretamente ao valor guardado na memória.
+	(crono4, crono3, crono2, crono1) = crono_q[].q;
+	
+	-- 3. Lógica que decide o PRÓXIMO estado do registrador 'crono_q'.
+	
+	-- Modo de Edição: Apenas no menu "00" a seleção pode ser alterada.
+	IF menu_in[] == B"00" THEN
+		-- Um CASE aninhado usa a entrada 'select_in' para determinar o próximo estado.
+		CASE select_in[] IS
+			WHEN B"00" => crono_q[].d = B"0001"; -- Prepara para ativar crono1.
+			WHEN B"01" => crono_q[].d = B"0010"; -- Prepara para ativar crono2.
+			WHEN B"10" => crono_q[].d = B"0100"; -- Prepara para ativar crono3.
+			WHEN B"11" => crono_q[].d = B"1000"; -- Prepara para ativar crono4.
+		END CASE;
+		
+	-- Modo de Memória: Para todos os outros menus ("01", "10", "11").
+	ELSE
+		-- Esta linha instrui o registrador a recarregar o valor que ele (HOLD)
+		-- já possui, mantendo a saída estável (memorizando o estado).
+		crono_q[].d = crono_q[].q;
+		
+	END IF;
+END;

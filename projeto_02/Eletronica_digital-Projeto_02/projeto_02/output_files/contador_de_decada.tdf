@@ -1,0 +1,106 @@
+TITLE "Contador de Década";
+
+SUBDESIGN contador_de_decada
+(
+	-- ENTRADAS --
+	clk_in      : INPUT;  -- Clock da placa.
+	clk_cont    : INPUT;  -- Clock principal para a contagem.
+	reset_pin   : INPUT;  -- Pino de reset 1 (a borda de subida 0->1 gera o reset).
+	reset_novo  : INPUT;  -- NOVO: Pino de reset 2 (a borda de subida 0->1 gera o reset).
+	comp_flag   : INPUT;  -- Flag de comparação (permissão em '1').
+	final_cont  : INPUT;  -- Flag de final de contagem (permissão em '0').
+	pausa       : INPUT;  -- Pausa a contagem quando em '1' (permissão em '0').
+	
+	-- SAÍDAS --
+	unidade_out[3..0] : OUTPUT;
+	dezena_out[3..0]  : OUTPUT;
+	centena_out[3..0] : OUTPUT;
+	milhar_out[3..0]  : OUTPUT;
+)
+VARIABLE
+	-- Contadores internos para cada dígito.
+	unidade_q[3..0] : DFF;
+	dezena_q[3..0]  : DFF;
+	centena_q[3..0] : DFF;
+	milhar_q[3..0]  : DFF;
+	
+	-- Registradores para os detectores de borda.
+	reset_reg      : DFF;
+	reset_novo_reg : DFF; -- NOVO
+	
+	-- Nós lógicos.
+	pode_contar         : NODE;
+	reset_pulse         : NODE;
+	reset_novo_pulse    : NODE; -- NOVO
+	reset_final_pulse   : NODE; -- NOVO (combinação dos dois resets)
+
+BEGIN
+	-- 1. Sincronização e Conexões dos DFFs.
+	unidade_q[].clk = clk_cont;
+	dezena_q[].clk  = clk_cont;
+	centena_q[].clk = clk_cont;
+	milhar_q[].clk  = clk_cont;
+	reset_reg.clk = clk_in;
+	reset_novo_reg.clk = clk_in; -- NOVO
+	
+	-- Conecta a porta de reset assíncrona dos DFFs ao pulso final combinado.
+	unidade_q[].clrn = !reset_final_pulse;
+	dezena_q[].clrn  = !reset_final_pulse;
+	centena_q[].clrn = !reset_final_pulse;
+	milhar_q[].clrn  = !reset_final_pulse;
+	
+	-- 2. Conexão das saídas.
+	unidade_out[] = unidade_q[].q;
+	dezena_out[]  = dezena_q[].q;
+	centena_out[] = centena_q[].q;
+	milhar_out[]  = milhar_q[].q;
+	
+	-- 3. Lógica de permissão de contagem.
+	pode_contar = !pausa & (comp_flag & !final_cont);
+
+	-- 4. Lógica dos Detectores de Borda para os Resets.
+	-- Detector para reset_pin
+	reset_reg.d = reset_pin;
+	reset_pulse = !reset_reg.q & reset_pin;
+	-- NOVO: Detector para reset_novo
+	reset_novo_reg.d = reset_novo;
+	reset_novo_pulse = !reset_novo_reg.q & reset_novo;
+
+	-- NOVO: Combina os dois pulsos de reset com um operador OU.
+	-- O reset final será ativado se o reset_pulse OU o reset_novo_pulse ocorrer.
+	reset_final_pulse = reset_pulse OR reset_novo_pulse;
+
+	-- 5. Lógica principal de contagem (não alterada).
+	IF pode_contar THEN
+		-- Lógica de contagem em cascata (não alterada)
+		IF unidade_q[].q == 9 THEN
+			unidade_q[].d = 0;
+		ELSE
+			unidade_q[].d = unidade_q[].q + 1;
+		END IF;
+		
+		IF unidade_q[].q == 9 THEN
+			IF dezena_q[].q == 9 THEN dezena_q[].d = 0; ELSE dezena_q[].d = dezena_q[].q + 1; END IF;
+		ELSE
+			dezena_q[].d = dezena_q[].q;
+		END IF;
+		
+		IF (unidade_q[].q == 9) & (dezena_q[].q == 9) THEN
+			IF centena_q[].q == 9 THEN centena_q[].d = 0; ELSE centena_q[].d = centena_q[].q + 1; END IF;
+		ELSE
+			centena_q[].d = centena_q[].q;
+		END IF;
+		
+		IF (unidade_q[].q == 9) & (dezena_q[].q == 9) & (centena_q[].q == 9) THEN
+			IF milhar_q[].q == 9 THEN milhar_q[].d = 0; ELSE milhar_q[].d = milhar_q[].q + 1; END IF;
+		ELSE
+			milhar_q[].d = milhar_q[].q;
+		END IF;
+	ELSE
+		-- Se não houver permissão, mantém o valor.
+		unidade_q[].d = unidade_q[].q;
+		dezena_q[].d  = dezena_q[].q;
+		centena_q[].d = centena_q[].q;
+		milhar_q[].d  = milhar_q[].q;
+	END IF;
+END;

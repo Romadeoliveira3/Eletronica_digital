@@ -1,0 +1,51 @@
+TITLE "Comparador de 4 Dígitos";
+
+-- Este subdesign compara dois números de 4 dígitos BCD.
+-- Ele possui um modo especial que compara o contador com 9999
+-- quando o valor do registrador de referência é 0000.
+SUBDESIGN comparador_4_digitos
+(
+	-- ENTRADAS --
+	-- Flag que habilita a comparação (ativa em '1').
+	comp_flag             : INPUT;
+
+	-- Primeiro número a ser comparado (ex: vindo de um contador).
+	cont_unidade[3..0]    : INPUT;
+	cont_dezena[3..0]     : INPUT;
+	cont_centena[3..0]    : INPUT;
+	cont_milhar[3..0]     : INPUT;
+
+	-- Segundo número a ser comparado (ex: vindo de um registrador).
+	reg_unidade[3..0]     : INPUT;
+	reg_dezena[3..0]      : INPUT;
+	reg_centena[3..0]     : INPUT;
+	reg_milhar[3..0]      : INPUT;
+	
+	-- SAÍDA --
+	final_cont            : OUTPUT; -- Ativada se a condição de comparação for atendida.
+)
+BEGIN
+	-- A estrutura IF/ELSE seleciona o modo de comparação.
+	-- Condição para o Modo Especial: verifica se todos os dígitos do registrador são zero.
+	IF (reg_unidade[] == 0) & (reg_dezena[] == 0) & (reg_centena[] == 0) & (reg_milhar[] == 0) THEN
+		
+		-- MODO ESPECIAL:
+		-- A saída 'final_cont' só será '1' se o contador atingir 9999
+		-- E a flag de permissão estiver ativa.
+		final_cont =   (cont_unidade[] == 9)
+		             & (cont_dezena[] == 9)
+		             & (cont_centena[] == 9)
+		             & (cont_milhar[] == 9)
+		             & comp_flag;
+	ELSE
+		-- MODO NORMAL:
+		-- A lógica original de comparação é executada.
+		-- A saída 'final_cont' só será '1' se os números forem idênticos
+		-- E a flag de permissão estiver ativa.
+		final_cont =   (cont_unidade[] == reg_unidade[])
+		             & (cont_dezena[] == reg_dezena[])
+		             & (cont_centena[] == reg_centena[])
+		             & (cont_milhar[] == reg_milhar[])
+		             & comp_flag;
+	END IF;
+END;

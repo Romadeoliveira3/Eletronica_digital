@@ -1,0 +1,66 @@
+TITLE "Controlador de Pausa e Reset";
+
+-- Este subdesign gera um sinal de pausa (toggle) e um pulso de reset
+-- com base em cliques de botão, mas apenas quando o menu "11" está ativo.
+SUBDESIGN controlador_pausa_reset
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;      -- Clock do sistema.
+	menu_in[1..0] : INPUT;      -- Habilita a lógica no estado "11".
+	botaoprox_in  : INPUT;      -- Aciona a lógica de pausa (toggle).
+	botaoant_in   : INPUT;      -- Aciona o pulso de reset.
+	
+	-- SAÍDAS --
+	pausa_out       : OUTPUT;     -- Saída que alterna entre 0 e 1.
+	resetcont_out   : OUTPUT;     -- Saída que gera um pulso momentâneo.
+)
+VARIABLE
+	-- Registradores para o detector de borda de cada botão.
+	btn_prox_reg, btn_ant_reg : DFF;
+	
+	-- Registrador para a lógica de toggle da 'pausa_out'.
+	pausa_q                   : DFF;
+
+	-- NOVO: Registrador dedicado para a saída 'resetcont_out'.
+	resetcont_q               : DFF;
+	
+	-- Nós lógicos para os pulsos de 1 ciclo gerados pelos botões.
+	prox_pulse, ant_pulse     : NODE;
+
+BEGIN
+	-- Sincroniza todos os registradores com o clock.
+	pausa_q.clk = clk_in;
+	resetcont_q.clk = clk_in; -- NOVO
+	btn_prox_reg.clk = clk_in;
+	btn_ant_reg.clk = clk_in;
+	
+	-- Conecta as saídas aos seus respectivos registradores.
+	pausa_out = pausa_q.q;
+	resetcont_out = resetcont_q.q; -- NOVO
+
+	-- Lógica do Detector de Borda (não alterada).
+	btn_prox_reg.d = botaoprox_in;
+	btn_ant_reg.d = botaoant_in;
+	prox_pulse = btn_prox_reg.q & !botaoprox_in;
+	ant_pulse  = btn_ant_reg.q & !botaoant_in;
+	
+	-- Lógica da Saída 'pausa_out' (não alterada).
+	IF menu_in[] != B"11" THEN
+		pausa_q.d = GND;
+	ELSE
+		IF prox_pulse == VCC THEN
+			pausa_q.d = !pausa_q.q;
+		ELSE
+			pausa_q.d = pausa_q.q;
+		END IF;
+	END IF;
+	
+	-- NOVA LÓGICA da Saída 'resetcont_out' (Sequencial).
+	-- Por padrão, o próximo estado do reset é '0'.
+	resetcont_q.d = GND;
+	-- Apenas se a condição for atendida, o próximo estado é momentaneamente '1'.
+	IF (ant_pulse == VCC) AND (menu_in[] == B"11") THEN
+		resetcont_q.d = VCC;
+	END IF;
+	
+END;

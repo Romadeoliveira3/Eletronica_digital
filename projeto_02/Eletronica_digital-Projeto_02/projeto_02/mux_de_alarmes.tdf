@@ -1,0 +1,17 @@
+TITLE "Multiplexador para saída de alarmes";
+
+-- Este subdesign ativa uma única saída se qualquer uma
+-- das quatro entradas de alarme estiver ativa.
+SUBDESIGN mux_de_alarmes
+(
+	-- ENTRADAS --
+	alarme1_in, alarme2_in, alarme3_in, alarme4_in : INPUT;
+	
+	-- SAÍDA --
+	alarme_out : OUTPUT;
+)
+BEGIN
+	-- A lógica é resolvida por uma única equação booleana
+	-- usando o operador '|' (OU Lógico).
+	alarme_out = alarme1_in OR alarme2_in OR alarme3_in OR alarme4_in;
+END;

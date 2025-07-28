@@ -1,0 +1,123 @@
+TITLE "Seletor de Cronômetro com Contador";
+
+-- Este subdesign usa um contador interno up/down para selecionar um de
+-- quatro cronômetros no menu "00" e memoriza a seleção nos outros menus.
+-- Diferente do seletor_cronometro anterior, o contador é interno, e não sofre alterações dos outros menus.
+SUBDESIGN seletor_cronometro_contador
+(
+	-- ENTRADAS --
+	clk_in        : INPUT;      -- Clock do sistema para sincronizar a lógica.
+	menu_in[1..0] : INPUT;      -- Seleciona o modo de operação (editar ou memorizar).
+	botaoprox_in  : INPUT;      -- Botão para incrementar a seleção (UP).
+	botaoant_in   : INPUT;      -- Botão para decrementar a seleção (DOWN).
+	
+	-- Novas entradas de controle com prioridade
+	flag_final1, flag_final2, flag_final3, flag_final4 : INPUT;
+	reset_c1, reset_c2, reset_c3, reset_c4            : INPUT;
+	
+	-- SAÍDAS --
+	-- Saídas de controle, apenas uma estará ativa ('1') por vez.
+	crono1, crono2, crono3, crono4 : OUTPUT;
+)
+VARIABLE
+	-- Registrador de 4 bits para "lembrar" qual cronômetro está ativo.
+	crono_q[4..1]      : DFF;
+	-- Registrador de 2 bits para o contador de seleção interno.
+	select_q[1..0]     : DFF;
+	
+	-- Registradores para o detector de borda dos botões.
+	btn_prox_reg, btn_ant_reg : DFF;
+	
+	-- Registradores para detectar a borda das flags e resets.
+	flag_reg[4..1]   : DFF;
+	reset_c_reg[4..1]  : DFF;
+	
+	-- Nós lógicos para os pulsos e triggers.
+	prox_pulse, ant_pulse : NODE;
+	flag_pulse[4..1]   : NODE;
+	reset_c_pulse[4..1]  : NODE;
+	trigger[4..1]      : NODE;
+
+BEGIN
+	-- 1. Sincroniza todos os registradores com o mesmo clock.
+	crono_q[].clk = clk_in;
+	select_q[].clk = clk_in;
+	btn_prox_reg.clk = clk_in;
+	btn_ant_reg.clk = clk_in;
+	flag_reg[].clk = clk_in;
+	reset_c_reg[].clk = clk_in;
+	
+	-- 2. Conecta as saídas ao valor guardado no registrador de estado.
+	(crono4, crono3, crono2, crono1) = crono_q[].q;
+	
+	-- 3. Lógica dos Detectores de Borda.
+	-- Botões
+	btn_prox_reg.d = botaoprox_in;
+	btn_ant_reg.d = botaoant_in;
+	prox_pulse = btn_prox_reg.q & !botaoprox_in;
+	ant_pulse  = btn_ant_reg.q & !botaoant_in;
+	
+	-- Flags
+	flag_reg[].d = (flag_final4, flag_final3, flag_final2, flag_final1);
+	flag_pulse[1] = !flag_reg[1].q AND flag_final1;
+	flag_pulse[2] = !flag_reg[2].q AND flag_final2;
+	flag_pulse[3] = !flag_reg[3].q AND flag_final3;
+	flag_pulse[4] = !flag_reg[4].q AND flag_final4;
+	
+	-- Resets 'c'
+	reset_c_reg[].d = (reset_c4, reset_c3, reset_c2, reset_c1);
+	reset_c_pulse[1] = !reset_c_reg[1].q AND reset_c1;
+	reset_c_pulse[2] = !reset_c_reg[2].q AND reset_c2;
+	reset_c_pulse[3] = !reset_c_reg[3].q AND reset_c3;
+	reset_c_pulse[4] = !reset_c_reg[4].q AND reset_c4;
+
+	-- 4. Combina as condições de 'flag' e 'reset' para cada estado.
+	trigger[1] = flag_pulse[1] OR reset_c_pulse[1];
+	trigger[2] = flag_pulse[2] OR reset_c_pulse[2];
+	trigger[3] = flag_pulse[3] OR reset_c_pulse[3];
+	trigger[4] = flag_pulse[4] OR reset_c_pulse[4];
+
+	-- 5. Lógica de Estado Principal com Prioridade.
+	-- A estrutura IF/ELSE IF verifica os triggers primeiro.
+	IF trigger[1] THEN
+		select_q[].d = B"00";
+	ELSE IF trigger[2] THEN
+		select_q[].d = B"01";
+	ELSE IF trigger[3] THEN
+		select_q[].d = B"10";
+	ELSE IF trigger[4] THEN
+		select_q[].d = B"11";
+	ELSE
+		-- Se NENHUM trigger foi detectado, executa a lógica normal
+		-- do contador interno e do seletor.
+		
+		-- Lógica do contador de seleção interno ('select_q')
+		IF (menu_in[] == B"00") THEN
+			IF prox_pulse THEN
+				select_q[].d = select_q[].q + 1;
+			ELSE IF ant_pulse THEN
+				select_q[].d = select_q[].q - 1;
+			ELSE
+				select_q[].d = select_q[].q;
+			END IF;
+			END IF;
+		ELSE
+			select_q[].d = select_q[].q;
+		END IF;
+
+		-- Lógica do seletor principal ('crono_q')
+		IF menu_in[] == B"00" THEN
+			CASE select_q[].q IS
+				WHEN B"00" => crono_q[].d = B"0001";
+				WHEN B"01" => crono_q[].d = B"0010";
+				WHEN B"10" => crono_q[].d = B"0100";
+				WHEN B"11" => crono_q[].d = B"1000";
+			END CASE;
+		ELSE
+			crono_q[].d = crono_q[].q;
+		END IF;
+	END IF;
+	END IF;
+	END IF;
+	END IF;
+END;
