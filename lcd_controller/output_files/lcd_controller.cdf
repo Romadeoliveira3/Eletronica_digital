@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("D:/MALKI/Documentos/Quartus/VHDL/exemplos RZ-EasyFPGA/lcd_controller/output_files/") File("lcd_controller.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("C:/Users/Bruno/Documents/Eletrônica Digital/Projetos Exemplo em VHDL/exemplos práticos/lcd_controller/output_files/") File("lcd_controller.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

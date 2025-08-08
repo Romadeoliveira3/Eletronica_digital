@@ -18,10 +18,10 @@ ARCHITECTURE bhv OF lcd_logic IS
 	SIGNAL L2 : std_logic_vector (127 DOWNTO 0);
 	
 	--constantes
-	CONSTANT frase1_1 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("   ELETRONICA   ");--16 caracteres!!!
-	CONSTANT frase1_2 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("  Digital UFPE  ");--16 caracteres!!!
-	CONSTANT frase2_1 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("      VHDL      ");--16 caracteres!!!
-	CONSTANT frase2_2 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("FPGA Cyclone IV ");--16 caracteres!!!
+	CONSTANT frase1_1 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("   PROJETO      ");--16 caracteres!!!
+	CONSTANT frase1_2 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("  VENCEDOR      ");--16 caracteres!!!
+	CONSTANT frase2_1 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector(" BRUNO & FELIPE ");--16 caracteres!!!
+	CONSTANT frase2_2 : std_logic_vector (127 DOWNTO 0) := to_std_logic_vector("ROMARIO & TAYSA ");--16 caracteres!!!
 BEGIN
 	--atribuição contínua das saídas registradas
 	lcd_e <= lcd_enable;
