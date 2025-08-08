@@ -1,0 +1,21 @@
+-- Arquivo: gera_pulso.tdf
+-- Descrição: Lê botão e gera um pulso
+-- Autor: Malki-çedheq Benjamim
+-- Data: 04/02/2022
+TITLE "Gera Pulso";
+SUBDESIGN gera_pulso (
+	pb_in 	: INPUT; --ativo-alto
+	clk_in	: INPUT; --50MHz
+	pulso_out: OUTPUT;
+)
+VARIABLE
+	ff [2..1] : dff; --instâncias de dff
+BEGIN 		
+	ff[].clk = clk_in; --sincroniza
+	ff1.d = pb_in; --atualiza estado atual (ff1)
+	ff2.d = ff1.q; --atualiza estado anterior (ff2)
+	--gera um pulso de clock 
+	--se o estado anterior LOW o estado atual HIGH 
+	--ou seja, apenas na borda de subida de pb_in
+	pulso_out = (NOT ff1.q) NOR ff2.q;
+END;

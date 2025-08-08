@@ -1,0 +1,7 @@
+
+State Machine - |leds_botoes2|estado_atual
+Name estado_atual.s3 estado_atual.s2 estado_atual.s1 estado_atual.s0 
+estado_atual.s0 0 0 0 0 
+estado_atual.s1 0 0 1 1 
+estado_atual.s2 0 1 0 1 
+estado_atual.s3 1 0 0 1 
