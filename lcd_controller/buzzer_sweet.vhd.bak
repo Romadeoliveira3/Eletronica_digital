@@ -1,0 +1,67 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity buzzer_sweet is
+  generic (
+    CLK_FREQ_HZ : positive := 50_000_000;
+    DEBOUNCE_MS : positive := 20
+  );
+  port (
+    clk    : in  std_logic;
+    key    : in  std_logic_vector(4 downto 1);
+    buzzer : out std_logic
+  );
+end entity;
+
+architecture rtl of buzzer_sweet is
+  -- Sinais internos
+  signal deb      : std_logic_vector(4 downto 1);
+  signal disparo  : std_logic;
+  signal duracao  : std_logic;
+  signal temp_ovf : std_logic_vector(27 downto 0);
+  signal freq_ovf : std_logic_vector(27 downto 0);
+begin
+  -- Debounce vetorial (use sua entidade 'debounce' vetorial com porta 'key' e 'deb')
+  u_db: entity work.debounce
+    generic map (
+      CLK_FREQ_HZ => CLK_FREQ_HZ,
+      DEBOUNCE_MS => DEBOUNCE_MS,
+      N_KEYS      => 4
+    )
+    port map (
+      clk => clk,
+      key => key,   -- entradas dos botões
+      deb => deb    -- saídas filtradas
+    );
+
+  -- Controlador da melodia (o que você forneceu)
+  u_ctrl: entity work.controlador_sweet
+    port map (
+      Clk_in   => clk,
+      Play_in  => deb(2),
+      Stop_in  => deb(4),
+      Duracao  => duracao,
+      Disparo  => disparo,
+      Temp_out => temp_ovf,
+      Freq_out => freq_ovf,
+      Clk_out  => open    -- não usar clock “gated”
+    );
+
+  -- Temporizador: conta a duração de cada nota
+  u_tmp: entity work.temporizador
+    port map (
+      clk      => clk,
+      Disparo  => disparo,
+      Overflow => temp_ovf,
+      Q        => duracao
+    );
+
+  -- Divisor de clock: gera o tom para o buzzer
+  u_div: entity work.divisor_clock
+    port map (
+      Clk_in   => clk,
+      Overflow => freq_ovf,
+      Clk_out  => buzzer
+    );
+end architecture;
