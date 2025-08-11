@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed Aug 06 14:36:59 2025
-Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Mon Aug 11 17:23:59 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : lcd_controller
 Top-level Entity Name : Block1
 Family : Cyclone IV E
-Total logic elements : 266
-    Total combinational functions : 266
-    Dedicated logic registers : 62
-Total registers : 62
+Total logic elements : 313
+    Total combinational functions : 311
+    Dedicated logic registers : 97
+Total registers : 97
 Total pins : 16
 Total virtual pins : 0
 Total memory bits : 0

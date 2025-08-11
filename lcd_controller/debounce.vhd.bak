@@ -1,0 +1,72 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity debounce is
+  generic (
+    CLK_FREQ_HZ  : positive := 50_000_000; -- frequência do clock
+    DEBOUNCE_MS  : positive := 20          -- janela de debounce em ms
+  );
+  port (
+    clk            : in  std_logic;
+    rst_n          : in  std_logic;        -- reset ativo em '0'
+    noisy_in       : in  std_logic;        -- botão "sujo"
+    clean_lvl      : out std_logic;        -- nível já debounced
+    press_pulse    : out std_logic;        -- pulso 1 ciclo na borda 0->1
+    release_pulse  : out std_logic         -- pulso 1 ciclo na borda 1->0
+  );
+end entity;
+
+architecture rtl of debounce is
+  constant CNT_MAX : natural := (CLK_FREQ_HZ / 1000) * DEBOUNCE_MS;
+
+  signal s0, s1     : std_logic := '0';               -- sincronizador 2 FFs
+  signal stable     : std_logic := '0';               -- estado aceito
+  signal cnt        : unsigned(31 downto 0) := (others => '0');
+begin
+  -- Sincronização ao clock (mitiga metastabilidade)
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      s0 <= noisy_in;
+      s1 <= s0;
+    end if;
+  end process;
+
+  -- Debounce por contador
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      -- defaults dos pulsos
+      press_pulse   <= '0';
+      release_pulse <= '0';
+
+      if rst_n = '0' then
+        stable <= '0';
+        cnt    <= (others => '0');
+
+      else
+        if s1 = stable then
+          -- nenhum movimento: zera a contagem
+          cnt <= (others => '0');
+        else
+          -- entrada difere do estável: conta até a janela expirar
+          if cnt = to_unsigned(CNT_MAX-1, cnt'length) then
+            -- confirma a troca de estado
+            if stable = '0' and s1 = '1' then
+              press_pulse <= '1';
+            elsif stable = '1' and s1 = '0' then
+              release_pulse <= '1';
+            end if;
+            stable <= s1;
+            cnt    <= (others => '0');
+          else
+            cnt <= cnt + 1;
+          end if;
+        end if;
+      end if;
+    end if;
+  end process;
+
+  clean_lvl <= stable;
+end architecture;
