@@ -1,19 +1,13 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-ENTITY gera_pulso IS
-	PORT (clk, pushbutton : IN std_logic;
-			pulso : OUT std_logic);
-END gera_pulso ;
-
-ARCHITECTURE BHV OF gera_pulso IS
-SIGNAL q1, q2 : std_logic;
-BEGIN
-	PROCESS (clk, q1, q2)
-	BEGIN
-		IF rising_edge(clk) THEN
-			q1 <= pushbutton;   -- q1: 1
-			q2 <= q1;           -- q2: 0
-		END IF ;
-		pulso <= (NOT q1) NOR q2;
-	END PROCESS;
-END BHV ;
+u_db: entity work.debounce
+  generic map (
+    CLK_FREQ_HZ => 50_000_000,
+    DEBOUNCE_MS => 20
+  )
+  port map (
+    clk           => clk,
+    rst_n         => '1',
+    noisy_in      => pushbutton,
+    clean_lvl     => open,   -- ou use como nível estável
+    press_pulse   => pulso,  -- pulso 1 ciclo na pressão
+    release_pulse => open
+  );
