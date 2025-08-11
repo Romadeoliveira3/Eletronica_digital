@@ -12,6 +12,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "buzzer",
+					"strict" : false
+				},
+				{
 					"name" : "lcd_d[7]",
 					"strict" : false
 				},
@@ -49,6 +53,10 @@
 				},
 				{
 					"name" : "key[1]",
+					"strict" : false
+				},
+				{
+					"name" : "key[2]",
 					"strict" : false
 				}
 			]
