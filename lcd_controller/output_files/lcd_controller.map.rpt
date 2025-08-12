@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lcd_controller
-Mon Aug 11 20:33:24 2025
+Mon Aug 11 22:12:07 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -13,18 +13,19 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Block1|lcd_controller:inst2|estado
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: lcd_controller:inst2
- 15. Parameter Settings for User Entity Instance: debounce:inst3
- 16. Port Connectivity Checks: "buzzer_sweet:inst10|controlador_sweet:u_ctrl"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  8. State Machine - |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl|estado_atual
+  9. State Machine - |Block1|lcd_controller:inst2|estado
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: lcd_controller:inst2
+ 16. Parameter Settings for User Entity Instance: debounce:inst3
+ 17. Port Connectivity Checks: "buzzer_sweet:inst10|controlador_sweet:u_ctrl"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -51,15 +52,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 11 20:33:24 2025           ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 11 22:12:07 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; lcd_controller                                  ;
 ; Top-level Entity Name              ; Block1                                          ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 522                                             ;
-;     Total combinational functions  ; 515                                             ;
-;     Dedicated logic registers      ; 230                                             ;
-; Total registers                    ; 230                                             ;
+; Total logic elements               ; 533                                             ;
+;     Total combinational functions  ; 525                                             ;
+;     Dedicated logic registers      ; 254                                             ;
+; Total registers                    ; 254                                             ;
 ; Total pins                         ; 17                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -197,20 +198,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 522         ;
+; Estimated Total logic elements              ; 533         ;
 ;                                             ;             ;
-; Total combinational functions               ; 515         ;
+; Total combinational functions               ; 525         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 218         ;
-;     -- 3 input functions                    ; 63          ;
-;     -- <=2 input functions                  ; 234         ;
+;     -- 4 input functions                    ; 220         ;
+;     -- 3 input functions                    ; 48          ;
+;     -- <=2 input functions                  ; 257         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 339         ;
-;     -- arithmetic mode                      ; 176         ;
+;     -- normal mode                          ; 370         ;
+;     -- arithmetic mode                      ; 155         ;
 ;                                             ;             ;
-; Total registers                             ; 230         ;
-;     -- Dedicated logic registers            ; 230         ;
+; Total registers                             ; 254         ;
+;     -- Dedicated logic registers            ; 254         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 17          ;
@@ -218,9 +219,9 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 230         ;
-; Total fan-out                               ; 2240        ;
-; Average fan-out                             ; 2.88        ;
+; Maximum fan-out                             ; 254         ;
+; Total fan-out                               ; 2290        ;
+; Average fan-out                             ; 2.82        ;
 +---------------------------------------------+-------------+
 
 
@@ -229,16 +230,56 @@ on the Quartus Prime software download page.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                  ; Entity Name       ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
-; |Block1                          ; 515 (1)             ; 230 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                              ; Block1            ; work         ;
-;    |buzzer_sweet:inst10|         ; 158 (6)             ; 98 (8)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10                          ; buzzer_sweet      ; work         ;
-;       |controlador_sweet:u_ctrl| ; 53 (53)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
-;       |divisor_clock:u_div|      ; 56 (56)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|divisor_clock:u_div      ; divisor_clock     ; work         ;
+; |Block1                          ; 525 (1)             ; 254 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                              ; Block1            ; work         ;
+;    |buzzer_sweet:inst10|         ; 169 (6)             ; 122 (8)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10                          ; buzzer_sweet      ; work         ;
+;       |controlador_sweet:u_ctrl| ; 58 (58)             ; 49 (49)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
+;       |divisor_clock:u_div|      ; 62 (62)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|divisor_clock:u_div      ; divisor_clock     ; work         ;
 ;       |temporizador:u_tmp|       ; 43 (43)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp       ; temporizador      ; work         ;
 ;    |debounce:inst3|              ; 90 (90)             ; 70 (70)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|debounce:inst3                               ; debounce          ; work         ;
 ;    |lcd_controller:inst2|        ; 191 (191)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_controller:inst2                         ; lcd_controller    ; work         ;
-;    |lcd_logic:inst1|             ; 75 (75)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_logic:inst1                              ; lcd_logic         ; work         ;
+;    |lcd_logic:inst1|             ; 74 (74)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_logic:inst1                              ; lcd_logic         ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name             ; estado_atual.s30 ; estado_atual.s29 ; estado_atual.s28 ; estado_atual.s27 ; estado_atual.s26 ; estado_atual.s25 ; estado_atual.s24 ; estado_atual.s23 ; estado_atual.s22 ; estado_atual.s21 ; estado_atual.s20 ; estado_atual.s19 ; estado_atual.s18 ; estado_atual.s17 ; estado_atual.s16 ; estado_atual.s15 ; estado_atual.s14 ; estado_atual.s13 ; estado_atual.s12 ; estado_atual.s11 ; estado_atual.s10 ; estado_atual.s9 ; estado_atual.s8 ; estado_atual.s7 ; estado_atual.s6 ; estado_atual.s5 ; estado_atual.s4 ; estado_atual.s3 ; estado_atual.s2 ; estado_atual.s1 ; estado_atual.s0 ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; estado_atual.s0  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; estado_atual.s1  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; estado_atual.s2  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; estado_atual.s3  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; estado_atual.s4  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s5  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s6  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s7  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s8  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s9  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s10 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s11 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s12 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s13 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s14 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s15 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s16 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s17 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s18 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s19 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s20 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s21 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s22 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s23 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s24 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s25 ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s26 ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s27 ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s28 ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s29 ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; estado_atual.s30 ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 
 
 Encoding Type:  One-Hot
@@ -254,31 +295,30 @@ Encoding Type:  One-Hot
 +----------------------+---------------+---------------+----------------------+--------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                              ;
-+-------------------------------------------------------------------------+-----------------------------------------------------------------------+
-; Register name                                                           ; Reason for Removal                                                    ;
-+-------------------------------------------------------------------------+-----------------------------------------------------------------------+
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[8,12]             ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[20]               ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[6,10,14]          ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[22,24]            ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[1,3,5,7,9,24]     ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[19]               ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[15,26]            ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[21,23]            ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[23,25]            ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[25]               ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[27]               ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[26,27]            ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[2,4,11,13,16..22] ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[0]  ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18]               ; Stuck at GND due to stuck port data_in                                ;
-; lcd_logic:inst1|lcd_bus[8]                                              ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[0]                ; Stuck at VCC due to stuck port data_in                                ;
-; lcd_controller:inst2|rw                                                 ; Stuck at GND due to stuck port data_in                                ;
-; lcd_logic:inst1|lcd_bus[7]                                              ; Merged with lcd_logic:inst1|lcd_bus[9]                                ;
-; Total Number of Removed Registers = 41                                  ;                                                                       ;
-+-------------------------------------------------------------------------+-----------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                    ;
++---------------------------------------------------------------+-----------------------------------------------------------------------+
+; Register name                                                 ; Reason for Removal                                                    ;
++---------------------------------------------------------------+-----------------------------------------------------------------------+
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[24..27] ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[23]     ; Stuck at VCC due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[22]     ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[17..21] ; Stuck at VCC due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[16]     ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[15]     ; Stuck at VCC due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[14]     ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[10..13] ; Stuck at VCC due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[6..9]   ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[5]      ; Stuck at VCC due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[0..4]   ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18..27] ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[12]     ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[15] ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[0]      ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[1]  ;
+; lcd_logic:inst1|lcd_bus[8]                                    ; Stuck at GND due to stuck port data_in                                ;
+; lcd_controller:inst2|rw                                       ; Stuck at GND due to stuck port data_in                                ;
+; lcd_logic:inst1|lcd_bus[7]                                    ; Merged with lcd_logic:inst1|lcd_bus[9]                                ;
+; Total Number of Removed Registers = 43                        ;                                                                       ;
++---------------------------------------------------------------+-----------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -296,12 +336,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 230   ;
-; Number of registers using Synchronous Clear  ; 106   ;
-; Number of registers using Synchronous Load   ; 42    ;
+; Total registers                              ; 254   ;
+; Number of registers using Synchronous Clear  ; 98    ;
+; Number of registers using Synchronous Load   ; 39    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 44    ;
+; Number of registers using Clock Enable       ; 51    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -316,21 +356,19 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][30]                                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[2][28]                                 ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp|cnt[4]             ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl|idx[3]       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Block1|lcd_controller:inst2|rw                                   ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |Block1|lcd_logic:inst1|lcd_bus[9]                                ;
-; 26:1               ; 17 bits   ; 289 LEs       ; 238 LEs              ; 51 LEs                 ; Yes        ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[13] ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[14]                        ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|lcd_data[2]                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][8]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[2][17]                      ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp|cnt[20] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Block1|lcd_controller:inst2|rs                        ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |Block1|lcd_logic:inst1|lcd_bus[7]                     ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[10]             ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|lcd_data[2]               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -377,27 +415,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 17                          ;
-; cycloneiii_ff         ; 230                         ;
-;     ENA               ; 29                          ;
-;     ENA SCLR          ; 5                           ;
-;     ENA SCLR SLD      ; 3                           ;
+; cycloneiii_ff         ; 254                         ;
+;     ENA               ; 43                          ;
+;     ENA SCLR          ; 1                           ;
 ;     ENA SLD           ; 7                           ;
-;     SCLR              ; 98                          ;
+;     SCLR              ; 97                          ;
 ;     SLD               ; 32                          ;
-;     plain             ; 56                          ;
-; cycloneiii_lcell_comb ; 515                         ;
-;     arith             ; 176                         ;
-;         2 data inputs ; 159                         ;
-;         3 data inputs ; 17                          ;
-;     normal            ; 339                         ;
+;     plain             ; 74                          ;
+; cycloneiii_lcell_comb ; 525                         ;
+;     arith             ; 155                         ;
+;         2 data inputs ; 155                         ;
+;     normal            ; 370                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 9                           ;
-;         2 data inputs ; 65                          ;
-;         3 data inputs ; 46                          ;
-;         4 data inputs ; 218                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 93                          ;
+;         3 data inputs ; 48                          ;
+;         4 data inputs ; 220                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 12.40                       ;
-; Average LUT depth     ; 5.53                        ;
+; Average LUT depth     ; 5.47                        ;
 +-----------------------+-----------------------------+
 
 
@@ -416,11 +452,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Mon Aug 11 20:33:15 2025
+    Info: Processing started: Mon Aug 11 22:11:58 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd_controller -c lcd_controller
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_sweet.vhd
-    Info (12022): Found design unit 1: controlador_sweet-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 18
+    Info (12022): Found design unit 1: controlador_sweet-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 13
     Info (12023): Found entity 1: controlador_sweet File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/buzzer_controlavel.bdf
     Info (12023): Found entity 1: buzzer_controlavel
@@ -475,13 +511,13 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key[4]"
     Warning (15610): No output dependent on input pin "key[3]"
-Info (21057): Implemented 546 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 559 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 529 logic cells
+    Info (21061): Implemented 542 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 4912 megabytes
-    Info: Processing ended: Mon Aug 11 20:33:24 2025
+    Info: Processing ended: Mon Aug 11 22:12:07 2025
     Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:18
 

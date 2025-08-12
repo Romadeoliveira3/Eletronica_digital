@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Aug 11 20:33:29 2025
+Fitter Status : Successful - Mon Aug 11 22:12:13 2025
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : lcd_controller
 Top-level Entity Name : Block1
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 520 / 6,272 ( 8 % )
-    Total combinational functions : 515 / 6,272 ( 8 % )
-    Dedicated logic registers : 230 / 6,272 ( 4 % )
-Total registers : 230
+Total logic elements : 532 / 6,272 ( 8 % )
+    Total combinational functions : 526 / 6,272 ( 8 % )
+    Dedicated logic registers : 254 / 6,272 ( 4 % )
+Total registers : 254
 Total pins : 17 / 92 ( 18 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
