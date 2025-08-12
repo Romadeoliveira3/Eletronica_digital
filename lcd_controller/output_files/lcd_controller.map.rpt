@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lcd_controller
-Mon Aug 11 22:12:07 2025
+Mon Aug 11 22:42:14 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -52,15 +52,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 11 22:12:07 2025           ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 11 22:42:14 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; lcd_controller                                  ;
 ; Top-level Entity Name              ; Block1                                          ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 533                                             ;
-;     Total combinational functions  ; 525                                             ;
-;     Dedicated logic registers      ; 254                                             ;
-; Total registers                    ; 254                                             ;
+; Total logic elements               ; 538                                             ;
+;     Total combinational functions  ; 530                                             ;
+;     Dedicated logic registers      ; 255                                             ;
+; Total registers                    ; 255                                             ;
 ; Total pins                         ; 17                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -172,7 +172,9 @@ on the Quartus Prime software download page.
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processors 5-10        ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -198,20 +200,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 533         ;
+; Estimated Total logic elements              ; 538         ;
 ;                                             ;             ;
-; Total combinational functions               ; 525         ;
+; Total combinational functions               ; 530         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 220         ;
-;     -- 3 input functions                    ; 48          ;
-;     -- <=2 input functions                  ; 257         ;
+;     -- 4 input functions                    ; 212         ;
+;     -- 3 input functions                    ; 62          ;
+;     -- <=2 input functions                  ; 256         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 370         ;
+;     -- normal mode                          ; 375         ;
 ;     -- arithmetic mode                      ; 155         ;
 ;                                             ;             ;
-; Total registers                             ; 254         ;
-;     -- Dedicated logic registers            ; 254         ;
+; Total registers                             ; 255         ;
+;     -- Dedicated logic registers            ; 255         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 17          ;
@@ -219,9 +221,9 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 254         ;
-; Total fan-out                               ; 2290        ;
-; Average fan-out                             ; 2.82        ;
+; Maximum fan-out                             ; 255         ;
+; Total fan-out                               ; 2298        ;
+; Average fan-out                             ; 2.81        ;
 +---------------------------------------------+-------------+
 
 
@@ -230,13 +232,13 @@ on the Quartus Prime software download page.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                  ; Entity Name       ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
-; |Block1                          ; 525 (1)             ; 254 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                              ; Block1            ; work         ;
-;    |buzzer_sweet:inst10|         ; 169 (6)             ; 122 (8)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10                          ; buzzer_sweet      ; work         ;
-;       |controlador_sweet:u_ctrl| ; 58 (58)             ; 49 (49)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
-;       |divisor_clock:u_div|      ; 62 (62)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|divisor_clock:u_div      ; divisor_clock     ; work         ;
+; |Block1                          ; 530 (1)             ; 255 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                              ; Block1            ; work         ;
+;    |buzzer_sweet:inst10|         ; 169 (6)             ; 123 (8)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10                          ; buzzer_sweet      ; work         ;
+;       |controlador_sweet:u_ctrl| ; 64 (64)             ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
+;       |divisor_clock:u_div|      ; 56 (56)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|divisor_clock:u_div      ; divisor_clock     ; work         ;
 ;       |temporizador:u_tmp|       ; 43 (43)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp       ; temporizador      ; work         ;
 ;    |debounce:inst3|              ; 90 (90)             ; 70 (70)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|debounce:inst3                               ; debounce          ; work         ;
-;    |lcd_controller:inst2|        ; 191 (191)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_controller:inst2                         ; lcd_controller    ; work         ;
+;    |lcd_controller:inst2|        ; 196 (196)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_controller:inst2                         ; lcd_controller    ; work         ;
 ;    |lcd_logic:inst1|             ; 74 (74)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_logic:inst1                              ; lcd_logic         ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -311,9 +313,8 @@ Encoding Type:  One-Hot
 ; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[6..9]   ; Stuck at GND due to stuck port data_in                                ;
 ; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[5]      ; Stuck at VCC due to stuck port data_in                                ;
 ; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[0..4]   ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[18..27] ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[12]     ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[15] ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[0]      ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[1]  ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[17..27] ; Stuck at GND due to stuck port data_in                                ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[11]     ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[14] ;
 ; lcd_logic:inst1|lcd_bus[8]                                    ; Stuck at GND due to stuck port data_in                                ;
 ; lcd_controller:inst2|rw                                       ; Stuck at GND due to stuck port data_in                                ;
 ; lcd_logic:inst1|lcd_bus[7]                                    ; Merged with lcd_logic:inst1|lcd_bus[9]                                ;
@@ -336,24 +337,25 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 254   ;
-; Number of registers using Synchronous Clear  ; 98    ;
+; Total registers                              ; 255   ;
+; Number of registers using Synchronous Clear  ; 97    ;
 ; Number of registers using Synchronous Load   ; 39    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 51    ;
+; Number of registers using Clock Enable       ; 50    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; lcd_controller:inst2|busy              ; 2       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++--------------------------------------------------------------+
+; Inverted Register Statistics                                 ;
++----------------------------------------------------+---------+
+; Inverted Register                                  ; Fan out ;
++----------------------------------------------------+---------+
+; lcd_controller:inst2|busy                          ; 2       ;
+; buzzer_sweet:inst10|controlador_sweet:u_ctrl|armed ; 3       ;
+; Total number of inverted registers = 2             ;         ;
++----------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -361,12 +363,12 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][8]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][7]                       ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[2][17]                      ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp|cnt[20] ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Block1|lcd_controller:inst2|rs                        ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |Block1|lcd_logic:inst1|lcd_bus[7]                     ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[10]             ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[11]             ;
 ; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|lcd_data[2]               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
@@ -415,25 +417,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 17                          ;
-; cycloneiii_ff         ; 254                         ;
+; cycloneiii_ff         ; 255                         ;
 ;     ENA               ; 43                          ;
-;     ENA SCLR          ; 1                           ;
 ;     ENA SLD           ; 7                           ;
 ;     SCLR              ; 97                          ;
 ;     SLD               ; 32                          ;
-;     plain             ; 74                          ;
-; cycloneiii_lcell_comb ; 525                         ;
+;     plain             ; 76                          ;
+; cycloneiii_lcell_comb ; 530                         ;
 ;     arith             ; 155                         ;
 ;         2 data inputs ; 155                         ;
-;     normal            ; 370                         ;
+;     normal            ; 375                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 8                           ;
-;         2 data inputs ; 93                          ;
-;         3 data inputs ; 48                          ;
-;         4 data inputs ; 220                         ;
+;         2 data inputs ; 92                          ;
+;         3 data inputs ; 62                          ;
+;         4 data inputs ; 212                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 12.40                       ;
-; Average LUT depth     ; 5.47                        ;
+; Max LUT depth         ; 16.00                       ;
+; Average LUT depth     ; 5.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -452,7 +453,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Mon Aug 11 22:11:58 2025
+    Info: Processing started: Mon Aug 11 22:42:05 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd_controller -c lcd_controller
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_sweet.vhd
@@ -511,14 +512,14 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key[4]"
     Warning (15610): No output dependent on input pin "key[3]"
-Info (21057): Implemented 559 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 564 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 542 logic cells
+    Info (21061): Implemented 547 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 4912 megabytes
-    Info: Processing ended: Mon Aug 11 22:12:07 2025
+    Info: Processing ended: Mon Aug 11 22:42:14 2025
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Total CPU time (on all processors): 00:00:17
 
 

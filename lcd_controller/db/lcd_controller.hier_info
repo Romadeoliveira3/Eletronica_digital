@@ -523,6 +523,7 @@ Clk_in => Temp_out[24]~reg0.CLK
 Clk_in => Temp_out[25]~reg0.CLK
 Clk_in => Temp_out[26]~reg0.CLK
 Clk_in => Temp_out[27]~reg0.CLK
+Clk_in => armed.CLK
 Clk_in => enable.CLK
 Clk_in => estado_atual~1.DATAIN
 Duracao => proximo_estado.DATAA
@@ -532,6 +533,7 @@ Duracao => process_0.IN0
 Duracao => process_0.IN0
 Duracao => proximo_estado.DATAA
 Stop_in => enable.OUTPUTSELECT
+Stop_in => armed.OUTPUTSELECT
 Stop_in => proximo_estado.OUTPUTSELECT
 Stop_in => proximo_estado.OUTPUTSELECT
 Stop_in => proximo_estado.OUTPUTSELECT
@@ -541,6 +543,7 @@ Stop_in => proximo_estado.OUTPUTSELECT
 Stop_in => Selector0.IN3
 Play_in => process_0.IN1
 Play_in => process_1.IN1
+Play_in => armed.OUTPUTSELECT
 
 
 |Block1|buzzer_sweet:inst10|temporizador:u_tmp
