@@ -1,0 +1,170 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use work.lcd_vhdl_package.all;
+
+entity lcd_junkbox_ctrl is
+  generic(
+    KEY1_IDX : integer := 1;  -- tecla que dispara play_m1  (1..4)
+    KEY2_IDX : integer := 2   -- tecla que dispara play_m2  (1..4)
+  );
+  port(
+    clk      : in  std_logic;
+    lcd_busy : in  std_logic;
+    key      : in  std_logic_vector(4 downto 1);  -- debounced, ativas em '0'
+    lcd_e    : out std_logic;
+    lcd_bar  : out std_logic_vector(9 downto 0);
+    play_m1  : out std_logic;   -- pulso 1 ciclo (key1)
+    play_m2  : out std_logic    -- pulso 1 ciclo (key2)
+  );
+end entity;
+
+architecture rtl of lcd_junkbox_ctrl is
+
+  -- Barramento para o LCD
+  signal lcd_enable : std_logic := '0';
+  signal lcd_bus    : std_logic_vector(9 downto 0) := (others => '0');
+
+  -- Linhas de exibição
+  signal L1, L2 : std_logic_vector(127 downto 0);
+
+  -- Mensagens (16 chars cada linha)
+  constant msg1_m1 : std_logic_vector(127 downto 0) := to_std_logic_vector(" NOW PLAYING:   ");
+  constant msg2_m1 : std_logic_vector(127 downto 0) := to_std_logic_vector("  ROCK 80's!   ");
+
+  constant msg1_m2 : std_logic_vector(127 downto 0) := to_std_logic_vector(" NOW PLAYING:   ");
+  constant msg2_m2 : std_logic_vector(127 downto 0) := to_std_logic_vector("  HIT SONG #2  ");
+
+  -- Controle de rolagem
+  signal scroll_cnt : integer range 0 to 5000000 := 0;
+  signal shift_en   : std_logic := '0';
+  signal L1_shift, L2_shift : std_logic_vector(127 downto 0);
+
+  -- Controle do envio ao LCD
+  signal char_idx : integer range 0 to 34 := 0;
+
+  -- Debounce de borda para gerar pulsos play_m1/m2
+  signal key1_prev, key2_prev : std_logic := '1';
+
+begin
+
+  -- Saídas
+  lcd_e   <= lcd_enable;
+  lcd_bar <= lcd_bus;
+
+  --------------------------------------------------------------------
+  -- Detecção de borda de descida para gerar pulso de 1 ciclo
+  --------------------------------------------------------------------
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      play_m1 <= '0';
+      play_m2 <= '0';
+      if (key(KEY1_IDX) = '0' and key1_prev = '1') then
+        play_m1 <= '1';
+      end if;
+      if (key(KEY2_IDX) = '0' and key2_prev = '1') then
+        play_m2 <= '1';
+      end if;
+      key1_prev <= key(KEY1_IDX);
+      key2_prev <= key(KEY2_IDX);
+    end if;
+  end process;
+
+  --------------------------------------------------------------------
+  -- Seleção das mensagens baseadas na tecla ativa
+  --------------------------------------------------------------------
+  process(key)
+  begin
+    if key(KEY1_IDX) = '0' then
+      L1 <= msg1_m1;
+      L2 <= msg2_m1;
+    elsif key(KEY2_IDX) = '0' then
+      L1 <= msg1_m2;
+      L2 <= msg2_m2;
+    else
+      -- Mensagem padrão
+      L1 <= to_std_logic_vector("   JUKEBOX     ");
+      L2 <= to_std_logic_vector(" PRESS A KEY   ");
+    end if;
+  end process;
+
+  --------------------------------------------------------------------
+  -- Rolagem horizontal simples (shift a cada N ciclos)
+  --------------------------------------------------------------------
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if scroll_cnt = 5000000 then  -- ajuste de velocidade
+        scroll_cnt <= 0;
+        shift_en <= '1';
+      else
+        scroll_cnt <= scroll_cnt + 1;
+        shift_en <= '0';
+      end if;
+
+      if shift_en = '1' then
+        L1 <= L1(119 downto 0) & L1(127 downto 120); -- shift circular
+        L2 <= L2(119 downto 0) & L2(127 downto 120);
+      end if;
+    end if;
+  end process;
+
+  --------------------------------------------------------------------
+  -- Sequenciamento de envio de caracteres ao LCD
+  --------------------------------------------------------------------
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if (lcd_busy = '0' and lcd_enable = '0') then
+        lcd_enable <= '1';
+        if char_idx < 34 then
+          char_idx <= char_idx + 1;
+        else
+          char_idx <= 0;
+        end if;
+
+        case char_idx is
+          when 0  => lcd_bus <= "00" & "10000000";
+          when 1  => lcd_bus <= "10" & L1(127 downto 120);
+          when 2  => lcd_bus <= "10" & L1(119 downto 112);
+          when 3  => lcd_bus <= "10" & L1(111 downto 104);
+          when 4  => lcd_bus <= "10" & L1(103 downto 96);
+          when 5  => lcd_bus <= "10" & L1(95 downto 88);
+          when 6  => lcd_bus <= "10" & L1(87 downto 80);
+          when 7  => lcd_bus <= "10" & L1(79 downto 72);
+          when 8  => lcd_bus <= "10" & L1(71 downto 64);
+          when 9  => lcd_bus <= "10" & L1(63 downto 56);
+          when 10 => lcd_bus <= "10" & L1(55 downto 48);
+          when 11 => lcd_bus <= "10" & L1(47 downto 40);
+          when 12 => lcd_bus <= "10" & L1(39 downto 32);
+          when 13 => lcd_bus <= "10" & L1(31 downto 24);
+          when 14 => lcd_bus <= "10" & L1(23 downto 16);
+          when 15 => lcd_bus <= "10" & L1(15 downto 8);
+          when 16 => lcd_bus <= "10" & L1(7 downto 0);
+          when 17 => lcd_bus <= "00" & "11000000";
+          when 18 => lcd_bus <= "10" & L2(127 downto 120);
+          when 19 => lcd_bus <= "10" & L2(119 downto 112);
+          when 20 => lcd_bus <= "10" & L2(111 downto 104);
+          when 21 => lcd_bus <= "10" & L2(103 downto 96);
+          when 22 => lcd_bus <= "10" & L2(95 downto 88);
+          when 23 => lcd_bus <= "10" & L2(87 downto 80);
+          when 24 => lcd_bus <= "10" & L2(79 downto 72);
+          when 25 => lcd_bus <= "10" & L2(71 downto 64);
+          when 26 => lcd_bus <= "10" & L2(63 downto 56);
+          when 27 => lcd_bus <= "10" & L2(55 downto 48);
+          when 28 => lcd_bus <= "10" & L2(47 downto 40);
+          when 29 => lcd_bus <= "10" & L2(39 downto 32);
+          when 30 => lcd_bus <= "10" & L2(31 downto 24);
+          when 31 => lcd_bus <= "10" & L2(23 downto 16);
+          when 32 => lcd_bus <= "10" & L2(15 downto 8);
+          when 33 => lcd_bus <= "10" & L2(7 downto 0);
+          when others => lcd_enable <= '0';
+        end case;
+      else
+        lcd_enable <= '0';
+      end if;
+    end if;
+  end process;
+
+end architecture;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lcd_controller
-Mon Aug 11 22:42:14 2025
+Sat Aug 16 12:37:35 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -13,19 +13,21 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl|estado_atual
-  9. State Machine - |Block1|lcd_controller:inst2|estado
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: lcd_controller:inst2
- 16. Parameter Settings for User Entity Instance: debounce:inst3
- 17. Port Connectivity Checks: "buzzer_sweet:inst10|controlador_sweet:u_ctrl"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+  8. State Machine - |Block1|buzzer_sweet:inst7|controlador_sweet:u_ctrl|estado_atual
+  9. State Machine - |Block1|lcd_junkbox_ctrl:inst8|state
+ 10. State Machine - |Block1|lcd_controller:inst2|estado
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: lcd_controller:inst2
+ 17. Parameter Settings for User Entity Instance: lcd_junkbox_ctrl:inst8
+ 18. Parameter Settings for User Entity Instance: debounce:inst3
+ 19. Port Connectivity Checks: "buzzer_sweet:inst7|controlador_sweet:u_ctrl"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -52,15 +54,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 11 22:42:14 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 16 12:37:35 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; lcd_controller                                  ;
 ; Top-level Entity Name              ; Block1                                          ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 538                                             ;
-;     Total combinational functions  ; 530                                             ;
-;     Dedicated logic registers      ; 255                                             ;
-; Total registers                    ; 255                                             ;
+; Total logic elements               ; 660                                             ;
+;     Total combinational functions  ; 643                                             ;
+;     Dedicated logic registers      ; 321                                             ;
+; Total registers                    ; 321                                             ;
 ; Total pins                         ; 17                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -169,12 +171,13 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processors 7-10        ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processors 8-10        ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -189,9 +192,9 @@ on the Quartus Prime software download page.
 ; lcd_vhdl_package.vhd                                    ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd                                    ;         ;
 ; lcd_controller.vhd                                      ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_controller.vhd                                      ;         ;
 ; Block1.bdf                                              ; yes             ; User Block Diagram/Schematic File  ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/Block1.bdf                                              ;         ;
-; lcd_logic.vhd                                           ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_logic.vhd                                           ;         ;
 ; debounce.vhd                                            ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd                                            ;         ;
 ; buzzer_sweet.vhd                                        ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd                                        ;         ;
+; lcd_junkbox_ctrl.vhd                                    ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd                                    ;         ;
 +---------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -200,20 +203,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 538         ;
+; Estimated Total logic elements              ; 660         ;
 ;                                             ;             ;
-; Total combinational functions               ; 530         ;
+; Total combinational functions               ; 643         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 212         ;
-;     -- 3 input functions                    ; 62          ;
-;     -- <=2 input functions                  ; 256         ;
+;     -- 4 input functions                    ; 257         ;
+;     -- 3 input functions                    ; 86          ;
+;     -- <=2 input functions                  ; 300         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 375         ;
-;     -- arithmetic mode                      ; 155         ;
+;     -- normal mode                          ; 452         ;
+;     -- arithmetic mode                      ; 191         ;
 ;                                             ;             ;
-; Total registers                             ; 255         ;
-;     -- Dedicated logic registers            ; 255         ;
+; Total registers                             ; 321         ;
+;     -- Dedicated logic registers            ; 321         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 17          ;
@@ -221,32 +224,32 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 255         ;
-; Total fan-out                               ; 2298        ;
+; Maximum fan-out                             ; 321         ;
+; Total fan-out                               ; 2801        ;
 ; Average fan-out                             ; 2.81        ;
 +---------------------------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                   ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                  ; Entity Name       ; Library Name ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
-; |Block1                          ; 530 (1)             ; 255 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                              ; Block1            ; work         ;
-;    |buzzer_sweet:inst10|         ; 169 (6)             ; 123 (8)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10                          ; buzzer_sweet      ; work         ;
-;       |controlador_sweet:u_ctrl| ; 64 (64)             ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
-;       |divisor_clock:u_div|      ; 56 (56)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|divisor_clock:u_div      ; divisor_clock     ; work         ;
-;       |temporizador:u_tmp|       ; 43 (43)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp       ; temporizador      ; work         ;
-;    |debounce:inst3|              ; 90 (90)             ; 70 (70)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|debounce:inst3                               ; debounce          ; work         ;
-;    |lcd_controller:inst2|        ; 196 (196)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_controller:inst2                         ; lcd_controller    ; work         ;
-;    |lcd_logic:inst1|             ; 74 (74)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_logic:inst1                              ; lcd_logic         ; work         ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------+-------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                  ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                 ; Entity Name       ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+-------------------+--------------+
+; |Block1                          ; 643 (1)             ; 321 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                             ; Block1            ; work         ;
+;    |buzzer_sweet:inst7|          ; 174 (10)            ; 128 (12)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7                          ; buzzer_sweet      ; work         ;
+;       |controlador_sweet:u_ctrl| ; 65 (65)             ; 51 (51)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
+;       |divisor_clock:u_div|      ; 56 (56)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7|divisor_clock:u_div      ; divisor_clock     ; work         ;
+;       |temporizador:u_tmp|       ; 43 (43)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7|temporizador:u_tmp       ; temporizador      ; work         ;
+;    |debounce:inst3|              ; 135 (135)           ; 105 (105)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|debounce:inst3                              ; debounce          ; work         ;
+;    |lcd_controller:inst2|        ; 186 (186)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_controller:inst2                        ; lcd_controller    ; work         ;
+;    |lcd_junkbox_ctrl:inst8|      ; 147 (147)           ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_junkbox_ctrl:inst8                      ; lcd_junkbox_ctrl  ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Block1|buzzer_sweet:inst10|controlador_sweet:u_ctrl|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
+; State Machine - |Block1|buzzer_sweet:inst7|controlador_sweet:u_ctrl|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
 +------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 ; Name             ; estado_atual.s30 ; estado_atual.s29 ; estado_atual.s28 ; estado_atual.s27 ; estado_atual.s26 ; estado_atual.s25 ; estado_atual.s24 ; estado_atual.s23 ; estado_atual.s22 ; estado_atual.s21 ; estado_atual.s20 ; estado_atual.s19 ; estado_atual.s18 ; estado_atual.s17 ; estado_atual.s16 ; estado_atual.s15 ; estado_atual.s14 ; estado_atual.s13 ; estado_atual.s12 ; estado_atual.s11 ; estado_atual.s10 ; estado_atual.s9 ; estado_atual.s8 ; estado_atual.s7 ; estado_atual.s6 ; estado_atual.s5 ; estado_atual.s4 ; estado_atual.s3 ; estado_atual.s2 ; estado_atual.s1 ; estado_atual.s0 ;
 +------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
@@ -285,6 +288,20 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Block1|lcd_junkbox_ctrl:inst8|state                                            ;
++-----------------+-----------------+---------------+-------------+-------------+-----------------+
+; Name            ; state.BACK_MENU ; state.PLAYING ; state.SONG2 ; state.SONG1 ; state.SHOW_MENU ;
++-----------------+-----------------+---------------+-------------+-------------+-----------------+
+; state.SHOW_MENU ; 0               ; 0             ; 0           ; 0           ; 0               ;
+; state.SONG1     ; 0               ; 0             ; 0           ; 1           ; 1               ;
+; state.SONG2     ; 0               ; 0             ; 1           ; 0           ; 1               ;
+; state.PLAYING   ; 0               ; 1             ; 0           ; 0           ; 1               ;
+; state.BACK_MENU ; 1               ; 0             ; 0           ; 0           ; 1               ;
++-----------------+-----------------+---------------+-------------+-------------+-----------------+
+
+
+Encoding Type:  One-Hot
 +--------------------------------------------------------------------------------------------------+
 ; State Machine - |Block1|lcd_controller:inst2|estado                                              ;
 +----------------------+---------------+---------------+----------------------+--------------------+
@@ -297,39 +314,159 @@ Encoding Type:  One-Hot
 +----------------------+---------------+---------------+----------------------+--------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                    ;
-+---------------------------------------------------------------+-----------------------------------------------------------------------+
-; Register name                                                 ; Reason for Removal                                                    ;
-+---------------------------------------------------------------+-----------------------------------------------------------------------+
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[24..27] ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[23]     ; Stuck at VCC due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[22]     ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[17..21] ; Stuck at VCC due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[16]     ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[15]     ; Stuck at VCC due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[14]     ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[10..13] ; Stuck at VCC due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[6..9]   ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[5]      ; Stuck at VCC due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Temp_out[0..4]   ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[17..27] ; Stuck at GND due to stuck port data_in                                ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[11]     ; Merged with buzzer_sweet:inst10|controlador_sweet:u_ctrl|Freq_out[14] ;
-; lcd_logic:inst1|lcd_bus[8]                                    ; Stuck at GND due to stuck port data_in                                ;
-; lcd_controller:inst2|rw                                       ; Stuck at GND due to stuck port data_in                                ;
-; lcd_logic:inst1|lcd_bus[7]                                    ; Merged with lcd_logic:inst1|lcd_bus[9]                                ;
-; Total Number of Removed Registers = 43                        ;                                                                       ;
-+---------------------------------------------------------------+-----------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                             ;
++-------------------------------------------------------------------------+----------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal                                                   ;
++-------------------------------------------------------------------------+----------------------------------------------------------------------+
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[24..27]            ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[23]                ; Stuck at VCC due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[22]                ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[17..21]            ; Stuck at VCC due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[16]                ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[15]                ; Stuck at VCC due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[14]                ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[10..13]            ; Stuck at VCC due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[6..9]              ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[5]                 ; Stuck at VCC due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[0..4]              ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Freq_out[17..27]            ; Stuck at GND due to stuck port data_in                               ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Freq_out[11]                ; Merged with buzzer_sweet:inst7|controlador_sweet:u_ctrl|Freq_out[14] ;
+; lcd_junkbox_ctrl:inst8|L2[22]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[36]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[8]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[44]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[24]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[53]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[27,104]                                       ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[66]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[6]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[71]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[107]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[77]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[30]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[79]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[111]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[85]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[14]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[87]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[36,114]                                       ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[95]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[120]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[101]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[4]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[103]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[38,123,126]                                   ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[0,2,111,121]                                  ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[2]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[4,55,123,126]                                 ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[7,15,26]                                      ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L1[86]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L2[81]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L1[102]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L2[21,89]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L1[13,78]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L2[54]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L1[21,29,59]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L2[5,29,37,125]                                  ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L1[5,125]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L1[15]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[127]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[7]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[17]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[23,31,68]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[39,112]                                       ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[122]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[1]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[11]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[11]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[19]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[71]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[27,35,39,61]                                  ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[3,31,106,122]                                 ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[3,9,17,127]                                   ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[19,66]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[25]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[9,23,76,87,95]                                ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[47]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[103]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[63]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[119]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[1,108,112,119]                                ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[47]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[6,8]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[55]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[10]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[0]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[12,14,16]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[63]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[18]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[18]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[20,22]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[10]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[24]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[75]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[26]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[20]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[28]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L2[79]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[30]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
+; lcd_junkbox_ctrl:inst8|L1[57,58,109]                                    ; Merged with lcd_junkbox_ctrl:inst8|L2[40]                            ;
+; lcd_junkbox_ctrl:inst8|L1[33,43,84,98,104,106,110]                      ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
+; lcd_junkbox_ctrl:inst8|L2[61,68]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
+; lcd_junkbox_ctrl:inst8|L2[62]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
+; lcd_junkbox_ctrl:inst8|L1[37,72,94,117]                                 ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
+; lcd_junkbox_ctrl:inst8|L2[109]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
+; lcd_junkbox_ctrl:inst8|L1[90]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
+; lcd_junkbox_ctrl:inst8|L2[88,94,96]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
+; lcd_junkbox_ctrl:inst8|L1[54]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
+; lcd_junkbox_ctrl:inst8|L2[102]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
+; lcd_junkbox_ctrl:inst8|L1[62]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
+; lcd_junkbox_ctrl:inst8|L1[32,34,38,41,60,93,105,107,114,118]            ; Merged with lcd_junkbox_ctrl:inst8|L2[99]                            ;
+; lcd_junkbox_ctrl:inst8|L2[12]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
+; lcd_junkbox_ctrl:inst8|L2[86]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
+; lcd_junkbox_ctrl:inst8|L2[58]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[40]                            ;
+; lcd_junkbox_ctrl:inst8|L2[99]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
+; lcd_junkbox_ctrl:inst8|L1[75]                                           ; Merged with lcd_junkbox_ctrl:inst8|L1[70]                            ;
+; lcd_junkbox_ctrl:inst8|L1[65,92,99]                                     ; Merged with lcd_junkbox_ctrl:inst8|L1[52]                            ;
+; lcd_junkbox_ctrl:inst8|L2[25,28,32..35,44,64,65,70,84,85,92,93,101,118] ; Merged with lcd_junkbox_ctrl:inst8|L1[52]                            ;
+; lcd_junkbox_ctrl:inst8|L2[45,67,77,80,98,108,110]                       ; Merged with lcd_junkbox_ctrl:inst8|L2[105]                           ;
+; lcd_junkbox_ctrl:inst8|L1[40,69,89,120,124]                             ; Merged with lcd_junkbox_ctrl:inst8|L1[116]                           ;
+; lcd_junkbox_ctrl:inst8|L2[113,115,121,124]                              ; Merged with lcd_junkbox_ctrl:inst8|L1[116]                           ;
+; lcd_junkbox_ctrl:inst8|L1[76,80]                                        ; Merged with lcd_junkbox_ctrl:inst8|L1[67]                            ;
+; lcd_junkbox_ctrl:inst8|L2[52]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[48]                            ;
+; lcd_junkbox_ctrl:inst8|L1[56,97]                                        ; Merged with lcd_junkbox_ctrl:inst8|L1[51]                            ;
+; lcd_junkbox_ctrl:inst8|L2[59]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[57]                            ;
+; lcd_junkbox_ctrl:inst8|L2[56]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[51]                            ;
+; lcd_junkbox_ctrl:inst8|L1[42,46,74,96,115]                              ; Merged with lcd_junkbox_ctrl:inst8|L1[113]                           ;
+; lcd_junkbox_ctrl:inst8|L1[50,91]                                        ; Merged with lcd_junkbox_ctrl:inst8|L1[49]                            ;
+; lcd_junkbox_ctrl:inst8|L2[42,46,50,72..74,78,82,90,91,100]              ; Merged with lcd_junkbox_ctrl:inst8|L1[49]                            ;
+; lcd_junkbox_ctrl:inst8|L2[49,69,83,97,117]                              ; Merged with lcd_junkbox_ctrl:inst8|L1[100]                           ;
+; lcd_junkbox_ctrl:inst8|L1[81..83,88]                                    ; Merged with lcd_junkbox_ctrl:inst8|L1[73]                            ;
+; lcd_junkbox_ctrl:inst8|L2[116]                                          ; Merged with lcd_junkbox_ctrl:inst8|L1[73]                            ;
+; lcd_junkbox_ctrl:inst8|L2[43]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[41]                            ;
+; lcd_junkbox_ctrl:inst8|L1[64]                                           ; Merged with lcd_junkbox_ctrl:inst8|L1[48]                            ;
+; lcd_junkbox_ctrl:inst8|L2[16]                                           ; Stuck at GND due to stuck port data_in                               ;
+; lcd_junkbox_ctrl:inst8|L2[13]                                           ; Stuck at VCC due to stuck port data_in                               ;
+; lcd_junkbox_ctrl:inst8|lcd_bus[8]                                       ; Stuck at GND due to stuck port data_in                               ;
+; lcd_controller:inst2|rw                                                 ; Stuck at GND due to stuck port data_in                               ;
+; lcd_junkbox_ctrl:inst8|L2[40]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
+; lcd_junkbox_ctrl:inst8|L1[100]                                          ; Merged with lcd_junkbox_ctrl:inst8|L1[52]                            ;
+; lcd_junkbox_ctrl:inst8|L1[49]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[105]                           ;
+; lcd_junkbox_ctrl:inst8|L1[116]                                          ; Merged with lcd_junkbox_ctrl:inst8|L1[70]                            ;
+; lcd_junkbox_ctrl:inst8|L1[45]                                           ; Merged with lcd_junkbox_ctrl:inst8|L1[113]                           ;
+; Total Number of Removed Registers = 284                                 ;                                                                      ;
++-------------------------------------------------------------------------+----------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                     ;
-+----------------------------+---------------------------+----------------------------------------+
-; Register name              ; Reason for Removal        ; Registers Removed due to This Register ;
-+----------------------------+---------------------------+----------------------------------------+
-; lcd_logic:inst1|lcd_bus[8] ; Stuck at GND              ; lcd_controller:inst2|rw                ;
-;                            ; due to stuck port data_in ;                                        ;
-+----------------------------+---------------------------+----------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                            ;
++-----------------------------------+---------------------------+----------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------------------------+---------------------------+----------------------------------------+
+; lcd_junkbox_ctrl:inst8|lcd_bus[8] ; Stuck at GND              ; lcd_controller:inst2|rw                ;
+;                                   ; due to stuck port data_in ;                                        ;
++-----------------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -337,40 +474,46 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 255   ;
-; Number of registers using Synchronous Clear  ; 97    ;
-; Number of registers using Synchronous Load   ; 39    ;
+; Total registers                              ; 321   ;
+; Number of registers using Synchronous Clear  ; 129   ;
+; Number of registers using Synchronous Load   ; 35    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 50    ;
+; Number of registers using Clock Enable       ; 61    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------+
-; Inverted Register Statistics                                 ;
-+----------------------------------------------------+---------+
-; Inverted Register                                  ; Fan out ;
-+----------------------------------------------------+---------+
-; lcd_controller:inst2|busy                          ; 2       ;
-; buzzer_sweet:inst10|controlador_sweet:u_ctrl|armed ; 3       ;
-; Total number of inverted registers = 2             ;         ;
-+----------------------------------------------------+---------+
++-------------------------------------------------------------+
+; Inverted Register Statistics                                ;
++---------------------------------------------------+---------+
+; Inverted Register                                 ; Fan out ;
++---------------------------------------------------+---------+
+; buzzer_sweet:inst7|mute_en                        ; 2       ;
+; lcd_controller:inst2|busy                         ; 4       ;
+; buzzer_sweet:inst7|controlador_sweet:u_ctrl|armed ; 3       ;
+; Total number of inverted registers = 3            ;         ;
++---------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][7]                       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[2][17]                      ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |Block1|buzzer_sweet:inst10|temporizador:u_tmp|cnt[20] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Block1|lcd_controller:inst2|rs                        ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |Block1|lcd_logic:inst1|lcd_bus[7]                     ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[11]             ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|lcd_data[2]               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Block1|lcd_junkbox_ctrl:inst8|L1[70]                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Block1|lcd_junkbox_ctrl:inst8|L2[13]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[2][8]                      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][15]                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[3][9]                      ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |Block1|buzzer_sweet:inst7|temporizador:u_tmp|cnt[13] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Block1|lcd_controller:inst2|rs                       ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |Block1|lcd_junkbox_ctrl:inst8|lcd_bus[9]             ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[28]            ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|lcd_data[6]              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Block1|lcd_junkbox_ctrl:inst8|state                  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Block1|lcd_junkbox_ctrl:inst8|Selector93             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -390,6 +533,17 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lcd_junkbox_ctrl:inst8 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; KEY1_IDX       ; 1     ; Signed Integer                             ;
+; KEY2_IDX       ; 2     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: debounce:inst3 ;
 +----------------+----------+---------------------------------+
@@ -403,7 +557,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "buzzer_sweet:inst10|controlador_sweet:u_ctrl"                                          ;
+; Port Connectivity Checks: "buzzer_sweet:inst7|controlador_sweet:u_ctrl"                                           ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -417,24 +571,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 17                          ;
-; cycloneiii_ff         ; 255                         ;
-;     ENA               ; 43                          ;
-;     ENA SLD           ; 7                           ;
-;     SCLR              ; 97                          ;
+; cycloneiii_ff         ; 321                         ;
+;     ENA               ; 58                          ;
+;     ENA SLD           ; 3                           ;
+;     SCLR              ; 129                         ;
 ;     SLD               ; 32                          ;
-;     plain             ; 76                          ;
-; cycloneiii_lcell_comb ; 530                         ;
-;     arith             ; 155                         ;
-;         2 data inputs ; 155                         ;
-;     normal            ; 375                         ;
+;     plain             ; 99                          ;
+; cycloneiii_lcell_comb ; 643                         ;
+;     arith             ; 191                         ;
+;         2 data inputs ; 191                         ;
+;     normal            ; 452                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 92                          ;
-;         3 data inputs ; 62                          ;
-;         4 data inputs ; 212                         ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 96                          ;
+;         3 data inputs ; 86                          ;
+;         4 data inputs ; 257                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 5.77                        ;
+; Average LUT depth     ; 5.49                        ;
 +-----------------------+-----------------------------+
 
 
@@ -453,11 +607,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Mon Aug 11 22:42:05 2025
+    Info: Processing started: Sat Aug 16 12:37:26 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd_controller -c lcd_controller
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_sweet.vhd
-    Info (12022): Found design unit 1: controlador_sweet-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 13
+    Info (12022): Found design unit 1: controlador_sweet-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 14
     Info (12023): Found entity 1: controlador_sweet File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/buzzer_controlavel.bdf
     Info (12023): Found entity 1: buzzer_controlavel
@@ -493,32 +647,34 @@ Info (12021): Found 2 design units, including 1 entities, in source file debounc
     Info (12022): Found design unit 1: debounce-rtl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd Line: 18
     Info (12023): Found entity 1: debounce File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_sweet.vhd
-    Info (12022): Found design unit 1: buzzer_sweet-estrutural File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 14
+    Info (12022): Found design unit 1: buzzer_sweet-estrutural File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 17
     Info (12023): Found entity 1: buzzer_sweet File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file lcd_junkbox_ctrl.vhd
+    Info (12022): Found design unit 1: lcd_junkbox_ctrl-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 24
+    Info (12023): Found entity 1: lcd_junkbox_ctrl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 6
 Info (12127): Elaborating entity "Block1" for the top level hierarchy
 Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:inst2"
-Info (12128): Elaborating entity "lcd_logic" for hierarchy "lcd_logic:inst1"
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:inst3"
-Info (12128): Elaborating entity "buzzer_sweet" for hierarchy "buzzer_sweet:inst10"
-Info (12128): Elaborating entity "controlador_sweet" for hierarchy "buzzer_sweet:inst10|controlador_sweet:u_ctrl" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 59
-Info (12128): Elaborating entity "temporizador" for hierarchy "buzzer_sweet:inst10|temporizador:u_tmp" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 72
+Info (12128): Elaborating entity "lcd_junkbox_ctrl" for hierarchy "lcd_junkbox_ctrl:inst8"
+Info (12128): Elaborating entity "buzzer_sweet" for hierarchy "buzzer_sweet:inst7"
+Info (12128): Elaborating entity "controlador_sweet" for hierarchy "buzzer_sweet:inst7|controlador_sweet:u_ctrl" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 75
+Info (12128): Elaborating entity "temporizador" for hierarchy "buzzer_sweet:inst7|temporizador:u_tmp" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 89
 Warning (10492): VHDL Process Statement warning at temporizador.vhd(22): signal "cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd Line: 22
-Info (12128): Elaborating entity "divisor_clock" for hierarchy "buzzer_sweet:inst10|divisor_clock:u_div" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 81
+Info (12128): Elaborating entity "divisor_clock" for hierarchy "buzzer_sweet:inst7|divisor_clock:u_div" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 98
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:inst3"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rw" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key[4]"
-    Warning (15610): No output dependent on input pin "key[3]"
-Info (21057): Implemented 564 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 690 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 547 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4912 megabytes
-    Info: Processing ended: Mon Aug 11 22:42:14 2025
+    Info (21061): Implemented 673 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4911 megabytes
+    Info: Processing ended: Sat Aug 16 12:37:35 2025
     Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:17
 
