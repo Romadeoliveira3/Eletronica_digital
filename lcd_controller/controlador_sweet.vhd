@@ -6,6 +6,7 @@ entity controlador_sweet is
   port (
     Clk_out, Disparo  : out std_logic := '0';
     Temp_out, Freq_out: out std_logic_vector(27 downto 0);
+	 song_end		    : out std_logic;
     Clk_in, Duracao, Stop_in, Play_in : in std_logic
   );
 end controlador_sweet;
@@ -48,6 +49,7 @@ begin
   begin
     if rising_edge(Clk_in) then
       estado_atual <= proximo_estado;
+		song_end <='0';
 
       if Stop_in = '1' then
         enable <= '0';
@@ -57,6 +59,7 @@ begin
         armed  <= '0';
       elsif (estado_atual = s30 and Duracao = '0') then
         enable <= '0';
+		  song_end <='1';
       end if;
 
       if Play_in = '0' then
