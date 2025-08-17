@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lcd_controller
-Sat Aug 16 21:36:41 2025
+Sat Aug 16 22:49:57 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -58,15 +58,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 16 21:36:41 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 16 22:49:57 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; lcd_controller                                  ;
 ; Top-level Entity Name              ; credit_manager                                  ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 1,538                                           ;
-;     Total combinational functions  ; 1,530                                           ;
-;     Dedicated logic registers      ; 211                                             ;
-; Total registers                    ; 211                                             ;
+; Total logic elements               ; 1,558                                           ;
+;     Total combinational functions  ; 1,550                                           ;
+;     Dedicated logic registers      ; 219                                             ;
+; Total registers                    ; 219                                             ;
 ; Total pins                         ; 16                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -168,47 +168,45 @@ on the Quartus Prime software download page.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 12          ;
-; Maximum allowed            ; 10          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 10          ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processors 8-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                             ;
-+----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                   ; Library ;
-+----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
-; lcd_vhdl_package.vhd             ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd       ;         ;
-; lcd_controller.vhd               ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_controller.vhd         ;         ;
-; debounce.vhd                     ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd               ;         ;
-; jukebox_credits.vhd              ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/jukebox_credits.vhd        ;         ;
-; credit_manager.bdf               ; yes             ; User Block Diagram/Schematic File  ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/credit_manager.bdf         ;         ;
-; lcd_credits_ctrl.vhd             ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd       ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                                       ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/abs_divider.inc                                                      ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                                                  ;         ;
-; aglobal241.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc                                                       ;         ;
-; db/lpm_divide_0jm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_0jm.tdf      ;         ;
-; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_olh.tdf ;         ;
-; db/alt_u_div_47f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_8pc.tdf         ;         ;
-; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_kcm.tdf      ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_9nh.tdf ;         ;
-; db/alt_u_div_7af.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf       ;         ;
-+----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                             ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------+---------+
+; lcd_vhdl_package.vhd             ; yes             ; User VHDL File                     ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd       ;         ;
+; lcd_controller.vhd               ; yes             ; User VHDL File                     ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_controller.vhd         ;         ;
+; debounce.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/debounce.vhd               ;         ;
+; jukebox_credits.vhd              ; yes             ; User VHDL File                     ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/jukebox_credits.vhd        ;         ;
+; credit_manager.bdf               ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/credit_manager.bdf         ;         ;
+; lcd_credits_ctrl.vhd             ; yes             ; User VHDL File                     ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd       ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                                 ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/abs_divider.inc                                                ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                                            ;         ;
+; aglobal241.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc                                                 ;         ;
+; db/lpm_divide_0jm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/lpm_divide_0jm.tdf      ;         ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/sign_div_unsign_olh.tdf ;         ;
+; db/alt_u_div_47f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/lpm_divide_kcm.tdf      ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/sign_div_unsign_9nh.tdf ;         ;
+; db/alt_u_div_7af.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf       ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -216,20 +214,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 1,538       ;
+; Estimated Total logic elements              ; 1,558       ;
 ;                                             ;             ;
-; Total combinational functions               ; 1530        ;
+; Total combinational functions               ; 1550        ;
 ; Logic element usage by number of LUT inputs ;             ;
 ;     -- 4 input functions                    ; 458         ;
 ;     -- 3 input functions                    ; 427         ;
-;     -- <=2 input functions                  ; 645         ;
+;     -- <=2 input functions                  ; 665         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 1044        ;
-;     -- arithmetic mode                      ; 486         ;
+;     -- normal mode                          ; 1056        ;
+;     -- arithmetic mode                      ; 494         ;
 ;                                             ;             ;
-; Total registers                             ; 211         ;
-;     -- Dedicated logic registers            ; 211         ;
+; Total registers                             ; 219         ;
+;     -- Dedicated logic registers            ; 219         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 16          ;
@@ -237,9 +235,9 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 211         ;
-; Total fan-out                               ; 4829        ;
-; Average fan-out                             ; 2.72        ;
+; Maximum fan-out                             ; 219         ;
+; Total fan-out                               ; 4885        ;
+; Average fan-out                             ; 2.71        ;
 +---------------------------------------------+-------------+
 
 
@@ -248,11 +246,11 @@ on the Quartus Prime software download page.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |credit_manager                           ; 1530 (0)            ; 211 (0)                   ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |credit_manager                                                                                                                        ; credit_manager      ; work         ;
+; |credit_manager                           ; 1550 (0)            ; 219 (0)                   ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |credit_manager                                                                                                                        ; credit_manager      ; work         ;
 ;    |debounce:inst3|                       ; 90 (90)             ; 70 (70)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|debounce:inst3                                                                                                         ; debounce            ; work         ;
 ;    |jukebox_credits:inst|                 ; 63 (63)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|jukebox_credits:inst                                                                                                   ; jukebox_credits     ; work         ;
 ;    |lcd_controller:inst2|                 ; 178 (178)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_controller:inst2                                                                                                   ; lcd_controller      ; work         ;
-;    |lcd_credits_ctrl:inst4|               ; 1199 (185)          ; 74 (74)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4                                                                                                 ; lcd_credits_ctrl    ; work         ;
+;    |lcd_credits_ctrl:inst4|               ; 1219 (205)          ; 82 (82)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4                                                                                                 ; lcd_credits_ctrl    ; work         ;
 ;       |lpm_divide:Div0|                   ; 141 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_0jm:auto_generated|  ; 141 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0|lpm_divide_0jm:auto_generated                                                   ; lpm_divide_0jm      ; work         ;
 ;             |sign_div_unsign_olh:divider| ; 141 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
@@ -419,7 +417,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 211   ;
+; Total registers                              ; 219   ;
 ; Number of registers using Synchronous Clear  ; 70    ;
 ; Number of registers using Synchronous Load   ; 17    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -439,18 +437,18 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |credit_manager|debounce:inst3|cnt[4][4]           ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |credit_manager|debounce:inst3|cnt[1][3]           ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |credit_manager|jukebox_credits:inst|cred_reg[2]   ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |credit_manager|lcd_controller:inst2|rw            ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |credit_manager|lcd_controller:inst2|clk_count[30] ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |credit_manager|lcd_controller:inst2|lcd_data[3]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |credit_manager|debounce:inst3|cnt[4][6]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |credit_manager|debounce:inst3|cnt[1][21]         ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |credit_manager|jukebox_credits:inst|cred_reg[13] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |credit_manager|lcd_controller:inst2|rw           ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |credit_manager|lcd_controller:inst2|clk_count[2] ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |credit_manager|lcd_controller:inst2|lcd_data[3]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -475,8 +473,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------------+
 ; Parameter Name ; Value ; Type                                     ;
 +----------------+-------+------------------------------------------+
-; CRED_BITS      ; 14    ; Signed Integer                           ;
-; MAX_CREDITS    ; 9999  ; Signed Integer                           ;
+; cred_bits      ; 14    ; Signed Integer                           ;
+; max_credits    ; 9999  ; Signed Integer                           ;
 +----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -660,27 +658,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 16                          ;
-; cycloneiii_ff         ; 211                         ;
+; cycloneiii_ff         ; 219                         ;
 ;     ENA               ; 10                          ;
 ;     ENA SCLR          ; 6                           ;
 ;     ENA SLD           ; 5                           ;
 ;     SCLR              ; 64                          ;
 ;     SLD               ; 12                          ;
-;     plain             ; 114                         ;
-; cycloneiii_lcell_comb ; 1531                        ;
-;     arith             ; 486                         ;
+;     plain             ; 122                         ;
+; cycloneiii_lcell_comb ; 1551                        ;
+;     arith             ; 494                         ;
 ;         1 data inputs ; 20                          ;
-;         2 data inputs ; 182                         ;
+;         2 data inputs ; 190                         ;
 ;         3 data inputs ; 284                         ;
-;     normal            ; 1045                        ;
+;     normal            ; 1057                        ;
 ;         0 data inputs ; 51                          ;
 ;         1 data inputs ; 27                          ;
-;         2 data inputs ; 366                         ;
+;         2 data inputs ; 378                         ;
 ;         3 data inputs ; 143                         ;
 ;         4 data inputs ; 458                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 34.00                       ;
-; Average LUT depth     ; 22.24                       ;
+; Average LUT depth     ; 21.96                       ;
 +-----------------------+-----------------------------+
 
 
@@ -699,137 +697,137 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sat Aug 16 21:36:30 2025
+    Info: Processing started: Sat Aug 16 22:49:49 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd_controller -c lcd_controller
-Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_sweet.vhd
-    Info (12022): Found design unit 1: controlador_sweet-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 14
-    Info (12023): Found entity 1: controlador_sweet File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 5
+    Info (12022): Found design unit 1: controlador_sweet-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 14
+    Info (12023): Found entity 1: controlador_sweet File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/controlador_sweet.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/buzzer_controlavel.bdf
     Info (12023): Found entity 1: buzzer_controlavel
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/temporizador.vhd
-    Info (12022): Found design unit 1: temporizador-sem_rearme File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd Line: 9
-    Info (12023): Found entity 1: temporizador File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd Line: 4
+    Info (12022): Found design unit 1: temporizador-sem_rearme File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd Line: 9
+    Info (12023): Found entity 1: temporizador File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/sirene_estrutural.vhd
-    Info (12022): Found design unit 1: sirene_estrutural-estrutural File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/sirene_estrutural.vhd Line: 8
-    Info (12023): Found entity 1: sirene_estrutural File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/sirene_estrutural.vhd Line: 4
+    Info (12022): Found design unit 1: sirene_estrutural-estrutural File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/sirene_estrutural.vhd Line: 8
+    Info (12023): Found entity 1: sirene_estrutural File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/sirene_estrutural.vhd Line: 4
 Info (12021): Found 1 design units, including 0 entities, in source file buzzer_controlavel/buzzer_controlavel/pkg_buzzer.vhd
-    Info (12022): Found design unit 1: pkg_buzzer File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/pkg_buzzer.vhd Line: 3
+    Info (12022): Found design unit 1: pkg_buzzer File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/pkg_buzzer.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd
-    Info (12022): Found design unit 1: divisor_clock-clock File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd Line: 10
-    Info (12023): Found entity 1: divisor_clock File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd Line: 4
+    Info (12022): Found design unit 1: divisor_clock-clock File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd Line: 10
+    Info (12023): Found entity 1: divisor_clock File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/controlador_fur_elise.vhd
-    Info (12022): Found design unit 1: controlador_fur_elise-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador_fur_elise.vhd Line: 10
-    Info (12023): Found entity 1: controlador_fur_elise File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador_fur_elise.vhd Line: 4
+    Info (12022): Found design unit 1: controlador_fur_elise-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador_fur_elise.vhd Line: 10
+    Info (12023): Found entity 1: controlador_fur_elise File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador_fur_elise.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_controlavel/buzzer_controlavel/controlador.vhd
-    Info (12022): Found design unit 1: controlador-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador.vhd Line: 10
-    Info (12023): Found entity 1: controlador File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador.vhd Line: 4
+    Info (12022): Found design unit 1: controlador-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador.vhd Line: 10
+    Info (12023): Found entity 1: controlador File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/controlador.vhd Line: 4
 Info (12021): Found 2 design units, including 0 entities, in source file lcd_vhdl_package.vhd
-    Info (12022): Found design unit 1: lcd_vhdl_package File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd Line: 5
-    Info (12022): Found design unit 2: lcd_vhdl_package-body File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd Line: 23
+    Info (12022): Found design unit 1: lcd_vhdl_package File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd Line: 5
+    Info (12022): Found design unit 2: lcd_vhdl_package-body File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_controller.vhd
-    Info (12022): Found design unit 1: lcd_controller-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_controller.vhd Line: 22
-    Info (12023): Found entity 1: lcd_controller File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_controller.vhd Line: 3
+    Info (12022): Found design unit 1: lcd_controller-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_controller.vhd Line: 22
+    Info (12023): Found entity 1: lcd_controller File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_controller.vhd Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file block1.bdf
     Info (12023): Found entity 1: Block1
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_logic.vhd
-    Info (12022): Found design unit 1: lcd_logic-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_logic.vhd Line: 12
-    Info (12023): Found entity 1: lcd_logic File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_logic.vhd Line: 4
+    Info (12022): Found design unit 1: lcd_logic-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_logic.vhd Line: 12
+    Info (12023): Found entity 1: lcd_logic File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_logic.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
-    Info (12022): Found design unit 1: debounce-rtl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd Line: 18
-    Info (12023): Found entity 1: debounce File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd Line: 5
+    Info (12022): Found design unit 1: debounce-rtl File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/debounce.vhd Line: 18
+    Info (12023): Found entity 1: debounce File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/debounce.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file buzzer_sweet.vhd
-    Info (12022): Found design unit 1: buzzer_sweet-estrutural File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 17
-    Info (12023): Found entity 1: buzzer_sweet File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 5
+    Info (12022): Found design unit 1: buzzer_sweet-estrutural File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 17
+    Info (12023): Found entity 1: buzzer_sweet File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_junkbox_ctrl.vhd
-    Info (12022): Found design unit 1: lcd_junkbox_ctrl-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 24
-    Info (12023): Found entity 1: lcd_junkbox_ctrl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 6
+    Info (12022): Found design unit 1: lcd_junkbox_ctrl-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 24
+    Info (12023): Found entity 1: lcd_junkbox_ctrl File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file jukebox_credits.vhd
-    Info (12022): Found design unit 1: jukebox_credits-rtl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/jukebox_credits.vhd Line: 19
-    Info (12023): Found entity 1: jukebox_credits File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/jukebox_credits.vhd Line: 5
+    Info (12022): Found design unit 1: jukebox_credits-rtl File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/jukebox_credits.vhd Line: 19
+    Info (12023): Found entity 1: jukebox_credits File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/jukebox_credits.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file credit_manager.bdf
     Info (12023): Found entity 1: credit_manager
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_credits_ctrl.vhd
-    Info (12022): Found design unit 1: lcd_credits_ctrl-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 17
-    Info (12023): Found entity 1: lcd_credits_ctrl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 6
+    Info (12022): Found design unit 1: lcd_credits_ctrl-bhv File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 17
+    Info (12023): Found entity 1: lcd_credits_ctrl File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 6
 Info (12127): Elaborating entity "credit_manager" for the top level hierarchy
 Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:inst2"
 Info (12128): Elaborating entity "lcd_credits_ctrl" for hierarchy "lcd_credits_ctrl:inst4"
 Info (12128): Elaborating entity "jukebox_credits" for hierarchy "jukebox_credits:inst"
 Info (12128): Elaborating entity "debounce" for hierarchy "debounce:inst3"
 Info (278001): Inferred 7 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div0" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div1" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 52
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div2" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 53
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod3" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod2" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 53
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod1" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 52
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod0" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "lcd_credits_ctrl:inst4|lpm_divide:Div0" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
-Info (12133): Instantiated megafunction "lcd_credits_ctrl:inst4|lpm_divide:Div0" with the following parameter: File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div0" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div1" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 52
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div2" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 53
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod3" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod2" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 53
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod1" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 52
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod0" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "lcd_credits_ctrl:inst4|lpm_divide:Div0" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+Info (12133): Instantiated megafunction "lcd_credits_ctrl:inst4|lpm_divide:Div0" with the following parameter: File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
     Info (12134): Parameter "LPM_WIDTHN" = "14"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0jm.tdf
-    Info (12023): Found entity 1: lpm_divide_0jm File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_0jm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_0jm File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/lpm_divide_0jm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_olh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/sign_div_unsign_olh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_47f.tdf
-    Info (12023): Found entity 1: alt_u_div_47f File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_47f File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lcd_credits_ctrl:inst4|lpm_divide:Mod3" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
-Info (12133): Instantiated megafunction "lcd_credits_ctrl:inst4|lpm_divide:Mod3" with the following parameter: File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lcd_credits_ctrl:inst4|lpm_divide:Mod3" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
+Info (12133): Instantiated megafunction "lcd_credits_ctrl:inst4|lpm_divide:Mod3" with the following parameter: File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
     Info (12134): Parameter "LPM_WIDTHN" = "14"
     Info (12134): Parameter "LPM_WIDTHD" = "14"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
-    Info (12023): Found entity 1: lpm_divide_kcm File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_kcm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_kcm File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/lpm_divide_kcm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_9nh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/sign_div_unsign_9nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_7af.tdf
-    Info (12023): Found entity 1: alt_u_div_7af File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_7af File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 27
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rw" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_6_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 77
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_7_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 82
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_8_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 87
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 92
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 92
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 37
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 37
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 42
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_9_result_int[0]~20" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 92
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_10_result_int[0]~22" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 37
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_11_result_int[0]~24" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 42
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 42
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 47
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 47
-    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_6_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 77
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_7_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 82
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_8_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 87
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 92
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 92
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 37
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 37
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 42
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_9_result_int[0]~20" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 92
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_10_result_int[0]~22" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 37
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_11_result_int[0]~24" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 42
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 42
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key[3]"
     Warning (15610): No output dependent on input pin "key[2]"
-Info (21057): Implemented 1558 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1578 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 1542 logic cells
+    Info (21061): Implemented 1562 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4931 megabytes
-    Info: Processing ended: Sat Aug 16 21:36:41 2025
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Peak virtual memory: 4905 megabytes
+    Info: Processing ended: Sat Aug 16 22:49:57 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:14
 
 

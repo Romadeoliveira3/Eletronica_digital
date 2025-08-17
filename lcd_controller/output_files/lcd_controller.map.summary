@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sat Aug 16 21:36:41 2025
+Analysis & Synthesis Status : Successful - Sat Aug 16 22:49:57 2025
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : lcd_controller
 Top-level Entity Name : credit_manager
 Family : Cyclone IV E
-Total logic elements : 1,538
-    Total combinational functions : 1,530
-    Dedicated logic registers : 211
-Total registers : 211
+Total logic elements : 1,558
+    Total combinational functions : 1,550
+    Dedicated logic registers : 219
+Total registers : 219
 Total pins : 16
 Total virtual pins : 0
 Total memory bits : 0
