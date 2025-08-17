@@ -1,0 +1,19 @@
+-- #########################################################
+-- Por que CRED_BITS precisa ser 14 para MAX_CREDITS = 9999?
+--
+-- 1. O parâmetro CRED_BITS define a quantidade de bits
+--    do registrador de créditos.
+--
+-- 2. Para representar até 9999 em binário, calculamos:
+--       log2(9999) ≈ 13.28
+--
+-- 3. Isso significa:
+--    - 13 bits → valor máximo = 2^13 - 1 = 8191  (não chega a 9999)
+--    - 14 bits → valor máximo = 2^14 - 1 = 16383 (suficiente)
+--
+-- 4. Portanto, CRED_BITS precisa ser 14, pois 13 bits
+--    não representam valores até 9999.
+-- #########################################################
+
+
+

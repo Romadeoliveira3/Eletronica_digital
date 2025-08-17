@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lcd_controller
-Sat Aug 16 12:37:35 2025
+Sat Aug 16 21:36:41 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -13,21 +13,25 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Block1|buzzer_sweet:inst7|controlador_sweet:u_ctrl|estado_atual
-  9. State Machine - |Block1|lcd_junkbox_ctrl:inst8|state
- 10. State Machine - |Block1|lcd_controller:inst2|estado
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: lcd_controller:inst2
- 17. Parameter Settings for User Entity Instance: lcd_junkbox_ctrl:inst8
- 18. Parameter Settings for User Entity Instance: debounce:inst3
- 19. Port Connectivity Checks: "buzzer_sweet:inst7|controlador_sweet:u_ctrl"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+  8. State Machine - |credit_manager|lcd_controller:inst2|estado
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: lcd_controller:inst2
+ 15. Parameter Settings for User Entity Instance: jukebox_credits:inst
+ 16. Parameter Settings for User Entity Instance: debounce:inst3
+ 17. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Div1
+ 19. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Div2
+ 20. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod3
+ 21. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod2
+ 22. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod1
+ 23. Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod0
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
 
 
 
@@ -54,16 +58,16 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 16 12:37:35 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 16 21:36:41 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; lcd_controller                                  ;
-; Top-level Entity Name              ; Block1                                          ;
+; Top-level Entity Name              ; credit_manager                                  ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 660                                             ;
-;     Total combinational functions  ; 643                                             ;
-;     Dedicated logic registers      ; 321                                             ;
-; Total registers                    ; 321                                             ;
-; Total pins                         ; 17                                              ;
+; Total logic elements               ; 1,538                                           ;
+;     Total combinational functions  ; 1,530                                           ;
+;     Dedicated logic registers      ; 211                                             ;
+; Total registers                    ; 211                                             ;
+; Total pins                         ; 16                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -77,7 +81,7 @@ on the Quartus Prime software download page.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE6E22C8        ;                    ;
-; Top-level entity name                                            ; Block1             ; lcd_controller     ;
+; Top-level entity name                                            ; credit_manager     ; lcd_controller     ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; On                 ; Off                ;
 ; Maximum processors allowed for parallel compilation              ; All                ;                    ;
@@ -175,27 +179,36 @@ on the Quartus Prime software download page.
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.1%      ;
-;     Processors 8-10        ;   0.1%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processors 8-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                 ;
-+---------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                        ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                                                ; Library ;
-+---------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; controlador_sweet.vhd                                   ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/controlador_sweet.vhd                                   ;         ;
-; buzzer_controlavel/buzzer_controlavel/temporizador.vhd  ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd  ;         ;
-; buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/divisor_clock.vhd ;         ;
-; lcd_vhdl_package.vhd                                    ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd                                    ;         ;
-; lcd_controller.vhd                                      ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_controller.vhd                                      ;         ;
-; Block1.bdf                                              ; yes             ; User Block Diagram/Schematic File  ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/Block1.bdf                                              ;         ;
-; debounce.vhd                                            ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd                                            ;         ;
-; buzzer_sweet.vhd                                        ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd                                        ;         ;
-; lcd_junkbox_ctrl.vhd                                    ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd                                    ;         ;
-+---------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                             ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                   ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
+; lcd_vhdl_package.vhd             ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_vhdl_package.vhd       ;         ;
+; lcd_controller.vhd               ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_controller.vhd         ;         ;
+; debounce.vhd                     ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/debounce.vhd               ;         ;
+; jukebox_credits.vhd              ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/jukebox_credits.vhd        ;         ;
+; credit_manager.bdf               ; yes             ; User Block Diagram/Schematic File  ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/credit_manager.bdf         ;         ;
+; lcd_credits_ctrl.vhd             ; yes             ; User VHDL File                     ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd       ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                                       ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/abs_divider.inc                                                      ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                                                  ;         ;
+; aglobal241.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc                                                       ;         ;
+; db/lpm_divide_0jm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_0jm.tdf      ;         ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_olh.tdf ;         ;
+; db/alt_u_div_47f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_kcm.tdf      ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_9nh.tdf ;         ;
+; db/alt_u_div_7af.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf       ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -203,107 +216,78 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 660         ;
+; Estimated Total logic elements              ; 1,538       ;
 ;                                             ;             ;
-; Total combinational functions               ; 643         ;
+; Total combinational functions               ; 1530        ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 257         ;
-;     -- 3 input functions                    ; 86          ;
-;     -- <=2 input functions                  ; 300         ;
+;     -- 4 input functions                    ; 458         ;
+;     -- 3 input functions                    ; 427         ;
+;     -- <=2 input functions                  ; 645         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 452         ;
-;     -- arithmetic mode                      ; 191         ;
+;     -- normal mode                          ; 1044        ;
+;     -- arithmetic mode                      ; 486         ;
 ;                                             ;             ;
-; Total registers                             ; 321         ;
-;     -- Dedicated logic registers            ; 321         ;
+; Total registers                             ; 211         ;
+;     -- Dedicated logic registers            ; 211         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 17          ;
+; I/O pins                                    ; 16          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 321         ;
-; Total fan-out                               ; 2801        ;
-; Average fan-out                             ; 2.81        ;
+; Maximum fan-out                             ; 211         ;
+; Total fan-out                               ; 4829        ;
+; Average fan-out                             ; 2.72        ;
 +---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                  ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                 ; Entity Name       ; Library Name ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+-------------------+--------------+
-; |Block1                          ; 643 (1)             ; 321 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Block1                                             ; Block1            ; work         ;
-;    |buzzer_sweet:inst7|          ; 174 (10)            ; 128 (12)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7                          ; buzzer_sweet      ; work         ;
-;       |controlador_sweet:u_ctrl| ; 65 (65)             ; 51 (51)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7|controlador_sweet:u_ctrl ; controlador_sweet ; work         ;
-;       |divisor_clock:u_div|      ; 56 (56)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7|divisor_clock:u_div      ; divisor_clock     ; work         ;
-;       |temporizador:u_tmp|       ; 43 (43)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|buzzer_sweet:inst7|temporizador:u_tmp       ; temporizador      ; work         ;
-;    |debounce:inst3|              ; 135 (135)           ; 105 (105)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|debounce:inst3                              ; debounce          ; work         ;
-;    |lcd_controller:inst2|        ; 186 (186)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_controller:inst2                        ; lcd_controller    ; work         ;
-;    |lcd_junkbox_ctrl:inst8|      ; 147 (147)           ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|lcd_junkbox_ctrl:inst8                      ; lcd_junkbox_ctrl  ; work         ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+-------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |credit_manager                           ; 1530 (0)            ; 211 (0)                   ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |credit_manager                                                                                                                        ; credit_manager      ; work         ;
+;    |debounce:inst3|                       ; 90 (90)             ; 70 (70)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|debounce:inst3                                                                                                         ; debounce            ; work         ;
+;    |jukebox_credits:inst|                 ; 63 (63)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|jukebox_credits:inst                                                                                                   ; jukebox_credits     ; work         ;
+;    |lcd_controller:inst2|                 ; 178 (178)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_controller:inst2                                                                                                   ; lcd_controller      ; work         ;
+;    |lcd_credits_ctrl:inst4|               ; 1199 (185)          ; 74 (74)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4                                                                                                 ; lcd_credits_ctrl    ; work         ;
+;       |lpm_divide:Div0|                   ; 141 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_0jm:auto_generated|  ; 141 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0|lpm_divide_0jm:auto_generated                                                   ; lpm_divide_0jm      ; work         ;
+;             |sign_div_unsign_olh:divider| ; 141 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_47f:divider|    ; 141 (141)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div0|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider ; alt_u_div_47f       ; work         ;
+;       |lpm_divide:Div1|                   ; 103 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_0jm:auto_generated|  ; 103 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated                                                   ; lpm_divide_0jm      ; work         ;
+;             |sign_div_unsign_olh:divider| ; 103 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_47f:divider|    ; 103 (103)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider ; alt_u_div_47f       ; work         ;
+;       |lpm_divide:Div2|                   ; 61 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_0jm:auto_generated|  ; 61 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated                                                   ; lpm_divide_0jm      ; work         ;
+;             |sign_div_unsign_olh:divider| ; 61 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_47f:divider|    ; 61 (61)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider ; alt_u_div_47f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 276 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 276 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 276 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_7af:divider|    ; 276 (276)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider ; alt_u_div_7af       ; work         ;
+;       |lpm_divide:Mod1|                   ; 228 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 228 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 228 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_7af:divider|    ; 228 (228)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider ; alt_u_div_7af       ; work         ;
+;       |lpm_divide:Mod2|                   ; 155 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 155 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 155 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_7af:divider|    ; 155 (155)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider ; alt_u_div_7af       ; work         ;
+;       |lpm_divide:Mod3|                   ; 50 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod3                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 50 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 50 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_7af:divider|    ; 50 (50)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |credit_manager|lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider ; alt_u_div_7af       ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Block1|buzzer_sweet:inst7|controlador_sweet:u_ctrl|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
-+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
-; Name             ; estado_atual.s30 ; estado_atual.s29 ; estado_atual.s28 ; estado_atual.s27 ; estado_atual.s26 ; estado_atual.s25 ; estado_atual.s24 ; estado_atual.s23 ; estado_atual.s22 ; estado_atual.s21 ; estado_atual.s20 ; estado_atual.s19 ; estado_atual.s18 ; estado_atual.s17 ; estado_atual.s16 ; estado_atual.s15 ; estado_atual.s14 ; estado_atual.s13 ; estado_atual.s12 ; estado_atual.s11 ; estado_atual.s10 ; estado_atual.s9 ; estado_atual.s8 ; estado_atual.s7 ; estado_atual.s6 ; estado_atual.s5 ; estado_atual.s4 ; estado_atual.s3 ; estado_atual.s2 ; estado_atual.s1 ; estado_atual.s0 ;
-+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
-; estado_atual.s0  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ;
-; estado_atual.s1  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 1               ;
-; estado_atual.s2  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 1               ;
-; estado_atual.s3  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 1               ;
-; estado_atual.s4  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s5  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s6  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s7  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s8  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s9  ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s10 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s11 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s12 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s13 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s14 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s15 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s16 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s17 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s18 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s19 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s20 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s21 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s22 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s23 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s24 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s25 ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s26 ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s27 ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s28 ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s29 ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-; estado_atual.s30 ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
-+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
-
-
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------+
-; State Machine - |Block1|lcd_junkbox_ctrl:inst8|state                                            ;
-+-----------------+-----------------+---------------+-------------+-------------+-----------------+
-; Name            ; state.BACK_MENU ; state.PLAYING ; state.SONG2 ; state.SONG1 ; state.SHOW_MENU ;
-+-----------------+-----------------+---------------+-------------+-------------+-----------------+
-; state.SHOW_MENU ; 0               ; 0             ; 0           ; 0           ; 0               ;
-; state.SONG1     ; 0               ; 0             ; 0           ; 1           ; 1               ;
-; state.SONG2     ; 0               ; 0             ; 1           ; 0           ; 1               ;
-; state.PLAYING   ; 0               ; 1             ; 0           ; 0           ; 1               ;
-; state.BACK_MENU ; 1               ; 0             ; 0           ; 0           ; 1               ;
-+-----------------+-----------------+---------------+-------------+-------------+-----------------+
-
-
-Encoding Type:  One-Hot
 +--------------------------------------------------------------------------------------------------+
-; State Machine - |Block1|lcd_controller:inst2|estado                                              ;
+; State Machine - |credit_manager|lcd_controller:inst2|estado                                      ;
 +----------------------+---------------+---------------+----------------------+--------------------+
 ; Name                 ; estado.ENVIAR ; estado.PRONTO ; estado.INICIALIZACAO ; estado.ENERGIZACAO ;
 +----------------------+---------------+---------------+----------------------+--------------------+
@@ -314,149 +298,110 @@ Encoding Type:  One-Hot
 +----------------------+---------------+---------------+----------------------+--------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                             ;
-+-------------------------------------------------------------------------+----------------------------------------------------------------------+
-; Register name                                                           ; Reason for Removal                                                   ;
-+-------------------------------------------------------------------------+----------------------------------------------------------------------+
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[24..27]            ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[23]                ; Stuck at VCC due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[22]                ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[17..21]            ; Stuck at VCC due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[16]                ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[15]                ; Stuck at VCC due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[14]                ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[10..13]            ; Stuck at VCC due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[6..9]              ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[5]                 ; Stuck at VCC due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Temp_out[0..4]              ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Freq_out[17..27]            ; Stuck at GND due to stuck port data_in                               ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|Freq_out[11]                ; Merged with buzzer_sweet:inst7|controlador_sweet:u_ctrl|Freq_out[14] ;
-; lcd_junkbox_ctrl:inst8|L2[22]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[36]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[8]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[44]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[24]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[53]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[27,104]                                       ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[66]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[6]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[71]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[107]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[77]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[30]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[79]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[111]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[85]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[14]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[87]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[36,114]                                       ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[95]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[120]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[101]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[4]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[103]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[38,123,126]                                   ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[0,2,111,121]                                  ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[2]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[4,55,123,126]                                 ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[7,15,26]                                      ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L1[86]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L2[81]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L1[102]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L2[21,89]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L1[13,78]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L2[54]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L1[21,29,59]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L2[5,29,37,125]                                  ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L1[5,125]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L1[15]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[127]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[7]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[17]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[23,31,68]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[39,112]                                       ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[122]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[1]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[11]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[11]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[19]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[71]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[27,35,39,61]                                  ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[3,31,106,122]                                 ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[3,9,17,127]                                   ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[19,66]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[25]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[9,23,76,87,95]                                ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[47]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[103]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[63]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[119]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[1,108,112,119]                                ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[47]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[6,8]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[55]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[10]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[0]                                            ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[12,14,16]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[63]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[18]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[18]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[20,22]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[10]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[24]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[75]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[26]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[20]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[28]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L2[79]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[30]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[12]                            ;
-; lcd_junkbox_ctrl:inst8|L1[57,58,109]                                    ; Merged with lcd_junkbox_ctrl:inst8|L2[40]                            ;
-; lcd_junkbox_ctrl:inst8|L1[33,43,84,98,104,106,110]                      ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
-; lcd_junkbox_ctrl:inst8|L2[61,68]                                        ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
-; lcd_junkbox_ctrl:inst8|L2[62]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
-; lcd_junkbox_ctrl:inst8|L1[37,72,94,117]                                 ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
-; lcd_junkbox_ctrl:inst8|L2[109]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
-; lcd_junkbox_ctrl:inst8|L1[90]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[58]                            ;
-; lcd_junkbox_ctrl:inst8|L2[88,94,96]                                     ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
-; lcd_junkbox_ctrl:inst8|L1[54]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
-; lcd_junkbox_ctrl:inst8|L2[102]                                          ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
-; lcd_junkbox_ctrl:inst8|L1[62]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[86]                            ;
-; lcd_junkbox_ctrl:inst8|L1[32,34,38,41,60,93,105,107,114,118]            ; Merged with lcd_junkbox_ctrl:inst8|L2[99]                            ;
-; lcd_junkbox_ctrl:inst8|L2[12]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[16]                            ;
-; lcd_junkbox_ctrl:inst8|L2[86]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[13]                            ;
-; lcd_junkbox_ctrl:inst8|L2[58]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[40]                            ;
-; lcd_junkbox_ctrl:inst8|L2[99]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
-; lcd_junkbox_ctrl:inst8|L1[75]                                           ; Merged with lcd_junkbox_ctrl:inst8|L1[70]                            ;
-; lcd_junkbox_ctrl:inst8|L1[65,92,99]                                     ; Merged with lcd_junkbox_ctrl:inst8|L1[52]                            ;
-; lcd_junkbox_ctrl:inst8|L2[25,28,32..35,44,64,65,70,84,85,92,93,101,118] ; Merged with lcd_junkbox_ctrl:inst8|L1[52]                            ;
-; lcd_junkbox_ctrl:inst8|L2[45,67,77,80,98,108,110]                       ; Merged with lcd_junkbox_ctrl:inst8|L2[105]                           ;
-; lcd_junkbox_ctrl:inst8|L1[40,69,89,120,124]                             ; Merged with lcd_junkbox_ctrl:inst8|L1[116]                           ;
-; lcd_junkbox_ctrl:inst8|L2[113,115,121,124]                              ; Merged with lcd_junkbox_ctrl:inst8|L1[116]                           ;
-; lcd_junkbox_ctrl:inst8|L1[76,80]                                        ; Merged with lcd_junkbox_ctrl:inst8|L1[67]                            ;
-; lcd_junkbox_ctrl:inst8|L2[52]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[48]                            ;
-; lcd_junkbox_ctrl:inst8|L1[56,97]                                        ; Merged with lcd_junkbox_ctrl:inst8|L1[51]                            ;
-; lcd_junkbox_ctrl:inst8|L2[59]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[57]                            ;
-; lcd_junkbox_ctrl:inst8|L2[56]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[51]                            ;
-; lcd_junkbox_ctrl:inst8|L1[42,46,74,96,115]                              ; Merged with lcd_junkbox_ctrl:inst8|L1[113]                           ;
-; lcd_junkbox_ctrl:inst8|L1[50,91]                                        ; Merged with lcd_junkbox_ctrl:inst8|L1[49]                            ;
-; lcd_junkbox_ctrl:inst8|L2[42,46,50,72..74,78,82,90,91,100]              ; Merged with lcd_junkbox_ctrl:inst8|L1[49]                            ;
-; lcd_junkbox_ctrl:inst8|L2[49,69,83,97,117]                              ; Merged with lcd_junkbox_ctrl:inst8|L1[100]                           ;
-; lcd_junkbox_ctrl:inst8|L1[81..83,88]                                    ; Merged with lcd_junkbox_ctrl:inst8|L1[73]                            ;
-; lcd_junkbox_ctrl:inst8|L2[116]                                          ; Merged with lcd_junkbox_ctrl:inst8|L1[73]                            ;
-; lcd_junkbox_ctrl:inst8|L2[43]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[41]                            ;
-; lcd_junkbox_ctrl:inst8|L1[64]                                           ; Merged with lcd_junkbox_ctrl:inst8|L1[48]                            ;
-; lcd_junkbox_ctrl:inst8|L2[16]                                           ; Stuck at GND due to stuck port data_in                               ;
-; lcd_junkbox_ctrl:inst8|L2[13]                                           ; Stuck at VCC due to stuck port data_in                               ;
-; lcd_junkbox_ctrl:inst8|lcd_bus[8]                                       ; Stuck at GND due to stuck port data_in                               ;
-; lcd_controller:inst2|rw                                                 ; Stuck at GND due to stuck port data_in                               ;
-; lcd_junkbox_ctrl:inst8|L2[40]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[53]                            ;
-; lcd_junkbox_ctrl:inst8|L1[100]                                          ; Merged with lcd_junkbox_ctrl:inst8|L1[52]                            ;
-; lcd_junkbox_ctrl:inst8|L1[49]                                           ; Merged with lcd_junkbox_ctrl:inst8|L2[105]                           ;
-; lcd_junkbox_ctrl:inst8|L1[116]                                          ; Merged with lcd_junkbox_ctrl:inst8|L1[70]                            ;
-; lcd_junkbox_ctrl:inst8|L1[45]                                           ; Merged with lcd_junkbox_ctrl:inst8|L1[113]                           ;
-; Total Number of Removed Registers = 284                                 ;                                                                      ;
-+-------------------------------------------------------------------------+----------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                ;
++----------------------------------------------------------------------+--------------------------------------------+
+; Register name                                                        ; Reason for Removal                         ;
++----------------------------------------------------------------------+--------------------------------------------+
+; lcd_credits_ctrl:inst4|L1[126,127]                                   ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[125]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[118..124]                                  ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[117]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[111..116]                                  ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[110]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[108,109]                                   ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[107]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[106]                                       ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[105]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[103,104]                                   ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[102]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[101]                                       ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[100]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[99]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[98]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[97]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[96]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[95]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[94]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[92,93]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[91]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[90]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[88,89]                                     ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[87]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[86]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[83..85]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[82]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[81]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[80]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[79]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[78]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[74..77]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[73]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[71,72]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[70]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[68,69]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[64..67]                                    ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[63]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[62]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[61]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[59,60]                                     ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[54..58]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[53]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[46..52]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[43..45]                                    ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[38..42]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[36,37]                                     ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[31..35]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[28..30]                                    ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[26,27]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[24,25]                                     ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[22,23]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[21]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[14..20]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[13]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[6..12]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[5]                                         ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L1[0..4]                                      ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[111,112,114,115,119,122..124,127]          ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[110]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[105,108,109]                               ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[104]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[103]                                       ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[102]                                       ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[100,101]                                   ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[98]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[95,96]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[94]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[90,93]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[88]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[87]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[86]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[83,85]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[82]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[79,81]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[78]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[77]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[76]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[74,75]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[73]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[71]                                        ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[68]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[62..64]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[61]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[22,23,56..60]                              ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[21]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[14..20]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[13]                                        ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[6..12]                                     ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[5]                                         ; Stuck at VCC due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[0..4]                                      ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[65,67,69,72,84,91,106,113,116,118,120,121] ; Merged with lcd_credits_ctrl:inst4|L2[126] ;
+; lcd_credits_ctrl:inst4|L2[66,70,80,89,92,97,99,107,117]              ; Merged with lcd_credits_ctrl:inst4|L2[125] ;
+; lcd_credits_ctrl:inst4|lcd_bus[8]                                    ; Stuck at GND due to stuck port data_in     ;
+; lcd_controller:inst2|rw                                              ; Stuck at GND due to stuck port data_in     ;
+; lcd_credits_ctrl:inst4|L2[125]                                       ; Merged with lcd_credits_ctrl:inst4|L2[126] ;
+; Total Number of Removed Registers = 225                              ;                                            ;
++----------------------------------------------------------------------+--------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -464,7 +409,7 @@ Encoding Type:  One-Hot
 +-----------------------------------+---------------------------+----------------------------------------+
 ; Register name                     ; Reason for Removal        ; Registers Removed due to This Register ;
 +-----------------------------------+---------------------------+----------------------------------------+
-; lcd_junkbox_ctrl:inst8|lcd_bus[8] ; Stuck at GND              ; lcd_controller:inst2|rw                ;
+; lcd_credits_ctrl:inst4|lcd_bus[8] ; Stuck at GND              ; lcd_controller:inst2|rw                ;
 ;                                   ; due to stuck port data_in ;                                        ;
 +-----------------------------------+---------------------------+----------------------------------------+
 
@@ -474,46 +419,38 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 321   ;
-; Number of registers using Synchronous Clear  ; 129   ;
-; Number of registers using Synchronous Load   ; 35    ;
+; Total registers                              ; 211   ;
+; Number of registers using Synchronous Clear  ; 70    ;
+; Number of registers using Synchronous Load   ; 17    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 61    ;
+; Number of registers using Clock Enable       ; 21    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------+
-; Inverted Register Statistics                                ;
-+---------------------------------------------------+---------+
-; Inverted Register                                 ; Fan out ;
-+---------------------------------------------------+---------+
-; buzzer_sweet:inst7|mute_en                        ; 2       ;
-; lcd_controller:inst2|busy                         ; 4       ;
-; buzzer_sweet:inst7|controlador_sweet:u_ctrl|armed ; 3       ;
-; Total number of inverted registers = 3            ;         ;
-+---------------------------------------------------+---------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; lcd_controller:inst2|busy              ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Block1|lcd_junkbox_ctrl:inst8|L1[70]                 ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Block1|lcd_junkbox_ctrl:inst8|L2[13]                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[2][8]                      ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[1][15]                     ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Block1|debounce:inst3|cnt[3][9]                      ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |Block1|buzzer_sweet:inst7|temporizador:u_tmp|cnt[13] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Block1|lcd_controller:inst2|rs                       ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |Block1|lcd_junkbox_ctrl:inst8|lcd_bus[9]             ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|clk_count[28]            ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |Block1|lcd_controller:inst2|lcd_data[6]              ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Block1|lcd_junkbox_ctrl:inst8|state                  ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Block1|lcd_junkbox_ctrl:inst8|Selector93             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |credit_manager|debounce:inst3|cnt[4][4]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |credit_manager|debounce:inst3|cnt[1][3]           ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |credit_manager|jukebox_credits:inst|cred_reg[2]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |credit_manager|lcd_controller:inst2|rw            ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |credit_manager|lcd_controller:inst2|clk_count[30] ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |credit_manager|lcd_controller:inst2|lcd_data[3]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -533,14 +470,14 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lcd_junkbox_ctrl:inst8 ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; KEY1_IDX       ; 1     ; Signed Integer                             ;
-; KEY2_IDX       ; 2     ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: jukebox_credits:inst ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; CRED_BITS      ; 14    ; Signed Integer                           ;
+; MAX_CREDITS    ; 9999  ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -556,13 +493,165 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "buzzer_sweet:inst7|controlador_sweet:u_ctrl"                                           ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; clk_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 4              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_0jm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Div1 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 4              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_0jm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Div2 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 4              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_0jm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod3 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 14             ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod2 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 14             ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod1 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 14             ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lcd_credits_ctrl:inst4|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                       ;
+; LPM_WIDTHD             ; 14             ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -570,25 +659,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 17                          ;
-; cycloneiii_ff         ; 321                         ;
-;     ENA               ; 58                          ;
-;     ENA SLD           ; 3                           ;
-;     SCLR              ; 129                         ;
-;     SLD               ; 32                          ;
-;     plain             ; 99                          ;
-; cycloneiii_lcell_comb ; 643                         ;
-;     arith             ; 191                         ;
-;         2 data inputs ; 191                         ;
-;     normal            ; 452                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 12                          ;
-;         2 data inputs ; 96                          ;
-;         3 data inputs ; 86                          ;
-;         4 data inputs ; 257                         ;
+; boundary_port         ; 16                          ;
+; cycloneiii_ff         ; 211                         ;
+;     ENA               ; 10                          ;
+;     ENA SCLR          ; 6                           ;
+;     ENA SLD           ; 5                           ;
+;     SCLR              ; 64                          ;
+;     SLD               ; 12                          ;
+;     plain             ; 114                         ;
+; cycloneiii_lcell_comb ; 1531                        ;
+;     arith             ; 486                         ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 182                         ;
+;         3 data inputs ; 284                         ;
+;     normal            ; 1045                        ;
+;         0 data inputs ; 51                          ;
+;         1 data inputs ; 27                          ;
+;         2 data inputs ; 366                         ;
+;         3 data inputs ; 143                         ;
+;         4 data inputs ; 458                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 5.49                        ;
+; Max LUT depth         ; 34.00                       ;
+; Average LUT depth     ; 22.24                       ;
 +-----------------------+-----------------------------+
 
 
@@ -597,7 +689,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -607,7 +699,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sat Aug 16 12:37:26 2025
+    Info: Processing started: Sat Aug 16 21:36:30 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd_controller -c lcd_controller
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_sweet.vhd
@@ -652,30 +744,92 @@ Info (12021): Found 2 design units, including 1 entities, in source file buzzer_
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_junkbox_ctrl.vhd
     Info (12022): Found design unit 1: lcd_junkbox_ctrl-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 24
     Info (12023): Found entity 1: lcd_junkbox_ctrl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_junkbox_ctrl.vhd Line: 6
-Info (12127): Elaborating entity "Block1" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file jukebox_credits.vhd
+    Info (12022): Found design unit 1: jukebox_credits-rtl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/jukebox_credits.vhd Line: 19
+    Info (12023): Found entity 1: jukebox_credits File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/jukebox_credits.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file credit_manager.bdf
+    Info (12023): Found entity 1: credit_manager
+Info (12021): Found 2 design units, including 1 entities, in source file lcd_credits_ctrl.vhd
+    Info (12022): Found design unit 1: lcd_credits_ctrl-bhv File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 17
+    Info (12023): Found entity 1: lcd_credits_ctrl File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 6
+Info (12127): Elaborating entity "credit_manager" for the top level hierarchy
 Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:inst2"
-Info (12128): Elaborating entity "lcd_junkbox_ctrl" for hierarchy "lcd_junkbox_ctrl:inst8"
-Info (12128): Elaborating entity "buzzer_sweet" for hierarchy "buzzer_sweet:inst7"
-Info (12128): Elaborating entity "controlador_sweet" for hierarchy "buzzer_sweet:inst7|controlador_sweet:u_ctrl" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 75
-Info (12128): Elaborating entity "temporizador" for hierarchy "buzzer_sweet:inst7|temporizador:u_tmp" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 89
-Warning (10492): VHDL Process Statement warning at temporizador.vhd(22): signal "cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_controlavel/buzzer_controlavel/temporizador.vhd Line: 22
-Info (12128): Elaborating entity "divisor_clock" for hierarchy "buzzer_sweet:inst7|divisor_clock:u_div" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/buzzer_sweet.vhd Line: 98
+Info (12128): Elaborating entity "lcd_credits_ctrl" for hierarchy "lcd_credits_ctrl:inst4"
+Info (12128): Elaborating entity "jukebox_credits" for hierarchy "jukebox_credits:inst"
 Info (12128): Elaborating entity "debounce" for hierarchy "debounce:inst3"
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div0" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div1" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 52
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Div2" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 53
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod3" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod2" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 53
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod1" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 52
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_credits_ctrl:inst4|Mod0" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "lcd_credits_ctrl:inst4|lpm_divide:Div0" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+Info (12133): Instantiated megafunction "lcd_credits_ctrl:inst4|lpm_divide:Div0" with the following parameter: File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 51
+    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0jm.tdf
+    Info (12023): Found entity 1: lpm_divide_0jm File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_0jm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_olh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_47f.tdf
+    Info (12023): Found entity 1: alt_u_div_47f File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lcd_credits_ctrl:inst4|lpm_divide:Mod3" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
+Info (12133): Instantiated megafunction "lcd_credits_ctrl:inst4|lpm_divide:Mod3" with the following parameter: File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/lcd_credits_ctrl.vhd Line: 54
+    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12134): Parameter "LPM_WIDTHD" = "14"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
+    Info (12023): Found entity 1: lpm_divide_kcm File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/lpm_divide_kcm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/sign_div_unsign_9nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_7af.tdf
+    Info (12023): Found entity 1: alt_u_div_7af File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 27
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rw" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_6_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 77
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_7_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 82
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_8_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 87
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 92
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 92
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 37
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 37
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 42
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_9_result_int[0]~20" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 92
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_10_result_int[0]~22" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 37
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_11_result_int[0]~24" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 42
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 42
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_12_result_int[0]~26" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_47f.tdf Line: 47
+    Info (17048): Logic cell "lcd_credits_ctrl:inst4|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_7af:divider|add_sub_13_result_int[0]~28" File: C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/db/alt_u_div_7af.tdf Line: 52
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "key[4]"
-Info (21057): Implemented 690 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key[3]"
+    Warning (15610): No output dependent on input pin "key[2]"
+Info (21057): Implemented 1558 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 673 logic cells
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 1542 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4911 megabytes
-    Info: Processing ended: Sat Aug 16 12:37:35 2025
-    Info: Elapsed time: 00:00:09
+    Info: Peak virtual memory: 4931 megabytes
+    Info: Processing ended: Sat Aug 16 21:36:41 2025
+    Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:17
 
 
