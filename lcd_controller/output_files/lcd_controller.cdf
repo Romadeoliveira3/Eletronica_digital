@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("C:/Users/romariojveloso/Documents/PESSOAL/UFPE/ELETRONICA DIGITAL/Eletronica_digital/lcd_controller/output_files/") File("lcd_controller.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("C:/Users/Romario/Documents/Faculdade/ELETRONICA DIGITAL/git/Eletronica_digital/lcd_controller/output_files/") File("lcd_controller.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

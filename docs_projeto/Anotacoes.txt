@@ -17,3 +17,186 @@
 
 
 
+RELATÓRIO — Função de Conversão Decimal para 4 Dígitos ASCII (to_4dec)
+
+1) Objetivo e Contexto
+A função `to_4dec` converte um valor de créditos representado em binário (tipo `unsigned(13 downto 0)`, faixa 0..9999) em uma sequência de 4 caracteres ASCII correspondentes aos dígitos decimais do valor. Essa conversão é necessária para exibir o número de créditos em displays de 16×2, montando a segunda linha com o texto “CREDITS: ####”.
+
+Trecho A — Definição da função (extraído do módulo de LCD):
+----------------------------------------------------------------
+-- Converte credits (0..9999) para 4 dígitos ASCII
+function to_4dec(u : unsigned(13 downto 0)) return string is
+  variable v  : integer := to_integer(u);
+  variable d0 : integer;
+  variable d1 : integer;
+  variable d2 : integer;
+  variable d3 : integer;
+  variable s  : string(1 to 4);
+begin
+  if v < 0 then v := 0; end if;
+  if v > 9999 then v := 9999; end if;
+
+  d0 := v mod 10;            v := v / 10;
+  d1 := v mod 10;            v := v / 10;
+  d2 := v mod 10;            v := v / 10;
+  d3 := v mod 10;
+
+  s(1) := character'val(character'pos('0') + d3);
+  s(2) := character'val(character'pos('0') + d2);
+  s(3) := character'val(character'pos('0') + d1);
+  s(4) := character'val(character'pos('0') + d0);
+  return s;
+end function;
+----------------------------------------------------------------
+
+
+2) Interface de Entrada e Saída
+Entrada:
+- `u : unsigned(13 downto 0)` — valor em binário, vindo do contador/registrador de créditos.
+
+Saída:
+- `string(1 to 4)` — quatro caracteres ASCII, prontos para serem copiados para as posições específicas da linha do display.
+
+Referência: Trecho A, cabeçalho da função.
+
+
+3) Limitação de Faixa (Saturação 0..9999)
+O valor binário é convertido para `integer` e limitado ao intervalo [0, 9999]. Isso garante que a função sempre retorne exatamente 4 dígitos.
+
+Referência: Trecho A, linhas:
+  if v < 0 then v := 0; end if;
+  if v > 9999 then v := 9999; end if;
+
+
+4) Decomposição em Dígitos Decimais
+O número inteiro é decomposto em quatro dígitos (milhar, centena, dezena, unidade) usando divisão inteira e resto:
+- d0 = unidades
+- d1 = dezenas
+- d2 = centenas
+- d3 = milhares
+
+Referência: Trecho A, linhas:
+  d0 := v mod 10; v := v / 10; ...
+  d1 := v mod 10; v := v / 10; ...
+  d2 := v mod 10; v := v / 10; ...
+  d3 := v mod 10;
+
+
+5) Conversão para ASCII
+Cada dígito decimal (0..9) é convertido para o caractere ASCII equivalente somando-se o deslocamento de `'0'`:
+- `'0'` + d3 → milhar
+- `'0'` + d2 → centena
+- `'0'` + d1 → dezena
+- `'0'` + d0 → unidade
+
+Referência: Trecho A, linhas:
+  s(1) := character'val(character'pos('0') + d3);
+  s(2) := character'val(character'pos('0') + d2);
+  s(3) := character'val(character'pos('0') + d1);
+  s(4) := character'val(character'pos('0') + d0);
+
+
+6) Uso no Layout do LCD (Montagem da Linha “CREDITS: ####”)
+A função é chamada para gerar os quatro dígitos e, em seguida, cada caractere é atribuído à posição apropriada na linha 2 (colunas 10..13). As colunas 1..9 compõem o prefixo “CREDITS: ”, garantindo um total de 16 caracteres na linha.
+
+Trecho B — Exemplo de uso no processo que monta as linhas do LCD:
+----------------------------------------------------------------
+-- Obtém os 4 dígitos como string
+digs := to_4dec(credits);
+
+-- Linha 2: "CREDITS: ####" (16 chars)
+line2(1)  := 'C'; line2(2)  := 'R'; line2(3)  := 'E'; line2(4)  := 'D';
+line2(5)  := 'I'; line2(6)  := 'T'; line2(7)  := 'S'; line2(8)  := ':';
+line2(9)  := ' ';
+line2(10) := digs(1);
+line2(11) := digs(2);
+line2(12) := digs(3);
+line2(13) := digs(4);
+line2(14) := ' ';
+line2(15) := ' ';
+line2(16) := ' ';
+----------------------------------------------------------------
+
+
+7) Integração com Efeito de “Blink” (Pisca)
+Quando `credits = 0`, o sistema alterna a linha 2 entre “INSERT COIN” e “CREDITS: 0000”, usando um flip‐flop `blink_on` que muda de estado após um contador atingir um limiar.
+
+Trecho C — Lógica de blink e alternância:
+----------------------------------------------------------------
+-- Contador de blink (ajuste do período alterando o limiar)
+blink_cnt <= blink_cnt + 1;
+if blink_cnt = x"4F_FFFF" then
+  blink_cnt <= (others => '0');
+  blink_on  <= not blink_on;
+end if;
+
+if credits = 0 then
+  if blink_on = '1' then
+    line2 := INSERT_COIN;  -- "  INSERT COIN   "
+  else
+    -- Monta "CREDITS: 0000" usando to_4dec(credits)
+    ...
+  end if;
+else
+  -- Com créditos > 0, mostra sempre "CREDITS: ####"
+  ...
+end if;
+----------------------------------------------------------------
+
+Cálculo do período de blink:
+- Supondo clock do sistema = 50 MHz.
+- O contador `blink_cnt` incrementa a cada ciclo de clock.
+- Limiar escolhido: 0x4F_FFFF = 5_242_879 (decimal).
+- Uma troca de estado ocorre a cada (5_242_879 + 1) ciclos ≈ 5_242_880 ciclos.
+- Período de meia-alternância (toggle): T_toggle ≈ 5_242_880 / 50e6 ≈ 0,105 s.
+- Período completo (liga+desliga): T_blink ≈ 2 × T_toggle ≈ 0,210 s (≈ 4,76 Hz).
+
+Para piscar mais devagar, aumente o limiar; para mais rápido, diminua. Exemplos:
+- ~1 Hz → T_toggle ≈ 0,5 s → limiar ≈ 0,5 × 50e6 − 1 ≈ 24_999_999 (≈ 0x017D_784F).
+- ~2 Hz → T_toggle ≈ 0,25 s → limiar ≈ 12_499_999 (≈ 0x00BE_BC1F).
+
+
+8) Caminho de Dados Completo
+- O módulo de créditos fornece `credits : unsigned(13 downto 0)`.
+- O processo de formatação chama `to_4dec(credits)` para obter “####”.
+- A linha 2 é montada com o prefixo “CREDITS: ” e os quatro dígitos.
+- A linha 1 exibe o título (“  JUKEBOX 80s   ”).
+- A lógica de blink alterna a linha 2 somente quando `credits = 0`.
+- O sequenciamento de envio (máquina simples de 34 passos) transmite as duas linhas ao controlador LCD respeitando `lcd_busy`.
+
+Trecho D — Sequenciamento para o controlador LCD (esqueleto):
+----------------------------------------------------------------
+-- A cada oportunidade (lcd_busy = '0' e lcd_enable = '0'), avança 'char' e
+-- envia: comando de posicionamento + 16 chars da L1 + comando + 16 chars da L2.
+process(clk)
+begin
+  if rising_edge(clk) then
+    if (lcd_busy = '0' and lcd_enable = '0') then
+      lcd_enable <= '1';
+      if (char < 34) then
+        char <= char + 1;
+      else
+        char <= 0;
+      end if;
+
+      case char is
+        when 0  => lcd_bus <= "00" & "10000000";           -- DDRAM linha 1
+        when 1  => lcd_bus <= "10" & L1(127 downto 120);
+        ...
+        when 16 => lcd_bus <= "10" & L1(7 downto 0);
+        when 17 => lcd_bus <= "00" & "11000000";           -- DDRAM linha 2
+        when 18 => lcd_bus <= "10" & L2(127 downto 120);
+        ...
+        when 33 => lcd_bus <= "10" & L2(7 downto 0);
+        when others => lcd_enable <= '0';
+      end case;
+    else
+      lcd_enable <= '0';
+    end if;
+  end if;
+end process;
+----------------------------------------------------------------
+
+
+9) Conclusão
+A função `to_4dec` fornece uma conversão robusta e fixa em 4 caracteres para exibição dos créditos, garantindo que o valor sempre ocupe quatro posições (com zeros à esquerda quando necessário). Em conjunto com a lógica de blink e o sequenciamento do barramento `lcd_bus/lcd_enable`, compõe-se uma interface estável e legível no LCD, com comportamento visual adequado para o estado “sem créditos” e para a apresentação contínua do total quando há créditos disponíveis.
