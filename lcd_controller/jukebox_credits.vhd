@@ -11,7 +11,7 @@ entity jukebox_credits is
     clk        : in  std_logic;
     key        : in  std_logic_vector(4 downto 1); -- debounced, ativos em '1'
     credits    : out unsigned(CRED_BITS-1 downto 0); -- valor atual
-    add_pulse  : out std_logic;  -- pulso 1 ciclo quando adiciona crédito (KEY4)
+    add_pulse  : out std_logic;  -- pulso 1 ciclo quando adiciona crédito (KEY4) (som de moeda, ou alguma interação no LCD)
     next_menu  : out std_logic   -- pulso 1 ciclo quando consome 1 crédito (KEY1)
   );
 end entity;

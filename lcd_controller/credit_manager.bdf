@@ -22,7 +22,7 @@ on the Quartus Prime software download page.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect -800 328 -624 344)
+	(rect -800 176 -624 192)
 	(text "INPUT" (rect 133 0 161 9)(font "Arial" (font_size 6)))
 	(text "clock" (rect 9 0 34 10)(font "Arial" ))
 	(pt 176 8)
@@ -35,11 +35,11 @@ on the Quartus Prime software download page.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 16)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -864 328 -808 344))
+	(annotation_block (location)(rect -864 176 -808 192))
 )
 (pin
 	(input)
-	(rect -800 352 -624 368)
+	(rect -800 200 -624 216)
 	(text "INPUT" (rect 133 0 161 9)(font "Arial" (font_size 6)))
 	(text "key[4..1]" (rect 9 0 53 10)(font "Arial" ))
 	(pt 176 8)
@@ -52,13 +52,30 @@ on the Quartus Prime software download page.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 16)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -864 352 -808 368))
+	(annotation_block (location)(rect -864 200 -808 216))
+)
+(pin
+	(input)
+	(rect -800 152 -632 168)
+	(text "INPUT" (rect 125 0 153 9)(font "Arial" (font_size 6)))
+	(text "busy" (rect 5 0 28 12)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 16)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -768 312 -712 328))
 )
 (pin
 	(output)
-	(rect 680 192 856 208)
+	(rect -728 232 -552 248)
 	(text "OUTPUT" (rect 1 0 39 9)(font "Arial" (font_size 6)))
-	(text "lcd_rw" (rect 90 0 120 10)(font "Arial" ))
+	(text "next_menu" (rect 90 0 144 10)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -69,13 +86,12 @@ on the Quartus Prime software download page.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 872 312 936 328))
 )
 (pin
 	(output)
-	(rect 680 224 856 240)
+	(rect -728 288 -552 304)
 	(text "OUTPUT" (rect 1 0 39 9)(font "Arial" (font_size 6)))
-	(text "lcd_en" (rect 90 0 121 10)(font "Arial" ))
+	(text "add_pulse" (rect 90 0 139 12)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -86,13 +102,12 @@ on the Quartus Prime software download page.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 872 344 936 360))
 )
 (pin
 	(output)
-	(rect 680 208 856 224)
+	(rect -728 312 -552 328)
 	(text "OUTPUT" (rect 1 0 39 9)(font "Arial" (font_size 6)))
-	(text "lcd_rs" (rect 90 0 119 10)(font "Arial" ))
+	(text "lcd_bus[9..0]" (rect 90 0 150 12)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -103,13 +118,12 @@ on the Quartus Prime software download page.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 872 328 936 344))
 )
 (pin
 	(output)
-	(rect 680 240 856 256)
+	(rect -728 336 -552 352)
 	(text "OUTPUT" (rect 1 0 39 9)(font "Arial" (font_size 6)))
-	(text "lcd_d[7..0]" (rect 90 0 141 10)(font "Arial" ))
+	(text "lcd_e" (rect 90 0 115 12)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -120,52 +134,22 @@ on the Quartus Prime software download page.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 872 360 936 376))
 )
-(symbol
-	(rect -800 216 -576 296)
-	(text "debounce" (rect 5 0 52 10)(font "Arial" ))
-	(text "inst3" (rect 8 64 31 74)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 10)(font "Arial" ))
-		(text "clk" (rect 21 27 35 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "key[n_keys..1]" (rect 0 0 75 10)(font "Arial" ))
-		(text "key[n_keys..1]" (rect 21 43 96 53)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 224 32)
-		(output)
-		(text "deb[n_keys..1]" (rect 0 0 74 10)(font "Arial" ))
-		(text "deb[n_keys..1]" (rect 145 27 219 37)(font "Arial" ))
-		(line (pt 224 32)(pt 208 32)(line_width 3))
-	)
-	(parameter
-		"CLK_FREQ_HZ"
-		"50000000"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"DEBOUNCE_MS"
-		"20"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"N_KEYS"
-		"4"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
+(pin
+	(output)
+	(rect -728 256 -552 272)
+	(text "OUTPUT" (rect 1 0 39 9)(font "Arial" (font_size 6)))
+	(text "credits[13..0]" (rect 90 0 150 12)(font "Intel Clear" ))
+	(pt 0 8)
 	(drawing
-		(rectangle (rect 16 16 208 64))
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (parameter)(rect -800 144 -576 208))
 )
 (symbol
 	(rect -384 200 -160 312)
@@ -222,133 +206,6 @@ on the Quartus Prime software download page.
 	(annotation_block (parameter)(rect -384 144 -184 192))
 )
 (symbol
-	(rect 320 184 352 200)
-	(text "VCC" (rect 7 0 27 9)(font "Arial" (font_size 6)))
-	(text "inst1" (rect 3 5 25 17)(font "Intel Clear" )(invisible))
-	(port
-		(pt 16 16)
-		(output)
-		(text "1" (rect 19 7 24 18)(font "Courier New" (bold))(invisible))
-		(text "1" (rect 19 7 24 18)(font "Courier New" (bold))(invisible))
-		(line (pt 16 16)(pt 16 8))
-	)
-	(drawing
-		(line (pt 8 8)(pt 24 8))
-	)
-)
-(symbol
-	(rect 440 152 648 296)
-	(text "lcd_controller" (rect 5 0 69 10)(font "Arial" ))
-	(text "inst2" (rect 8 128 31 138)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 10)(font "Arial" ))
-		(text "clk" (rect 21 27 35 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "reset_n" (rect 0 0 36 10)(font "Arial" ))
-		(text "reset_n" (rect 21 43 57 53)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "lcd_enable" (rect 0 0 51 10)(font "Arial" ))
-		(text "lcd_enable" (rect 21 59 72 69)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "lcd_bus[9..0]" (rect 0 0 63 10)(font "Arial" ))
-		(text "lcd_bus[9..0]" (rect 21 75 84 85)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "busy" (rect 0 0 24 10)(font "Arial" ))
-		(text "busy" (rect 169 27 193 37)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "rw" (rect 0 0 10 10)(font "Arial" ))
-		(text "rw" (rect 178 43 188 53)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48))
-	)
-	(port
-		(pt 208 64)
-		(output)
-		(text "rs" (rect 0 0 9 10)(font "Arial" ))
-		(text "rs" (rect 180 59 189 69)(font "Arial" ))
-		(line (pt 208 64)(pt 192 64))
-	)
-	(port
-		(pt 208 80)
-		(output)
-		(text "e" (rect 0 0 5 10)(font "Arial" ))
-		(text "e" (rect 183 75 188 85)(font "Arial" ))
-		(line (pt 208 80)(pt 192 80))
-	)
-	(port
-		(pt 208 96)
-		(output)
-		(text "lcd_data[7..0]" (rect 0 0 67 10)(font "Arial" ))
-		(text "lcd_data[7..0]" (rect 134 91 201 101)(font "Arial" ))
-		(line (pt 208 96)(pt 192 96)(line_width 3))
-	)
-	(parameter
-		"clk_freq"
-		"50"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"display_lines"
-		"'1'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(parameter
-		"character_font"
-		"'0'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(parameter
-		"display_on_off"
-		"'1'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(parameter
-		"cursor"
-		"'0'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(parameter
-		"blink"
-		"'0'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(parameter
-		"inc_dec"
-		"'1'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(parameter
-		"shift"
-		"'0'"
-		""
-		(type "PARAMETER_ENUM")	)
-	(drawing
-		(rectangle (rect 16 16 192 128))
-	)
-	(annotation_block (parameter)(rect 656 -24 850 147))
-)
-(symbol
 	(rect -8 184 192 296)
 	(text "lcd_credits_ctrl" (rect 5 0 79 10)(font "Arial" ))
 	(text "inst4" (rect 8 96 30 108)(font "Intel Clear" ))
@@ -399,90 +256,9 @@ on the Quartus Prime software download page.
 	)
 )
 (connector
-	(text "clk" (rect -822 232 -808 244)(font "Intel Clear" ))
-	(pt -800 248)
-	(pt -824 248)
-)
-(connector
-	(text "key[4..1]" (rect -880 248 -839 260)(font "Intel Clear" ))
-	(pt -800 264)
-	(pt -848 264)
-	(bus)
-)
-(connector
-	(text "deb[4..1]" (rect -552 232 -511 244)(font "Intel Clear" ))
-	(pt -576 248)
-	(pt -504 248)
-	(bus)
-)
-(connector
-	(text "key[4..1]" (rect -600 344 -559 356)(font "Intel Clear" ))
-	(pt -624 360)
-	(pt -576 360)
-	(bus)
-)
-(connector
-	(text "clk" (rect -592 320 -578 332)(font "Intel Clear" ))
-	(pt -624 336)
-	(pt -576 336)
-)
-(connector
-	(pt 648 200)
-	(pt 680 200)
-)
-(connector
-	(pt 680 216)
-	(pt 648 216)
-)
-(connector
-	(pt 648 232)
-	(pt 680 232)
-)
-(connector
-	(pt 648 248)
-	(pt 680 248)
-	(bus)
-)
-(connector
-	(text "clk" (rect 401 168 415 180)(font "Intel Clear" ))
-	(pt 440 184)
-	(pt 384 184)
-)
-(connector
-	(pt 440 200)
-	(pt 336 200)
-)
-(connector
-	(text "lcd_e_in" (rect 337 200 377 212)(font "Intel Clear" ))
-	(pt 440 216)
-	(pt 328 216)
-)
-(connector
-	(text "lcd_e_in" (rect 250 200 290 212)(font "Intel Clear" ))
-	(pt 192 216)
-	(pt 256 216)
-)
-(connector
-	(text "lcd_bus[9..0]" (rect 290 232 350 244)(font "Intel Clear" ))
-	(pt 192 232)
-	(pt 440 232)
-	(bus)
-)
-(connector
-	(text "busy" (rect 706 168 728 180)(font "Intel Clear" ))
-	(pt 648 184)
-	(pt 728 184)
-)
-(connector
 	(text "credits[13..0]" (rect -160 216 -100 228)(font "Intel Clear" ))
 	(pt -160 232)
 	(pt -128 232)
-	(bus)
-)
-(connector
-	(text "credits[13..0]" (rect -88 248 -28 260)(font "Intel Clear" ))
-	(pt -80 264)
-	(pt -8 264)
 	(bus)
 )
 (connector
@@ -501,14 +277,79 @@ on the Quartus Prime software download page.
 	(pt -432 232)
 )
 (connector
-	(text "deb[4..1]" (rect -430 232 -389 244)(font "Intel Clear" ))
+	(text "next_menu" (rect -160 264 -107 276)(font "Intel Clear" ))
+	(pt -160 264)
+	(pt -128 264)
+)
+(connector
+	(text "key[4..1]" (rect -430 232 -389 244)(font "Intel Clear" ))
 	(pt -384 248)
 	(pt -432 248)
 	(bus)
 )
 (connector
-	(text "deb[4..1]" (rect -78 232 -37 244)(font "Intel Clear" ))
+	(text "key[4..1]" (rect -78 232 -37 244)(font "Intel Clear" ))
 	(pt -80 248)
 	(pt -8 248)
 	(bus)
+)
+(connector
+	(text "lcd_bus[9..0]" (rect 226 216 286 228)(font "Intel Clear" ))
+	(pt 256 232)
+	(pt 192 232)
+	(bus)
+)
+(connector
+	(text "credits[13..0]" (rect -88 248 -28 260)(font "Intel Clear" ))
+	(pt -80 264)
+	(pt -8 264)
+	(bus)
+)
+(connector
+	(text "key[4..1]" (rect -600 192 -559 204)(font "Intel Clear" ))
+	(pt -624 208)
+	(pt -576 208)
+	(bus)
+)
+(connector
+	(text "clk" (rect -592 168 -578 180)(font "Intel Clear" ))
+	(pt -624 184)
+	(pt -576 184)
+)
+(connector
+	(text "next_menu" (rect -790 224 -737 236)(font "Intel Clear" ))
+	(pt -728 240)
+	(pt -792 240)
+)
+(connector
+	(text "add_pulse" (rect -790 280 -741 292)(font "Intel Clear" ))
+	(pt -728 296)
+	(pt -792 296)
+)
+(connector
+	(text "lcd_bus[9..0]" (rect -790 304 -730 316)(font "Intel Clear" ))
+	(pt -728 320)
+	(pt -792 320)
+	(bus)
+)
+(connector
+	(text "lcd_e" (rect -790 328 -765 340)(font "Intel Clear" ))
+	(pt -728 344)
+	(pt -792 344)
+)
+(connector
+	(text "credits[13..0]" (rect -790 248 -730 260)(font "Intel Clear" ))
+	(pt -728 264)
+	(pt -792 264)
+	(bus)
+)
+(connector
+	(text "busy" (rect -606 144 -584 156)(font "Intel Clear" ))
+	(pt -632 160)
+	(pt -576 160)
+)
+(connector
+	(text "lcd_e" (rect 234 200 259 212)(font "Intel Clear" ))
+	(pt 192 216)
+	(pt 256 216)
 )

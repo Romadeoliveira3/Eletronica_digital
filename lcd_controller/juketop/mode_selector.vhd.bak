@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity mode_selector is
+  generic (
+    CRED_BITS : natural := 14  -- largura do contador de créditos (0..9999)
+  );
+  port (
+    clk        : in  std_logic;
+    reset_n    : in  std_logic;                     -- reset assíncrono ativo-baixo
+    next_menu  : in  std_logic;                     -- pulso: consumiu 1 crédito e deve entrar no menu da jukebox
+    song_end   : in  std_logic;                     -- pulso: música terminou
+    stop_btn   : in  std_logic;                     -- nível: STOP pressionado (debounced)
+    credits    : in  unsigned(CRED_BITS-1 downto 0);-- créditos atuais
+    mode_sel   : out std_logic                      -- 0 = tela de créditos, 1 = tela jukebox
+  );
+end entity;
+
+architecture rtl of mode_selector is
+  signal mode_q : std_logic := '0';  -- registrador de modo
+begin
+  mode_sel <= mode_q;
+
+  process(clk, reset_n)
+  begin
+    if reset_n = '0' then
+      mode_q <= '0';  -- inicia em "créditos"
+    elsif rising_edge(clk) then
+      -- retorno para tela de créditos em qualquer uma das condições abaixo:
+      if (song_end = '1') or (stop_btn = '1') or (credits = 0) then
+        mode_q <= '0';
+      -- entrada no menu jukebox quando consumiu crédito e ainda há créditos (>0)
+      elsif (next_menu = '1') and (credits > 0) then
+        mode_q <= '1';
+      else
+        mode_q <= mode_q; -- mantém
+      end if;
+    end if;
+  end process;
+end architecture;
