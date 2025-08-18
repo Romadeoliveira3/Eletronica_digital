@@ -62,10 +62,6 @@
 				{
 					"name" : "key[2]",
 					"strict" : false
-				},
-				{
-					"name" : "key[4]",
-					"strict" : false
 				}
 			]
 		}

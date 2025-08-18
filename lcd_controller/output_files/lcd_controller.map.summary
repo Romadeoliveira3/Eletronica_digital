@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun Aug 17 19:26:06 2025
+Analysis & Synthesis Status : Successful - Sun Aug 17 23:43:19 2025
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : lcd_controller
-Top-level Entity Name : jukebox_top
+Top-level Entity Name : Block1
 Family : Cyclone IV E
-Total logic elements : 1,992
-    Total combinational functions : 1,969
-    Dedicated logic registers : 465
-Total registers : 465
+Total logic elements : 706
+    Total combinational functions : 689
+    Dedicated logic registers : 332
+Total registers : 332
 Total pins : 17
 Total virtual pins : 0
 Total memory bits : 0
