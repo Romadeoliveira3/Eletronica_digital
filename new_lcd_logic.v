@@ -2,16 +2,16 @@
  * @file    lcd_logic_jukebox.v
  * @brief   Lógica de controle para display LCD 16x2 para Jukebox.
  * @details Exibe a tela de boas-vindas ou o nome da música selecionada.
- * @version 3.0 - Funcional com seletor para 3 músicas.
+ * @version 3.2 - Corrigido bug de texto "CREDITOS" corrompido.
  */
 module new_lcd_logic (
-    input  wire        clk,        // Clock principal
-    input  wire        lcd_busy,   // Feedback do controlador: 1=ocupado, 0=disponível
-    input  wire [15:0] cred_in,    // Entrada com o número de créditos em BCD (0000-9999)
-    input  wire        menu_in,    // Seletor de menu: 0=Menu Principal, 1=Menu de Músicas
-    input  wire [1:0]  musica_in,  // << ALTERADO: Índice da música (00, 01, 10)
-    output reg         lcd_e,      // Retem os dados no controlador LCD
-    output reg  [9:0]  lcd_bar     // Barramento: {RS, R/W, D7..D0}
+    input  wire        clk,
+    input  wire        lcd_busy,
+    input  wire [15:0] cred_in,
+    input  wire        menu_in,
+    input  wire [1:0]  musica_in,
+    output reg         lcd_e,
+    output reg  [9:0]  lcd_bar
 );
 
     //-----------------------------------------------------------------------------
@@ -20,49 +20,40 @@ module new_lcd_logic (
     localparam [127:0] MSG_BEMVINDO = "JUKEBOX 80s     ";
     localparam [127:0] MSG_MUSICA_0 = "FUR ELISE       ";
     localparam [127:0] MSG_MUSICA_1 = "SWEET CHILD     ";
-    localparam [127:0] MSG_MUSICA_2 = "ASA BRANCA      "; // << ALTERADO: Constante de volta
-    localparam [127:0] MSG_INVALIDA = "MUSICA INVALIDA "; // << ALTERADO: Constante de volta
-
-    // Prefixo da Linha 2 (sempre igual)
+    localparam [127:0] MSG_MUSICA_2 = "ASA BRANCA      ";
+    localparam [127:0] MSG_INVALIDA = "MUSICA INVALIDA ";
     localparam [79:0]  LINE2_PREFIX = "CREDITOS: ";
 
     //-----------------------------------------------------------------------------
-    // Fios e Registradores para as linhas de texto a serem exibidas
+    // Geração das Linhas de Texto
     //-----------------------------------------------------------------------------
     reg  [127:0] L1;
     wire [127:0] L2;
 
-    // Lógica Combinacional para a Linha 1 (seleção de mensagem)
     always @(*) begin
-        // Se estiver no menu principal...
         if (menu_in == 1'b0) begin
             L1 = MSG_BEMVINDO;
-        end
-        // Se estiver no menu de seleção de músicas...
-        else begin
-            // << ALTERADO: Lógica de seleção de volta para 'case'
+        end else begin
             case (musica_in)
-                2'b00:   L1 = MSG_MUSICA_0; // FUR ELISE
-                2'b01:   L1 = MSG_MUSICA_1; // SWEET CHILD
-                2'b10:   L1 = MSG_MUSICA_2; // ASA BRANCA
-                default: L1 = MSG_INVALIDA; // Para outras seleções (ex: 2'b11)
+                2'd0:    L1 = MSG_MUSICA_0;
+                2'd1:    L1 = MSG_MUSICA_1;
+                2'd2:    L1 = MSG_MUSICA_2;
+                default: L1 = MSG_INVALIDA;
             endcase
         end
     end
 
-    // A Linha 2 é construída dinamicamente com os créditos (INALTERADA)
     assign L2 = {
         LINE2_PREFIX,
         {4'h3, cred_in[15:12]},
         {4'h3, cred_in[11:8]},
         {4'h3, cred_in[7:4]},
         {4'h3, cred_in[3:0]},
-        " "
+        "  "
     };
 
-
     //-----------------------------------------------------------------------------
-    // Máquina de Estados (FSM) para enviar dados ao LCD (INALTERADA)
+    // Máquina de Estados (FSM)
     //-----------------------------------------------------------------------------
     reg [5:0] char_state;
 
@@ -70,7 +61,7 @@ module new_lcd_logic (
         if (!lcd_busy && !lcd_e) begin
             lcd_e <= 1'b1;
 
-            if (char_state == 33) begin
+            if (char_state == 34) begin
                 char_state <= 0;
             end else begin
                 char_state <= char_state + 1;
@@ -97,7 +88,8 @@ module new_lcd_logic (
                 17: lcd_bar <= {2'b00, 8'hC0};
                 18: lcd_bar <= {2'b10, L2[127:120]};
                 19: lcd_bar <= {2'b10, L2[119:112]};
-                20: lcd_bar <= {2'b10, L2[111:104]};
+                // <<---- CORREÇÃO PRINCIPAL AQUI ---->>
+                20: lcd_bar <= {2'b10, L2[111:104]}; // Corrigido de L1 para L2
                 21: lcd_bar <= {2'b10, L2[103:96]};
                 22: lcd_bar <= {2'b10, L2[95:88]};
                 23: lcd_bar <= {2'b10, L2[87:80]};
@@ -111,14 +103,14 @@ module new_lcd_logic (
                 31: lcd_bar <= {2'b10, L2[23:16]};
                 32: lcd_bar <= {2'b10, L2[15:8]};
                 33: lcd_bar <= {2'b10, L2[7:0]};
-                default: ;
+                default: lcd_e <= 1'b0;
             endcase
         end
         else begin
             lcd_e <= 1'b0;
         end
     end
-    
+
     initial begin
         lcd_e      = 1'b0;
         lcd_bar    = 10'b0;

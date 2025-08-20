@@ -13,7 +13,7 @@ estado.INICIALIZACAO 0 0 1 1
 estado.PRONTO 0 1 0 1 
 estado.ENVIAR 1 0 0 1 
 
-State Machine - |top_entity|buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual
+State Machine - |top_entity|buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual
 Name estado_atual.s41 estado_atual.s40 estado_atual.s39 estado_atual.s38 estado_atual.s37 estado_atual.s36 estado_atual.s35 estado_atual.s34 estado_atual.s33 estado_atual.s32 estado_atual.s31 estado_atual.s30 estado_atual.s29 estado_atual.s28 estado_atual.s27 estado_atual.s26 estado_atual.s25 estado_atual.s24 estado_atual.s23 estado_atual.s22 estado_atual.s21 estado_atual.s20 estado_atual.s19 estado_atual.s18 estado_atual.s17 estado_atual.s16 estado_atual.s15 estado_atual.s14 estado_atual.s13 estado_atual.s12 estado_atual.s11 estado_atual.s10 estado_atual.s9 estado_atual.s8 estado_atual.s7 estado_atual.s6 estado_atual.s5 estado_atual.s4 estado_atual.s3 estado_atual.s2 estado_atual.s1 estado_atual.s0 
 estado_atual.s0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 estado_atual.s1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 

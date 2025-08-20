@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ir
-Tue Aug 19 23:08:51 2025
+Wed Aug 20 02:28:51 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -15,19 +15,23 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |top_entity|ir_verilog:inst|estado_atual
   9. State Machine - |top_entity|lcd_controller:inst7|estado
- 10. State Machine - |top_entity|buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual
+ 10. State Machine - |top_entity|buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual
  11. Registers Removed During Synthesis
  12. Removed Registers Triggering Further Register Optimizations
  13. General Register Statistics
  14. Inverted Register Statistics
  15. Multiplexer Restructuring Statistics (Restructuring Performed)
  16. Parameter Settings for User Entity Instance: debounce:inst3
- 17. Parameter Settings for User Entity Instance: lcd_controller:inst7
- 18. Port Connectivity Checks: "buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
- 22. Analysis & Synthesis Suppressed Messages
+ 17. Parameter Settings for User Entity Instance: buzzer_sweet:inst8|controlador_sweet:u_ctrl
+ 18. Parameter Settings for User Entity Instance: buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl
+ 19. Parameter Settings for User Entity Instance: lcd_controller:inst7
+ 20. Port Connectivity Checks: "buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl"
+ 21. Port Connectivity Checks: "buzzer_sweet:inst8|controlador_sweet:u_ctrl"
+ 22. Port Connectivity Checks: "buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+ 26. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -54,15 +58,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Aug 19 23:08:51 2025       ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 20 02:28:51 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; ir                                          ;
 ; Top-level Entity Name              ; top_entity                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 793                                         ;
-;     Total combinational functions  ; 766                                         ;
-;     Dedicated logic registers      ; 375                                         ;
-; Total registers                    ; 375                                         ;
+; Total logic elements               ; 1,210                                       ;
+;     Total combinational functions  ; 1,177                                       ;
+;     Dedicated logic registers      ; 522                                         ;
+; Total registers                    ; 522                                         ;
 ; Total pins                         ; 30                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -177,25 +181,31 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+---------+
-; ir_verilog.v                     ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/ir_verilog.v            ;         ;
-; top_entity.bdf                   ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/top_entity.bdf          ;         ;
-; debounce.v                       ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/debounce.v              ;         ;
-; divisor_clock.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/divisor_clock.v         ;         ;
-; controlador_fur_elise.v          ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v ;         ;
-; temporizador.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/temporizador.v          ;         ;
-; buzzer_fur_elise.v               ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/buzzer_fur_elise.v      ;         ;
-; lcd_controller.v                 ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/lcd_controller.v        ;         ;
-; contador_creditos.v              ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v     ;         ;
-; seletor_menu.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_menu.v          ;         ;
-; decodificador_botoes.v           ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/decodificador_botoes.v  ;         ;
-; new_lcd_logic.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/new_lcd_logic.v         ;         ;
-; seletor_3_musicas.v              ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_3_musicas.v     ;         ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------+---------+
+; ir_verilog.v                     ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/ir_verilog.v                ;         ;
+; top_entity.bdf                   ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/top_entity.bdf              ;         ;
+; debounce.v                       ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/debounce.v                  ;         ;
+; divisor_clock.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/divisor_clock.v             ;         ;
+; controlador_fur_elise.v          ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v     ;         ;
+; temporizador.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/temporizador.v              ;         ;
+; buzzer_fur_elise.v               ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_fur_elise.v          ;         ;
+; lcd_controller.v                 ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/lcd_controller.v            ;         ;
+; seletor_menu.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_menu.v              ;         ;
+; decodificador_botoes.v           ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/decodificador_botoes.v      ;         ;
+; new_lcd_logic.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/new_lcd_logic.v             ;         ;
+; seletor_3_musicas.v              ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_3_musicas.v         ;         ;
+; contador_creditos_simples.v      ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v ;         ;
+; controlador_sweet.v              ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v         ;         ;
+; buzzer_sweet.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_sweet.v              ;         ;
+; controlador_asa_branca.v         ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v    ;         ;
+; buzzer_asa_branca.v              ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_asa_branca.v         ;         ;
+; seletor_controle_musica.v        ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_controle_musica.v   ;         ;
+; mux_buzzer.v                     ; yes             ; User Verilog HDL File              ; C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/mux_buzzer.v                ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -203,20 +213,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 793         ;
+; Estimated Total logic elements              ; 1,210       ;
 ;                                             ;             ;
-; Total combinational functions               ; 766         ;
+; Total combinational functions               ; 1177        ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 315         ;
-;     -- 3 input functions                    ; 119         ;
-;     -- <=2 input functions                  ; 332         ;
+;     -- 4 input functions                    ; 525         ;
+;     -- 3 input functions                    ; 181         ;
+;     -- <=2 input functions                  ; 471         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 557         ;
-;     -- arithmetic mode                      ; 209         ;
+;     -- normal mode                          ; 851         ;
+;     -- arithmetic mode                      ; 326         ;
 ;                                             ;             ;
-; Total registers                             ; 375         ;
-;     -- Dedicated logic registers            ; 375         ;
+; Total registers                             ; 522         ;
+;     -- Dedicated logic registers            ; 522         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 30          ;
@@ -224,31 +234,41 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 375         ;
-; Total fan-out                               ; 3425        ;
-; Average fan-out                             ; 2.85        ;
+; Maximum fan-out                             ; 522         ;
+; Total fan-out                               ; 5124        ;
+; Average fan-out                             ; 2.91        ;
 +---------------------------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------+-----------------------+--------------+
-; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                              ; Entity Name           ; Library Name ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------+-----------------------+--------------+
-; |top_entity                          ; 766 (1)             ; 375 (0)                   ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |top_entity                                                      ; top_entity            ; work         ;
-;    |buzzer_fur_elise:inst18|         ; 199 (6)             ; 130 (11)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst18                              ; buzzer_fur_elise      ; work         ;
-;       |controlador_fur_elise:u_ctrl| ; 77 (77)             ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl ; controlador_fur_elise ; work         ;
-;       |divisor_clock:u_div|          ; 51 (51)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst18|divisor_clock:u_div          ; divisor_clock         ; work         ;
-;       |temporizador:u_tmp|           ; 65 (65)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst18|temporizador:u_tmp           ; temporizador          ; work         ;
-;    |contador_creditos:inst10|        ; 55 (55)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|contador_creditos:inst10                             ; contador_creditos     ; work         ;
-;    |debounce:inst3|                  ; 124 (124)           ; 100 (100)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|debounce:inst3                                       ; debounce              ; work         ;
-;    |decodificador_botoes:inst17|     ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|decodificador_botoes:inst17                          ; decodificador_botoes  ; work         ;
-;    |ir_verilog:inst|                 ; 106 (106)           ; 58 (58)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|ir_verilog:inst                                      ; ir_verilog            ; work         ;
-;    |lcd_controller:inst7|            ; 168 (168)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|lcd_controller:inst7                                 ; lcd_controller        ; work         ;
-;    |new_lcd_logic:inst34|            ; 107 (107)           ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|new_lcd_logic:inst34                                 ; new_lcd_logic         ; work         ;
-;    |seletor_3_musicas:inst29|        ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|seletor_3_musicas:inst29                             ; seletor_3_musicas     ; work         ;
-;    |seletor_menu:inst16|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|seletor_menu:inst16                                  ; seletor_menu          ; work         ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------+-----------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                              ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                ; Entity Name               ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+---------------------------+--------------+
+; |top_entity                           ; 1177 (1)            ; 522 (0)                   ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |top_entity                                                        ; top_entity                ; work         ;
+;    |buzzer_asa_branca:inst13|         ; 241 (3)             ; 74 (9)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_asa_branca:inst13                               ; buzzer_asa_branca         ; work         ;
+;       |controlador_asa_branca:u_ctrl| ; 89 (89)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl ; controlador_asa_branca    ; work         ;
+;       |divisor_clock:u_div|           ; 78 (78)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_asa_branca:inst13|divisor_clock:u_div           ; divisor_clock             ; work         ;
+;       |temporizador:u_tmp|            ; 71 (71)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_asa_branca:inst13|temporizador:u_tmp            ; temporizador              ; work         ;
+;    |buzzer_fur_elise:inst12|          ; 195 (3)             ; 128 (9)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst12                                ; buzzer_fur_elise          ; work         ;
+;       |controlador_fur_elise:u_ctrl|  ; 77 (77)             ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl   ; controlador_fur_elise     ; work         ;
+;       |divisor_clock:u_div|           ; 50 (50)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst12|divisor_clock:u_div            ; divisor_clock             ; work         ;
+;       |temporizador:u_tmp|            ; 65 (65)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_fur_elise:inst12|temporizador:u_tmp             ; temporizador              ; work         ;
+;    |buzzer_sweet:inst8|               ; 160 (5)             ; 76 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_sweet:inst8                                     ; buzzer_sweet              ; work         ;
+;       |controlador_sweet:u_ctrl|      ; 45 (45)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_sweet:inst8|controlador_sweet:u_ctrl            ; controlador_sweet         ; work         ;
+;       |divisor_clock:u_div|           ; 73 (73)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_sweet:inst8|divisor_clock:u_div                 ; divisor_clock             ; work         ;
+;       |temporizador:u_tmp|            ; 37 (37)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|buzzer_sweet:inst8|temporizador:u_tmp                  ; temporizador              ; work         ;
+;    |contador_creditos_simples:inst1|  ; 48 (48)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|contador_creditos_simples:inst1                        ; contador_creditos_simples ; work         ;
+;    |debounce:inst3|                   ; 124 (124)           ; 100 (100)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|debounce:inst3                                         ; debounce                  ; work         ;
+;    |decodificador_botoes:inst17|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|decodificador_botoes:inst17                            ; decodificador_botoes      ; work         ;
+;    |ir_verilog:inst|                  ; 106 (106)           ; 58 (58)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|ir_verilog:inst                                        ; ir_verilog                ; work         ;
+;    |lcd_controller:inst7|             ; 174 (174)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|lcd_controller:inst7                                   ; lcd_controller            ; work         ;
+;    |mux_buzzer:inst14|                ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|mux_buzzer:inst14                                      ; mux_buzzer                ; work         ;
+;    |new_lcd_logic:inst34|             ; 108 (108)           ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|new_lcd_logic:inst34                                   ; new_lcd_logic             ; work         ;
+;    |seletor_3_musicas:inst29|         ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|seletor_3_musicas:inst29                               ; seletor_3_musicas         ; work         ;
+;    |seletor_controle_musica:inst10|   ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|seletor_controle_musica:inst10                         ; seletor_controle_musica   ; work         ;
+;    |seletor_menu:inst16|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_entity|seletor_menu:inst16                                    ; seletor_menu              ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -280,7 +300,7 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top_entity|buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
+; State Machine - |top_entity|buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
 +------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 ; Name             ; estado_atual.s41 ; estado_atual.s40 ; estado_atual.s39 ; estado_atual.s38 ; estado_atual.s37 ; estado_atual.s36 ; estado_atual.s35 ; estado_atual.s34 ; estado_atual.s33 ; estado_atual.s32 ; estado_atual.s31 ; estado_atual.s30 ; estado_atual.s29 ; estado_atual.s28 ; estado_atual.s27 ; estado_atual.s26 ; estado_atual.s25 ; estado_atual.s24 ; estado_atual.s23 ; estado_atual.s22 ; estado_atual.s21 ; estado_atual.s20 ; estado_atual.s19 ; estado_atual.s18 ; estado_atual.s17 ; estado_atual.s16 ; estado_atual.s15 ; estado_atual.s14 ; estado_atual.s13 ; estado_atual.s12 ; estado_atual.s11 ; estado_atual.s10 ; estado_atual.s9 ; estado_atual.s8 ; estado_atual.s7 ; estado_atual.s6 ; estado_atual.s5 ; estado_atual.s4 ; estado_atual.s3 ; estado_atual.s2 ; estado_atual.s1 ; estado_atual.s0 ;
 +------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
@@ -335,24 +355,24 @@ Encoding Type:  One-Hot
 ; Register name                                                               ; Reason for Removal                                                           ;
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------+
 ; ir_verilog:inst|led_cs[0..3]                                                ; Stuck at GND due to stuck port data_in                                       ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Freq_out[2,17..27]     ; Stuck at GND due to stuck port data_in                                       ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[0..4,8,9]     ; Stuck at GND due to stuck port data_in                                       ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[12,13,19..21] ; Stuck at VCC due to stuck port data_in                                       ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[26,27]        ; Stuck at GND due to stuck port data_in                                       ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Freq_out[2,17..27]     ; Stuck at GND due to stuck port data_in                                       ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[0..4,8,9]     ; Stuck at GND due to stuck port data_in                                       ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[12,13,19..21] ; Stuck at VCC due to stuck port data_in                                       ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[26,27]        ; Stuck at GND due to stuck port data_in                                       ;
 ; new_lcd_logic:inst34|lcd_bar[8]                                             ; Stuck at GND due to stuck port data_in                                       ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Freq_out[9]            ; Merged with buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Freq_out[3] ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[10,14,22]     ; Merged with buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[5] ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[15..17,23,24] ; Merged with buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[6] ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[11,18,25]     ; Merged with buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|Temp_out[7] ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Freq_out[9]            ; Merged with buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Freq_out[3] ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[10,14,22]     ; Merged with buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[5] ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[15..17,23,24] ; Merged with buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[6] ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[11,18,25]     ; Merged with buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|Temp_out[7] ;
 ; lcd_controller:inst7|rw                                                     ; Stuck at GND due to stuck port data_in                                       ;
 ; lcd_controller:inst7|estado~6                                               ; Lost fanout                                                                  ;
 ; lcd_controller:inst7|estado~7                                               ; Lost fanout                                                                  ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual~2         ; Lost fanout                                                                  ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual~3         ; Lost fanout                                                                  ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual~4         ; Lost fanout                                                                  ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual~5         ; Lost fanout                                                                  ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual~6         ; Lost fanout                                                                  ;
-; buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl|estado_atual~7         ; Lost fanout                                                                  ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual~2         ; Lost fanout                                                                  ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual~3         ; Lost fanout                                                                  ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual~4         ; Lost fanout                                                                  ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual~5         ; Lost fanout                                                                  ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual~6         ; Lost fanout                                                                  ;
+; buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl|estado_atual~7         ; Lost fanout                                                                  ;
 ; Total Number of Removed Registers = 52                                      ;                                                                              ;
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------+
 
@@ -372,54 +392,62 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 375   ;
-; Number of registers using Synchronous Clear  ; 145   ;
-; Number of registers using Synchronous Load   ; 24    ;
+; Total registers                              ; 522   ;
+; Number of registers using Synchronous Clear  ; 201   ;
+; Number of registers using Synchronous Load   ; 49    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 167   ;
+; Number of registers using Clock Enable       ; 168   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; buzzer_fur_elise:inst18|mute_en        ; 2       ;
-; debounce:inst3|stable[1]               ; 4       ;
-; debounce:inst3|stable[0]               ; 4       ;
-; debounce:inst3|stable[3]               ; 3       ;
-; debounce:inst3|stable[2]               ; 3       ;
-; buzzer_fur_elise:inst18|is_stopped     ; 2       ;
-; Total number of inverted registers = 6 ;         ;
-+----------------------------------------+---------+
++------------------------------------------------------------------------+
+; Inverted Register Statistics                                           ;
++--------------------------------------------------------------+---------+
+; Inverted Register                                            ; Fan out ;
++--------------------------------------------------------------+---------+
+; buzzer_sweet:inst8|mute_en                                   ; 2       ;
+; buzzer_fur_elise:inst12|mute_en                              ; 2       ;
+; debounce:inst3|stable[2]                                     ; 3       ;
+; buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl|armed ; 3       ;
+; debounce:inst3|stable[1]                                     ; 6       ;
+; debounce:inst3|stable[0]                                     ; 6       ;
+; debounce:inst3|stable[3]                                     ; 5       ;
+; buzzer_sweet:inst8|controlador_sweet:u_ctrl|armed            ; 3       ;
+; buzzer_sweet:inst8|is_stopped                                ; 2       ;
+; Total number of inverted registers = 9                       ;         ;
++--------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |top_entity|ir_verilog:inst|cnt2[8]                            ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |top_entity|ir_verilog:inst|cnt1[3]                            ;
-; 3:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |top_entity|ir_verilog:inst|get_data[8]                        ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[1][0]                           ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[0][15]                          ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[3][1]                           ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[2][20]                          ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_fur_elise:inst18|temporizador:u_tmp|cnt[19] ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_fur_elise:inst18|temporizador:u_tmp|cnt[22] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_entity|contador_creditos:inst10|contagem_out[0]           ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |top_entity|contador_creditos:inst10|contagem_out[15]          ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_entity|contador_creditos:inst10|contagem_out[11]          ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_entity|contador_creditos:inst10|contagem_out[5]           ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |top_entity|new_lcd_logic:inst34|lcd_bar[7]                    ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |top_entity|lcd_controller:inst7|clk_count[15]                 ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top_entity|lcd_controller:inst7|lcd_data[3]                   ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |top_entity|lcd_controller:inst7|Selector45                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |top_entity|ir_verilog:inst|cnt2[6]                                                ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |top_entity|ir_verilog:inst|cnt1[1]                                                ;
+; 3:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |top_entity|ir_verilog:inst|get_data[4]                                            ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[2][20]                                              ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[1][4]                                               ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[0][5]                                               ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |top_entity|debounce:inst3|cnt[3][16]                                              ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_fur_elise:inst12|temporizador:u_tmp|cnt[21]                     ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_fur_elise:inst12|temporizador:u_tmp|cnt[24]                     ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_sweet:inst8|temporizador:u_tmp|cnt[21]                          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_asa_branca:inst13|temporizador:u_tmp|cnt[19]                    ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |top_entity|buzzer_asa_branca:inst13|temporizador:u_tmp|cnt[11]                    ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_entity|contador_creditos_simples:inst1|contagem_out[0]                        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |top_entity|contador_creditos_simples:inst1|contagem_out[13]                       ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_entity|contador_creditos_simples:inst1|contagem_out[11]                       ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_entity|contador_creditos_simples:inst1|contagem_out[7]                        ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 10 LEs               ; 74 LEs                 ; Yes        ; |top_entity|new_lcd_logic:inst34|lcd_bar[9]                                        ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |top_entity|lcd_controller:inst7|clk_count[11]                                     ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |top_entity|buzzer_sweet:inst8|controlador_sweet:u_ctrl|estado_atual[4]            ;
+; 32:1               ; 6 bits    ; 126 LEs       ; 24 LEs               ; 102 LEs                ; Yes        ; |top_entity|buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl|estado_atual[2] ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top_entity|lcd_controller:inst7|lcd_data[0]                                       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |top_entity|lcd_controller:inst7|Selector44                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------+
@@ -431,6 +459,46 @@ Encoding Type:  One-Hot
 ; DEBOUNCE_MS    ; 50       ; Signed Integer                  ;
 ; N_KEYS         ; 4        ; Signed Integer                  ;
 +----------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: buzzer_sweet:inst8|controlador_sweet:u_ctrl ;
++----------------+----------+--------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                         ;
++----------------+----------+--------------------------------------------------------------+
+; CLK_FPGA       ; 50000000 ; Signed Integer                                               ;
+; D5             ; 85179    ; Signed Integer                                               ;
+; D6             ; 42589    ; Signed Integer                                               ;
+; A5             ; 56818    ; Signed Integer                                               ;
+; G5             ; 63776    ; Signed Integer                                               ;
+; G6             ; 31888    ; Signed Integer                                               ;
+; FS6            ; 33784    ; Signed Integer                                               ;
+; E5             ; 75758    ; Signed Integer                                               ;
+; BPM            ; 90       ; Signed Integer                                               ;
+; BPS            ; 1        ; Signed Integer                                               ;
+; OV_T1_4        ; 12500000 ; Signed Integer                                               ;
++----------------+----------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl ;
++----------------+----------+-------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                    ;
++----------------+----------+-------------------------------------------------------------------------+
+; CLK_FPGA       ; 50000000 ; Signed Integer                                                          ;
+; G5             ; 63776    ; Signed Integer                                                          ;
+; A5             ; 56818    ; Signed Integer                                                          ;
+; B5             ; 50607    ; Signed Integer                                                          ;
+; C6             ; 47710    ; Signed Integer                                                          ;
+; D6             ; 42555    ; Signed Integer                                                          ;
+; BPM            ; 120      ; Signed Integer                                                          ;
+; BPS            ; 2        ; Signed Integer                                                          ;
+; OV_T1          ; 25000000 ; Signed Integer                                                          ;
+; OV_T1_2        ; 12500000 ; Signed Integer                                                          ;
+; OV_T2          ; 50000000 ; Signed Integer                                                          ;
++----------------+----------+-------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -452,7 +520,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl"                                                       ;
+; Port Connectivity Checks: "buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl"                                                     ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                  ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Clk_out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buzzer_sweet:inst8|controlador_sweet:u_ctrl"                                                                ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                  ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Clk_out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl"                                                       ;
 +---------+--------+----------+----------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                  ;
 +---------+--------+----------+----------------------------------------------------------------------------------------------------------+
@@ -466,26 +552,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 30                          ;
-; cycloneiii_ff         ; 375                         ;
-;     ENA               ; 128                         ;
+; cycloneiii_ff         ; 522                         ;
+;     ENA               ; 132                         ;
 ;     ENA SCLR          ; 15                          ;
 ;     ENA SCLR SLD      ; 1                           ;
-;     ENA SLD           ; 23                          ;
-;     SCLR              ; 129                         ;
-;     plain             ; 79                          ;
-; cycloneiii_lcell_comb ; 767                         ;
-;     arith             ; 209                         ;
-;         2 data inputs ; 201                         ;
+;     ENA SLD           ; 20                          ;
+;     SCLR              ; 185                         ;
+;     SLD               ; 28                          ;
+;     plain             ; 141                         ;
+; cycloneiii_lcell_comb ; 1178                        ;
+;     arith             ; 326                         ;
+;         2 data inputs ; 318                         ;
 ;         3 data inputs ; 8                           ;
-;     normal            ; 558                         ;
+;     normal            ; 852                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 119                         ;
-;         3 data inputs ; 111                         ;
-;         4 data inputs ; 315                         ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 135                         ;
+;         3 data inputs ; 173                         ;
+;         4 data inputs ; 525                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.40                       ;
-; Average LUT depth     ; 4.46                        ;
+; Max LUT depth         ; 13.00                       ;
+; Average LUT depth     ; 4.83                        ;
 +-----------------------+-----------------------------+
 
 
@@ -494,7 +581,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -504,79 +591,178 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Aug 19 23:08:37 2025
+    Info: Processing started: Wed Aug 20 02:28:37 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ir -c ir
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file ir_verilog.v
-    Info (12023): Found entity 1: ir_verilog File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/ir_verilog.v Line: 8
+    Info (12023): Found entity 1: ir_verilog File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/ir_verilog.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file top_entity.bdf
     Info (12023): Found entity 1: top_entity
 Info (12021): Found 2 design units, including 1 entities, in source file q5_divisor_clock_vhdl.vhd
-    Info (12022): Found design unit 1: q5_divisor_clock_vhdl-bhv File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/q5_divisor_clock_vhdl.vhd Line: 8
-    Info (12023): Found entity 1: q5_divisor_clock_vhdl File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/q5_divisor_clock_vhdl.vhd Line: 3
+    Info (12022): Found design unit 1: q5_divisor_clock_vhdl-bhv File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/q5_divisor_clock_vhdl.vhd Line: 8
+    Info (12023): Found entity 1: q5_divisor_clock_vhdl File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/q5_divisor_clock_vhdl.vhd Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file debounce.v
-    Info (12023): Found entity 1: debounce File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/debounce.v Line: 6
+    Info (12023): Found entity 1: debounce File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/debounce.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file divisor_clock.v
-    Info (12023): Found entity 1: divisor_clock File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/divisor_clock.v Line: 1
+    Info (12023): Found entity 1: divisor_clock File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/divisor_clock.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file controlador_fur_elise.v
-    Info (12023): Found entity 1: controlador_fur_elise File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v Line: 1
+    Info (12023): Found entity 1: controlador_fur_elise File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file temporizador.v
-    Info (12023): Found entity 1: temporizador File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/temporizador.v Line: 1
+    Info (12023): Found entity 1: temporizador File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/temporizador.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file buzzer_fur_elise.v
-    Info (12023): Found entity 1: buzzer_fur_elise File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/buzzer_fur_elise.v Line: 6
+    Info (12023): Found entity 1: buzzer_fur_elise File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_fur_elise.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file lcd_logic.v
-    Info (12023): Found entity 1: lcd_logic File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/lcd_logic.v Line: 7
+    Info (12023): Found entity 1: lcd_logic File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/lcd_logic.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file lcd_controller.v
-    Info (12023): Found entity 1: lcd_controller File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/lcd_controller.v Line: 1
+    Info (12023): Found entity 1: lcd_controller File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/lcd_controller.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file contador_creditos.v
-    Info (12023): Found entity 1: contador_creditos File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 7
+    Info (12023): Found entity 1: contador_creditos File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file seletor_menu.v
-    Info (12023): Found entity 1: seletor_menu File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_menu.v Line: 7
+    Info (12023): Found entity 1: seletor_menu File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_menu.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file decodificador_botoes.v
-    Info (12023): Found entity 1: decodificador_botoes File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/decodificador_botoes.v Line: 7
+    Info (12023): Found entity 1: decodificador_botoes File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/decodificador_botoes.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file seletor_musica.v
-    Info (12023): Found entity 1: seletor_musica File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_musica.v Line: 8
+    Info (12023): Found entity 1: seletor_musica File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_musica.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file seletor_2_musicas.v
-    Info (12023): Found entity 1: seletor_2_musicas File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_2_musicas.v Line: 6
+    Info (12023): Found entity 1: seletor_2_musicas File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_2_musicas.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file new_lcd_logic.v
-    Info (12023): Found entity 1: new_lcd_logic File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/new_lcd_logic.v Line: 7
+    Info (12023): Found entity 1: new_lcd_logic File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/new_lcd_logic.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file seletor_3_musicas.v
-    Info (12023): Found entity 1: seletor_3_musicas File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_3_musicas.v Line: 6
+    Info (12023): Found entity 1: seletor_3_musicas File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_3_musicas.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file contador_creditos_simples.v
+    Info (12023): Found entity 1: contador_creditos_simples File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file controlador_sweet.v
+    Info (12023): Found entity 1: controlador_sweet File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file buzzer_sweet.v
+    Info (12023): Found entity 1: buzzer_sweet File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_sweet.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file controlador_asa_branca.v
+    Info (12023): Found entity 1: controlador_asa_branca File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 6
+Warning (10275): Verilog HDL Module Instantiation warning at buzzer_asa_branca.v(111): ignored dangling comma in List of Port Connections File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_asa_branca.v Line: 111
+Info (12021): Found 1 design units, including 1 entities, in source file buzzer_asa_branca.v
+    Info (12023): Found entity 1: buzzer_asa_branca File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_asa_branca.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file seletor_controle_musica.v
+    Info (12023): Found entity 1: seletor_controle_musica File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_controle_musica.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file mux_buzzer.v
+    Info (12023): Found entity 1: mux_buzzer File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/mux_buzzer.v Line: 6
 Info (12127): Elaborating entity "top_entity" for the top level hierarchy
-Info (12128): Elaborating entity "buzzer_fur_elise" for hierarchy "buzzer_fur_elise:inst18"
-Info (12128): Elaborating entity "controlador_fur_elise" for hierarchy "buzzer_fur_elise:inst18|controlador_fur_elise:u_ctrl" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/buzzer_fur_elise.v Line: 107
-Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(38): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v Line: 38
-Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(39): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v Line: 39
-Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(40): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v Line: 40
-Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(41): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v Line: 41
-Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(42): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/controlador_fur_elise.v Line: 42
-Info (12128): Elaborating entity "temporizador" for hierarchy "buzzer_fur_elise:inst18|temporizador:u_tmp" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/buzzer_fur_elise.v Line: 114
-Warning (10230): Verilog HDL assignment warning at temporizador.v(24): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/temporizador.v Line: 24
-Info (12128): Elaborating entity "divisor_clock" for hierarchy "buzzer_fur_elise:inst18|divisor_clock:u_div" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/buzzer_fur_elise.v Line: 120
-Warning (10230): Verilog HDL assignment warning at divisor_clock.v(17): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/divisor_clock.v Line: 17
+Info (12128): Elaborating entity "mux_buzzer" for hierarchy "mux_buzzer:inst14"
+Info (12128): Elaborating entity "buzzer_fur_elise" for hierarchy "buzzer_fur_elise:inst12"
+Info (12128): Elaborating entity "controlador_fur_elise" for hierarchy "buzzer_fur_elise:inst12|controlador_fur_elise:u_ctrl" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_fur_elise.v Line: 107
+Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(38): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v Line: 38
+Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(39): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v Line: 39
+Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(40): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v Line: 40
+Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(41): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v Line: 41
+Warning (10230): Verilog HDL assignment warning at controlador_fur_elise.v(42): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_fur_elise.v Line: 42
+Info (12128): Elaborating entity "temporizador" for hierarchy "buzzer_fur_elise:inst12|temporizador:u_tmp" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_fur_elise.v Line: 114
+Warning (10230): Verilog HDL assignment warning at temporizador.v(24): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/temporizador.v Line: 24
+Info (12128): Elaborating entity "divisor_clock" for hierarchy "buzzer_fur_elise:inst12|divisor_clock:u_div" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_fur_elise.v Line: 120
+Warning (10230): Verilog HDL assignment warning at divisor_clock.v(17): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/divisor_clock.v Line: 17
+Info (12128): Elaborating entity "seletor_controle_musica" for hierarchy "seletor_controle_musica:inst10"
 Info (12128): Elaborating entity "decodificador_botoes" for hierarchy "decodificador_botoes:inst17"
 Info (12128): Elaborating entity "seletor_menu" for hierarchy "seletor_menu:inst16"
-Info (12128): Elaborating entity "contador_creditos" for hierarchy "contador_creditos:inst10"
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(65): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 65
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(69): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 69
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(73): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 73
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(77): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 77
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(92): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 92
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(96): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 96
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(100): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 100
-Warning (10230): Verilog HDL assignment warning at contador_creditos.v(104): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/contador_creditos.v Line: 104
 Info (12128): Elaborating entity "debounce" for hierarchy "debounce:inst3"
-Warning (10230): Verilog HDL assignment warning at debounce.v(55): truncated value with size 32 to match size of target (22) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/debounce.v Line: 55
+Warning (10230): Verilog HDL assignment warning at debounce.v(55): truncated value with size 32 to match size of target (22) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/debounce.v Line: 55
+Info (12128): Elaborating entity "seletor_3_musicas" for hierarchy "seletor_3_musicas:inst29"
+Warning (10230): Verilog HDL assignment warning at seletor_3_musicas.v(29): truncated value with size 32 to match size of target (2) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/seletor_3_musicas.v Line: 29
+Info (12128): Elaborating entity "buzzer_sweet" for hierarchy "buzzer_sweet:inst8"
+Info (12128): Elaborating entity "controlador_sweet" for hierarchy "buzzer_sweet:inst8|controlador_sweet:u_ctrl" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_sweet.v Line: 114
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(111): truncated value with size 32 to match size of target (5) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 111
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(131): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 131
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(137): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 137
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(138): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 138
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(139): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 139
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(140): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 140
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(141): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 141
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(142): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 142
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(143): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 143
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(144): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 144
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(145): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 145
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(146): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 146
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(147): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 147
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(148): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 148
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(149): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 149
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(150): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 150
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(151): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 151
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(152): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 152
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(153): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 153
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(154): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 154
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(155): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 155
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(156): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 156
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(157): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 157
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(158): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 158
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(159): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 159
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(160): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 160
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(161): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 161
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(162): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 162
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(163): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 163
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(164): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 164
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(165): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 165
+Warning (10230): Verilog HDL assignment warning at controlador_sweet.v(166): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 166
+Warning (10270): Verilog HDL Case Statement warning at controlador_sweet.v(135): incomplete case statement has no default case item File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 135
+Info (12128): Elaborating entity "buzzer_asa_branca" for hierarchy "buzzer_asa_branca:inst13"
+Warning (10858): Verilog HDL warning at buzzer_asa_branca.v(41): object song_end_i used but never assigned File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_asa_branca.v Line: 41
+Warning (10030): Net "song_end_i" at buzzer_asa_branca.v(41) has no driver or initial value, using a default initial value '0' File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_asa_branca.v Line: 41
+Info (12128): Elaborating entity "controlador_asa_branca" for hierarchy "buzzer_asa_branca:inst13|controlador_asa_branca:u_ctrl" File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/buzzer_asa_branca.v Line: 111
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(105): truncated value with size 32 to match size of target (6) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 105
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(125): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 125
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(130): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 130
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(131): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 131
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(132): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 132
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(133): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 133
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(134): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 134
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(135): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 135
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(136): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 136
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(137): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 137
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(138): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 138
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(139): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 139
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(140): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 140
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(141): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 141
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(142): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 142
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(143): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 143
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(144): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 144
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(145): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 145
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(146): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 146
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(147): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 147
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(148): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 148
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(149): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 149
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(150): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 150
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(151): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 151
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(152): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 152
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(153): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 153
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(154): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 154
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(155): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 155
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(156): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 156
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(157): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 157
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(158): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 158
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(159): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 159
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(160): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 160
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(161): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 161
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(162): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 162
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(163): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 163
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(164): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 164
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(165): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 165
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(166): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 166
+Warning (10230): Verilog HDL assignment warning at controlador_asa_branca.v(167): truncated value with size 32 to match size of target (28) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 167
+Warning (10270): Verilog HDL Case Statement warning at controlador_asa_branca.v(128): incomplete case statement has no default case item File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_asa_branca.v Line: 128
 Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:inst7"
 Info (12128): Elaborating entity "new_lcd_logic" for hierarchy "new_lcd_logic:inst34"
-Warning (10230): Verilog HDL assignment warning at new_lcd_logic.v(76): truncated value with size 32 to match size of target (6) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/new_lcd_logic.v Line: 76
-Info (12128): Elaborating entity "seletor_3_musicas" for hierarchy "seletor_3_musicas:inst29"
-Warning (10230): Verilog HDL assignment warning at seletor_3_musicas.v(29): truncated value with size 32 to match size of target (2) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/seletor_3_musicas.v Line: 29
+Warning (10230): Verilog HDL assignment warning at new_lcd_logic.v(67): truncated value with size 32 to match size of target (6) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/new_lcd_logic.v Line: 67
+Info (12128): Elaborating entity "contador_creditos_simples" for hierarchy "contador_creditos_simples:inst1"
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(53): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 53
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(57): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 57
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(61): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 61
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(65): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 65
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(75): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 75
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(79): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 79
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(83): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 83
+Warning (10230): Verilog HDL assignment warning at contador_creditos_simples.v(87): truncated value with size 32 to match size of target (4) File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/contador_creditos_simples.v Line: 87
 Info (12128): Elaborating entity "ir_verilog" for hierarchy "ir_verilog:inst"
-Warning (10036): Verilog HDL or VHDL warning at ir_verilog.v(16): object "c_endereco" assigned a value but never read File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/ir_verilog.v Line: 16
-Warning (10036): Verilog HDL or VHDL warning at ir_verilog.v(16): object "endereco" assigned a value but never read File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/ir_verilog.v Line: 16
-Warning (10036): Verilog HDL or VHDL warning at ir_verilog.v(16): object "c_comando" assigned a value but never read File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/ir_verilog.v Line: 16
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10036): Verilog HDL or VHDL warning at ir_verilog.v(16): object "c_endereco" assigned a value but never read File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/ir_verilog.v Line: 16
+Warning (10036): Verilog HDL or VHDL warning at ir_verilog.v(16): object "endereco" assigned a value but never read File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/ir_verilog.v Line: 16
+Warning (10036): Verilog HDL or VHDL warning at ir_verilog.v(16): object "c_comando" assigned a value but never read File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/ir_verilog.v Line: 16
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "buzzer_sweet:inst8|controlador_sweet:u_ctrl|Ram0" is uninferred due to inappropriate RAM size File: C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/controlador_sweet.v Line: 135
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rw" is stuck at GND
     Warning (13410): Pin "dig[4]" is stuck at GND
@@ -586,23 +772,23 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "seg[7]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/output_files/ir.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/output_files/ir.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 829 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1248 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 24 output pins
-    Info (21061): Implemented 799 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Tue Aug 19 23:08:51 2025
+    Info (21061): Implemented 1218 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 106 warnings
+    Info: Peak virtual memory: 4786 megabytes
+    Info: Processing ended: Wed Aug 20 02:28:51 2025
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Total CPU time (on all processors): 00:00:29
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04/ir/output_files/ir.map.smsg.
+The suppressed messages can be found in C:/Users/Bruno/Documents/Eletrônica Digital/Projeto_04.v1.0/ir/output_files/ir.map.smsg.
 
 

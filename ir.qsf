@@ -168,4 +168,11 @@ set_global_assignment -name VERILOG_FILE seletor_musica.v
 set_global_assignment -name VERILOG_FILE seletor_2_musicas.v
 set_global_assignment -name VERILOG_FILE new_lcd_logic.v
 set_global_assignment -name VERILOG_FILE seletor_3_musicas.v
+set_global_assignment -name VERILOG_FILE contador_creditos_simples.v
+set_global_assignment -name VERILOG_FILE controlador_sweet.v
+set_global_assignment -name VERILOG_FILE buzzer_sweet.v
+set_global_assignment -name VERILOG_FILE controlador_asa_branca.v
+set_global_assignment -name VERILOG_FILE buzzer_asa_branca.v
+set_global_assignment -name VERILOG_FILE seletor_controle_musica.v
+set_global_assignment -name VERILOG_FILE mux_buzzer.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
