@@ -1,0 +1,36 @@
+/**
+ * @file    decodificador_botoes.v
+ * @brief   Decodifica pulsos de botões com base no menu selecionado.
+ * @details Módulo puramente combinacional que mapeia as entradas para
+ * as saídas de controle da Jukebox.
+ */
+module decodificador_botoes (
+    // Entradas
+    input wire [3:0] deb_in,    // Pulsos dos botões debounced. [0]=Botão 1, [1]=Botão 2, etc.
+    input wire       menu_in,   // Seletor de menu: 0=Menu 1, 1=Menu 2
+
+    // Saídas
+    output wire      cred_out,  // Pulso para adicionar crédito
+    output wire      mute_out,  // Pulso para alternar o mudo
+    output wire      play_out,  // Pulso para tocar/pausar
+    output wire      prox_out,  // Pulso para próxima música
+    output wire      stop_out   // Pulso para parar
+);
+
+    //-----------------------------------------------------------------------------
+    // Lógica de Decodificação Combinacional
+    // As saídas são ativadas pela combinação do menu selecionado e do botão pressionado.
+    // O operador '&' (AND) garante que ambas as condições sejam verdadeiras.
+    // O operador '~' (NOT) é usado para checar se menu_in é 0.
+    //-----------------------------------------------------------------------------
+
+    // Menu 1: Apenas o botão 1 (deb_in[0]) tem função.
+    assign cred_out = (~menu_in) & deb_in[0];
+
+    // Menu 2: Os quatro botões têm funções diferentes.
+    assign mute_out = (menu_in) & deb_in[0]; // Botão 1 no menu 2
+    assign play_out = (menu_in) & deb_in[1]; // Botão 2 no menu 2
+    assign prox_out = (menu_in) & deb_in[2]; // Botão 3 no menu 2
+    assign stop_out = (menu_in) & deb_in[3]; // Botão 4 no menu 2
+
+endmodule

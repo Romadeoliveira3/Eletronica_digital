@@ -1,0 +1,41 @@
+/**
+ * @file    seletor_musica.v
+ * @brief   Contador incremental parametrizável para seleção de músicas.
+ * @details Conta de 0 até (NUM_MUSICAS - 1) e retorna a 0.
+ * Avança a contagem a cada pulso recebido em 'inc_pulso_in'.
+ */
+module seletor_musica #(
+    // Parâmetro para definir o número de músicas que o seletor pode escolher.
+    // O contador irá de 0 até (NUM_MUSICAS - 1).
+    parameter NUM_MUSICAS = 10 
+) (
+    input  wire                   clk,            // Clock do sistema
+    input  wire                   rst_n,          // Reset assíncrono, ativo em baixo
+    input  wire                   inc_pulso_in,   // Pulso de 1 ciclo para incrementar a seleção
+    output reg [$clog2(NUM_MUSICAS)-1:0] selecao_out    // Saída com o índice da música selecionada
+);
+
+    // Lógica síncrona do contador com reset assíncrono
+    always @(posedge clk or negedge rst_n) begin
+        // Condição de Reset: Se rst_n for para '0', a seleção volta para a primeira música (0)
+        if (!rst_n) begin
+            selecao_out <= 0;
+        end
+        // Lógica síncrona: Executa na borda de subida do clock
+        else begin
+            // Apenas age se receber um pulso de incremento
+            if (inc_pulso_in) begin
+                // Se a contagem atual está na última música, retorna para a primeira
+                if (selecao_out == NUM_MUSICAS - 1) begin
+                    selecao_out <= 0;
+                end
+                // Senão, simplesmente incrementa para a próxima música
+                else begin
+                    selecao_out <= selecao_out + 1;
+                end
+            end
+            // Se 'inc_pulso_in' for 0, a seleção mantém seu valor (não há 'else')
+        end
+    end
+
+endmodule

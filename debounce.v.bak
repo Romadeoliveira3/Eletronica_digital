@@ -1,0 +1,67 @@
+/**
+ * @file    debounce.v
+ */
+ 
+module debounce #(
+    parameter CLK_FREQ_HZ = 50_000_000, // Frequência do clock em Hz
+    parameter DEBOUNCE_MS = 20,          // Tempo de debounce em milissegundos
+    parameter N_KEYS      = 4            // Número de botões
+) (
+    input                       clk,         // Clock de entrada
+    input      [N_KEYS-1:0]     key,         // Entrada dos botões (com ruído)
+    output     [N_KEYS-1:0]     deb          // Saída dos botões (sem ruído)
+);
+
+    // Calcula o número máximo de ciclos de clock para o tempo de debounce.
+    localparam CNT_MAX = (CLK_FREQ_HZ / 1000) * DEBOUNCE_MS;
+
+    // Calcula a largura de bits necessária para o contador.
+    // $clog2 é uma função do sistema que calcula o logaritmo base 2,
+    // garantindo o menor número de bits possível para o contador.
+    localparam CNT_WIDTH = $clog2(CNT_MAX);
+
+    // Sinais internos (registradores)
+    reg [N_KEYS-1:0] s0;      // Primeiro estágio do sincronizador de entrada
+    reg [N_KEYS-1:0] s1;      // Segundo estágio do sincronizador de entrada
+    reg [N_KEYS-1:0] stable;  // Saída estável (debounced)
+
+    // Array de contadores, um para cada botão.
+    reg [CNT_WIDTH-1:0] cnt [N_KEYS-1:0];
+
+    // Variável para o laço 'for' (não sintetizada como hardware)
+    integer i;
+
+    // Lógica principal do debounce
+    always @(posedge clk) begin
+        // 1. Sincronizador de 2 estágios para a entrada 'key'
+        //    Isso previne problemas de metaestabilidade e filtra ruídos muito rápidos.
+        s0 <= key;
+        s1 <= s0;
+
+        // 2. Lógica de debounce para cada botão em paralelo
+        //    O laço 'for' aqui descreve N circuitos idênticos, um para cada botão.
+        for (i = 0; i < N_KEYS; i = i + 1) begin
+            // Se o sinal de entrada (s1) já é igual à saída estável (stable),
+            // significa que não há mudança, então o contador é zerado.
+            if (s1[i] == stable[i]) begin
+                cnt[i] <= 0;
+            end
+            // Se o sinal mudou, iniciamos a contagem.
+            else begin
+                // Se o contador atingiu o valor máximo, a mudança é considerada válida.
+                if (cnt[i] == CNT_MAX - 1) begin
+                    stable[i] <= s1[i]; // Atualiza a saída estável
+                    cnt[i]   <= 0;      // Zera o contador
+                end
+                // Se o contador ainda não atingiu o máximo, apenas incrementa.
+                else begin
+                    cnt[i] <= cnt[i] + 1;
+                end
+            end
+        end
+    end
+
+    // 3. Atribui a saída estável interna à porta de saída do módulo
+    assign deb = stable;
+
+endmodule

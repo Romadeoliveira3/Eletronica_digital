@@ -1,0 +1,100 @@
+module lcd_logic (
+    input  wire        clk,        // Clock principal
+    input  wire        lcd_busy,   // Feedback do controlador: 1=ocupado, 0=disponível
+    input  wire [4:1]  key,        // Botões
+    output reg         lcd_e,      // Retem os dados no controlador LCD
+    output reg [9:0]   lcd_bar     // Barramento: {RS, R/W, D7..D0}
+);
+
+    //-----------------------------------------------------------------------------
+    // Constantes - Frases de 16 caracteres (128 bits)
+    //-----------------------------------------------------------------------------
+    localparam [127:0] frase1_1 = "   ELETRONICA   ";
+    localparam [127:0] frase1_2 = "  Digital UFPE  ";
+    localparam [127:0] frase2_1 = "      VHDL      ";
+    localparam [127:0] frase2_2 = "FPGA Cyclone IV ";
+
+    //-----------------------------------------------------------------------------
+    // Fios para seleção de conteúdo
+    //-----------------------------------------------------------------------------
+    wire [127:0] L1;
+    wire [127:0] L2;
+
+    // A seleção do conteúdo é feita de forma combinacional com base no botão key[1]
+    assign L1 = (key[1] == 1'b0) ? frase1_1 : frase2_1;
+    assign L2 = (key[1] == 1'b0) ? frase1_2 : frase2_2;
+
+    //-----------------------------------------------------------------------------
+    // Máquina de Estados (FSM)
+    //-----------------------------------------------------------------------------
+    // Registrador de estado para sequenciar o envio de caracteres (0 a 34 -> 6 bits)
+    reg [5:0] char_state;
+
+    // Lógica principal síncrona
+    always @(posedge clk) begin
+        // Condição para avançar: LCD está pronto E o pulso de enable anterior terminou
+        if (!lcd_busy && !lcd_e) begin
+            lcd_e <= 1'b1; // Habilita o LCD para escrita
+
+            // Avança para o próximo estado
+            if (char_state == 34) begin
+                char_state <= 0; // Reinicia o estado
+            end else begin
+                char_state <= char_state + 1; // Incrementa o estado
+            end
+
+            // Decodifica o estado atual para definir o que enviar ao LCD
+            case (char_state)
+                //                                 RS R/W   DADO
+                0:  lcd_bar <= {2'b00, 8'h80};     // Instrução: Cursor para linha 1, posição 0
+                1:  lcd_bar <= {2'b10, L1[127:120]}; // Envia 1º char da Linha 1
+                2:  lcd_bar <= {2'b10, L1[119:112]};
+                3:  lcd_bar <= {2'b10, L1[111:104]};
+                4:  lcd_bar <= {2'b10, L1[103:96]};
+                5:  lcd_bar <= {2'b10, L1[95:88]};
+                6:  lcd_bar <= {2'b10, L1[87:80]};
+                7:  lcd_bar <= {2'b10, L1[79:72]};
+                8:  lcd_bar <= {2'b10, L1[71:64]};
+                9:  lcd_bar <= {2'b10, L1[63:56]};
+                10: lcd_bar <= {2'b10, L1[55:48]};
+                11: lcd_bar <= {2'b10, L1[47:40]};
+                12: lcd_bar <= {2'b10, L1[39:32]};
+                13: lcd_bar <= {2'b10, L1[31:24]};
+                14: lcd_bar <= {2'b10, L1[23:16]};
+                15: lcd_bar <= {2'b10, L1[15:8]};
+                16: lcd_bar <= {2'b10, L1[7:0]};     // Envia último char da Linha 1
+                17: lcd_bar <= {2'b00, 8'hC0};     // Instrução: Cursor para linha 2, posição 0
+                18: lcd_bar <= {2'b10, L2[127:120]}; // Envia 1º char da Linha 2
+                19: lcd_bar <= {2'b10, L2[119:112]};
+                20: lcd_bar <= {2'b10, L2[111:104]};
+                21: lcd_bar <= {2'b10, L2[103:96]};
+                22: lcd_bar <= {2'b10, L2[95:88]};
+                23: lcd_bar <= {2'b10, L2[87:80]};
+                24: lcd_bar <= {2'b10, L2[79:72]};
+                25: lcd_bar <= {2'b10, L2[71:64]};
+                26: lcd_bar <= {2'b10, L2[63:56]};
+                27: lcd_bar <= {2'b10, L2[55:48]};
+                28: lcd_bar <= {2'b10, L2[47:40]};
+                29: lcd_bar <= {2'b10, L2[39:32]};
+                30: lcd_bar <= {2'b10, L2[31:24]};
+                31: lcd_bar <= {2'b10, L2[23:16]};
+                32: lcd_bar <= {2'b10, L2[15:8]};
+                33: lcd_bar <= {2'b10, L2[7:0]};     // Envia último char da Linha 2
+                default: lcd_e <= 1'b0; // Para o estado 34, desabilita o LCD antes de reiniciar
+            endcase
+        end
+        // Se o LCD está ocupado ou o pulso de enable ainda está ativo,
+        // apenas desabilita o enable e espera.
+        else begin
+            lcd_e <= 1'b0;
+        end
+    end
+    
+    // Define o estado inicial dos registradores
+    initial begin
+        lcd_e      = 1'b0;
+        lcd_bar    = 10'b0;
+        char_state = 0;
+    end
+
+endmodule

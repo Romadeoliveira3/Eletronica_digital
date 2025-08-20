@@ -1,0 +1,126 @@
+/**
+ * @file    buzzer_fur_elise.v
+ * @brief   Módulo de topo para tocar "Für Elise", traduzido de VHDL estrutural.
+ * @version 1.0
+ * @date    2025-08-19
+ * @author  Gemini (traduzido do original VHDL)
+ */
+module buzzer_fur_elise (
+    input  wire         clock,
+    input  wire         play,       // flanco de subida: alterna Play/Pause
+    input  wire         stop,       // flanco de subida: reseta e pausa
+    input  wire         mute,       // flanco de subida: alterna mute/desmute
+    output wire         buzzer,
+    output wire         is_playing,
+    output wire         song_end    // pulso de 1 ciclo no fim da música
+);
+
+    //-----------------------------------------------------------------------------
+    // Sinais de Controle de Execução (Registradores)
+    //-----------------------------------------------------------------------------
+    reg run_en;     // 1=tocando, 0=pausado
+    reg mute_en;    // 1=mudo, 0=normal
+
+    // Registradores para detecção de borda
+    reg play_d1, play_d2;
+    reg stop_d1, stop_d2;
+    reg mute_d1, mute_d2;
+    reg play_rise;
+    reg stop_rise;
+    reg mute_rise;
+    reg stop_pulse; // pulso de 1 ciclo para o controlador
+
+    //-----------------------------------------------------------------------------
+    // Fios de Interconexão entre os Módulos
+    //-----------------------------------------------------------------------------
+    wire        disparo;
+    wire        duracao;
+    wire [27:0] temp_ovf;
+    wire [27:0] freq_ovf;
+    wire        tone;
+    wire        song_end_i; // Sinal interno de fim de música
+
+    //-----------------------------------------------------------------------------
+    // Lógica de Controle Síncrona (Detecção de borda e estados)
+    //-----------------------------------------------------------------------------
+    always @(posedge clock) begin
+        // 1. Registradores para detecção de borda
+        play_d1 <= play; play_d2 <= play_d1;
+        stop_d1 <= stop; stop_d2 <= stop_d1;
+        mute_d1 <= mute; mute_d2 <= mute_d1;
+
+        // 2. Gera pulsos de 1 ciclo nas bordas de subida
+        play_rise <= play_d1 & ~play_d2;
+        stop_rise <= stop_d1 & ~stop_d2;
+        mute_rise <= mute_d1 & ~mute_d2;
+
+        // 3. Lógica de controle Play/Pause e Stop
+        if (stop_rise || song_end_i) begin
+            run_en     <= 1'b0; // Pausa a música no stop ou no fim
+            stop_pulse <= 1'b1; // Envia pulso de reset para o controlador
+        end else begin
+            stop_pulse <= 1'b0;
+            if (play_rise) begin
+                run_en <= ~run_en; // Alterna entre Play e Pause
+            end
+        end
+
+        // 4. Lógica de controle Mute/Desmute
+        if (mute_rise) begin
+            mute_en <= ~mute_en; // Alterna entre Mute e Desmute
+        end
+    end
+
+    // Inicialização dos registradores
+    initial begin
+        run_en     = 1'b0;
+        mute_en    = 1'b1; // Começa mudo, conforme o original
+        play_d1    = 1'b0; play_d2 = 1'b0; play_rise = 1'b0;
+        stop_d1    = 1'b0; stop_d2 = 1'b0; stop_rise = 1'b0;
+        mute_d1    = 1'b0; mute_d2 = 1'b0; mute_rise = 1'b0;
+        stop_pulse = 1'b0;
+    end
+
+    //-----------------------------------------------------------------------------
+    // Instanciação dos Sub-Módulos
+    //-----------------------------------------------------------------------------
+
+    // 1. Controlador da melodia (A FSM que lê a "partitura")
+    controlador_fur_elise u_ctrl (
+        .Clk_in   (clock),
+        .Play_in  (run_en),
+        .Stop_in  (stop_pulse),
+        .Duracao  (duracao),    // <-- saída do temporizador
+        .Disparo  (disparo),    // --> saída para o temporizador
+        .Temp_out (temp_ovf),   // --> saída para o temporizador
+        .Freq_out (freq_ovf),   // --> saída para o divisor
+        //.Clk_out() // Porta não utilizada, deixada desconectada
+        .song_end (song_end_i)
+    );
+
+    // 2. Temporizador (Controla a duração de cada nota)
+    temporizador u_tmp (
+        .Clk      (clock),
+        .Disparo  (disparo),
+        .Overflow (temp_ovf),
+        .Q        (duracao)
+    );
+
+    // 3. Divisor de Clock (Gera o tom da nota a partir da frequência)
+    divisor_clock u_div (
+        .Clk_in   (clock),
+        .Overflow (freq_ovf),
+        .Clk_out  (tone)
+    );
+
+    //-----------------------------------------------------------------------------
+    // Lógica de Saída Combinacional
+    //-----------------------------------------------------------------------------
+    // O som só é enviado para o buzzer se a música estiver tocando E não estiver mudo
+    assign buzzer = (run_en && !mute_en) ? tone : 1'b0;
+
+    // Conecta os sinais de status às portas de saída
+    assign is_playing = run_en;
+    assign song_end   = song_end_i;
+
+endmodule
